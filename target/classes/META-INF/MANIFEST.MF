@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: haxb-partner
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: longxiaoqiang
+Implementation-Vendor-Id: cn.com.sinosafe.lina
+Build-Jdk: 1.8.0_31
+Implementation-URL: http://git.sinosafe.com.cn/doc/lina/haxb-partner
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Sinosafe, Inc.
+

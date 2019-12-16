@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PspClaimLoanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PspClaimLoan">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="CLAIM_SERNO" jdbcType="VARCHAR" property="claimSerno" />
+    <result column="IQP_SERNO" jdbcType="VARCHAR" property="iqpSerno" />
+    <result column="BORROWER_NO" jdbcType="VARCHAR" property="borrowerNo" />
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="INSURED" jdbcType="VARCHAR" property="insured" />
+    <result column="LOAN_START_DATE" jdbcType="VARCHAR" property="loanStartDate" />
+    <result column="LOAN_END_DATE" jdbcType="VARCHAR" property="loanEndDate" />
+    <result column="DUE_DAY" jdbcType="DECIMAL" property="dueDay" />
+    <result column="REPAYPLAN_ST" jdbcType="VARCHAR" property="repayplanSt" />
+    <result column="LMT_CONT_NO" jdbcType="VARCHAR" property="lmtContNo" />
+    <result column="CLAIM_AMOUNT" jdbcType="DECIMAL" property="claimAmount" />
+    <result column="CLAIMED_AMOUNT" jdbcType="DECIMAL" property="claimedAmount" />
+    <result column="CLAIM_COUNT" jdbcType="DECIMAL" property="claimCount" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="CUST_MGR" jdbcType="VARCHAR" property="custMgr" />
+    <result column="CLAIM_INPUT_DATE" jdbcType="VARCHAR" property="claimInputDate" />
+    <result column="CLAIM_SENDER" jdbcType="VARCHAR" property="claimSender" />
+    <result column="START_ORG" jdbcType="VARCHAR" property="startOrg" />
+    <result column="CLAIM_STATUS" jdbcType="VARCHAR" property="claimStatus" />
+    <result column="APPROVE_STATUS" jdbcType="VARCHAR" property="approveStatus" />
+    <result column="APPLY_TYPE" jdbcType="VARCHAR" property="applyType" />
+    <result column="BORROWER_NAME" jdbcType="VARCHAR" property="borrowerName" />
+    <result column="CLAIM_COND" jdbcType="VARCHAR" property="claimCond" />
+    <result column="SETTLE_TYPE" jdbcType="VARCHAR" property="settleType" />
+    <result column="CLAIM_END_DATE" jdbcType="VARCHAR" property="claimEndDate" />
+    <result column="MAIN_SERNO" jdbcType="VARCHAR" property="mainSerno" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="NET_PHONE" jdbcType="VARCHAR" property="netPhone" />
+    <result column="EXPORT_IN_TIME" jdbcType="VARCHAR" property="exportInTime" />
+    <result column="OVERDUE" jdbcType="VARCHAR" property="overdue" />
+    <result column="CLAIM_REASON" jdbcType="VARCHAR" property="claimReason" />
+    <result column="DE_IR" jdbcType="DECIMAL" property="deIr" />
+    <result column="LOSS_TYPE" jdbcType="VARCHAR" property="lossType" />
+    <result column="PAYEE_BANK_CITY_CODE" jdbcType="VARCHAR" property="payeeBankCityCode" />
+    <result column="PAYEE_BANK_CITY" jdbcType="VARCHAR" property="payeeBankCity" />
+    <result column="PAYEE_BANK_CODE" jdbcType="VARCHAR" property="payeeBankCode" />
+    <result column="PAYEE_BANK_NAME" jdbcType="VARCHAR" property="payeeBankName" />
+    <result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+    <result column="BANK_BRANCH_NAME" jdbcType="VARCHAR" property="bankBranchName" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="PAYMENT_STATUS" jdbcType="VARCHAR" property="paymentStatus" />
+    <result column="PUB_BANKS_URID" jdbcType="VARCHAR" property="pubBanksUrid" />
+    <result column="PUB_STANDARDAREAS_URID" jdbcType="VARCHAR" property="pubStandardareasUrid" />
+    <result column="CLA" jdbcType="VARCHAR" property="cla" />
+    <result column="BANK_PAY_TYPE" jdbcType="VARCHAR" property="bankPayType" />
+    <result column="PAYEE_TYPE" jdbcType="VARCHAR" property="payeeType" />
+    <result column="BANK_WATERCOURSE_NO" jdbcType="VARCHAR" property="bankWatercourseNo" />
+    <result column="BATCH_NUMBER" jdbcType="VARCHAR" property="batchNumber" />
+    <result column="PAY_FLAG" jdbcType="VARCHAR" property="payFlag" />
+    <result column="ADJUSTMENT_NO" jdbcType="VARCHAR" property="adjustmentNo" />
+    <result column="NEGOTIATION_DATE" jdbcType="VARCHAR" property="negotiationDate" />
+    <result column="COMPENSATE_TYPE" jdbcType="VARCHAR" property="compensateType" />
+    <result column="EXPORT_IN_TYPE" jdbcType="VARCHAR" property="exportInType" />
+    <result column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="THE_LINK" jdbcType="VARCHAR" property="theLink" />
+    <result column="INFORMATIONID" jdbcType="VARCHAR" property="informationid" />
+    <result column="HA_APPROVE_STATUS" jdbcType="VARCHAR" property="haApproveStatus" />
+    <result column="HA_SIGN_NUMBER" jdbcType="VARCHAR" property="haSignNumber" />
+    <result column="HA_APPROVE_REMARK" jdbcType="VARCHAR" property="haApproveRemark" />
+    <result column="HA_APPROVE_USER" jdbcType="VARCHAR" property="haApproveUser" />
+    <result column="HA_APPROVE_TIME" jdbcType="VARCHAR" property="haApproveTime" />
+    <result column="HA_RECEIPTS_PAYMENT_NUMBER" jdbcType="VARCHAR" property="haReceiptsPaymentNumber" />
+    <result column="PAYMENT_ACCOUNT" jdbcType="VARCHAR" property="paymentAccount" />
+    <result column="PAYMENT_DAY" jdbcType="VARCHAR" property="paymentDay" />
+    <result column="PAYMENT_BANK_CODE" jdbcType="VARCHAR" property="paymentBankCode" />
+    <result column="PAYMENT_ACCOUNT_NAME" jdbcType="VARCHAR" property="paymentAccountName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, CLAIM_SERNO, IQP_SERNO, BORROWER_NO, LIST_SERNO, BILL_NO, INSURED, LOAN_START_DATE, 
+    LOAN_END_DATE, DUE_DAY, REPAYPLAN_ST, LMT_CONT_NO, CLAIM_AMOUNT, CLAIMED_AMOUNT, 
+    CLAIM_COUNT, MAIN_BR_ID, CUST_MGR, CLAIM_INPUT_DATE, CLAIM_SENDER, START_ORG, CLAIM_STATUS, 
+    APPROVE_STATUS, APPLY_TYPE, BORROWER_NAME, CLAIM_COND, SETTLE_TYPE, CLAIM_END_DATE, 
+    MAIN_SERNO, CERT_CODE, NET_PHONE, EXPORT_IN_TIME, OVERDUE, CLAIM_REASON, DE_IR, LOSS_TYPE, 
+    PAYEE_BANK_CITY_CODE, PAYEE_BANK_CITY, PAYEE_BANK_CODE, PAYEE_BANK_NAME, BANK_CODE, 
+    BANK_BRANCH_NAME, ACCOUNT_NAME, ACCOUNT_NO, PAYMENT_STATUS, PUB_BANKS_URID, PUB_STANDARDAREAS_URID, 
+    CLA, BANK_PAY_TYPE, PAYEE_TYPE, BANK_WATERCOURSE_NO, BATCH_NUMBER, PAY_FLAG, ADJUSTMENT_NO, 
+    NEGOTIATION_DATE, COMPENSATE_TYPE, EXPORT_IN_TYPE, PS_PERD_NO, THE_LINK, INFORMATIONID, 
+    HA_APPROVE_STATUS, HA_SIGN_NUMBER, HA_APPROVE_REMARK, HA_APPROVE_USER, HA_APPROVE_TIME, 
+    HA_RECEIPTS_PAYMENT_NUMBER, PAYMENT_ACCOUNT, PAYMENT_DAY, PAYMENT_BANK_CODE, PAYMENT_ACCOUNT_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PSP_CLAIM_LOAN
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PSP_CLAIM_LOAN
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PspClaimLoan">
+    insert into PSP_CLAIM_LOAN (SERNO, CLAIM_SERNO, IQP_SERNO, 
+      BORROWER_NO, LIST_SERNO, BILL_NO, 
+      INSURED, LOAN_START_DATE, LOAN_END_DATE, 
+      DUE_DAY, REPAYPLAN_ST, LMT_CONT_NO, 
+      CLAIM_AMOUNT, CLAIMED_AMOUNT, CLAIM_COUNT, 
+      MAIN_BR_ID, CUST_MGR, CLAIM_INPUT_DATE, 
+      CLAIM_SENDER, START_ORG, CLAIM_STATUS, 
+      APPROVE_STATUS, APPLY_TYPE, BORROWER_NAME, 
+      CLAIM_COND, SETTLE_TYPE, CLAIM_END_DATE, 
+      MAIN_SERNO, CERT_CODE, NET_PHONE, 
+      EXPORT_IN_TIME, OVERDUE, CLAIM_REASON, 
+      DE_IR, LOSS_TYPE, PAYEE_BANK_CITY_CODE, 
+      PAYEE_BANK_CITY, PAYEE_BANK_CODE, PAYEE_BANK_NAME, 
+      BANK_CODE, BANK_BRANCH_NAME, ACCOUNT_NAME, 
+      ACCOUNT_NO, PAYMENT_STATUS, PUB_BANKS_URID, 
+      PUB_STANDARDAREAS_URID, CLA, BANK_PAY_TYPE, 
+      PAYEE_TYPE, BANK_WATERCOURSE_NO, BATCH_NUMBER, 
+      PAY_FLAG, ADJUSTMENT_NO, NEGOTIATION_DATE, 
+      COMPENSATE_TYPE, EXPORT_IN_TYPE, PS_PERD_NO, 
+      THE_LINK, INFORMATIONID, HA_APPROVE_STATUS, 
+      HA_SIGN_NUMBER, HA_APPROVE_REMARK, HA_APPROVE_USER, 
+      HA_APPROVE_TIME, HA_RECEIPTS_PAYMENT_NUMBER, 
+      PAYMENT_ACCOUNT, PAYMENT_DAY, PAYMENT_BANK_CODE, 
+      PAYMENT_ACCOUNT_NAME)
+    values (#{serno,jdbcType=VARCHAR}, #{claimSerno,jdbcType=VARCHAR}, #{iqpSerno,jdbcType=VARCHAR}, 
+      #{borrowerNo,jdbcType=VARCHAR}, #{listSerno,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, 
+      #{insured,jdbcType=VARCHAR}, #{loanStartDate,jdbcType=VARCHAR}, #{loanEndDate,jdbcType=VARCHAR}, 
+      #{dueDay,jdbcType=DECIMAL}, #{repayplanSt,jdbcType=VARCHAR}, #{lmtContNo,jdbcType=VARCHAR}, 
+      #{claimAmount,jdbcType=DECIMAL}, #{claimedAmount,jdbcType=DECIMAL}, #{claimCount,jdbcType=DECIMAL}, 
+      #{mainBrId,jdbcType=VARCHAR}, #{custMgr,jdbcType=VARCHAR}, #{claimInputDate,jdbcType=VARCHAR}, 
+      #{claimSender,jdbcType=VARCHAR}, #{startOrg,jdbcType=VARCHAR}, #{claimStatus,jdbcType=VARCHAR}, 
+      #{approveStatus,jdbcType=VARCHAR}, #{applyType,jdbcType=VARCHAR}, #{borrowerName,jdbcType=VARCHAR}, 
+      #{claimCond,jdbcType=VARCHAR}, #{settleType,jdbcType=VARCHAR}, #{claimEndDate,jdbcType=VARCHAR}, 
+      #{mainSerno,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{netPhone,jdbcType=VARCHAR}, 
+      #{exportInTime,jdbcType=VARCHAR}, #{overdue,jdbcType=VARCHAR}, #{claimReason,jdbcType=VARCHAR}, 
+      #{deIr,jdbcType=DECIMAL}, #{lossType,jdbcType=VARCHAR}, #{payeeBankCityCode,jdbcType=VARCHAR}, 
+      #{payeeBankCity,jdbcType=VARCHAR}, #{payeeBankCode,jdbcType=VARCHAR}, #{payeeBankName,jdbcType=VARCHAR}, 
+      #{bankCode,jdbcType=VARCHAR}, #{bankBranchName,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{accountNo,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=VARCHAR}, #{pubBanksUrid,jdbcType=VARCHAR}, 
+      #{pubStandardareasUrid,jdbcType=VARCHAR}, #{cla,jdbcType=VARCHAR}, #{bankPayType,jdbcType=VARCHAR}, 
+      #{payeeType,jdbcType=VARCHAR}, #{bankWatercourseNo,jdbcType=VARCHAR}, #{batchNumber,jdbcType=VARCHAR}, 
+      #{payFlag,jdbcType=VARCHAR}, #{adjustmentNo,jdbcType=VARCHAR}, #{negotiationDate,jdbcType=VARCHAR}, 
+      #{compensateType,jdbcType=VARCHAR}, #{exportInType,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=DECIMAL}, 
+      #{theLink,jdbcType=VARCHAR}, #{informationid,jdbcType=VARCHAR}, #{haApproveStatus,jdbcType=VARCHAR}, 
+      #{haSignNumber,jdbcType=VARCHAR}, #{haApproveRemark,jdbcType=VARCHAR}, #{haApproveUser,jdbcType=VARCHAR}, 
+      #{haApproveTime,jdbcType=VARCHAR}, #{haReceiptsPaymentNumber,jdbcType=VARCHAR}, 
+      #{paymentAccount,jdbcType=VARCHAR}, #{paymentDay,jdbcType=VARCHAR}, #{paymentBankCode,jdbcType=VARCHAR}, 
+      #{paymentAccountName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimLoan">
+    insert into PSP_CLAIM_LOAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="claimSerno != null">
+        CLAIM_SERNO,
+      </if>
+      <if test="iqpSerno != null">
+        IQP_SERNO,
+      </if>
+      <if test="borrowerNo != null">
+        BORROWER_NO,
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="insured != null">
+        INSURED,
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE,
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE,
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY,
+      </if>
+      <if test="repayplanSt != null">
+        REPAYPLAN_ST,
+      </if>
+      <if test="lmtContNo != null">
+        LMT_CONT_NO,
+      </if>
+      <if test="claimAmount != null">
+        CLAIM_AMOUNT,
+      </if>
+      <if test="claimedAmount != null">
+        CLAIMED_AMOUNT,
+      </if>
+      <if test="claimCount != null">
+        CLAIM_COUNT,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="claimInputDate != null">
+        CLAIM_INPUT_DATE,
+      </if>
+      <if test="claimSender != null">
+        CLAIM_SENDER,
+      </if>
+      <if test="startOrg != null">
+        START_ORG,
+      </if>
+      <if test="claimStatus != null">
+        CLAIM_STATUS,
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS,
+      </if>
+      <if test="applyType != null">
+        APPLY_TYPE,
+      </if>
+      <if test="borrowerName != null">
+        BORROWER_NAME,
+      </if>
+      <if test="claimCond != null">
+        CLAIM_COND,
+      </if>
+      <if test="settleType != null">
+        SETTLE_TYPE,
+      </if>
+      <if test="claimEndDate != null">
+        CLAIM_END_DATE,
+      </if>
+      <if test="mainSerno != null">
+        MAIN_SERNO,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="netPhone != null">
+        NET_PHONE,
+      </if>
+      <if test="exportInTime != null">
+        EXPORT_IN_TIME,
+      </if>
+      <if test="overdue != null">
+        OVERDUE,
+      </if>
+      <if test="claimReason != null">
+        CLAIM_REASON,
+      </if>
+      <if test="deIr != null">
+        DE_IR,
+      </if>
+      <if test="lossType != null">
+        LOSS_TYPE,
+      </if>
+      <if test="payeeBankCityCode != null">
+        PAYEE_BANK_CITY_CODE,
+      </if>
+      <if test="payeeBankCity != null">
+        PAYEE_BANK_CITY,
+      </if>
+      <if test="payeeBankCode != null">
+        PAYEE_BANK_CODE,
+      </if>
+      <if test="payeeBankName != null">
+        PAYEE_BANK_NAME,
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE,
+      </if>
+      <if test="bankBranchName != null">
+        BANK_BRANCH_NAME,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO,
+      </if>
+      <if test="paymentStatus != null">
+        PAYMENT_STATUS,
+      </if>
+      <if test="pubBanksUrid != null">
+        PUB_BANKS_URID,
+      </if>
+      <if test="pubStandardareasUrid != null">
+        PUB_STANDARDAREAS_URID,
+      </if>
+      <if test="cla != null">
+        CLA,
+      </if>
+      <if test="bankPayType != null">
+        BANK_PAY_TYPE,
+      </if>
+      <if test="payeeType != null">
+        PAYEE_TYPE,
+      </if>
+      <if test="bankWatercourseNo != null">
+        BANK_WATERCOURSE_NO,
+      </if>
+      <if test="batchNumber != null">
+        BATCH_NUMBER,
+      </if>
+      <if test="payFlag != null">
+        PAY_FLAG,
+      </if>
+      <if test="adjustmentNo != null">
+        ADJUSTMENT_NO,
+      </if>
+      <if test="negotiationDate != null">
+        NEGOTIATION_DATE,
+      </if>
+      <if test="compensateType != null">
+        COMPENSATE_TYPE,
+      </if>
+      <if test="exportInType != null">
+        EXPORT_IN_TYPE,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="theLink != null">
+        THE_LINK,
+      </if>
+      <if test="informationid != null">
+        INFORMATIONID,
+      </if>
+      <if test="haApproveStatus != null">
+        HA_APPROVE_STATUS,
+      </if>
+      <if test="haSignNumber != null">
+        HA_SIGN_NUMBER,
+      </if>
+      <if test="haApproveRemark != null">
+        HA_APPROVE_REMARK,
+      </if>
+      <if test="haApproveUser != null">
+        HA_APPROVE_USER,
+      </if>
+      <if test="haApproveTime != null">
+        HA_APPROVE_TIME,
+      </if>
+      <if test="haReceiptsPaymentNumber != null">
+        HA_RECEIPTS_PAYMENT_NUMBER,
+      </if>
+      <if test="paymentAccount != null">
+        PAYMENT_ACCOUNT,
+      </if>
+      <if test="paymentDay != null">
+        PAYMENT_DAY,
+      </if>
+      <if test="paymentBankCode != null">
+        PAYMENT_BANK_CODE,
+      </if>
+      <if test="paymentAccountName != null">
+        PAYMENT_ACCOUNT_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="claimSerno != null">
+        #{claimSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpSerno != null">
+        #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowerNo != null">
+        #{borrowerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insured != null">
+        #{insured,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStartDate != null">
+        #{loanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanEndDate != null">
+        #{loanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDay != null">
+        #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="repayplanSt != null">
+        #{repayplanSt,jdbcType=VARCHAR},
+      </if>
+      <if test="lmtContNo != null">
+        #{lmtContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmount != null">
+        #{claimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="claimedAmount != null">
+        #{claimedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="claimCount != null">
+        #{claimCount,jdbcType=DECIMAL},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInputDate != null">
+        #{claimInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimSender != null">
+        #{claimSender,jdbcType=VARCHAR},
+      </if>
+      <if test="startOrg != null">
+        #{startOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="claimStatus != null">
+        #{claimStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null">
+        #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null">
+        #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowerName != null">
+        #{borrowerName,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCond != null">
+        #{claimCond,jdbcType=VARCHAR},
+      </if>
+      <if test="settleType != null">
+        #{settleType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimEndDate != null">
+        #{claimEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="mainSerno != null">
+        #{mainSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="netPhone != null">
+        #{netPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="exportInTime != null">
+        #{exportInTime,jdbcType=VARCHAR},
+      </if>
+      <if test="overdue != null">
+        #{overdue,jdbcType=VARCHAR},
+      </if>
+      <if test="claimReason != null">
+        #{claimReason,jdbcType=VARCHAR},
+      </if>
+      <if test="deIr != null">
+        #{deIr,jdbcType=DECIMAL},
+      </if>
+      <if test="lossType != null">
+        #{lossType,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCityCode != null">
+        #{payeeBankCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCity != null">
+        #{payeeBankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCode != null">
+        #{payeeBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankName != null">
+        #{payeeBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankBranchName != null">
+        #{bankBranchName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null">
+        #{paymentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pubBanksUrid != null">
+        #{pubBanksUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="pubStandardareasUrid != null">
+        #{pubStandardareasUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="cla != null">
+        #{cla,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPayType != null">
+        #{bankPayType,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeType != null">
+        #{payeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankWatercourseNo != null">
+        #{bankWatercourseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNumber != null">
+        #{batchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="payFlag != null">
+        #{payFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustmentNo != null">
+        #{adjustmentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="negotiationDate != null">
+        #{negotiationDate,jdbcType=VARCHAR},
+      </if>
+      <if test="compensateType != null">
+        #{compensateType,jdbcType=VARCHAR},
+      </if>
+      <if test="exportInType != null">
+        #{exportInType,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="theLink != null">
+        #{theLink,jdbcType=VARCHAR},
+      </if>
+      <if test="informationid != null">
+        #{informationid,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveStatus != null">
+        #{haApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="haSignNumber != null">
+        #{haSignNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveRemark != null">
+        #{haApproveRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveUser != null">
+        #{haApproveUser,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveTime != null">
+        #{haApproveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="haReceiptsPaymentNumber != null">
+        #{haReceiptsPaymentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null">
+        #{paymentAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentDay != null">
+        #{paymentDay,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentBankCode != null">
+        #{paymentBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccountName != null">
+        #{paymentAccountName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimLoan">
+    update PSP_CLAIM_LOAN
+    <set>
+      <if test="claimSerno != null">
+        CLAIM_SERNO = #{claimSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpSerno != null">
+        IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowerNo != null">
+        BORROWER_NO = #{borrowerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insured != null">
+        INSURED = #{insured,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE = #{loanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE = #{loanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY = #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="repayplanSt != null">
+        REPAYPLAN_ST = #{repayplanSt,jdbcType=VARCHAR},
+      </if>
+      <if test="lmtContNo != null">
+        LMT_CONT_NO = #{lmtContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmount != null">
+        CLAIM_AMOUNT = #{claimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="claimedAmount != null">
+        CLAIMED_AMOUNT = #{claimedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="claimCount != null">
+        CLAIM_COUNT = #{claimCount,jdbcType=DECIMAL},
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInputDate != null">
+        CLAIM_INPUT_DATE = #{claimInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimSender != null">
+        CLAIM_SENDER = #{claimSender,jdbcType=VARCHAR},
+      </if>
+      <if test="startOrg != null">
+        START_ORG = #{startOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="claimStatus != null">
+        CLAIM_STATUS = #{claimStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS = #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null">
+        APPLY_TYPE = #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowerName != null">
+        BORROWER_NAME = #{borrowerName,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCond != null">
+        CLAIM_COND = #{claimCond,jdbcType=VARCHAR},
+      </if>
+      <if test="settleType != null">
+        SETTLE_TYPE = #{settleType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimEndDate != null">
+        CLAIM_END_DATE = #{claimEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="mainSerno != null">
+        MAIN_SERNO = #{mainSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="netPhone != null">
+        NET_PHONE = #{netPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="exportInTime != null">
+        EXPORT_IN_TIME = #{exportInTime,jdbcType=VARCHAR},
+      </if>
+      <if test="overdue != null">
+        OVERDUE = #{overdue,jdbcType=VARCHAR},
+      </if>
+      <if test="claimReason != null">
+        CLAIM_REASON = #{claimReason,jdbcType=VARCHAR},
+      </if>
+      <if test="deIr != null">
+        DE_IR = #{deIr,jdbcType=DECIMAL},
+      </if>
+      <if test="lossType != null">
+        LOSS_TYPE = #{lossType,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCityCode != null">
+        PAYEE_BANK_CITY_CODE = #{payeeBankCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCity != null">
+        PAYEE_BANK_CITY = #{payeeBankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCode != null">
+        PAYEE_BANK_CODE = #{payeeBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankName != null">
+        PAYEE_BANK_NAME = #{payeeBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankBranchName != null">
+        BANK_BRANCH_NAME = #{bankBranchName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null">
+        PAYMENT_STATUS = #{paymentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pubBanksUrid != null">
+        PUB_BANKS_URID = #{pubBanksUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="pubStandardareasUrid != null">
+        PUB_STANDARDAREAS_URID = #{pubStandardareasUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="cla != null">
+        CLA = #{cla,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPayType != null">
+        BANK_PAY_TYPE = #{bankPayType,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeType != null">
+        PAYEE_TYPE = #{payeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankWatercourseNo != null">
+        BANK_WATERCOURSE_NO = #{bankWatercourseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNumber != null">
+        BATCH_NUMBER = #{batchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="payFlag != null">
+        PAY_FLAG = #{payFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustmentNo != null">
+        ADJUSTMENT_NO = #{adjustmentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="negotiationDate != null">
+        NEGOTIATION_DATE = #{negotiationDate,jdbcType=VARCHAR},
+      </if>
+      <if test="compensateType != null">
+        COMPENSATE_TYPE = #{compensateType,jdbcType=VARCHAR},
+      </if>
+      <if test="exportInType != null">
+        EXPORT_IN_TYPE = #{exportInType,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="theLink != null">
+        THE_LINK = #{theLink,jdbcType=VARCHAR},
+      </if>
+      <if test="informationid != null">
+        INFORMATIONID = #{informationid,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveStatus != null">
+        HA_APPROVE_STATUS = #{haApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="haSignNumber != null">
+        HA_SIGN_NUMBER = #{haSignNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveRemark != null">
+        HA_APPROVE_REMARK = #{haApproveRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveUser != null">
+        HA_APPROVE_USER = #{haApproveUser,jdbcType=VARCHAR},
+      </if>
+      <if test="haApproveTime != null">
+        HA_APPROVE_TIME = #{haApproveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="haReceiptsPaymentNumber != null">
+        HA_RECEIPTS_PAYMENT_NUMBER = #{haReceiptsPaymentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null">
+        PAYMENT_ACCOUNT = #{paymentAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentDay != null">
+        PAYMENT_DAY = #{paymentDay,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentBankCode != null">
+        PAYMENT_BANK_CODE = #{paymentBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccountName != null">
+        PAYMENT_ACCOUNT_NAME = #{paymentAccountName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PspClaimLoan">
+    update PSP_CLAIM_LOAN
+    set CLAIM_SERNO = #{claimSerno,jdbcType=VARCHAR},
+      IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      BORROWER_NO = #{borrowerNo,jdbcType=VARCHAR},
+      LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      BILL_NO = #{billNo,jdbcType=VARCHAR},
+      INSURED = #{insured,jdbcType=VARCHAR},
+      LOAN_START_DATE = #{loanStartDate,jdbcType=VARCHAR},
+      LOAN_END_DATE = #{loanEndDate,jdbcType=VARCHAR},
+      DUE_DAY = #{dueDay,jdbcType=DECIMAL},
+      REPAYPLAN_ST = #{repayplanSt,jdbcType=VARCHAR},
+      LMT_CONT_NO = #{lmtContNo,jdbcType=VARCHAR},
+      CLAIM_AMOUNT = #{claimAmount,jdbcType=DECIMAL},
+      CLAIMED_AMOUNT = #{claimedAmount,jdbcType=DECIMAL},
+      CLAIM_COUNT = #{claimCount,jdbcType=DECIMAL},
+      MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      CLAIM_INPUT_DATE = #{claimInputDate,jdbcType=VARCHAR},
+      CLAIM_SENDER = #{claimSender,jdbcType=VARCHAR},
+      START_ORG = #{startOrg,jdbcType=VARCHAR},
+      CLAIM_STATUS = #{claimStatus,jdbcType=VARCHAR},
+      APPROVE_STATUS = #{approveStatus,jdbcType=VARCHAR},
+      APPLY_TYPE = #{applyType,jdbcType=VARCHAR},
+      BORROWER_NAME = #{borrowerName,jdbcType=VARCHAR},
+      CLAIM_COND = #{claimCond,jdbcType=VARCHAR},
+      SETTLE_TYPE = #{settleType,jdbcType=VARCHAR},
+      CLAIM_END_DATE = #{claimEndDate,jdbcType=VARCHAR},
+      MAIN_SERNO = #{mainSerno,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      NET_PHONE = #{netPhone,jdbcType=VARCHAR},
+      EXPORT_IN_TIME = #{exportInTime,jdbcType=VARCHAR},
+      OVERDUE = #{overdue,jdbcType=VARCHAR},
+      CLAIM_REASON = #{claimReason,jdbcType=VARCHAR},
+      DE_IR = #{deIr,jdbcType=DECIMAL},
+      LOSS_TYPE = #{lossType,jdbcType=VARCHAR},
+      PAYEE_BANK_CITY_CODE = #{payeeBankCityCode,jdbcType=VARCHAR},
+      PAYEE_BANK_CITY = #{payeeBankCity,jdbcType=VARCHAR},
+      PAYEE_BANK_CODE = #{payeeBankCode,jdbcType=VARCHAR},
+      PAYEE_BANK_NAME = #{payeeBankName,jdbcType=VARCHAR},
+      BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      BANK_BRANCH_NAME = #{bankBranchName,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      PAYMENT_STATUS = #{paymentStatus,jdbcType=VARCHAR},
+      PUB_BANKS_URID = #{pubBanksUrid,jdbcType=VARCHAR},
+      PUB_STANDARDAREAS_URID = #{pubStandardareasUrid,jdbcType=VARCHAR},
+      CLA = #{cla,jdbcType=VARCHAR},
+      BANK_PAY_TYPE = #{bankPayType,jdbcType=VARCHAR},
+      PAYEE_TYPE = #{payeeType,jdbcType=VARCHAR},
+      BANK_WATERCOURSE_NO = #{bankWatercourseNo,jdbcType=VARCHAR},
+      BATCH_NUMBER = #{batchNumber,jdbcType=VARCHAR},
+      PAY_FLAG = #{payFlag,jdbcType=VARCHAR},
+      ADJUSTMENT_NO = #{adjustmentNo,jdbcType=VARCHAR},
+      NEGOTIATION_DATE = #{negotiationDate,jdbcType=VARCHAR},
+      COMPENSATE_TYPE = #{compensateType,jdbcType=VARCHAR},
+      EXPORT_IN_TYPE = #{exportInType,jdbcType=VARCHAR},
+      PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL},
+      THE_LINK = #{theLink,jdbcType=VARCHAR},
+      INFORMATIONID = #{informationid,jdbcType=VARCHAR},
+      HA_APPROVE_STATUS = #{haApproveStatus,jdbcType=VARCHAR},
+      HA_SIGN_NUMBER = #{haSignNumber,jdbcType=VARCHAR},
+      HA_APPROVE_REMARK = #{haApproveRemark,jdbcType=VARCHAR},
+      HA_APPROVE_USER = #{haApproveUser,jdbcType=VARCHAR},
+      HA_APPROVE_TIME = #{haApproveTime,jdbcType=VARCHAR},
+      HA_RECEIPTS_PAYMENT_NUMBER = #{haReceiptsPaymentNumber,jdbcType=VARCHAR},
+      PAYMENT_ACCOUNT = #{paymentAccount,jdbcType=VARCHAR},
+      PAYMENT_DAY = #{paymentDay,jdbcType=VARCHAR},
+      PAYMENT_BANK_CODE = #{paymentBankCode,jdbcType=VARCHAR},
+      PAYMENT_ACCOUNT_NAME = #{paymentAccountName,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByBillNo" parameterType="cn.com.sinosafe.domain.entity.PspClaimLoan" resultType="java.lang.Integer">
+  	select count(1) from PSP_CLAIM_LOAN where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.GbcnInvoiceMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.gbcn.invoice.InvoiceRequestBody">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="POLICYNO" jdbcType="VARCHAR" property="policyno" />
+    <result column="INVOICETYPE" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="INVOICEHEAD" jdbcType="VARCHAR" property="invoiceHead" />
+    <result column="CUSCCODE" jdbcType="VARCHAR" property="cuscCode" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="ADDRESSEE" jdbcType="VARCHAR" property="addressee" />
+    <result column="ADDRESSEEPHONE" jdbcType="VARCHAR" property="addresseePhone" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ADDINFO" jdbcType="VARCHAR" property="addInfo" />
+    <result column="BANKINFO" jdbcType="VARCHAR" property="bankInfo" />
+    <result column="BANKACC" jdbcType="VARCHAR" property="bankAcc" />
+    <result column="PHONENO" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="INVOICESTATUS" jdbcType="VARCHAR" property="invoiceStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, POLICYNO, INVOICETYPE, INVOICEHEAD, CUSCCODE, EMAIL, ADDRESSEE, ADDRESSEEPHONE, 
+    ADDRESS, ADDINFO, BANKINFO, BANKACC, PHONENO, CREATETIME, INVOICESTATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_GBCN_INVOICE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_GBCN_INVOICE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.gbcn.invoice.InvoiceRequestBody">
+    insert into T_GBCN_INVOICE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="policyno != null">
+        POLICYNO,
+      </if>
+      <if test="invoiceType != null">
+        INVOICETYPE,
+      </if>
+      <if test="invoiceHead != null">
+        INVOICEHEAD,
+      </if>
+      <if test="cuscCode != null">
+        CUSCCODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="addressee != null">
+        ADDRESSEE,
+      </if>
+      <if test="addresseePhone != null">
+        ADDRESSEEPHONE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="addInfo != null">
+        ADDINFO,
+      </if>
+      <if test="bankInfo != null">
+        BANKINFO,
+      </if>
+      <if test="bankAcc != null">
+        BANKACC,
+      </if>
+      <if test="phoneNo != null">
+        PHONENO,
+      </if>
+      <if test="createTime != null">
+        CREATETIME,
+      </if>
+      <if test="invoiceStatus != null">
+        INVOICESTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyno != null">
+        #{policyno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceHead != null">
+        #{invoiceHead,jdbcType=VARCHAR},
+      </if>
+      <if test="cuscCode != null">
+        #{cuscCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="addressee != null">
+        #{addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="addresseePhone != null">
+        #{addresseePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addInfo != null">
+        #{addInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankInfo != null">
+        #{bankInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcc != null">
+        #{bankAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStatus != null">
+        #{invoiceStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.gbcn.invoice.InvoiceRequestBody">
+    update T_GBCN_INVOICE
+    <set>
+      <if test="policyno != null">
+        POLICYNO = #{policyno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        INVOICETYPE = #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceHead != null">
+        INVOICEHEAD = #{invoiceHead,jdbcType=VARCHAR},
+      </if>
+      <if test="cuscCode != null">
+        CUSCCODE = #{cuscCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="addressee != null">
+        ADDRESSEE = #{addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="addresseePhone != null">
+        ADDRESSEEPHONE = #{addresseePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addInfo != null">
+        ADDINFO = #{addInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankInfo != null">
+        BANKINFO = #{bankInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcc != null">
+        BANKACC = #{bankAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        PHONENO = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATETIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStatus != null">
+        INVOICESTATUS = #{invoiceStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <select id="queryWithoutSend" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM T_GBCN_INVOICE T
+    WHERE T.INVOICESTATUS != '1'
+  </select>
+</mapper>

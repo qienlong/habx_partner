@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.LstOperDetailsMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.LstOperDetails">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="IQP_SERNO" jdbcType="VARCHAR" property="iqpSerno" />
+    <result column="OPER_ID" jdbcType="VARCHAR" property="operId" />
+    <result column="OPER_ORGID" jdbcType="VARCHAR" property="operOrgid" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="OPER_TIME" jdbcType="VARCHAR" property="operTime" />
+    <result column="TASK_BEGIN_TIME" jdbcType="VARCHAR" property="taskBeginTime" />
+    <result column="TASK_END_TIME" jdbcType="VARCHAR" property="taskEndTime" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="NODENAME_TWO" jdbcType="VARCHAR" property="nodenameTwo" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, SERNO, IQP_SERNO, OPER_ID, OPER_ORGID, STATUS, OPER_TIME, TASK_BEGIN_TIME, 
+    TASK_END_TIME, NODENAME, NODENAME_TWO, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LST_OPER_DETAILS
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from LST_OPER_DETAILS
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.LstOperDetails">
+    insert into LST_OPER_DETAILS (PK_ID, SERNO, IQP_SERNO, 
+      OPER_ID, OPER_ORGID, STATUS, 
+      OPER_TIME, TASK_BEGIN_TIME, TASK_END_TIME, 
+      NODENAME, NODENAME_TWO, REMARK
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{iqpSerno,jdbcType=VARCHAR}, 
+      #{operId,jdbcType=VARCHAR}, #{operOrgid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{operTime,jdbcType=VARCHAR}, #{taskBeginTime,jdbcType=VARCHAR}, #{taskEndTime,jdbcType=VARCHAR}, 
+      #{nodename,jdbcType=VARCHAR}, #{nodenameTwo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.LstOperDetails">
+    insert into LST_OPER_DETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="iqpSerno != null">
+        IQP_SERNO,
+      </if>
+      <if test="operId != null">
+        OPER_ID,
+      </if>
+      <if test="operOrgid != null">
+        OPER_ORGID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="operTime != null">
+        OPER_TIME,
+      </if>
+      <if test="taskBeginTime != null">
+        TASK_BEGIN_TIME,
+      </if>
+      <if test="taskEndTime != null">
+        TASK_END_TIME,
+      </if>
+      <if test="nodename != null">
+        NODENAME,
+      </if>
+      <if test="nodenameTwo != null">
+        NODENAME_TWO,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpSerno != null">
+        #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operOrgid != null">
+        #{operOrgid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        #{operTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskBeginTime != null">
+        #{taskBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskEndTime != null">
+        #{taskEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodenameTwo != null">
+        #{nodenameTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.LstOperDetails">
+    update LST_OPER_DETAILS
+    <set>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpSerno != null">
+        IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="operId != null">
+        OPER_ID = #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operOrgid != null">
+        OPER_ORGID = #{operOrgid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        OPER_TIME = #{operTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskBeginTime != null">
+        TASK_BEGIN_TIME = #{taskBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskEndTime != null">
+        TASK_END_TIME = #{taskEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodenameTwo != null">
+        NODENAME_TWO = #{nodenameTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.LstOperDetails">
+    update LST_OPER_DETAILS
+    set SERNO = #{serno,jdbcType=VARCHAR},
+      IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      OPER_ID = #{operId,jdbcType=VARCHAR},
+      OPER_ORGID = #{operOrgid,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=VARCHAR},
+      TASK_BEGIN_TIME = #{taskBeginTime,jdbcType=VARCHAR},
+      TASK_END_TIME = #{taskEndTime,jdbcType=VARCHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      NODENAME_TWO = #{nodenameTwo,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

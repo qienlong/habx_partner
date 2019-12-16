@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PrdBasicinfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PrdBasicinfo">
+    <id column="PRD_PK" jdbcType="VARCHAR" property="prdPk" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="PRD_USERDF_TYPE" jdbcType="VARCHAR" property="prdUserdfType" />
+    <result column="PRD_SERIES" jdbcType="VARCHAR" property="prdSeries" />
+    <result column="USE_TYPE" jdbcType="VARCHAR" property="useType" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="PRD_VERSION" jdbcType="VARCHAR" property="prdVersion" />
+    <result column="PRD_MANAGER" jdbcType="VARCHAR" property="prdManager" />
+    <result column="AVAILABLE_IND" jdbcType="CHAR" property="availableInd" />
+    <result column="DEADLINE" jdbcType="CHAR" property="deadline" />
+    <result column="GUARANTY_OPT" jdbcType="VARCHAR" property="guarantyOpt" />
+    <result column="CURRENCY_OPT" jdbcType="VARCHAR" property="currencyOpt" />
+    <result column="TERM_UNIT" jdbcType="VARCHAR" property="termUnit" />
+    <result column="TERM_MIN" jdbcType="DECIMAL" property="termMin" />
+    <result column="TERM_MAX" jdbcType="DECIMAL" property="termMax" />
+    <result column="AMOUNT_MAX" jdbcType="DECIMAL" property="amountMax" />
+    <result column="PREVENT_RISK_ID" jdbcType="VARCHAR" property="preventRiskId" />
+    <result column="APP_DOC_LIST" jdbcType="VARCHAR" property="appDocList" />
+    <result column="APP_WORKFLOW_ID" jdbcType="VARCHAR" property="appWorkflowId" />
+    <result column="APP_WF_ASS_TYPE" jdbcType="CHAR" property="appWfAssType" />
+    <result column="DD_TYPE" jdbcType="CHAR" property="ddType" />
+    <result column="DD_WORKFLOW_ID" jdbcType="VARCHAR" property="ddWorkflowId" />
+    <result column="DD_WF_ASS_TYPE" jdbcType="CHAR" property="ddWfAssType" />
+    <result column="REPAY_MODE_OPT" jdbcType="VARCHAR" property="repayModeOpt" />
+    <result column="DELAY_DEDUCT_TYPE" jdbcType="CHAR" property="delayDeductType" />
+    <result column="ADVANCE_MIN" jdbcType="DECIMAL" property="advanceMin" />
+    <result column="ADVANCE_TERM_MIN" jdbcType="DECIMAL" property="advanceTermMin" />
+    <result column="RULE_PRICE" jdbcType="CHAR" property="rulePrice" />
+    <result column="INT_CAL_TYPE" jdbcType="CHAR" property="intCalType" />
+    <result column="RATE_ADJUST_TYPE" jdbcType="VARCHAR" property="rateAdjustType" />
+    <result column="RATE_FLOAT_MIN" jdbcType="DECIMAL" property="rateFloatMin" />
+    <result column="RATE_FLOAT_MAX" jdbcType="DECIMAL" property="rateFloatMax" />
+    <result column="DAYS_OF_GRACE" jdbcType="DECIMAL" property="daysOfGrace" />
+    <result column="FINE_OF_OD_MIN" jdbcType="DECIMAL" property="fineOfOdMin" />
+    <result column="CPD_INT_IND" jdbcType="CHAR" property="cpdIntInd" />
+    <result column="FINE_RATE_MIN" jdbcType="DECIMAL" property="fineRateMin" />
+    <result column="FINE_RATE_MAX" jdbcType="DECIMAL" property="fineRateMax" />
+    <result column="SUBSIDIZED_IND" jdbcType="CHAR" property="subsidizedInd" />
+    <result column="SUB_TYPE" jdbcType="CHAR" property="subType" />
+    <result column="SUB_EA_TYPE" jdbcType="CHAR" property="subEaType" />
+    <result column="SUB_INT_RATE" jdbcType="DECIMAL" property="subIntRate" />
+    <result column="SUB_AMT_FIXED" jdbcType="DECIMAL" property="subAmtFixed" />
+    <result column="SUB_AMT_MAX" jdbcType="DECIMAL" property="subAmtMax" />
+    <result column="APP_FORM" jdbcType="VARCHAR" property="appForm" />
+    <result column="CONTR_FORM" jdbcType="VARCHAR" property="contrForm" />
+    <result column="E_CERT_FORM" jdbcType="VARCHAR" property="eCertForm" />
+    <result column="APP_FORM_CTTRL" jdbcType="VARCHAR" property="appFormCttrl" />
+    <result column="RATE_MIN" jdbcType="DECIMAL" property="rateMin" />
+    <result column="RATE_MAX" jdbcType="DECIMAL" property="rateMax" />
+    <result column="RATE_FIX_LIST" jdbcType="VARCHAR" property="rateFixList" />
+    <result column="RATE_FIX_IND" jdbcType="VARCHAR" property="rateFixInd" />
+    <result column="AMOUNT_MIN" jdbcType="DECIMAL" property="amountMin" />
+    <result column="PVP_INNER_TYPE" jdbcType="CHAR" property="pvpInnerType" />
+    <result column="MIN_COST_RATE" jdbcType="DECIMAL" property="minCostRate" />
+    <result column="MAX_COST_RATE" jdbcType="DECIMAL" property="maxCostRate" />
+    <result column="INS_CODE" jdbcType="VARCHAR" property="insCode" />
+    <result column="INS_NAME" jdbcType="VARCHAR" property="insName" />
+    <result column="INS_RATIO" jdbcType="DECIMAL" property="insRatio" />
+    <result column="BIZ_MODE" jdbcType="VARCHAR" property="bizMode" />
+    <result column="REPAY_PERCENT" jdbcType="DECIMAL" property="repayPercent" />
+    <result column="PRD_ATTRIB" jdbcType="VARCHAR" property="prdAttrib" />
+    <result column="QUIT_SETTLE_MIN" jdbcType="DECIMAL" property="quitSettleMin" />
+    <result column="QUIT_SETTLE_MAX" jdbcType="DECIMAL" property="quitSettleMax" />
+    <result column="LATE_FEE_RATE" jdbcType="DECIMAL" property="lateFeeRate" />
+    <result column="SIGN_DAYS" jdbcType="DECIMAL" property="signDays" />
+    <result column="C_APPNT" jdbcType="VARCHAR" property="cAppnt" />
+    <result column="CORE_PRD_CODE" jdbcType="VARCHAR" property="corePrdCode" />
+    <result column="NEW_PRD_CODE" jdbcType="VARCHAR" property="newPrdCode" />
+    <result column="C_FEE_FLAG" jdbcType="VARCHAR" property="cFeeFlag" />
+    <result column="IS_PRETRIAL" jdbcType="VARCHAR" property="isPretrial" />
+    <result column="IS_AUTO" jdbcType="VARCHAR" property="isAuto" />
+    <result column="CREDIT_TIMEOUT" jdbcType="VARCHAR" property="creditTimeout" />
+    <result column="IS_TERM" jdbcType="VARCHAR" property="isTerm" />
+    <result column="IMG_TYPE" jdbcType="VARCHAR" property="imgType" />
+    <result column="IS_PLATFORM" jdbcType="VARCHAR" property="isPlatform" />
+    <result column="INVOICE_TYPE" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="ONLINE_STATUS" jdbcType="VARCHAR" property="onlineStatus" />
+    <result column="INTERVIEW_TIMEOUT" jdbcType="DECIMAL" property="interviewTimeout" />
+    <result column="SUPPLEMENT_TIMEOUT" jdbcType="DECIMAL" property="supplementTimeout" />
+    <result column="SIGN_TIMEOUT" jdbcType="DECIMAL" property="signTimeout" />
+    <result column="PAY_TIMEOUT" jdbcType="DECIMAL" property="payTimeout" />
+    <result column="INSURANCESEND" jdbcType="VARCHAR" property="insurancesend" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRD_PK, PRD_TYPE, PRD_USERDF_TYPE, PRD_SERIES, USE_TYPE, PRD_CODE, PRD_NAME, PRD_VERSION, 
+    PRD_MANAGER, AVAILABLE_IND, DEADLINE, GUARANTY_OPT, CURRENCY_OPT, TERM_UNIT, TERM_MIN, 
+    TERM_MAX, AMOUNT_MAX, PREVENT_RISK_ID, APP_DOC_LIST, APP_WORKFLOW_ID, APP_WF_ASS_TYPE, 
+    DD_TYPE, DD_WORKFLOW_ID, DD_WF_ASS_TYPE, REPAY_MODE_OPT, DELAY_DEDUCT_TYPE, ADVANCE_MIN, 
+    ADVANCE_TERM_MIN, RULE_PRICE, INT_CAL_TYPE, RATE_ADJUST_TYPE, RATE_FLOAT_MIN, RATE_FLOAT_MAX, 
+    DAYS_OF_GRACE, FINE_OF_OD_MIN, CPD_INT_IND, FINE_RATE_MIN, FINE_RATE_MAX, SUBSIDIZED_IND, 
+    SUB_TYPE, SUB_EA_TYPE, SUB_INT_RATE, SUB_AMT_FIXED, SUB_AMT_MAX, APP_FORM, CONTR_FORM, 
+    E_CERT_FORM, APP_FORM_CTTRL, RATE_MIN, RATE_MAX, RATE_FIX_LIST, RATE_FIX_IND, AMOUNT_MIN, 
+    PVP_INNER_TYPE, MIN_COST_RATE, MAX_COST_RATE, INS_CODE, INS_NAME, INS_RATIO, BIZ_MODE, 
+    REPAY_PERCENT, PRD_ATTRIB, QUIT_SETTLE_MIN, QUIT_SETTLE_MAX, LATE_FEE_RATE, SIGN_DAYS, 
+    C_APPNT, CORE_PRD_CODE, NEW_PRD_CODE, C_FEE_FLAG, IS_PRETRIAL, IS_AUTO, CREDIT_TIMEOUT, 
+    IS_TERM, IMG_TYPE, IS_PLATFORM, INVOICE_TYPE, ONLINE_STATUS, INTERVIEW_TIMEOUT, SUPPLEMENT_TIMEOUT, 
+    SIGN_TIMEOUT, PAY_TIMEOUT, INSURANCESEND
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRD_BASICINFO
+    where PRD_PK = #{prdPk,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRD_BASICINFO
+    where PRD_PK = #{prdPk,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PrdBasicinfo">
+    insert into PRD_BASICINFO (PRD_PK, PRD_TYPE, PRD_USERDF_TYPE, 
+      PRD_SERIES, USE_TYPE, PRD_CODE, 
+      PRD_NAME, PRD_VERSION, PRD_MANAGER, 
+      AVAILABLE_IND, DEADLINE, GUARANTY_OPT, 
+      CURRENCY_OPT, TERM_UNIT, TERM_MIN, 
+      TERM_MAX, AMOUNT_MAX, PREVENT_RISK_ID, 
+      APP_DOC_LIST, APP_WORKFLOW_ID, APP_WF_ASS_TYPE, 
+      DD_TYPE, DD_WORKFLOW_ID, DD_WF_ASS_TYPE, 
+      REPAY_MODE_OPT, DELAY_DEDUCT_TYPE, ADVANCE_MIN, 
+      ADVANCE_TERM_MIN, RULE_PRICE, INT_CAL_TYPE, 
+      RATE_ADJUST_TYPE, RATE_FLOAT_MIN, RATE_FLOAT_MAX, 
+      DAYS_OF_GRACE, FINE_OF_OD_MIN, CPD_INT_IND, 
+      FINE_RATE_MIN, FINE_RATE_MAX, SUBSIDIZED_IND, 
+      SUB_TYPE, SUB_EA_TYPE, SUB_INT_RATE, 
+      SUB_AMT_FIXED, SUB_AMT_MAX, APP_FORM, 
+      CONTR_FORM, E_CERT_FORM, APP_FORM_CTTRL, 
+      RATE_MIN, RATE_MAX, RATE_FIX_LIST, 
+      RATE_FIX_IND, AMOUNT_MIN, PVP_INNER_TYPE, 
+      MIN_COST_RATE, MAX_COST_RATE, INS_CODE, 
+      INS_NAME, INS_RATIO, BIZ_MODE, 
+      REPAY_PERCENT, PRD_ATTRIB, QUIT_SETTLE_MIN, 
+      QUIT_SETTLE_MAX, LATE_FEE_RATE, SIGN_DAYS, 
+      C_APPNT, CORE_PRD_CODE, NEW_PRD_CODE, 
+      C_FEE_FLAG, IS_PRETRIAL, IS_AUTO, 
+      CREDIT_TIMEOUT, IS_TERM, IMG_TYPE, 
+      IS_PLATFORM, INVOICE_TYPE, ONLINE_STATUS, 
+      INTERVIEW_TIMEOUT, SUPPLEMENT_TIMEOUT, SIGN_TIMEOUT, 
+      PAY_TIMEOUT, INSURANCESEND)
+    values (#{prdPk,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, #{prdUserdfType,jdbcType=VARCHAR}, 
+      #{prdSeries,jdbcType=VARCHAR}, #{useType,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{prdName,jdbcType=VARCHAR}, #{prdVersion,jdbcType=VARCHAR}, #{prdManager,jdbcType=VARCHAR}, 
+      #{availableInd,jdbcType=CHAR}, #{deadline,jdbcType=CHAR}, #{guarantyOpt,jdbcType=VARCHAR}, 
+      #{currencyOpt,jdbcType=VARCHAR}, #{termUnit,jdbcType=VARCHAR}, #{termMin,jdbcType=DECIMAL}, 
+      #{termMax,jdbcType=DECIMAL}, #{amountMax,jdbcType=DECIMAL}, #{preventRiskId,jdbcType=VARCHAR}, 
+      #{appDocList,jdbcType=VARCHAR}, #{appWorkflowId,jdbcType=VARCHAR}, #{appWfAssType,jdbcType=CHAR}, 
+      #{ddType,jdbcType=CHAR}, #{ddWorkflowId,jdbcType=VARCHAR}, #{ddWfAssType,jdbcType=CHAR}, 
+      #{repayModeOpt,jdbcType=VARCHAR}, #{delayDeductType,jdbcType=CHAR}, #{advanceMin,jdbcType=DECIMAL}, 
+      #{advanceTermMin,jdbcType=DECIMAL}, #{rulePrice,jdbcType=CHAR}, #{intCalType,jdbcType=CHAR}, 
+      #{rateAdjustType,jdbcType=VARCHAR}, #{rateFloatMin,jdbcType=DECIMAL}, #{rateFloatMax,jdbcType=DECIMAL}, 
+      #{daysOfGrace,jdbcType=DECIMAL}, #{fineOfOdMin,jdbcType=DECIMAL}, #{cpdIntInd,jdbcType=CHAR}, 
+      #{fineRateMin,jdbcType=DECIMAL}, #{fineRateMax,jdbcType=DECIMAL}, #{subsidizedInd,jdbcType=CHAR}, 
+      #{subType,jdbcType=CHAR}, #{subEaType,jdbcType=CHAR}, #{subIntRate,jdbcType=DECIMAL}, 
+      #{subAmtFixed,jdbcType=DECIMAL}, #{subAmtMax,jdbcType=DECIMAL}, #{appForm,jdbcType=VARCHAR}, 
+      #{contrForm,jdbcType=VARCHAR}, #{eCertForm,jdbcType=VARCHAR}, #{appFormCttrl,jdbcType=VARCHAR}, 
+      #{rateMin,jdbcType=DECIMAL}, #{rateMax,jdbcType=DECIMAL}, #{rateFixList,jdbcType=VARCHAR}, 
+      #{rateFixInd,jdbcType=VARCHAR}, #{amountMin,jdbcType=DECIMAL}, #{pvpInnerType,jdbcType=CHAR}, 
+      #{minCostRate,jdbcType=DECIMAL}, #{maxCostRate,jdbcType=DECIMAL}, #{insCode,jdbcType=VARCHAR}, 
+      #{insName,jdbcType=VARCHAR}, #{insRatio,jdbcType=DECIMAL}, #{bizMode,jdbcType=VARCHAR}, 
+      #{repayPercent,jdbcType=DECIMAL}, #{prdAttrib,jdbcType=VARCHAR}, #{quitSettleMin,jdbcType=DECIMAL}, 
+      #{quitSettleMax,jdbcType=DECIMAL}, #{lateFeeRate,jdbcType=DECIMAL}, #{signDays,jdbcType=DECIMAL}, 
+      #{cAppnt,jdbcType=VARCHAR}, #{corePrdCode,jdbcType=VARCHAR}, #{newPrdCode,jdbcType=VARCHAR}, 
+      #{cFeeFlag,jdbcType=VARCHAR}, #{isPretrial,jdbcType=VARCHAR}, #{isAuto,jdbcType=VARCHAR}, 
+      #{creditTimeout,jdbcType=VARCHAR}, #{isTerm,jdbcType=VARCHAR}, #{imgType,jdbcType=VARCHAR}, 
+      #{isPlatform,jdbcType=VARCHAR}, #{invoiceType,jdbcType=VARCHAR}, #{onlineStatus,jdbcType=VARCHAR}, 
+      #{interviewTimeout,jdbcType=DECIMAL}, #{supplementTimeout,jdbcType=DECIMAL}, #{signTimeout,jdbcType=DECIMAL}, 
+      #{payTimeout,jdbcType=DECIMAL}, #{insurancesend,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PrdBasicinfo">
+    insert into PRD_BASICINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prdPk != null">
+        PRD_PK,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="prdUserdfType != null">
+        PRD_USERDF_TYPE,
+      </if>
+      <if test="prdSeries != null">
+        PRD_SERIES,
+      </if>
+      <if test="useType != null">
+        USE_TYPE,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="prdVersion != null">
+        PRD_VERSION,
+      </if>
+      <if test="prdManager != null">
+        PRD_MANAGER,
+      </if>
+      <if test="availableInd != null">
+        AVAILABLE_IND,
+      </if>
+      <if test="deadline != null">
+        DEADLINE,
+      </if>
+      <if test="guarantyOpt != null">
+        GUARANTY_OPT,
+      </if>
+      <if test="currencyOpt != null">
+        CURRENCY_OPT,
+      </if>
+      <if test="termUnit != null">
+        TERM_UNIT,
+      </if>
+      <if test="termMin != null">
+        TERM_MIN,
+      </if>
+      <if test="termMax != null">
+        TERM_MAX,
+      </if>
+      <if test="amountMax != null">
+        AMOUNT_MAX,
+      </if>
+      <if test="preventRiskId != null">
+        PREVENT_RISK_ID,
+      </if>
+      <if test="appDocList != null">
+        APP_DOC_LIST,
+      </if>
+      <if test="appWorkflowId != null">
+        APP_WORKFLOW_ID,
+      </if>
+      <if test="appWfAssType != null">
+        APP_WF_ASS_TYPE,
+      </if>
+      <if test="ddType != null">
+        DD_TYPE,
+      </if>
+      <if test="ddWorkflowId != null">
+        DD_WORKFLOW_ID,
+      </if>
+      <if test="ddWfAssType != null">
+        DD_WF_ASS_TYPE,
+      </if>
+      <if test="repayModeOpt != null">
+        REPAY_MODE_OPT,
+      </if>
+      <if test="delayDeductType != null">
+        DELAY_DEDUCT_TYPE,
+      </if>
+      <if test="advanceMin != null">
+        ADVANCE_MIN,
+      </if>
+      <if test="advanceTermMin != null">
+        ADVANCE_TERM_MIN,
+      </if>
+      <if test="rulePrice != null">
+        RULE_PRICE,
+      </if>
+      <if test="intCalType != null">
+        INT_CAL_TYPE,
+      </if>
+      <if test="rateAdjustType != null">
+        RATE_ADJUST_TYPE,
+      </if>
+      <if test="rateFloatMin != null">
+        RATE_FLOAT_MIN,
+      </if>
+      <if test="rateFloatMax != null">
+        RATE_FLOAT_MAX,
+      </if>
+      <if test="daysOfGrace != null">
+        DAYS_OF_GRACE,
+      </if>
+      <if test="fineOfOdMin != null">
+        FINE_OF_OD_MIN,
+      </if>
+      <if test="cpdIntInd != null">
+        CPD_INT_IND,
+      </if>
+      <if test="fineRateMin != null">
+        FINE_RATE_MIN,
+      </if>
+      <if test="fineRateMax != null">
+        FINE_RATE_MAX,
+      </if>
+      <if test="subsidizedInd != null">
+        SUBSIDIZED_IND,
+      </if>
+      <if test="subType != null">
+        SUB_TYPE,
+      </if>
+      <if test="subEaType != null">
+        SUB_EA_TYPE,
+      </if>
+      <if test="subIntRate != null">
+        SUB_INT_RATE,
+      </if>
+      <if test="subAmtFixed != null">
+        SUB_AMT_FIXED,
+      </if>
+      <if test="subAmtMax != null">
+        SUB_AMT_MAX,
+      </if>
+      <if test="appForm != null">
+        APP_FORM,
+      </if>
+      <if test="contrForm != null">
+        CONTR_FORM,
+      </if>
+      <if test="eCertForm != null">
+        E_CERT_FORM,
+      </if>
+      <if test="appFormCttrl != null">
+        APP_FORM_CTTRL,
+      </if>
+      <if test="rateMin != null">
+        RATE_MIN,
+      </if>
+      <if test="rateMax != null">
+        RATE_MAX,
+      </if>
+      <if test="rateFixList != null">
+        RATE_FIX_LIST,
+      </if>
+      <if test="rateFixInd != null">
+        RATE_FIX_IND,
+      </if>
+      <if test="amountMin != null">
+        AMOUNT_MIN,
+      </if>
+      <if test="pvpInnerType != null">
+        PVP_INNER_TYPE,
+      </if>
+      <if test="minCostRate != null">
+        MIN_COST_RATE,
+      </if>
+      <if test="maxCostRate != null">
+        MAX_COST_RATE,
+      </if>
+      <if test="insCode != null">
+        INS_CODE,
+      </if>
+      <if test="insName != null">
+        INS_NAME,
+      </if>
+      <if test="insRatio != null">
+        INS_RATIO,
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE,
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT,
+      </if>
+      <if test="prdAttrib != null">
+        PRD_ATTRIB,
+      </if>
+      <if test="quitSettleMin != null">
+        QUIT_SETTLE_MIN,
+      </if>
+      <if test="quitSettleMax != null">
+        QUIT_SETTLE_MAX,
+      </if>
+      <if test="lateFeeRate != null">
+        LATE_FEE_RATE,
+      </if>
+      <if test="signDays != null">
+        SIGN_DAYS,
+      </if>
+      <if test="cAppnt != null">
+        C_APPNT,
+      </if>
+      <if test="corePrdCode != null">
+        CORE_PRD_CODE,
+      </if>
+      <if test="newPrdCode != null">
+        NEW_PRD_CODE,
+      </if>
+      <if test="cFeeFlag != null">
+        C_FEE_FLAG,
+      </if>
+      <if test="isPretrial != null">
+        IS_PRETRIAL,
+      </if>
+      <if test="isAuto != null">
+        IS_AUTO,
+      </if>
+      <if test="creditTimeout != null">
+        CREDIT_TIMEOUT,
+      </if>
+      <if test="isTerm != null">
+        IS_TERM,
+      </if>
+      <if test="imgType != null">
+        IMG_TYPE,
+      </if>
+      <if test="isPlatform != null">
+        IS_PLATFORM,
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE,
+      </if>
+      <if test="onlineStatus != null">
+        ONLINE_STATUS,
+      </if>
+      <if test="interviewTimeout != null">
+        INTERVIEW_TIMEOUT,
+      </if>
+      <if test="supplementTimeout != null">
+        SUPPLEMENT_TIMEOUT,
+      </if>
+      <if test="signTimeout != null">
+        SIGN_TIMEOUT,
+      </if>
+      <if test="payTimeout != null">
+        PAY_TIMEOUT,
+      </if>
+      <if test="insurancesend != null">
+        INSURANCESEND,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prdPk != null">
+        #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdUserdfType != null">
+        #{prdUserdfType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdSeries != null">
+        #{prdSeries,jdbcType=VARCHAR},
+      </if>
+      <if test="useType != null">
+        #{useType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="prdVersion != null">
+        #{prdVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="prdManager != null">
+        #{prdManager,jdbcType=VARCHAR},
+      </if>
+      <if test="availableInd != null">
+        #{availableInd,jdbcType=CHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=CHAR},
+      </if>
+      <if test="guarantyOpt != null">
+        #{guarantyOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyOpt != null">
+        #{currencyOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="termUnit != null">
+        #{termUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="termMin != null">
+        #{termMin,jdbcType=DECIMAL},
+      </if>
+      <if test="termMax != null">
+        #{termMax,jdbcType=DECIMAL},
+      </if>
+      <if test="amountMax != null">
+        #{amountMax,jdbcType=DECIMAL},
+      </if>
+      <if test="preventRiskId != null">
+        #{preventRiskId,jdbcType=VARCHAR},
+      </if>
+      <if test="appDocList != null">
+        #{appDocList,jdbcType=VARCHAR},
+      </if>
+      <if test="appWorkflowId != null">
+        #{appWorkflowId,jdbcType=VARCHAR},
+      </if>
+      <if test="appWfAssType != null">
+        #{appWfAssType,jdbcType=CHAR},
+      </if>
+      <if test="ddType != null">
+        #{ddType,jdbcType=CHAR},
+      </if>
+      <if test="ddWorkflowId != null">
+        #{ddWorkflowId,jdbcType=VARCHAR},
+      </if>
+      <if test="ddWfAssType != null">
+        #{ddWfAssType,jdbcType=CHAR},
+      </if>
+      <if test="repayModeOpt != null">
+        #{repayModeOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="delayDeductType != null">
+        #{delayDeductType,jdbcType=CHAR},
+      </if>
+      <if test="advanceMin != null">
+        #{advanceMin,jdbcType=DECIMAL},
+      </if>
+      <if test="advanceTermMin != null">
+        #{advanceTermMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rulePrice != null">
+        #{rulePrice,jdbcType=CHAR},
+      </if>
+      <if test="intCalType != null">
+        #{intCalType,jdbcType=CHAR},
+      </if>
+      <if test="rateAdjustType != null">
+        #{rateAdjustType,jdbcType=VARCHAR},
+      </if>
+      <if test="rateFloatMin != null">
+        #{rateFloatMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateFloatMax != null">
+        #{rateFloatMax,jdbcType=DECIMAL},
+      </if>
+      <if test="daysOfGrace != null">
+        #{daysOfGrace,jdbcType=DECIMAL},
+      </if>
+      <if test="fineOfOdMin != null">
+        #{fineOfOdMin,jdbcType=DECIMAL},
+      </if>
+      <if test="cpdIntInd != null">
+        #{cpdIntInd,jdbcType=CHAR},
+      </if>
+      <if test="fineRateMin != null">
+        #{fineRateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="fineRateMax != null">
+        #{fineRateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="subsidizedInd != null">
+        #{subsidizedInd,jdbcType=CHAR},
+      </if>
+      <if test="subType != null">
+        #{subType,jdbcType=CHAR},
+      </if>
+      <if test="subEaType != null">
+        #{subEaType,jdbcType=CHAR},
+      </if>
+      <if test="subIntRate != null">
+        #{subIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="subAmtFixed != null">
+        #{subAmtFixed,jdbcType=DECIMAL},
+      </if>
+      <if test="subAmtMax != null">
+        #{subAmtMax,jdbcType=DECIMAL},
+      </if>
+      <if test="appForm != null">
+        #{appForm,jdbcType=VARCHAR},
+      </if>
+      <if test="contrForm != null">
+        #{contrForm,jdbcType=VARCHAR},
+      </if>
+      <if test="eCertForm != null">
+        #{eCertForm,jdbcType=VARCHAR},
+      </if>
+      <if test="appFormCttrl != null">
+        #{appFormCttrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rateMin != null">
+        #{rateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMax != null">
+        #{rateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="rateFixList != null">
+        #{rateFixList,jdbcType=VARCHAR},
+      </if>
+      <if test="rateFixInd != null">
+        #{rateFixInd,jdbcType=VARCHAR},
+      </if>
+      <if test="amountMin != null">
+        #{amountMin,jdbcType=DECIMAL},
+      </if>
+      <if test="pvpInnerType != null">
+        #{pvpInnerType,jdbcType=CHAR},
+      </if>
+      <if test="minCostRate != null">
+        #{minCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxCostRate != null">
+        #{maxCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insCode != null">
+        #{insCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insName != null">
+        #{insName,jdbcType=VARCHAR},
+      </if>
+      <if test="insRatio != null">
+        #{insRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="bizMode != null">
+        #{bizMode,jdbcType=VARCHAR},
+      </if>
+      <if test="repayPercent != null">
+        #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="prdAttrib != null">
+        #{prdAttrib,jdbcType=VARCHAR},
+      </if>
+      <if test="quitSettleMin != null">
+        #{quitSettleMin,jdbcType=DECIMAL},
+      </if>
+      <if test="quitSettleMax != null">
+        #{quitSettleMax,jdbcType=DECIMAL},
+      </if>
+      <if test="lateFeeRate != null">
+        #{lateFeeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="signDays != null">
+        #{signDays,jdbcType=DECIMAL},
+      </if>
+      <if test="cAppnt != null">
+        #{cAppnt,jdbcType=VARCHAR},
+      </if>
+      <if test="corePrdCode != null">
+        #{corePrdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="newPrdCode != null">
+        #{newPrdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cFeeFlag != null">
+        #{cFeeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isPretrial != null">
+        #{isPretrial,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuto != null">
+        #{isAuto,jdbcType=VARCHAR},
+      </if>
+      <if test="creditTimeout != null">
+        #{creditTimeout,jdbcType=VARCHAR},
+      </if>
+      <if test="isTerm != null">
+        #{isTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="imgType != null">
+        #{imgType,jdbcType=VARCHAR},
+      </if>
+      <if test="isPlatform != null">
+        #{isPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineStatus != null">
+        #{onlineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewTimeout != null">
+        #{interviewTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="supplementTimeout != null">
+        #{supplementTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="signTimeout != null">
+        #{signTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="payTimeout != null">
+        #{payTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesend != null">
+        #{insurancesend,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PrdBasicinfo">
+    update PRD_BASICINFO
+    <set>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdUserdfType != null">
+        PRD_USERDF_TYPE = #{prdUserdfType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdSeries != null">
+        PRD_SERIES = #{prdSeries,jdbcType=VARCHAR},
+      </if>
+      <if test="useType != null">
+        USE_TYPE = #{useType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="prdVersion != null">
+        PRD_VERSION = #{prdVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="prdManager != null">
+        PRD_MANAGER = #{prdManager,jdbcType=VARCHAR},
+      </if>
+      <if test="availableInd != null">
+        AVAILABLE_IND = #{availableInd,jdbcType=CHAR},
+      </if>
+      <if test="deadline != null">
+        DEADLINE = #{deadline,jdbcType=CHAR},
+      </if>
+      <if test="guarantyOpt != null">
+        GUARANTY_OPT = #{guarantyOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyOpt != null">
+        CURRENCY_OPT = #{currencyOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="termUnit != null">
+        TERM_UNIT = #{termUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="termMin != null">
+        TERM_MIN = #{termMin,jdbcType=DECIMAL},
+      </if>
+      <if test="termMax != null">
+        TERM_MAX = #{termMax,jdbcType=DECIMAL},
+      </if>
+      <if test="amountMax != null">
+        AMOUNT_MAX = #{amountMax,jdbcType=DECIMAL},
+      </if>
+      <if test="preventRiskId != null">
+        PREVENT_RISK_ID = #{preventRiskId,jdbcType=VARCHAR},
+      </if>
+      <if test="appDocList != null">
+        APP_DOC_LIST = #{appDocList,jdbcType=VARCHAR},
+      </if>
+      <if test="appWorkflowId != null">
+        APP_WORKFLOW_ID = #{appWorkflowId,jdbcType=VARCHAR},
+      </if>
+      <if test="appWfAssType != null">
+        APP_WF_ASS_TYPE = #{appWfAssType,jdbcType=CHAR},
+      </if>
+      <if test="ddType != null">
+        DD_TYPE = #{ddType,jdbcType=CHAR},
+      </if>
+      <if test="ddWorkflowId != null">
+        DD_WORKFLOW_ID = #{ddWorkflowId,jdbcType=VARCHAR},
+      </if>
+      <if test="ddWfAssType != null">
+        DD_WF_ASS_TYPE = #{ddWfAssType,jdbcType=CHAR},
+      </if>
+      <if test="repayModeOpt != null">
+        REPAY_MODE_OPT = #{repayModeOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="delayDeductType != null">
+        DELAY_DEDUCT_TYPE = #{delayDeductType,jdbcType=CHAR},
+      </if>
+      <if test="advanceMin != null">
+        ADVANCE_MIN = #{advanceMin,jdbcType=DECIMAL},
+      </if>
+      <if test="advanceTermMin != null">
+        ADVANCE_TERM_MIN = #{advanceTermMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rulePrice != null">
+        RULE_PRICE = #{rulePrice,jdbcType=CHAR},
+      </if>
+      <if test="intCalType != null">
+        INT_CAL_TYPE = #{intCalType,jdbcType=CHAR},
+      </if>
+      <if test="rateAdjustType != null">
+        RATE_ADJUST_TYPE = #{rateAdjustType,jdbcType=VARCHAR},
+      </if>
+      <if test="rateFloatMin != null">
+        RATE_FLOAT_MIN = #{rateFloatMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateFloatMax != null">
+        RATE_FLOAT_MAX = #{rateFloatMax,jdbcType=DECIMAL},
+      </if>
+      <if test="daysOfGrace != null">
+        DAYS_OF_GRACE = #{daysOfGrace,jdbcType=DECIMAL},
+      </if>
+      <if test="fineOfOdMin != null">
+        FINE_OF_OD_MIN = #{fineOfOdMin,jdbcType=DECIMAL},
+      </if>
+      <if test="cpdIntInd != null">
+        CPD_INT_IND = #{cpdIntInd,jdbcType=CHAR},
+      </if>
+      <if test="fineRateMin != null">
+        FINE_RATE_MIN = #{fineRateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="fineRateMax != null">
+        FINE_RATE_MAX = #{fineRateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="subsidizedInd != null">
+        SUBSIDIZED_IND = #{subsidizedInd,jdbcType=CHAR},
+      </if>
+      <if test="subType != null">
+        SUB_TYPE = #{subType,jdbcType=CHAR},
+      </if>
+      <if test="subEaType != null">
+        SUB_EA_TYPE = #{subEaType,jdbcType=CHAR},
+      </if>
+      <if test="subIntRate != null">
+        SUB_INT_RATE = #{subIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="subAmtFixed != null">
+        SUB_AMT_FIXED = #{subAmtFixed,jdbcType=DECIMAL},
+      </if>
+      <if test="subAmtMax != null">
+        SUB_AMT_MAX = #{subAmtMax,jdbcType=DECIMAL},
+      </if>
+      <if test="appForm != null">
+        APP_FORM = #{appForm,jdbcType=VARCHAR},
+      </if>
+      <if test="contrForm != null">
+        CONTR_FORM = #{contrForm,jdbcType=VARCHAR},
+      </if>
+      <if test="eCertForm != null">
+        E_CERT_FORM = #{eCertForm,jdbcType=VARCHAR},
+      </if>
+      <if test="appFormCttrl != null">
+        APP_FORM_CTTRL = #{appFormCttrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rateMin != null">
+        RATE_MIN = #{rateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMax != null">
+        RATE_MAX = #{rateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="rateFixList != null">
+        RATE_FIX_LIST = #{rateFixList,jdbcType=VARCHAR},
+      </if>
+      <if test="rateFixInd != null">
+        RATE_FIX_IND = #{rateFixInd,jdbcType=VARCHAR},
+      </if>
+      <if test="amountMin != null">
+        AMOUNT_MIN = #{amountMin,jdbcType=DECIMAL},
+      </if>
+      <if test="pvpInnerType != null">
+        PVP_INNER_TYPE = #{pvpInnerType,jdbcType=CHAR},
+      </if>
+      <if test="minCostRate != null">
+        MIN_COST_RATE = #{minCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxCostRate != null">
+        MAX_COST_RATE = #{maxCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insCode != null">
+        INS_CODE = #{insCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insName != null">
+        INS_NAME = #{insName,jdbcType=VARCHAR},
+      </if>
+      <if test="insRatio != null">
+        INS_RATIO = #{insRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE = #{bizMode,jdbcType=VARCHAR},
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT = #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="prdAttrib != null">
+        PRD_ATTRIB = #{prdAttrib,jdbcType=VARCHAR},
+      </if>
+      <if test="quitSettleMin != null">
+        QUIT_SETTLE_MIN = #{quitSettleMin,jdbcType=DECIMAL},
+      </if>
+      <if test="quitSettleMax != null">
+        QUIT_SETTLE_MAX = #{quitSettleMax,jdbcType=DECIMAL},
+      </if>
+      <if test="lateFeeRate != null">
+        LATE_FEE_RATE = #{lateFeeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="signDays != null">
+        SIGN_DAYS = #{signDays,jdbcType=DECIMAL},
+      </if>
+      <if test="cAppnt != null">
+        C_APPNT = #{cAppnt,jdbcType=VARCHAR},
+      </if>
+      <if test="corePrdCode != null">
+        CORE_PRD_CODE = #{corePrdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="newPrdCode != null">
+        NEW_PRD_CODE = #{newPrdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cFeeFlag != null">
+        C_FEE_FLAG = #{cFeeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isPretrial != null">
+        IS_PRETRIAL = #{isPretrial,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuto != null">
+        IS_AUTO = #{isAuto,jdbcType=VARCHAR},
+      </if>
+      <if test="creditTimeout != null">
+        CREDIT_TIMEOUT = #{creditTimeout,jdbcType=VARCHAR},
+      </if>
+      <if test="isTerm != null">
+        IS_TERM = #{isTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="imgType != null">
+        IMG_TYPE = #{imgType,jdbcType=VARCHAR},
+      </if>
+      <if test="isPlatform != null">
+        IS_PLATFORM = #{isPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineStatus != null">
+        ONLINE_STATUS = #{onlineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewTimeout != null">
+        INTERVIEW_TIMEOUT = #{interviewTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="supplementTimeout != null">
+        SUPPLEMENT_TIMEOUT = #{supplementTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="signTimeout != null">
+        SIGN_TIMEOUT = #{signTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="payTimeout != null">
+        PAY_TIMEOUT = #{payTimeout,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesend != null">
+        INSURANCESEND = #{insurancesend,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PRD_PK = #{prdPk,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PrdBasicinfo">
+    update PRD_BASICINFO
+    set PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      PRD_USERDF_TYPE = #{prdUserdfType,jdbcType=VARCHAR},
+      PRD_SERIES = #{prdSeries,jdbcType=VARCHAR},
+      USE_TYPE = #{useType,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      PRD_VERSION = #{prdVersion,jdbcType=VARCHAR},
+      PRD_MANAGER = #{prdManager,jdbcType=VARCHAR},
+      AVAILABLE_IND = #{availableInd,jdbcType=CHAR},
+      DEADLINE = #{deadline,jdbcType=CHAR},
+      GUARANTY_OPT = #{guarantyOpt,jdbcType=VARCHAR},
+      CURRENCY_OPT = #{currencyOpt,jdbcType=VARCHAR},
+      TERM_UNIT = #{termUnit,jdbcType=VARCHAR},
+      TERM_MIN = #{termMin,jdbcType=DECIMAL},
+      TERM_MAX = #{termMax,jdbcType=DECIMAL},
+      AMOUNT_MAX = #{amountMax,jdbcType=DECIMAL},
+      PREVENT_RISK_ID = #{preventRiskId,jdbcType=VARCHAR},
+      APP_DOC_LIST = #{appDocList,jdbcType=VARCHAR},
+      APP_WORKFLOW_ID = #{appWorkflowId,jdbcType=VARCHAR},
+      APP_WF_ASS_TYPE = #{appWfAssType,jdbcType=CHAR},
+      DD_TYPE = #{ddType,jdbcType=CHAR},
+      DD_WORKFLOW_ID = #{ddWorkflowId,jdbcType=VARCHAR},
+      DD_WF_ASS_TYPE = #{ddWfAssType,jdbcType=CHAR},
+      REPAY_MODE_OPT = #{repayModeOpt,jdbcType=VARCHAR},
+      DELAY_DEDUCT_TYPE = #{delayDeductType,jdbcType=CHAR},
+      ADVANCE_MIN = #{advanceMin,jdbcType=DECIMAL},
+      ADVANCE_TERM_MIN = #{advanceTermMin,jdbcType=DECIMAL},
+      RULE_PRICE = #{rulePrice,jdbcType=CHAR},
+      INT_CAL_TYPE = #{intCalType,jdbcType=CHAR},
+      RATE_ADJUST_TYPE = #{rateAdjustType,jdbcType=VARCHAR},
+      RATE_FLOAT_MIN = #{rateFloatMin,jdbcType=DECIMAL},
+      RATE_FLOAT_MAX = #{rateFloatMax,jdbcType=DECIMAL},
+      DAYS_OF_GRACE = #{daysOfGrace,jdbcType=DECIMAL},
+      FINE_OF_OD_MIN = #{fineOfOdMin,jdbcType=DECIMAL},
+      CPD_INT_IND = #{cpdIntInd,jdbcType=CHAR},
+      FINE_RATE_MIN = #{fineRateMin,jdbcType=DECIMAL},
+      FINE_RATE_MAX = #{fineRateMax,jdbcType=DECIMAL},
+      SUBSIDIZED_IND = #{subsidizedInd,jdbcType=CHAR},
+      SUB_TYPE = #{subType,jdbcType=CHAR},
+      SUB_EA_TYPE = #{subEaType,jdbcType=CHAR},
+      SUB_INT_RATE = #{subIntRate,jdbcType=DECIMAL},
+      SUB_AMT_FIXED = #{subAmtFixed,jdbcType=DECIMAL},
+      SUB_AMT_MAX = #{subAmtMax,jdbcType=DECIMAL},
+      APP_FORM = #{appForm,jdbcType=VARCHAR},
+      CONTR_FORM = #{contrForm,jdbcType=VARCHAR},
+      E_CERT_FORM = #{eCertForm,jdbcType=VARCHAR},
+      APP_FORM_CTTRL = #{appFormCttrl,jdbcType=VARCHAR},
+      RATE_MIN = #{rateMin,jdbcType=DECIMAL},
+      RATE_MAX = #{rateMax,jdbcType=DECIMAL},
+      RATE_FIX_LIST = #{rateFixList,jdbcType=VARCHAR},
+      RATE_FIX_IND = #{rateFixInd,jdbcType=VARCHAR},
+      AMOUNT_MIN = #{amountMin,jdbcType=DECIMAL},
+      PVP_INNER_TYPE = #{pvpInnerType,jdbcType=CHAR},
+      MIN_COST_RATE = #{minCostRate,jdbcType=DECIMAL},
+      MAX_COST_RATE = #{maxCostRate,jdbcType=DECIMAL},
+      INS_CODE = #{insCode,jdbcType=VARCHAR},
+      INS_NAME = #{insName,jdbcType=VARCHAR},
+      INS_RATIO = #{insRatio,jdbcType=DECIMAL},
+      BIZ_MODE = #{bizMode,jdbcType=VARCHAR},
+      REPAY_PERCENT = #{repayPercent,jdbcType=DECIMAL},
+      PRD_ATTRIB = #{prdAttrib,jdbcType=VARCHAR},
+      QUIT_SETTLE_MIN = #{quitSettleMin,jdbcType=DECIMAL},
+      QUIT_SETTLE_MAX = #{quitSettleMax,jdbcType=DECIMAL},
+      LATE_FEE_RATE = #{lateFeeRate,jdbcType=DECIMAL},
+      SIGN_DAYS = #{signDays,jdbcType=DECIMAL},
+      C_APPNT = #{cAppnt,jdbcType=VARCHAR},
+      CORE_PRD_CODE = #{corePrdCode,jdbcType=VARCHAR},
+      NEW_PRD_CODE = #{newPrdCode,jdbcType=VARCHAR},
+      C_FEE_FLAG = #{cFeeFlag,jdbcType=VARCHAR},
+      IS_PRETRIAL = #{isPretrial,jdbcType=VARCHAR},
+      IS_AUTO = #{isAuto,jdbcType=VARCHAR},
+      CREDIT_TIMEOUT = #{creditTimeout,jdbcType=VARCHAR},
+      IS_TERM = #{isTerm,jdbcType=VARCHAR},
+      IMG_TYPE = #{imgType,jdbcType=VARCHAR},
+      IS_PLATFORM = #{isPlatform,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      ONLINE_STATUS = #{onlineStatus,jdbcType=VARCHAR},
+      INTERVIEW_TIMEOUT = #{interviewTimeout,jdbcType=DECIMAL},
+      SUPPLEMENT_TIMEOUT = #{supplementTimeout,jdbcType=DECIMAL},
+      SIGN_TIMEOUT = #{signTimeout,jdbcType=DECIMAL},
+      PAY_TIMEOUT = #{payTimeout,jdbcType=DECIMAL},
+      INSURANCESEND = #{insurancesend,jdbcType=VARCHAR}
+    where PRD_PK = #{prdPk,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByPrdId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from PRD_BASICINFO
+    where PRD_CODE = #{prdId,jdbcType=VARCHAR}
+  </select>
+</mapper>

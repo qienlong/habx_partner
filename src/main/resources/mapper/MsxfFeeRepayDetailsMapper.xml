@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.MsxfFeeRepayDetailsMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.MsxfFeeRepayDetails">
+    <id column="BF_ID" jdbcType="VARCHAR" property="bfId" />
+    <result column="BIZ_DATE" jdbcType="VARCHAR" property="bizDate" />
+    <result column="CONTR_NBR" jdbcType="VARCHAR" property="contrNbr" />
+    <result column="PRODUCT_CD" jdbcType="VARCHAR" property="productCd" />
+    <result column="REF_NBR" jdbcType="VARCHAR" property="refNbr" />
+    <result column="REPAY_TERM" jdbcType="DECIMAL" property="repayTerm" />
+    <result column="PREMIUM" jdbcType="VARCHAR" property="premium" />
+    <result column="PREMIUM_PAID" jdbcType="VARCHAR" property="premiumPaid" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="SYNC_STATUS" jdbcType="VARCHAR" property="syncStatus" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BF_ID, BIZ_DATE, CONTR_NBR, PRODUCT_CD, REF_NBR, REPAY_TERM, PREMIUM, PREMIUM_PAID, 
+    REPAY_TYPE, INPUT_DATE, SYNC_STATUS, COP_NO, BUSINESS_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MSXF_FEE_REPAY_DETAILS
+    where BF_ID = #{bfId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MSXF_FEE_REPAY_DETAILS
+    where BF_ID = #{bfId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.MsxfFeeRepayDetails">
+    insert into MSXF_FEE_REPAY_DETAILS (BF_ID, BIZ_DATE, CONTR_NBR, 
+      PRODUCT_CD, REF_NBR, REPAY_TERM, 
+      PREMIUM, PREMIUM_PAID, REPAY_TYPE, 
+      INPUT_DATE, SYNC_STATUS, COP_NO, 
+      BUSINESS_DATE)
+    values (#{bfId,jdbcType=VARCHAR}, #{bizDate,jdbcType=VARCHAR}, #{contrNbr,jdbcType=VARCHAR}, 
+      #{productCd,jdbcType=VARCHAR}, #{refNbr,jdbcType=VARCHAR}, #{repayTerm,jdbcType=DECIMAL}, 
+      #{premium,jdbcType=VARCHAR}, #{premiumPaid,jdbcType=VARCHAR}, #{repayType,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{syncStatus,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, 
+      #{businessDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.MsxfFeeRepayDetails">
+    insert into MSXF_FEE_REPAY_DETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bfId != null">
+        BF_ID,
+      </if>
+      <if test="bizDate != null">
+        BIZ_DATE,
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR,
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD,
+      </if>
+      <if test="refNbr != null">
+        REF_NBR,
+      </if>
+      <if test="repayTerm != null">
+        REPAY_TERM,
+      </if>
+      <if test="premium != null">
+        PREMIUM,
+      </if>
+      <if test="premiumPaid != null">
+        PREMIUM_PAID,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bfId != null">
+        #{bfId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null">
+        #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="repayTerm != null">
+        #{repayTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="premium != null">
+        #{premium,jdbcType=VARCHAR},
+      </if>
+      <if test="premiumPaid != null">
+        #{premiumPaid,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.MsxfFeeRepayDetails">
+    update MSXF_FEE_REPAY_DETAILS
+    <set>
+      <if test="bizDate != null">
+        BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="repayTerm != null">
+        REPAY_TERM = #{repayTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="premium != null">
+        PREMIUM = #{premium,jdbcType=VARCHAR},
+      </if>
+      <if test="premiumPaid != null">
+        PREMIUM_PAID = #{premiumPaid,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BF_ID = #{bfId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.MsxfFeeRepayDetails">
+    update MSXF_FEE_REPAY_DETAILS
+    set BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      REPAY_TERM = #{repayTerm,jdbcType=DECIMAL},
+      PREMIUM = #{premium,jdbcType=VARCHAR},
+      PREMIUM_PAID = #{premiumPaid,jdbcType=VARCHAR},
+      REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    where BF_ID = #{bfId,jdbcType=VARCHAR}
+  </update>
+  <insert id ="insertAll" parameterType="java.util.List" >
+    insert into MSXF_FEE_REPAY_DETAILS (BF_ID, BIZ_DATE, CONTR_NBR, 
+      PRODUCT_CD, REF_NBR, REPAY_TERM, 
+      PREMIUM, PREMIUM_PAID, REPAY_TYPE, 
+      INPUT_DATE, SYNC_STATUS, COP_NO, 
+      BUSINESS_DATE)
+  <foreach collection ="list" item="item" index="index" separator="union all">
+    select
+	  #{item.bfId,jdbcType=VARCHAR}, #{item.bizDate,jdbcType=VARCHAR}, #{item.contrNbr,jdbcType=VARCHAR}, 
+      #{item.productCd,jdbcType=VARCHAR}, #{item.refNbr,jdbcType=VARCHAR}, #{item.repayTerm,jdbcType=DECIMAL}, 
+      #{item.premium,jdbcType=VARCHAR}, #{item.premiumPaid,jdbcType=VARCHAR}, #{item.repayType,jdbcType=VARCHAR}, 
+      to_char(sysdate,'yyyy-mm-dd'), #{item.syncStatus,jdbcType=VARCHAR}, #{item.copNo,jdbcType=VARCHAR}, 
+      #{item.businessDate,jdbcType=VARCHAR}
+    from dual
+  </foreach >
+</insert>
+
+<select id="selectByContNoAndDate" parameterType="Map" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from MSXF_FEE_REPAY_DETAILS
+  where REF_NBR = #{contrNbr,jdbcType=VARCHAR}
+  and BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+  and SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR}
+</select>
+
+  <select id="selectByDate" parameterType="java.lang.String" resultType="Map">
+      <![CDATA[
+      select
+      c.serno,
+      a.biz_date,
+      a.premium_paid,
+      c.cover_start_date,
+      c.belong_br_id,
+      a.bf_id,
+      c.list_serno,
+      a.ref_nbr,
+      d.core_organno
+      from msxf_fee_repay_details a,
+      acc_loan b,
+      lst_iqp_info c,
+      s_org d
+      where a.ref_nbr = b.bill_no
+      and b.list_serno = c.list_serno
+      and d.organno = c.belong_br_id
+      and a.biz_date < to_char(sysdate, 'yyyymmdd')
+      and a.biz_date >= #{beforeDate,jdbcType=VARCHAR}
+     ]]>
+  </select>
+</mapper>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.QueryIqpTemplateDetailMapper">
+ 
+ 	<select id="queryIqpTemplateDetailMapper" parameterType="java.lang.String" resultType="java.util.HashMap"> 
+			<![CDATA[
+		SELECT
+            a.*,
+            (
+                CASE
+                    WHEN SUBSTR(var888,5,2)='03'
+                    THEN '√合作渠道   □自营业务   □其他'
+                    WHEN SUBSTR(var888,5,2)='02'
+                    THEN '□合作渠道   √自营业务   □其他'
+                    ELSE '□合作渠道   □自营业务   √其他'
+                END ) AS var25,
+            (
+                SELECT
+                    COP_CUS_NAME
+                FROM
+                    iqp_me_prj_cop impc
+                WHERE
+                    impc.SERNO=a.SERNO
+                AND rownum=1) AS var26,
+            (
+                SELECT
+                    COP_NO
+                FROM
+                    iqp_me_prj_cop impc
+                WHERE
+                    impc.SERNO=a.SERNO
+                AND rownum=1) AS var27
+        FROM
+            (
+                SELECT DISTINCT
+                    a.serno,
+                    (
+                        SELECT
+                            ORGANSHORTFORM
+                        FROM
+                            S_ORG so
+                        WHERE
+                            so.ORGANNO=SUBSTR(a.BELONG_BR_ID,0,2)) AS var1,
+                    (
+                        SELECT
+                            INS_CODE||INS_NAME
+                        FROM
+                            INS_BASICINFO so
+                        WHERE
+                            so.INS_CODE=SUBSTR(a.PRD_ID,0,4)) AS var2,
+                    a.cus_name                                AS var3,
+                    (
+                        SELECT
+                            CNNAME
+                        FROM
+                            CMIS.S_DIC sd
+                        WHERE
+                            sd.OPTTYPE='STD_ZB_CUS_TYPE'
+                        AND sd.ENNAME=a.CUS_TYPE) AS var4,
+                    a.CERT_CODE                   AS var5,
+                    a.phone                      AS var6,
+                    b.indiv_brt_place                     AS var7 ,
+                    b.email              AS var8,
+              (
+                SELECT
+                  COP_CUS_NAME
+                FROM 
+                  PRJ_COP_ACC pca
+                WHERE pca.COP_NO = a.PARTNER_NO
+              )                 AS var9 ,
+
+                    '大写：'||Money2Chinese(amount) || '    ' ||' 小写：' || AMOUNT ||'元' AS var11,
+                    GETLSTDURATION2(a.SERNO)                                    AS var12,
+                    (
+                        SELECT
+                            CNNAME
+                        FROM
+                            CMIS.S_DIC sd
+                        WHERE
+                            sd.OPTTYPE='STD_ZB_REPAY_MODE'
+                        AND sd.ENNAME=a.repayment_mode)                                         AS var13,
+                    '0' || '%'                                                        AS var14,
+                    '保费金额=保险金额*保险费率' AS var15,
+                    a.cost_rate                                                                AS var16,
+                    GETLSTPAYWAY(a.SERNO) AS var17,
+                    (
+                        SELECT
+                            CNNAME
+                        FROM
+                            CMIS.S_DIC sd
+                        WHERE
+                            sd.OPTTYPE='STD_HA_YES_NO'
+                        AND sd.ENNAME=NVL(a.is_agriculture,'0')) AS var18,
+                    TO_CHAR(SYSDATE,'yyyy') || '    年    ' || TO_CHAR(SYSDATE,'MM') || '    月    ' ||
+                    TO_CHAR(SYSDATE,'dd') || '    日' AS var19,
+                    (
+                        SELECT
+                            ORGANNAME
+                        FROM
+                            s_org so
+                        WHERE
+                            so.ORGANNO=SUBSTR(a.BELONG_BR_ID,0,2)) AS var20 ,
+                    (
+                        SELECT
+                            ADDRESS
+                        FROM
+                            s_org so
+                        WHERE
+                            so.ORGANNO=SUBSTR(a.BELONG_BR_ID,0,2)) AS var21 ,
+                    c.actorname                                    AS var22,
+                    c.actorno                                      AS var23,
+                    NVL(c.telnum,'无')                              AS var24,
+                    ''                                             AS var28,
+                    ''                                             AS var29,
+                    e.c_appnt                                      AS var30,
+                    (
+                        SELECT
+                            NEW_PRD_CODE
+                        FROM
+                            CMIS.PRD_BASICINFO pb
+                        WHERE
+                            pb.PRD_CODE=a.PRD_ID ) AS var888
+                FROM
+                    iqp_me_loan_app a,
+                    Iqp_Me_Cus_App b,
+                    S_USER c,                 
+					prd_basicinfo e
+                WHERE
+                    a.serno = b.serno
+                	AND a.business_persion_id = c.ACTORNO(+)
+                	AND a.serno = #{serno,jdbcType=VARCHAR}
+            		AND a.prd_id = e.prd_code ) a
+			]]>
+	</select>
+</mapper>

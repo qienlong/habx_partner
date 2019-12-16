@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeInsuredMapper">
+
+  
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsured">
+    insert into IQP_ME_INSURED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pNo != null">
+        P_NO,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="insuredName != null">
+        INSURED_NAME,
+      </if>
+      <if test="insuredAddress != null">
+        INSURED_ADDRESS,
+      </if>
+      <if test="insuredPhone != null">
+        INSURED_PHONE,
+      </if>
+      <if test="insuredCertCode != null">
+        INSURED_CERT_CODE,
+      </if>
+      <if test="insuredId != null">
+        INSURED_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pNo != null">
+        #{pNo,jdbcType=DECIMAL},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredName != null">
+        #{insuredName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredAddress != null">
+        #{insuredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredPhone != null">
+        #{insuredPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredCertCode != null">
+        #{insuredCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null">
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+    <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsured">
+    update IQP_ME_INSURED
+    <set>
+      <if test="insuredName != null">
+        INSURED_NAME = #{insuredName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredAddress != null">
+        INSURED_ADDRESS = #{insuredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredPhone != null">
+        INSURED_PHONE = #{insuredPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredCertCode != null">
+        INSURED_CERT_CODE = #{insuredCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null">
+        INSURED_ID = #{insuredId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where  SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  
+</mapper>

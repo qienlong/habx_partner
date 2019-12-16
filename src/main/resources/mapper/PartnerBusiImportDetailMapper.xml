@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PartnerBusiImportDetailMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="BATCH_NO" jdbcType="VARCHAR" property="batchNo" />
+    <result column="LOAN_CONT_NO" jdbcType="VARCHAR" property="loanContNo" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="LOAN_START_DATE" jdbcType="VARCHAR" property="loanStartDate" />
+    <result column="LOAN_END_DATE" jdbcType="VARCHAR" property="loanEndDate" />
+    <result column="APPR_RESULT" jdbcType="VARCHAR" property="apprResult" />
+    <result column="NO_PASS_REASON" jdbcType="VARCHAR" property="noPassReason" />
+    <result column="AMOUNT" jdbcType="VARCHAR" property="amount" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="LIVE_ADDR" jdbcType="VARCHAR" property="liveAddr" />
+    <result column="COM_NAME" jdbcType="VARCHAR" property="comName" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="REPAY_MODEL" jdbcType="VARCHAR" property="repayModel" />
+    <result column="BANK_CARD_NO" jdbcType="VARCHAR" property="bankCardNo" />
+    <result column="LOAN_USE" jdbcType="VARCHAR" property="loanUse" />
+    <result column="AMT_LX" jdbcType="VARCHAR" property="amtLx" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="CAR_LOGO_NO" jdbcType="VARCHAR" property="carLogoNo" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="REQ_SEQ_NO" jdbcType="VARCHAR" property="reqSeqNo" />
+    <result column="REQ_LIST_SERNO" jdbcType="VARCHAR" property="reqListSerno" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, BATCH_NO, LOAN_CONT_NO, BILL_NO, LOAN_START_DATE, LOAN_END_DATE, APPR_RESULT, 
+    NO_PASS_REASON, AMOUNT, CERT_CODE, CUS_NAME, CERT_TYPE, LIVE_ADDR, COM_NAME, PHONE, 
+    REPAY_MODEL, BANK_CARD_NO, LOAN_USE, AMT_LX, TERM, CAR_LOGO_NO, STATUS, REQ_SEQ_NO, 
+    REQ_LIST_SERNO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PARTNER_BUSI_IMPORT_DETAIL
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByByFileds" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PARTNER_BUSI_IMPORT_DETAIL
+    where
+    <if test="reqSeqNo != null">
+     req_seq_no = #{reqSeqNo,jdbcType=VARCHAR}
+    </if>
+    <if test="reqListSerno != null">
+     req_list_serno = #{reqListSerno,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PARTNER_BUSI_IMPORT_DETAIL
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail">
+    insert into PARTNER_BUSI_IMPORT_DETAIL (SERNO, BATCH_NO, LOAN_CONT_NO, 
+      BILL_NO, LOAN_START_DATE, LOAN_END_DATE, 
+      APPR_RESULT, NO_PASS_REASON, AMOUNT, 
+      CERT_CODE, CUS_NAME, CERT_TYPE, 
+      LIVE_ADDR, COM_NAME, PHONE, 
+      REPAY_MODEL, BANK_CARD_NO, LOAN_USE, 
+      AMT_LX, TERM, CAR_LOGO_NO, 
+      STATUS, REQ_SEQ_NO, REQ_LIST_SERNO
+      )
+    values (#{serno,jdbcType=VARCHAR}, #{batchNo,jdbcType=VARCHAR}, #{loanContNo,jdbcType=VARCHAR}, 
+      #{billNo,jdbcType=VARCHAR}, #{loanStartDate,jdbcType=VARCHAR}, #{loanEndDate,jdbcType=VARCHAR}, 
+      #{apprResult,jdbcType=VARCHAR}, #{noPassReason,jdbcType=VARCHAR}, #{amount,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{liveAddr,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{repayModel,jdbcType=VARCHAR}, #{bankCardNo,jdbcType=VARCHAR}, #{loanUse,jdbcType=VARCHAR}, 
+      #{amtLx,jdbcType=VARCHAR}, #{term,jdbcType=VARCHAR}, #{carLogoNo,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{reqSeqNo,jdbcType=VARCHAR}, #{reqListSerno,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail">
+    insert into PARTNER_BUSI_IMPORT_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="batchNo != null">
+        BATCH_NO,
+      </if>
+      <if test="loanContNo != null">
+        LOAN_CONT_NO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE,
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE,
+      </if>
+      <if test="apprResult != null">
+        APPR_RESULT,
+      </if>
+      <if test="noPassReason != null">
+        NO_PASS_REASON,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR,
+      </if>
+      <if test="comName != null">
+        COM_NAME,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="repayModel != null">
+        REPAY_MODEL,
+      </if>
+      <if test="bankCardNo != null">
+        BANK_CARD_NO,
+      </if>
+      <if test="loanUse != null">
+        LOAN_USE,
+      </if>
+      <if test="amtLx != null">
+        AMT_LX,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="carLogoNo != null">
+        CAR_LOGO_NO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="reqSeqNo != null">
+        REQ_SEQ_NO,
+      </if>
+      <if test="reqListSerno != null">
+        REQ_LIST_SERNO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanContNo != null">
+        #{loanContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStartDate != null">
+        #{loanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanEndDate != null">
+        #{loanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="apprResult != null">
+        #{apprResult,jdbcType=VARCHAR},
+      </if>
+      <if test="noPassReason != null">
+        #{noPassReason,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null">
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="repayModel != null">
+        #{repayModel,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null">
+        #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUse != null">
+        #{loanUse,jdbcType=VARCHAR},
+      </if>
+      <if test="amtLx != null">
+        #{amtLx,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="carLogoNo != null">
+        #{carLogoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reqSeqNo != null">
+        #{reqSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reqListSerno != null">
+        #{reqListSerno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail">
+    update PARTNER_BUSI_IMPORT_DETAIL
+    <set>
+      <if test="batchNo != null">
+        BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanContNo != null">
+        LOAN_CONT_NO = #{loanContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE = #{loanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE = #{loanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="apprResult != null">
+        APPR_RESULT = #{apprResult,jdbcType=VARCHAR},
+      </if>
+      <if test="noPassReason != null">
+        NO_PASS_REASON = #{noPassReason,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null">
+        COM_NAME = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="repayModel != null">
+        REPAY_MODEL = #{repayModel,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null">
+        BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUse != null">
+        LOAN_USE = #{loanUse,jdbcType=VARCHAR},
+      </if>
+      <if test="amtLx != null">
+        AMT_LX = #{amtLx,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="carLogoNo != null">
+        CAR_LOGO_NO = #{carLogoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reqSeqNo != null">
+        REQ_SEQ_NO = #{reqSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reqListSerno != null">
+        REQ_LIST_SERNO = #{reqListSerno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail">
+    update PARTNER_BUSI_IMPORT_DETAIL
+    set BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      LOAN_CONT_NO = #{loanContNo,jdbcType=VARCHAR},
+      BILL_NO = #{billNo,jdbcType=VARCHAR},
+      LOAN_START_DATE = #{loanStartDate,jdbcType=VARCHAR},
+      LOAN_END_DATE = #{loanEndDate,jdbcType=VARCHAR},
+      APPR_RESULT = #{apprResult,jdbcType=VARCHAR},
+      NO_PASS_REASON = #{noPassReason,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      COM_NAME = #{comName,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      REPAY_MODEL = #{repayModel,jdbcType=VARCHAR},
+      BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR},
+      LOAN_USE = #{loanUse,jdbcType=VARCHAR},
+      AMT_LX = #{amtLx,jdbcType=VARCHAR},
+      TERM = #{term,jdbcType=VARCHAR},
+      CAR_LOGO_NO = #{carLogoNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      REQ_SEQ_NO = #{reqSeqNo,jdbcType=VARCHAR},
+      REQ_LIST_SERNO = #{reqListSerno,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByReqListSerno" parameterType="java.lang.String" resultMap="BaseResultMap">
+     select
+     <include refid="Base_Column_List" />
+     from PARTNER_BUSI_IMPORT_DETAIL a
+     where a.REQ_LIST_SERNO = #{reqListSerno,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByBill" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportDetail" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from PARTNER_BUSI_IMPORT_DETAIL a
+    where a.batch_no = #{batchNo,jdbcType=VARCHAR}
+    and a.loan_cont_no = #{loanContNo,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectPartnerContNoByLoanContNo" parameterType="java.lang.String" resultType="java.lang.String">
+  	select
+  	distinct a.loan_cont_no
+  	from partner_busi_import_detail a
+  	where a.loan_cont_no = #{loanContNo}
+  	and a.appr_result not in ('998')
+  </select>
+
+  <select id="selectBusiBillNos4HaoSen" parameterType="String" resultType="String">
+		select distinct d.bill_no
+        from partner_busi_import_detail a
+        left join partner_busi_import_list b
+          on a.batch_no = b.batch_no
+        left join lst_iqp_info c
+          on a.serno = c.iqp_loan_serno
+        left join acc_loan d on a.serno = d.iqp_loan_serno
+     where b.busi_cop_no = #{copNo,jdbcType=VARCHAR}
+       and c.list_serno is not null
+       and d.bill_no is not null
+	</select>
+</mapper>

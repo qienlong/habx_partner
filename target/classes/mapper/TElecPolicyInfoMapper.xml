@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.TElecPolicyInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="POLICY_NO" jdbcType="VARCHAR" property="policyNo" />
+    <result column="SHORT_URL" jdbcType="VARCHAR" property="shortUrl" />
+    <result column="INPUT_TIME" jdbcType="TIMESTAMP" property="inputTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    <result column="JSON_BODY" jdbcType="CLOB" property="jsonBody" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, POLICY_NO, SHORT_URL, INPUT_TIME
+  </sql>
+  <sql id="Blob_Column_List">
+    JSON_BODY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from T_ELEC_POLICY_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  
+    <select id="selectByPolicyNo" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from T_ELEC_POLICY_INFO
+    where POLICY_NO = #{policyNo,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_ELEC_POLICY_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    insert into T_ELEC_POLICY_INFO (PK_ID, POLICY_NO, SHORT_URL, 
+      INPUT_TIME, JSON_BODY)
+    values (#{pkId,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{shortUrl,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=TIMESTAMP}, #{jsonBody,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    insert into T_ELEC_POLICY_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="policyNo != null">
+        POLICY_NO,
+      </if>
+      <if test="shortUrl != null">
+        SHORT_URL,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="jsonBody != null">
+        JSON_BODY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="shortUrl != null">
+        #{shortUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jsonBody != null">
+        #{jsonBody,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    update T_ELEC_POLICY_INFO
+    <set>
+      <if test="policyNo != null">
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="shortUrl != null">
+        SHORT_URL = #{shortUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jsonBody != null">
+        JSON_BODY = #{jsonBody,jdbcType=CLOB},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    update T_ELEC_POLICY_INFO
+    set POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      SHORT_URL = #{shortUrl,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP},
+      JSON_BODY = #{jsonBody,jdbcType=CLOB}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.TElecPolicyInfo">
+    update T_ELEC_POLICY_INFO
+    set POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      SHORT_URL = #{shortUrl,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

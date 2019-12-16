@@ -1,0 +1,3632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeLoanAppMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeLoanApp">
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUS_TYPE" jdbcType="VARCHAR" property="cusType" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="APPLY_DATE" jdbcType="VARCHAR" property="applyDate" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="GEO_LOC" jdbcType="VARCHAR" property="geoLoc" />
+    <result column="SCHEME_TYPE" jdbcType="VARCHAR" property="schemeType" />
+    <result column="LOAN_USE_TYPE" jdbcType="VARCHAR" property="loanUseType" />
+    <result column="USE_DEC" jdbcType="VARCHAR" property="useDec" />
+    <result column="INFO_CHANNEL" jdbcType="VARCHAR" property="infoChannel" />
+    <result column="ANOTHER_INFO_CHANNEL" jdbcType="VARCHAR" property="anotherInfoChannel" />
+    <result column="PARTNER_NO" jdbcType="VARCHAR" property="partnerNo" />
+    <result column="PARTNER_NAME" jdbcType="VARCHAR" property="partnerName" />
+    <result column="IS_ASSURE" jdbcType="CHAR" property="isAssure" />
+    <result column="ASSURE_AGREE_NO" jdbcType="VARCHAR" property="assureAgreeNo" />
+    <result column="ASSURE_AGREE_NAME" jdbcType="VARCHAR" property="assureAgreeName" />
+    <result column="IS_OTHER_PLACE" jdbcType="CHAR" property="isOtherPlace" />
+    <result column="BIZ_TYPE_SUB" jdbcType="VARCHAR" property="bizTypeSub" />
+    <result column="OTHER_REMARK" jdbcType="VARCHAR" property="otherRemark" />
+    <result column="LOAN_DIRECTION" jdbcType="VARCHAR" property="loanDirection" />
+    <result column="DIRECTION_NAME" jdbcType="VARCHAR" property="directionName" />
+    <result column="ANALYSIS_DATE" jdbcType="VARCHAR" property="analysisDate" />
+    <result column="ACCEPT_ID" jdbcType="VARCHAR" property="acceptId" />
+    <result column="ACCEPT_NAME" jdbcType="VARCHAR" property="acceptName" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_NAME" jdbcType="VARCHAR" property="inputName" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="MAIN_USER_ID" jdbcType="VARCHAR" property="mainUserId" />
+    <result column="MAIN_USER_NAME" jdbcType="VARCHAR" property="mainUserName" />
+    <result column="COMPETENCE" jdbcType="DECIMAL" property="competence" />
+    <result column="APPROVE_STATUS" jdbcType="VARCHAR" property="approveStatus" />
+    <result column="INTEREST_ACC_MODE" jdbcType="VARCHAR" property="interestAccMode" />
+    <result column="REPAYMENT_MODE" jdbcType="VARCHAR" property="repaymentMode" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="IR_TYPE" jdbcType="VARCHAR" property="irType" />
+    <result column="APPLY_AMOUNT" jdbcType="DECIMAL" property="applyAmount" />
+    <result column="TERM" jdbcType="DECIMAL" property="term" />
+    <result column="APPLY_TERM" jdbcType="DECIMAL" property="applyTerm" />
+    <result column="RULING_IR" jdbcType="DECIMAL" property="rulingIr" />
+    <result column="SPRD_RATE" jdbcType="DECIMAL" property="sprdRate" />
+    <result column="FLOATING_TYPE" jdbcType="VARCHAR" property="floatingType" />
+    <result column="FLOATING_RATE" jdbcType="DECIMAL" property="floatingRate" />
+    <result column="REALITY_IR_Y" jdbcType="DECIMAL" property="realityIrY" />
+    <result column="OVERDUE_RATE" jdbcType="DECIMAL" property="overdueRate" />
+    <result column="OVERDUE_IR" jdbcType="DECIMAL" property="overdueIr" />
+    <result column="DEFAULT_RATE" jdbcType="DECIMAL" property="defaultRate" />
+    <result column="DEFAULT_IR" jdbcType="DECIMAL" property="defaultIr" />
+    <result column="CI_RATE" jdbcType="DECIMAL" property="ciRate" />
+    <result column="CI_IR" jdbcType="DECIMAL" property="ciIr" />
+    <result column="IR_ADJUST_MODE" jdbcType="VARCHAR" property="irAdjustMode" />
+    <result column="FREQUENCY" jdbcType="CHAR" property="frequency" />
+    <result column="PAY_DISTANCE" jdbcType="VARCHAR" property="payDistance" />
+    <result column="ASSURE_MEANS_MAIN" jdbcType="CHAR" property="assureMeansMain" />
+    <result column="ASSURE_MEANS1" jdbcType="CHAR" property="assureMeans1" />
+    <result column="ASSURE_MEANS2" jdbcType="CHAR" property="assureMeans2" />
+    <result column="APP_WORKFLOW_ID" jdbcType="VARCHAR" property="appWorkflowId" />
+    <result column="APP_FORM" jdbcType="VARCHAR" property="appForm" />
+    <result column="DUE_DAY" jdbcType="DECIMAL" property="dueDay" />
+    <result column="APPLY_CUR_TYPE" jdbcType="VARCHAR" property="applyCurType" />
+    <result column="DAYS_OF_GRACE" jdbcType="DECIMAL" property="daysOfGrace" />
+    <result column="PAY_TYPE" jdbcType="VARCHAR" property="payType" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="TERM_TIME_TYPE" jdbcType="VARCHAR" property="termTimeType" />
+    <result column="REFUSE_REASON" jdbcType="VARCHAR" property="refuseReason" />
+    <result column="APPLY_ADVISE" jdbcType="VARCHAR" property="applyAdvise" />
+    <result column="IS_FLAG" jdbcType="CHAR" property="isFlag" />
+    <result column="CONT_NAME" jdbcType="VARCHAR" property="contName" />
+    <result column="DUE_FIRST_DAY" jdbcType="VARCHAR" property="dueFirstDay" />
+    <result column="CONT_PUBLIC" jdbcType="VARCHAR" property="contPublic" />
+    <result column="IS_RECORD" jdbcType="VARCHAR" property="isRecord" />
+    <result column="REFUSE_TIME" jdbcType="VARCHAR" property="refuseTime" />
+    <result column="REFUSE_CODE" jdbcType="VARCHAR" property="refuseCode" />
+    <result column="GUARANTOR" jdbcType="VARCHAR" property="guarantor" />
+    <result column="GUARANTOR_OCC" jdbcType="VARCHAR" property="guarantorOcc" />
+    <result column="GUARANTOR_INCM" jdbcType="DECIMAL" property="guarantorIncm" />
+    <result column="GUARANTOR_CODE" jdbcType="VARCHAR" property="guarantorCode" />
+    <result column="GUARANTOR_PHONE" jdbcType="VARCHAR" property="guarantorPhone" />
+    <result column="GUARANTOR_RELATE" jdbcType="CHAR" property="guarantorRelate" />
+    <result column="CORP_GUAR_NAME" jdbcType="VARCHAR" property="corpGuarName" />
+    <result column="CORP_RELATE" jdbcType="CHAR" property="corpRelate" />
+    <result column="CORP_DESC" jdbcType="VARCHAR" property="corpDesc" />
+    <result column="MAY_GRT" jdbcType="VARCHAR" property="mayGrt" />
+    <result column="GRT_VALUE" jdbcType="DECIMAL" property="grtValue" />
+    <result column="IS_WORTH" jdbcType="CHAR" property="isWorth" />
+    <result column="SPREAD_TIME" jdbcType="VARCHAR" property="spreadTime" />
+    <result column="SPREAD_PLACE" jdbcType="VARCHAR" property="spreadPlace" />
+    <result column="SPREAD_NAME" jdbcType="VARCHAR" property="spreadName" />
+    <result column="RISK_ANALYSE" jdbcType="VARCHAR" property="riskAnalyse" />
+    <result column="MANAGER_ADVICE" jdbcType="VARCHAR" property="managerAdvice" />
+    <result column="CUS_SEX" jdbcType="CHAR" property="cusSex" />
+    <result column="LOAN_USE" jdbcType="VARCHAR" property="loanUse" />
+    <result column="READ_FLAG" jdbcType="CHAR" property="readFlag" />
+    <result column="LOAN_USE_DESC" jdbcType="VARCHAR" property="loanUseDesc" />
+    <result column="ASSI_ID" jdbcType="VARCHAR" property="assiId" />
+    <result column="ASSI_NAME" jdbcType="VARCHAR" property="assiName" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="USING_IR" jdbcType="DECIMAL" property="usingIr" />
+    <result column="PRD_ID" jdbcType="VARCHAR" property="prdId" />
+    <result column="INPUT_BR_NAME" jdbcType="VARCHAR" property="inputBrName" />
+    <result column="INPUT_LEVEL" jdbcType="CHAR" property="inputLevel" />
+    <result column="MAIN_LEVEL" jdbcType="CHAR" property="mainLevel" />
+    <result column="PROP" jdbcType="VARCHAR" property="prop" />
+    <result column="IS_MORE_LOAN" jdbcType="VARCHAR" property="isMoreLoan" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="APP_STATUS" jdbcType="VARCHAR" property="appStatus" />
+    <result column="PARTNER_TYPE" jdbcType="VARCHAR" property="partnerType" />
+    <result column="PARTNER_CERT_CODE" jdbcType="VARCHAR" property="partnerCertCode" />
+    <result column="PARTNER_CERT_TYPE" jdbcType="VARCHAR" property="partnerCertType" />
+    <result column="UPDATE_DATE" jdbcType="VARCHAR" property="updateDate" />
+    <result column="IS_AGRICULTURE" jdbcType="CHAR" property="isAgriculture" />
+    <result column="INPUT_CHANNEL" jdbcType="VARCHAR" property="inputChannel" />
+    <result column="IS_ADD_CUS" jdbcType="CHAR" property="isAddCus" />
+    <result column="NEW_APPROVE_STATUS" jdbcType="VARCHAR" property="newApproveStatus" />
+    <result column="CHANNEL_NO" jdbcType="VARCHAR" property="channelNo" />
+    <result column="CHANNEL_NAME" jdbcType="VARCHAR" property="channelName" />
+    <result column="IS_ALREADY" jdbcType="CHAR" property="isAlready" />
+    <result column="IS_ORDER" jdbcType="CHAR" property="isOrder" />
+    <result column="PRJ_COST" jdbcType="DECIMAL" property="prjCost" />
+    <result column="PRJ_STEP" jdbcType="VARCHAR" property="prjStep" />
+    <result column="USE_DETAIL" jdbcType="VARCHAR" property="useDetail" />
+    <result column="LOAN_REASON" jdbcType="VARCHAR" property="loanReason" />
+    <result column="ADVISE_AMT" jdbcType="DECIMAL" property="adviseAmt" />
+    <result column="ADVISE_DEADLINE" jdbcType="VARCHAR" property="adviseDeadline" />
+    <result column="ADVISE_REPAYMENT_WAY" jdbcType="VARCHAR" property="adviseRepaymentWay" />
+    <result column="ADVISE_GUAR_PERSON" jdbcType="VARCHAR" property="adviseGuarPerson" />
+    <result column="SPECIAL_CASE" jdbcType="VARCHAR" property="specialCase" />
+    <result column="CUS_MGR" jdbcType="VARCHAR" property="cusMgr" />
+    <result column="ADVISE_DATE" jdbcType="VARCHAR" property="adviseDate" />
+    <result column="GUARANTEE_SERNO" jdbcType="VARCHAR" property="guaranteeSerno" />
+    <result column="TEAMNO" jdbcType="VARCHAR" property="teamno" />
+    <result column="TEAM_LEADER" jdbcType="VARCHAR" property="teamLeader" />
+    <result column="GROUPNO" jdbcType="VARCHAR" property="groupno" />
+    <result column="GROUP_LEADER" jdbcType="VARCHAR" property="groupLeader" />
+    <result column="IS_CANCEL" jdbcType="CHAR" property="isCancel" />
+    <result column="BUSINESS_PERSION_ID" jdbcType="VARCHAR" property="businessPersionId" />
+    <result column="BUSINESS_PERSION_NAME" jdbcType="VARCHAR" property="businessPersionName" />
+    <result column="BUSINESS_PERSION_PHONE" jdbcType="VARCHAR" property="businessPersionPhone" />
+    <result column="BANK_CUS_MGR" jdbcType="VARCHAR" property="bankCusMgr" />
+    <result column="BANK_MGR_PHONE" jdbcType="VARCHAR" property="bankMgrPhone" />
+    <result column="OPT_TYPE" jdbcType="CHAR" property="optType" />
+    <result column="IS_BATC_BIZ" jdbcType="VARCHAR" property="isBatcBiz" />
+    <result column="REPAYMENT_MODE_DESC" jdbcType="VARCHAR" property="repaymentModeDesc" />
+    <result column="ADVISE_REPAYMENT_WAY_DESC" jdbcType="VARCHAR" property="adviseRepaymentWayDesc" />
+    <result column="BIZ_MODE" jdbcType="VARCHAR" property="bizMode" />
+    <result column="LOAN_FORM" jdbcType="VARCHAR" property="loanForm" />
+    <result column="REPAYMENT_SRC" jdbcType="VARCHAR" property="repaymentSrc" />
+    <result column="GUARANTY_TYPE" jdbcType="VARCHAR" property="guarantyType" />
+    <result column="GUARANTY_NAME" jdbcType="VARCHAR" property="guarantyName" />
+    <result column="HOUSE_CERT_NO" jdbcType="VARCHAR" property="houseCertNo" />
+    <result column="RIGHTER_NAME" jdbcType="VARCHAR" property="righterName" />
+    <result column="RIGHTER_CERT_TYPE" jdbcType="VARCHAR" property="righterCertType" />
+    <result column="RIGHTER_CERT_CODE" jdbcType="VARCHAR" property="righterCertCode" />
+    <result column="IS_GRT_THIRD" jdbcType="VARCHAR" property="isGrtThird" />
+    <result column="O_BILL_NO" jdbcType="VARCHAR" property="oBillNo" />
+    <result column="O_CONT_NO" jdbcType="VARCHAR" property="oContNo" />
+    <result column="LOAN_BALANCE" jdbcType="DECIMAL" property="loanBalance" />
+    <result column="O_USING_IR" jdbcType="DECIMAL" property="oUsingIr" />
+    <result column="O_LOAN_START_DATE" jdbcType="VARCHAR" property="oLoanStartDate" />
+    <result column="O_LOAN_END_DATE" jdbcType="VARCHAR" property="oLoanEndDate" />
+    <result column="BUSINESS_BR_ID" jdbcType="VARCHAR" property="businessBrId" />
+    <result column="TOTAL_NESS_RATE" jdbcType="DECIMAL" property="totalNessRate" />
+    <result column="CANCEL_FAIL_CAUSE" jdbcType="VARCHAR" property="cancelFailCause" />
+    <result column="EVAL_NET_VALUE" jdbcType="DECIMAL" property="evalNetValue" />
+    <result column="UNASSURE_MEANS_ACTIONS" jdbcType="VARCHAR" property="unassureMeansActions" />
+    <result column="SPREAD_PLACE_DESC" jdbcType="VARCHAR" property="spreadPlaceDesc" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="COST_RATE" jdbcType="DECIMAL" property="costRate" />
+    <result column="ACCEPT_LOAN_AMOUNT" jdbcType="DECIMAL" property="acceptLoanAmount" />
+    <result column="SUBORGANNO" jdbcType="VARCHAR" property="suborganno" />
+    <result column="IMP_THI_SRC" jdbcType="CHAR" property="impThiSrc" />
+    <result column="IS_ELEC_INS" jdbcType="VARCHAR" property="isElecIns" />
+    <result column="IS_UPDATE" jdbcType="VARCHAR" property="isUpdate" />
+    <result column="IS_PASS" jdbcType="VARCHAR" property="isPass" />
+    <result column="REPAY_PERCENT" jdbcType="DECIMAL" property="repayPercent" />
+    <result column="ADVISE_REPAY_PERCENT" jdbcType="DECIMAL" property="adviseRepayPercent" />
+    <result column="FICO_SCORE" jdbcType="VARCHAR" property="ficoScore" />
+    <result column="NOT_THROUGH_REASON" jdbcType="VARCHAR" property="notThroughReason" />
+    <result column="FICO_RECORD_ID" jdbcType="VARCHAR" property="ficoRecordId" />
+    <result column="SPREAD_DATE" jdbcType="VARCHAR" property="spreadDate" />
+    <result column="OPER_NAME" jdbcType="VARCHAR" property="operName" />
+    <result column="OPER_PHONE" jdbcType="VARCHAR" property="operPhone" />
+    <result column="OPER_TEL_NO" jdbcType="VARCHAR" property="operTelNo" />
+    <result column="BELONG_BR_ID" jdbcType="VARCHAR" property="belongBrId" />
+    <result column="P2P_APPROVE_STATUS" jdbcType="VARCHAR" property="p2pApproveStatus" />
+    <result column="REFUSEREMARK" jdbcType="VARCHAR" property="refuseremark" />
+    <result column="IS_SEND_LOAN" jdbcType="VARCHAR" property="isSendLoan" />
+    <result column="HANDLE_TIME" jdbcType="VARCHAR" property="handleTime" />
+    <result column="THIRD_PLATFORM" jdbcType="VARCHAR" property="thirdPlatform" />
+    <result column="THIRD_PLATFORM_NAME" jdbcType="VARCHAR" property="thirdPlatformName" />
+    <result column="CAN_SINGLE" jdbcType="VARCHAR" property="canSingle" />
+    <result column="IS_DISTRIBUTION" jdbcType="VARCHAR" property="isDistribution" />
+    <result column="TERM_DAY" jdbcType="DECIMAL" property="termDay" />
+    <result column="ADVISE_TERM" jdbcType="VARCHAR" property="adviseTerm" />
+    <result column="LOAN_STATUS" jdbcType="VARCHAR" property="loanStatus" />
+    <result column="SEND_IMAGE_STATUS" jdbcType="VARCHAR" property="sendImageStatus" />
+    <result column="CUS_TYPE_NEW" jdbcType="VARCHAR" property="cusTypeNew" />
+    <result column="ACC_AGREE_NO" jdbcType="VARCHAR" property="accAgreeNo" />
+    <result column="PUSH_BR_ID" jdbcType="CHAR" property="pushBrId" />
+    <result column="PERIOD" jdbcType="DECIMAL" property="period" />
+    <result column="AUTOAPPR" jdbcType="VARCHAR" property="autoappr" />
+    <result column="CACCEL_LOAN_REMARKS" jdbcType="VARCHAR" property="caccelLoanRemarks" />
+    <result column="CACCEL_LOAN_REASON" jdbcType="VARCHAR" property="caccelLoanReason" />
+    <result column="BID_CUS_ID" jdbcType="VARCHAR" property="bidCusId" />
+    <result column="C_APPNT" jdbcType="VARCHAR" property="cAppnt" />
+    <result column="BANK_CARD_NO" jdbcType="VARCHAR" property="bankCardNo" />
+    <result column="VALID_RESULT" jdbcType="VARCHAR" property="validResult" />
+    <result column="IS_AUTO_APPROVE" jdbcType="VARCHAR" property="isAutoApprove" />
+    <result column="PARTNER_CUS_ID" jdbcType="VARCHAR" property="partnerCusId" />
+    <result column="MODIFYREASON" jdbcType="VARCHAR" property="modifyreason" />
+    <result column="SPECIAL_FLAG" jdbcType="VARCHAR" property="specialFlag" />
+    <result column="JIRA_NO" jdbcType="VARCHAR" property="jiraNo" />
+    <result column="RULE_LOAN_AMT" jdbcType="DECIMAL" property="ruleLoanAmt" />
+    <result column="SPECIAL_REMARK" jdbcType="VARCHAR" property="specialRemark" />
+    <result column="BUSI_STATUS" jdbcType="VARCHAR" property="busiStatus" />
+    <result column="REPAY_BANK" jdbcType="VARCHAR" property="repayBank" />
+    <result column="REPAY_ACCOUNT_NAME" jdbcType="VARCHAR" property="repayAccountName" />
+    <result column="REPAY_ACCOUNT" jdbcType="VARCHAR" property="repayAccount" />
+    <result column="PAYEE_BANK" jdbcType="VARCHAR" property="payeeBank" />
+    <result column="PAYEE_ACCOUNT_NAME" jdbcType="VARCHAR" property="payeeAccountName" />
+    <result column="PAYEE_ACCOUNT" jdbcType="VARCHAR" property="payeeAccount" />
+    <result column="RANSOM_TYPE" jdbcType="VARCHAR" property="ransomType" />
+    <result column="OLD_HOUSE_AMOUNT" jdbcType="DECIMAL" property="oldHouseAmount" />
+    <result column="USE_DATE" jdbcType="VARCHAR" property="useDate" />
+    <result column="BUYER_CUS_ID" jdbcType="VARCHAR" property="buyerCusId" />
+    <result column="SELLER_CUS_ID" jdbcType="VARCHAR" property="sellerCusId" />
+    <result column="BUYER_CERT_TYPE" jdbcType="VARCHAR" property="buyerCertType" />
+    <result column="BUYER_CERT_CODE" jdbcType="VARCHAR" property="buyerCertCode" />
+    <result column="BUYER_CUS_TYPE" jdbcType="CHAR" property="buyerCusType" />
+    <result column="BUYER_CUS_NAME" jdbcType="VARCHAR" property="buyerCusName" />
+    <result column="BUYER_PHONE" jdbcType="VARCHAR" property="buyerPhone" />
+    <result column="SELLER_CERT_TYPE" jdbcType="VARCHAR" property="sellerCertType" />
+    <result column="SELLER_CERT_CODE" jdbcType="VARCHAR" property="sellerCertCode" />
+    <result column="SELLER_CUS_TYPE" jdbcType="CHAR" property="sellerCusType" />
+    <result column="SELLER_CUS_NAME" jdbcType="VARCHAR" property="sellerCusName" />
+    <result column="SELLER_PHONE" jdbcType="VARCHAR" property="sellerPhone" />
+    <result column="BUYER_FIRST_AMOUNT" jdbcType="DECIMAL" property="buyerFirstAmount" />
+    <result column="BUYER_AMOUNT" jdbcType="DECIMAL" property="buyerAmount" />
+    <result column="BUYER_BANK_NAME" jdbcType="VARCHAR" property="buyerBankName" />
+    <result column="BUYER_BANK_CODE" jdbcType="VARCHAR" property="buyerBankCode" />
+    <result column="RISK_RESULT" jdbcType="VARCHAR" property="riskResult" />
+    <result column="IS_MUST_RANSOM" jdbcType="CHAR" property="isMustRansom" />
+    <result column="VISA_INTERVIEW_COORDINATE" jdbcType="VARCHAR" property="visaInterviewCoordinate" />
+    <result column="LOAN_COORDINATE" jdbcType="VARCHAR" property="loanCoordinate" />
+    <result column="MICRO_CREDIT_COORDINATE" jdbcType="VARCHAR" property="microCreditCoordinate" />
+    <result column="IS_CREDIT_IMPLEMENTATION" jdbcType="VARCHAR" property="isCreditImplementation" />
+    <result column="IS_FACE_SIGN" jdbcType="VARCHAR" property="isFaceSign" />
+    <result column="GOODS_DETAIL_ID" jdbcType="VARCHAR" property="goodsDetailId" />
+    <result column="TERMINAL_SOURCE" jdbcType="VARCHAR" property="terminalSource" />
+    <result column="COUNTY_CODE" jdbcType="VARCHAR" property="countyCode" />
+    <result column="CREDIT_COORDINATE" jdbcType="VARCHAR" property="creditCoordinate" />
+    <result column="TERMINAL_TYPE" jdbcType="VARCHAR" property="terminalType" />
+    <result column="DOWN_PAYMENT" jdbcType="DECIMAL" property="downPayment" />
+    <result column="DOWN_AMOUNT" jdbcType="DECIMAL" property="downAmount" />
+    <result column="MONTHLY_SUPPLY" jdbcType="DECIMAL" property="monthlySupply" />
+    <result column="MONTHLY_AMOUNT" jdbcType="DECIMAL" property="monthlyAmount" />
+    <result column="GOODS_ID" jdbcType="VARCHAR" property="goodsId" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="ALIPAY_ACCOUNT" jdbcType="VARCHAR" property="alipayAccount" />
+    <result column="ALIPAY_ROLE_ID" jdbcType="VARCHAR" property="alipayRoleId" />
+    <result column="BANK_NO" jdbcType="VARCHAR" property="bankNo" />
+    <result column="SIGN_AMOUNT" jdbcType="DECIMAL" property="signAmount" />
+    <result column="BLACK_BOX" jdbcType="VARCHAR" property="blackBox" />
+    <result column="ISLOANED" jdbcType="VARCHAR" property="isloaned" />
+    <result column="LAST_BANK_LOAN_AMOUNT" jdbcType="DECIMAL" property="lastBankLoanAmount" />
+    <result column="IS_AUTHORIZE" jdbcType="VARCHAR" property="isAuthorize" />
+    <result column="INCLUDE_INS_FEE" jdbcType="VARCHAR" property="includeInsFee" />
+    <result column="HAND_PORICY_ID" jdbcType="VARCHAR" property="handPoricyId" />
+    <result column="LOAN_LX" jdbcType="DECIMAL" property="loanLx" />
+    <result column="ESTIMATION_AMOUNT" jdbcType="DECIMAL" property="estimationAmount" />
+    <result column="PAY_WAY" jdbcType="VARCHAR" property="payWay" />
+    <result column="REPAY_AIL_PAY_ACCOUNT" jdbcType="VARCHAR" property="repayAilPayAccount" />
+    <result column="PAYEE_ACCOUNT_TYPE" jdbcType="CHAR" property="payeeAccountType" />
+    <result column="ACCESSORY_RISK" jdbcType="CHAR" property="accessoryRisk" />
+    <result column="FRIST_LOAN_PARTNER_NAME" jdbcType="VARCHAR" property="fristLoanPartnerName" />
+    <result column="LAST_LOAN_PARTNER_NAME" jdbcType="VARCHAR" property="lastLoanPartnerName" />
+    <result column="FRIST_LOAN_PARTNER_NO" jdbcType="VARCHAR" property="fristLoanPartnerNo" />
+    <result column="LAST_LOAN_PARTNER_NO" jdbcType="VARCHAR" property="lastLoanPartnerNo" />
+    <result column="SINGLE_PREM" jdbcType="VARCHAR" property="singlePrem" />
+    <result column="FIRST_PREM_RATE" jdbcType="DECIMAL" property="firstPremRate" />
+    <result column="EVERY_PREM_RATE" jdbcType="DECIMAL" property="everyPremRate" />
+    <result column="TRUST_PLAN" jdbcType="VARCHAR" property="trustPlan" />
+    <result column="BATCH_NO" jdbcType="VARCHAR" property="batchNo" />
+    <result column="BUSINESS_RECOM_ORGNAME" jdbcType="VARCHAR" property="businessRecomOrgname" />
+    <result column="BUSINESS_RECOM_ORGID" jdbcType="VARCHAR" property="businessRecomOrgid" />
+    <result column="BUSI_AREA" jdbcType="VARCHAR" property="busiArea" />
+    <result column="NEW_LOAN_APPROVAL" jdbcType="CHAR" property="newLoanApproval" />
+    <result column="NEW_LOAN_BANK" jdbcType="VARCHAR" property="newLoanBank" />
+    <result column="REPAY_BANK_NO" jdbcType="VARCHAR" property="repayBankNo" />
+    <result column="ET_LOAN_ACC" jdbcType="VARCHAR" property="etLoanAcc" />
+    <result column="ET_LOAN_ACC_NAME" jdbcType="VARCHAR" property="etLoanAccName" />
+    <result column="ET_LOAN_ACC_BANK" jdbcType="VARCHAR" property="etLoanAccBank" />
+    <result column="ET_LOAN_ACC_BANK_NME" jdbcType="VARCHAR" property="etLoanAccBankNme" />
+    <result column="LOAN_DIRECTION_CREDIT" jdbcType="VARCHAR" property="loanDirectionCredit" />
+    <result column="INSURE_RATE_CODE" jdbcType="VARCHAR" property="insureRateCode" />
+    <result column="PAYMENT_ACCOUNT" jdbcType="VARCHAR" property="paymentAccount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, CUS_ID, CERT_TYPE, CERT_CODE, CUS_TYPE, CUS_NAME, APPLY_DATE, PHONE, GEO_LOC, 
+    SCHEME_TYPE, LOAN_USE_TYPE, USE_DEC, INFO_CHANNEL, ANOTHER_INFO_CHANNEL, PARTNER_NO, 
+    PARTNER_NAME, IS_ASSURE, ASSURE_AGREE_NO, ASSURE_AGREE_NAME, IS_OTHER_PLACE, BIZ_TYPE_SUB, 
+    OTHER_REMARK, LOAN_DIRECTION, DIRECTION_NAME, ANALYSIS_DATE, ACCEPT_ID, ACCEPT_NAME, 
+    INPUT_ID, INPUT_NAME, MAIN_BR_ID, MAIN_USER_ID, MAIN_USER_NAME, COMPETENCE, APPROVE_STATUS, 
+    INTEREST_ACC_MODE, REPAYMENT_MODE, BIZ_TYPE, PRD_NAME, IR_TYPE, APPLY_AMOUNT, TERM, 
+    APPLY_TERM, RULING_IR, SPRD_RATE, FLOATING_TYPE, FLOATING_RATE, REALITY_IR_Y, OVERDUE_RATE, 
+    OVERDUE_IR, DEFAULT_RATE, DEFAULT_IR, CI_RATE, CI_IR, IR_ADJUST_MODE, FREQUENCY, 
+    PAY_DISTANCE, ASSURE_MEANS_MAIN, ASSURE_MEANS1, ASSURE_MEANS2, APP_WORKFLOW_ID, APP_FORM, 
+    DUE_DAY, APPLY_CUR_TYPE, DAYS_OF_GRACE, PAY_TYPE, INPUT_BR_ID, TERM_TIME_TYPE, REFUSE_REASON, 
+    APPLY_ADVISE, IS_FLAG, CONT_NAME, DUE_FIRST_DAY, CONT_PUBLIC, IS_RECORD, REFUSE_TIME, 
+    REFUSE_CODE, GUARANTOR, GUARANTOR_OCC, GUARANTOR_INCM, GUARANTOR_CODE, GUARANTOR_PHONE, 
+    GUARANTOR_RELATE, CORP_GUAR_NAME, CORP_RELATE, CORP_DESC, MAY_GRT, GRT_VALUE, IS_WORTH, 
+    SPREAD_TIME, SPREAD_PLACE, SPREAD_NAME, RISK_ANALYSE, MANAGER_ADVICE, CUS_SEX, LOAN_USE, 
+    READ_FLAG, LOAN_USE_DESC, ASSI_ID, ASSI_NAME, AMOUNT, USING_IR, PRD_ID, INPUT_BR_NAME, 
+    INPUT_LEVEL, MAIN_LEVEL, PROP, IS_MORE_LOAN, INPUT_DATE, APP_STATUS, PARTNER_TYPE, 
+    PARTNER_CERT_CODE, PARTNER_CERT_TYPE, UPDATE_DATE, IS_AGRICULTURE, INPUT_CHANNEL, 
+    IS_ADD_CUS, NEW_APPROVE_STATUS, CHANNEL_NO, CHANNEL_NAME, IS_ALREADY, IS_ORDER, PRJ_COST, 
+    PRJ_STEP, USE_DETAIL, LOAN_REASON, ADVISE_AMT, ADVISE_DEADLINE, ADVISE_REPAYMENT_WAY, 
+    ADVISE_GUAR_PERSON, SPECIAL_CASE, CUS_MGR, ADVISE_DATE, GUARANTEE_SERNO, TEAMNO, 
+    TEAM_LEADER, GROUPNO, GROUP_LEADER, IS_CANCEL, BUSINESS_PERSION_ID, BUSINESS_PERSION_NAME, 
+    BUSINESS_PERSION_PHONE, BANK_CUS_MGR, BANK_MGR_PHONE, OPT_TYPE, IS_BATC_BIZ, REPAYMENT_MODE_DESC, 
+    ADVISE_REPAYMENT_WAY_DESC, BIZ_MODE, LOAN_FORM, REPAYMENT_SRC, GUARANTY_TYPE, GUARANTY_NAME, 
+    HOUSE_CERT_NO, RIGHTER_NAME, RIGHTER_CERT_TYPE, RIGHTER_CERT_CODE, IS_GRT_THIRD, 
+    O_BILL_NO, O_CONT_NO, LOAN_BALANCE, O_USING_IR, O_LOAN_START_DATE, O_LOAN_END_DATE, 
+    BUSINESS_BR_ID, TOTAL_NESS_RATE, CANCEL_FAIL_CAUSE, EVAL_NET_VALUE, UNASSURE_MEANS_ACTIONS, 
+    SPREAD_PLACE_DESC, REMARK, COST_RATE, ACCEPT_LOAN_AMOUNT, SUBORGANNO, IMP_THI_SRC, 
+    IS_ELEC_INS, IS_UPDATE, IS_PASS, REPAY_PERCENT, ADVISE_REPAY_PERCENT, FICO_SCORE, 
+    NOT_THROUGH_REASON, FICO_RECORD_ID, SPREAD_DATE, OPER_NAME, OPER_PHONE, OPER_TEL_NO, 
+    BELONG_BR_ID, P2P_APPROVE_STATUS, REFUSEREMARK, IS_SEND_LOAN, HANDLE_TIME, THIRD_PLATFORM, 
+    THIRD_PLATFORM_NAME, CAN_SINGLE, IS_DISTRIBUTION, TERM_DAY, ADVISE_TERM, LOAN_STATUS, 
+    SEND_IMAGE_STATUS, CUS_TYPE_NEW, ACC_AGREE_NO, PUSH_BR_ID, PERIOD, AUTOAPPR, CACCEL_LOAN_REMARKS, 
+    CACCEL_LOAN_REASON, BID_CUS_ID, C_APPNT, BANK_CARD_NO, VALID_RESULT, IS_AUTO_APPROVE, 
+    PARTNER_CUS_ID, MODIFYREASON, SPECIAL_FLAG, JIRA_NO, RULE_LOAN_AMT, SPECIAL_REMARK, 
+    BUSI_STATUS, REPAY_BANK, REPAY_ACCOUNT_NAME, REPAY_ACCOUNT, PAYEE_BANK, PAYEE_ACCOUNT_NAME, 
+    PAYEE_ACCOUNT, RANSOM_TYPE, OLD_HOUSE_AMOUNT, USE_DATE, BUYER_CUS_ID, SELLER_CUS_ID, 
+    BUYER_CERT_TYPE, BUYER_CERT_CODE, BUYER_CUS_TYPE, BUYER_CUS_NAME, BUYER_PHONE, SELLER_CERT_TYPE, 
+    SELLER_CERT_CODE, SELLER_CUS_TYPE, SELLER_CUS_NAME, SELLER_PHONE, BUYER_FIRST_AMOUNT, 
+    BUYER_AMOUNT, BUYER_BANK_NAME, BUYER_BANK_CODE, RISK_RESULT, IS_MUST_RANSOM, VISA_INTERVIEW_COORDINATE, 
+    LOAN_COORDINATE, MICRO_CREDIT_COORDINATE, IS_CREDIT_IMPLEMENTATION, IS_FACE_SIGN, 
+    GOODS_DETAIL_ID, TERMINAL_SOURCE, COUNTY_CODE, CREDIT_COORDINATE, TERMINAL_TYPE, 
+    DOWN_PAYMENT, DOWN_AMOUNT, MONTHLY_SUPPLY, MONTHLY_AMOUNT, GOODS_ID, PRD_TYPE, ALIPAY_ACCOUNT, 
+    ALIPAY_ROLE_ID, BANK_NO, SIGN_AMOUNT, BLACK_BOX, ISLOANED, LAST_BANK_LOAN_AMOUNT, 
+    IS_AUTHORIZE, INCLUDE_INS_FEE, HAND_PORICY_ID, LOAN_LX, ESTIMATION_AMOUNT, PAY_WAY, 
+    REPAY_AIL_PAY_ACCOUNT, PAYEE_ACCOUNT_TYPE, ACCESSORY_RISK, FRIST_LOAN_PARTNER_NAME, 
+    LAST_LOAN_PARTNER_NAME, FRIST_LOAN_PARTNER_NO, LAST_LOAN_PARTNER_NO, SINGLE_PREM, 
+    FIRST_PREM_RATE, EVERY_PREM_RATE, TRUST_PLAN, BATCH_NO, BUSINESS_RECOM_ORGNAME, BUSINESS_RECOM_ORGID, 
+    BUSI_AREA, NEW_LOAN_APPROVAL, NEW_LOAN_BANK, REPAY_BANK_NO, ET_LOAN_ACC, ET_LOAN_ACC_NAME, 
+    ET_LOAN_ACC_BANK, ET_LOAN_ACC_BANK_NME, LOAN_DIRECTION_CREDIT,INSURE_RATE_CODE,PAYMENT_ACCOUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_LOAN_APP
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_LOAN_APP
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMeLoanApp">
+    insert into IQP_ME_LOAN_APP (SERNO, CUS_ID, CERT_TYPE, 
+      CERT_CODE, CUS_TYPE, CUS_NAME, 
+      APPLY_DATE, PHONE, GEO_LOC, 
+      SCHEME_TYPE, LOAN_USE_TYPE, USE_DEC, 
+      INFO_CHANNEL, ANOTHER_INFO_CHANNEL, PARTNER_NO, 
+      PARTNER_NAME, IS_ASSURE, ASSURE_AGREE_NO, 
+      ASSURE_AGREE_NAME, IS_OTHER_PLACE, BIZ_TYPE_SUB, 
+      OTHER_REMARK, LOAN_DIRECTION, DIRECTION_NAME, 
+      ANALYSIS_DATE, ACCEPT_ID, ACCEPT_NAME, 
+      INPUT_ID, INPUT_NAME, MAIN_BR_ID, 
+      MAIN_USER_ID, MAIN_USER_NAME, COMPETENCE, 
+      APPROVE_STATUS, INTEREST_ACC_MODE, REPAYMENT_MODE, 
+      BIZ_TYPE, PRD_NAME, IR_TYPE, 
+      APPLY_AMOUNT, TERM, APPLY_TERM, 
+      RULING_IR, SPRD_RATE, FLOATING_TYPE, 
+      FLOATING_RATE, REALITY_IR_Y, OVERDUE_RATE, 
+      OVERDUE_IR, DEFAULT_RATE, DEFAULT_IR, 
+      CI_RATE, CI_IR, IR_ADJUST_MODE, 
+      FREQUENCY, PAY_DISTANCE, ASSURE_MEANS_MAIN, 
+      ASSURE_MEANS1, ASSURE_MEANS2, APP_WORKFLOW_ID, 
+      APP_FORM, DUE_DAY, APPLY_CUR_TYPE, 
+      DAYS_OF_GRACE, PAY_TYPE, INPUT_BR_ID, 
+      TERM_TIME_TYPE, REFUSE_REASON, APPLY_ADVISE, 
+      IS_FLAG, CONT_NAME, DUE_FIRST_DAY, 
+      CONT_PUBLIC, IS_RECORD, REFUSE_TIME, 
+      REFUSE_CODE, GUARANTOR, GUARANTOR_OCC, 
+      GUARANTOR_INCM, GUARANTOR_CODE, GUARANTOR_PHONE, 
+      GUARANTOR_RELATE, CORP_GUAR_NAME, CORP_RELATE, 
+      CORP_DESC, MAY_GRT, GRT_VALUE, 
+      IS_WORTH, SPREAD_TIME, SPREAD_PLACE, 
+      SPREAD_NAME, RISK_ANALYSE, MANAGER_ADVICE, 
+      CUS_SEX, LOAN_USE, READ_FLAG, 
+      LOAN_USE_DESC, ASSI_ID, ASSI_NAME, 
+      AMOUNT, USING_IR, PRD_ID, 
+      INPUT_BR_NAME, INPUT_LEVEL, MAIN_LEVEL, 
+      PROP, IS_MORE_LOAN, INPUT_DATE, 
+      APP_STATUS, PARTNER_TYPE, PARTNER_CERT_CODE, 
+      PARTNER_CERT_TYPE, UPDATE_DATE, IS_AGRICULTURE, 
+      INPUT_CHANNEL, IS_ADD_CUS, NEW_APPROVE_STATUS, 
+      CHANNEL_NO, CHANNEL_NAME, IS_ALREADY, 
+      IS_ORDER, PRJ_COST, PRJ_STEP, 
+      USE_DETAIL, LOAN_REASON, ADVISE_AMT, 
+      ADVISE_DEADLINE, ADVISE_REPAYMENT_WAY, ADVISE_GUAR_PERSON, 
+      SPECIAL_CASE, CUS_MGR, ADVISE_DATE, 
+      GUARANTEE_SERNO, TEAMNO, TEAM_LEADER, 
+      GROUPNO, GROUP_LEADER, IS_CANCEL, 
+      BUSINESS_PERSION_ID, BUSINESS_PERSION_NAME, 
+      BUSINESS_PERSION_PHONE, BANK_CUS_MGR, BANK_MGR_PHONE, 
+      OPT_TYPE, IS_BATC_BIZ, REPAYMENT_MODE_DESC, 
+      ADVISE_REPAYMENT_WAY_DESC, BIZ_MODE, LOAN_FORM, 
+      REPAYMENT_SRC, GUARANTY_TYPE, GUARANTY_NAME, 
+      HOUSE_CERT_NO, RIGHTER_NAME, RIGHTER_CERT_TYPE, 
+      RIGHTER_CERT_CODE, IS_GRT_THIRD, O_BILL_NO, 
+      O_CONT_NO, LOAN_BALANCE, O_USING_IR, 
+      O_LOAN_START_DATE, O_LOAN_END_DATE, BUSINESS_BR_ID, 
+      TOTAL_NESS_RATE, CANCEL_FAIL_CAUSE, EVAL_NET_VALUE, 
+      UNASSURE_MEANS_ACTIONS, SPREAD_PLACE_DESC, 
+      REMARK, COST_RATE, ACCEPT_LOAN_AMOUNT, 
+      SUBORGANNO, IMP_THI_SRC, IS_ELEC_INS, 
+      IS_UPDATE, IS_PASS, REPAY_PERCENT, 
+      ADVISE_REPAY_PERCENT, FICO_SCORE, NOT_THROUGH_REASON, 
+      FICO_RECORD_ID, SPREAD_DATE, OPER_NAME, 
+      OPER_PHONE, OPER_TEL_NO, BELONG_BR_ID, 
+      P2P_APPROVE_STATUS, REFUSEREMARK, IS_SEND_LOAN, 
+      HANDLE_TIME, THIRD_PLATFORM, THIRD_PLATFORM_NAME, 
+      CAN_SINGLE, IS_DISTRIBUTION, TERM_DAY, 
+      ADVISE_TERM, LOAN_STATUS, SEND_IMAGE_STATUS, 
+      CUS_TYPE_NEW, ACC_AGREE_NO, PUSH_BR_ID, 
+      PERIOD, AUTOAPPR, CACCEL_LOAN_REMARKS, 
+      CACCEL_LOAN_REASON, BID_CUS_ID, C_APPNT, 
+      BANK_CARD_NO, VALID_RESULT, IS_AUTO_APPROVE, 
+      PARTNER_CUS_ID, MODIFYREASON, SPECIAL_FLAG, 
+      JIRA_NO, RULE_LOAN_AMT, SPECIAL_REMARK, 
+      BUSI_STATUS, REPAY_BANK, REPAY_ACCOUNT_NAME, 
+      REPAY_ACCOUNT, PAYEE_BANK, PAYEE_ACCOUNT_NAME, 
+      PAYEE_ACCOUNT, RANSOM_TYPE, OLD_HOUSE_AMOUNT, 
+      USE_DATE, BUYER_CUS_ID, SELLER_CUS_ID, 
+      BUYER_CERT_TYPE, BUYER_CERT_CODE, BUYER_CUS_TYPE, 
+      BUYER_CUS_NAME, BUYER_PHONE, SELLER_CERT_TYPE, 
+      SELLER_CERT_CODE, SELLER_CUS_TYPE, SELLER_CUS_NAME, 
+      SELLER_PHONE, BUYER_FIRST_AMOUNT, BUYER_AMOUNT, 
+      BUYER_BANK_NAME, BUYER_BANK_CODE, RISK_RESULT, 
+      IS_MUST_RANSOM, VISA_INTERVIEW_COORDINATE, LOAN_COORDINATE, 
+      MICRO_CREDIT_COORDINATE, IS_CREDIT_IMPLEMENTATION, 
+      IS_FACE_SIGN, GOODS_DETAIL_ID, TERMINAL_SOURCE, 
+      COUNTY_CODE, CREDIT_COORDINATE, TERMINAL_TYPE, 
+      DOWN_PAYMENT, DOWN_AMOUNT, MONTHLY_SUPPLY, 
+      MONTHLY_AMOUNT, GOODS_ID, PRD_TYPE, 
+      ALIPAY_ACCOUNT, ALIPAY_ROLE_ID, BANK_NO, 
+      SIGN_AMOUNT, BLACK_BOX, ISLOANED, 
+      LAST_BANK_LOAN_AMOUNT, IS_AUTHORIZE, INCLUDE_INS_FEE, 
+      HAND_PORICY_ID, LOAN_LX, ESTIMATION_AMOUNT, 
+      PAY_WAY, REPAY_AIL_PAY_ACCOUNT, PAYEE_ACCOUNT_TYPE, 
+      ACCESSORY_RISK, FRIST_LOAN_PARTNER_NAME, LAST_LOAN_PARTNER_NAME, 
+      FRIST_LOAN_PARTNER_NO, LAST_LOAN_PARTNER_NO, 
+      SINGLE_PREM, FIRST_PREM_RATE, EVERY_PREM_RATE, 
+      TRUST_PLAN, BATCH_NO, BUSINESS_RECOM_ORGNAME, 
+      BUSINESS_RECOM_ORGID, BUSI_AREA, NEW_LOAN_APPROVAL, 
+      NEW_LOAN_BANK, REPAY_BANK_NO, ET_LOAN_ACC, 
+      ET_LOAN_ACC_NAME, ET_LOAN_ACC_BANK, ET_LOAN_ACC_BANK_NME, 
+      LOAN_DIRECTION_CREDIT,INSURE_RATE_CODE,PAYMENT_ACCOUNT)
+    values (#{serno,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{cusType,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, 
+      #{applyDate,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{geoLoc,jdbcType=VARCHAR}, 
+      #{schemeType,jdbcType=VARCHAR}, #{loanUseType,jdbcType=VARCHAR}, #{useDec,jdbcType=VARCHAR}, 
+      #{infoChannel,jdbcType=VARCHAR}, #{anotherInfoChannel,jdbcType=VARCHAR}, #{partnerNo,jdbcType=VARCHAR}, 
+      #{partnerName,jdbcType=VARCHAR}, #{isAssure,jdbcType=CHAR}, #{assureAgreeNo,jdbcType=VARCHAR}, 
+      #{assureAgreeName,jdbcType=VARCHAR}, #{isOtherPlace,jdbcType=CHAR}, #{bizTypeSub,jdbcType=VARCHAR}, 
+      #{otherRemark,jdbcType=VARCHAR}, #{loanDirection,jdbcType=VARCHAR}, #{directionName,jdbcType=VARCHAR}, 
+      #{analysisDate,jdbcType=VARCHAR}, #{acceptId,jdbcType=VARCHAR}, #{acceptName,jdbcType=VARCHAR}, 
+      #{inputId,jdbcType=VARCHAR}, #{inputName,jdbcType=VARCHAR}, #{mainBrId,jdbcType=VARCHAR}, 
+      #{mainUserId,jdbcType=VARCHAR}, #{mainUserName,jdbcType=VARCHAR}, #{competence,jdbcType=DECIMAL}, 
+      #{approveStatus,jdbcType=VARCHAR}, #{interestAccMode,jdbcType=VARCHAR}, #{repaymentMode,jdbcType=VARCHAR}, 
+      #{bizType,jdbcType=VARCHAR}, #{prdName,jdbcType=VARCHAR}, #{irType,jdbcType=VARCHAR}, 
+      #{applyAmount,jdbcType=DECIMAL}, #{term,jdbcType=DECIMAL}, #{applyTerm,jdbcType=DECIMAL}, 
+      #{rulingIr,jdbcType=DECIMAL}, #{sprdRate,jdbcType=DECIMAL}, #{floatingType,jdbcType=VARCHAR}, 
+      #{floatingRate,jdbcType=DECIMAL}, #{realityIrY,jdbcType=DECIMAL}, #{overdueRate,jdbcType=DECIMAL}, 
+      #{overdueIr,jdbcType=DECIMAL}, #{defaultRate,jdbcType=DECIMAL}, #{defaultIr,jdbcType=DECIMAL}, 
+      #{ciRate,jdbcType=DECIMAL}, #{ciIr,jdbcType=DECIMAL}, #{irAdjustMode,jdbcType=VARCHAR}, 
+      #{frequency,jdbcType=CHAR}, #{payDistance,jdbcType=VARCHAR}, #{assureMeansMain,jdbcType=CHAR}, 
+      #{assureMeans1,jdbcType=CHAR}, #{assureMeans2,jdbcType=CHAR}, #{appWorkflowId,jdbcType=VARCHAR}, 
+      #{appForm,jdbcType=VARCHAR}, #{dueDay,jdbcType=DECIMAL}, #{applyCurType,jdbcType=VARCHAR}, 
+      #{daysOfGrace,jdbcType=DECIMAL}, #{payType,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, 
+      #{termTimeType,jdbcType=VARCHAR}, #{refuseReason,jdbcType=VARCHAR}, #{applyAdvise,jdbcType=VARCHAR}, 
+      #{isFlag,jdbcType=CHAR}, #{contName,jdbcType=VARCHAR}, #{dueFirstDay,jdbcType=VARCHAR}, 
+      #{contPublic,jdbcType=VARCHAR}, #{isRecord,jdbcType=VARCHAR}, #{refuseTime,jdbcType=VARCHAR}, 
+      #{refuseCode,jdbcType=VARCHAR}, #{guarantor,jdbcType=VARCHAR}, #{guarantorOcc,jdbcType=VARCHAR}, 
+      #{guarantorIncm,jdbcType=DECIMAL}, #{guarantorCode,jdbcType=VARCHAR}, #{guarantorPhone,jdbcType=VARCHAR}, 
+      #{guarantorRelate,jdbcType=CHAR}, #{corpGuarName,jdbcType=VARCHAR}, #{corpRelate,jdbcType=CHAR}, 
+      #{corpDesc,jdbcType=VARCHAR}, #{mayGrt,jdbcType=VARCHAR}, #{grtValue,jdbcType=DECIMAL}, 
+      #{isWorth,jdbcType=CHAR}, #{spreadTime,jdbcType=VARCHAR}, #{spreadPlace,jdbcType=VARCHAR}, 
+      #{spreadName,jdbcType=VARCHAR}, #{riskAnalyse,jdbcType=VARCHAR}, #{managerAdvice,jdbcType=VARCHAR}, 
+      #{cusSex,jdbcType=CHAR}, #{loanUse,jdbcType=VARCHAR}, #{readFlag,jdbcType=CHAR}, 
+      #{loanUseDesc,jdbcType=VARCHAR}, #{assiId,jdbcType=VARCHAR}, #{assiName,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{usingIr,jdbcType=DECIMAL}, #{prdId,jdbcType=VARCHAR}, 
+      #{inputBrName,jdbcType=VARCHAR}, #{inputLevel,jdbcType=CHAR}, #{mainLevel,jdbcType=CHAR}, 
+      #{prop,jdbcType=VARCHAR}, #{isMoreLoan,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{appStatus,jdbcType=VARCHAR}, #{partnerType,jdbcType=VARCHAR}, #{partnerCertCode,jdbcType=VARCHAR}, 
+      #{partnerCertType,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, #{isAgriculture,jdbcType=CHAR}, 
+      #{inputChannel,jdbcType=VARCHAR}, #{isAddCus,jdbcType=CHAR}, #{newApproveStatus,jdbcType=VARCHAR}, 
+      #{channelNo,jdbcType=VARCHAR}, #{channelName,jdbcType=VARCHAR}, #{isAlready,jdbcType=CHAR}, 
+      #{isOrder,jdbcType=CHAR}, #{prjCost,jdbcType=DECIMAL}, #{prjStep,jdbcType=VARCHAR}, 
+      #{useDetail,jdbcType=VARCHAR}, #{loanReason,jdbcType=VARCHAR}, #{adviseAmt,jdbcType=DECIMAL}, 
+      #{adviseDeadline,jdbcType=VARCHAR}, #{adviseRepaymentWay,jdbcType=VARCHAR}, #{adviseGuarPerson,jdbcType=VARCHAR}, 
+      #{specialCase,jdbcType=VARCHAR}, #{cusMgr,jdbcType=VARCHAR}, #{adviseDate,jdbcType=VARCHAR}, 
+      #{guaranteeSerno,jdbcType=VARCHAR}, #{teamno,jdbcType=VARCHAR}, #{teamLeader,jdbcType=VARCHAR}, 
+      #{groupno,jdbcType=VARCHAR}, #{groupLeader,jdbcType=VARCHAR}, #{isCancel,jdbcType=CHAR}, 
+      #{businessPersionId,jdbcType=VARCHAR}, #{businessPersionName,jdbcType=VARCHAR}, 
+      #{businessPersionPhone,jdbcType=VARCHAR}, #{bankCusMgr,jdbcType=VARCHAR}, #{bankMgrPhone,jdbcType=VARCHAR}, 
+      #{optType,jdbcType=CHAR}, #{isBatcBiz,jdbcType=VARCHAR}, #{repaymentModeDesc,jdbcType=VARCHAR}, 
+      #{adviseRepaymentWayDesc,jdbcType=VARCHAR}, #{bizMode,jdbcType=VARCHAR}, #{loanForm,jdbcType=VARCHAR}, 
+      #{repaymentSrc,jdbcType=VARCHAR}, #{guarantyType,jdbcType=VARCHAR}, #{guarantyName,jdbcType=VARCHAR}, 
+      #{houseCertNo,jdbcType=VARCHAR}, #{righterName,jdbcType=VARCHAR}, #{righterCertType,jdbcType=VARCHAR}, 
+      #{righterCertCode,jdbcType=VARCHAR}, #{isGrtThird,jdbcType=VARCHAR}, #{oBillNo,jdbcType=VARCHAR}, 
+      #{oContNo,jdbcType=VARCHAR}, #{loanBalance,jdbcType=DECIMAL}, #{oUsingIr,jdbcType=DECIMAL}, 
+      #{oLoanStartDate,jdbcType=VARCHAR}, #{oLoanEndDate,jdbcType=VARCHAR}, #{businessBrId,jdbcType=VARCHAR}, 
+      #{totalNessRate,jdbcType=DECIMAL}, #{cancelFailCause,jdbcType=VARCHAR}, #{evalNetValue,jdbcType=DECIMAL}, 
+      #{unassureMeansActions,jdbcType=VARCHAR}, #{spreadPlaceDesc,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{costRate,jdbcType=DECIMAL}, #{acceptLoanAmount,jdbcType=DECIMAL}, 
+      #{suborganno,jdbcType=VARCHAR}, #{impThiSrc,jdbcType=CHAR}, #{isElecIns,jdbcType=VARCHAR}, 
+      #{isUpdate,jdbcType=VARCHAR}, #{isPass,jdbcType=VARCHAR}, #{repayPercent,jdbcType=DECIMAL}, 
+      #{adviseRepayPercent,jdbcType=DECIMAL}, #{ficoScore,jdbcType=VARCHAR}, #{notThroughReason,jdbcType=VARCHAR}, 
+      #{ficoRecordId,jdbcType=VARCHAR}, #{spreadDate,jdbcType=VARCHAR}, #{operName,jdbcType=VARCHAR}, 
+      #{operPhone,jdbcType=VARCHAR}, #{operTelNo,jdbcType=VARCHAR}, #{belongBrId,jdbcType=VARCHAR}, 
+      #{p2pApproveStatus,jdbcType=VARCHAR}, #{refuseremark,jdbcType=VARCHAR}, #{isSendLoan,jdbcType=VARCHAR}, 
+      #{handleTime,jdbcType=VARCHAR}, #{thirdPlatform,jdbcType=VARCHAR}, #{thirdPlatformName,jdbcType=VARCHAR}, 
+      #{canSingle,jdbcType=VARCHAR}, #{isDistribution,jdbcType=VARCHAR}, #{termDay,jdbcType=DECIMAL}, 
+      #{adviseTerm,jdbcType=VARCHAR}, #{loanStatus,jdbcType=VARCHAR}, #{sendImageStatus,jdbcType=VARCHAR}, 
+      #{cusTypeNew,jdbcType=VARCHAR}, #{accAgreeNo,jdbcType=VARCHAR}, #{pushBrId,jdbcType=CHAR}, 
+      #{period,jdbcType=DECIMAL}, #{autoappr,jdbcType=VARCHAR}, #{caccelLoanRemarks,jdbcType=VARCHAR}, 
+      #{caccelLoanReason,jdbcType=VARCHAR}, #{bidCusId,jdbcType=VARCHAR}, #{cAppnt,jdbcType=VARCHAR}, 
+      #{bankCardNo,jdbcType=VARCHAR}, #{validResult,jdbcType=VARCHAR}, #{isAutoApprove,jdbcType=VARCHAR}, 
+      #{partnerCusId,jdbcType=VARCHAR}, #{modifyreason,jdbcType=VARCHAR}, #{specialFlag,jdbcType=VARCHAR}, 
+      #{jiraNo,jdbcType=VARCHAR}, #{ruleLoanAmt,jdbcType=DECIMAL}, #{specialRemark,jdbcType=VARCHAR}, 
+      #{busiStatus,jdbcType=VARCHAR}, #{repayBank,jdbcType=VARCHAR}, #{repayAccountName,jdbcType=VARCHAR}, 
+      #{repayAccount,jdbcType=VARCHAR}, #{payeeBank,jdbcType=VARCHAR}, #{payeeAccountName,jdbcType=VARCHAR}, 
+      #{payeeAccount,jdbcType=VARCHAR}, #{ransomType,jdbcType=VARCHAR}, #{oldHouseAmount,jdbcType=DECIMAL}, 
+      #{useDate,jdbcType=VARCHAR}, #{buyerCusId,jdbcType=VARCHAR}, #{sellerCusId,jdbcType=VARCHAR}, 
+      #{buyerCertType,jdbcType=VARCHAR}, #{buyerCertCode,jdbcType=VARCHAR}, #{buyerCusType,jdbcType=CHAR}, 
+      #{buyerCusName,jdbcType=VARCHAR}, #{buyerPhone,jdbcType=VARCHAR}, #{sellerCertType,jdbcType=VARCHAR}, 
+      #{sellerCertCode,jdbcType=VARCHAR}, #{sellerCusType,jdbcType=CHAR}, #{sellerCusName,jdbcType=VARCHAR}, 
+      #{sellerPhone,jdbcType=VARCHAR}, #{buyerFirstAmount,jdbcType=DECIMAL}, #{buyerAmount,jdbcType=DECIMAL}, 
+      #{buyerBankName,jdbcType=VARCHAR}, #{buyerBankCode,jdbcType=VARCHAR}, #{riskResult,jdbcType=VARCHAR}, 
+      #{isMustRansom,jdbcType=CHAR}, #{visaInterviewCoordinate,jdbcType=VARCHAR}, #{loanCoordinate,jdbcType=VARCHAR}, 
+      #{microCreditCoordinate,jdbcType=VARCHAR}, #{isCreditImplementation,jdbcType=VARCHAR}, 
+      #{isFaceSign,jdbcType=VARCHAR}, #{goodsDetailId,jdbcType=VARCHAR}, #{terminalSource,jdbcType=VARCHAR}, 
+      #{countyCode,jdbcType=VARCHAR}, #{creditCoordinate,jdbcType=VARCHAR}, #{terminalType,jdbcType=VARCHAR}, 
+      #{downPayment,jdbcType=DECIMAL}, #{downAmount,jdbcType=DECIMAL}, #{monthlySupply,jdbcType=DECIMAL}, 
+      #{monthlyAmount,jdbcType=DECIMAL}, #{goodsId,jdbcType=VARCHAR}, #{prdType,jdbcType=VARCHAR}, 
+      #{alipayAccount,jdbcType=VARCHAR}, #{alipayRoleId,jdbcType=VARCHAR}, #{bankNo,jdbcType=VARCHAR}, 
+      #{signAmount,jdbcType=DECIMAL}, #{blackBox,jdbcType=VARCHAR}, #{isloaned,jdbcType=VARCHAR}, 
+      #{lastBankLoanAmount,jdbcType=DECIMAL}, #{isAuthorize,jdbcType=VARCHAR}, #{includeInsFee,jdbcType=VARCHAR}, 
+      #{handPoricyId,jdbcType=VARCHAR}, #{loanLx,jdbcType=DECIMAL}, #{estimationAmount,jdbcType=DECIMAL}, 
+      #{payWay,jdbcType=VARCHAR}, #{repayAilPayAccount,jdbcType=VARCHAR}, #{payeeAccountType,jdbcType=CHAR}, 
+      #{accessoryRisk,jdbcType=CHAR}, #{fristLoanPartnerName,jdbcType=VARCHAR}, #{lastLoanPartnerName,jdbcType=VARCHAR}, 
+      #{fristLoanPartnerNo,jdbcType=VARCHAR}, #{lastLoanPartnerNo,jdbcType=VARCHAR}, 
+      #{singlePrem,jdbcType=VARCHAR}, #{firstPremRate,jdbcType=DECIMAL}, #{everyPremRate,jdbcType=DECIMAL}, 
+      #{trustPlan,jdbcType=VARCHAR}, #{batchNo,jdbcType=VARCHAR}, #{businessRecomOrgname,jdbcType=VARCHAR}, 
+      #{businessRecomOrgid,jdbcType=VARCHAR}, #{busiArea,jdbcType=VARCHAR}, #{newLoanApproval,jdbcType=CHAR}, 
+      #{newLoanBank,jdbcType=VARCHAR}, #{repayBankNo,jdbcType=VARCHAR}, #{etLoanAcc,jdbcType=VARCHAR}, 
+      #{etLoanAccName,jdbcType=VARCHAR}, #{etLoanAccBank,jdbcType=VARCHAR}, #{etLoanAccBankNme,jdbcType=VARCHAR}, 
+      #{loanDirectionCredit,jdbcType=VARCHAR},#{insureRateCode,jdbcType=VARCHAR},#{paymentAccount,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeLoanApp">
+    insert into IQP_ME_LOAN_APP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="geoLoc != null">
+        GEO_LOC,
+      </if>
+      <if test="schemeType != null">
+        SCHEME_TYPE,
+      </if>
+      <if test="loanUseType != null">
+        LOAN_USE_TYPE,
+      </if>
+      <if test="useDec != null">
+        USE_DEC,
+      </if>
+      <if test="infoChannel != null">
+        INFO_CHANNEL,
+      </if>
+      <if test="anotherInfoChannel != null">
+        ANOTHER_INFO_CHANNEL,
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO,
+      </if>
+      <if test="partnerName != null">
+        PARTNER_NAME,
+      </if>
+      <if test="isAssure != null">
+        IS_ASSURE,
+      </if>
+      <if test="assureAgreeNo != null">
+        ASSURE_AGREE_NO,
+      </if>
+      <if test="assureAgreeName != null">
+        ASSURE_AGREE_NAME,
+      </if>
+      <if test="isOtherPlace != null">
+        IS_OTHER_PLACE,
+      </if>
+      <if test="bizTypeSub != null">
+        BIZ_TYPE_SUB,
+      </if>
+      <if test="otherRemark != null">
+        OTHER_REMARK,
+      </if>
+      <if test="loanDirection != null">
+        LOAN_DIRECTION,
+      </if>
+      <if test="directionName != null">
+        DIRECTION_NAME,
+      </if>
+      <if test="analysisDate != null">
+        ANALYSIS_DATE,
+      </if>
+      <if test="acceptId != null">
+        ACCEPT_ID,
+      </if>
+      <if test="acceptName != null">
+        ACCEPT_NAME,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputName != null">
+        INPUT_NAME,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="mainUserId != null">
+        MAIN_USER_ID,
+      </if>
+      <if test="mainUserName != null">
+        MAIN_USER_NAME,
+      </if>
+      <if test="competence != null">
+        COMPETENCE,
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS,
+      </if>
+      <if test="interestAccMode != null">
+        INTEREST_ACC_MODE,
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="irType != null">
+        IR_TYPE,
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="applyTerm != null">
+        APPLY_TERM,
+      </if>
+      <if test="rulingIr != null">
+        RULING_IR,
+      </if>
+      <if test="sprdRate != null">
+        SPRD_RATE,
+      </if>
+      <if test="floatingType != null">
+        FLOATING_TYPE,
+      </if>
+      <if test="floatingRate != null">
+        FLOATING_RATE,
+      </if>
+      <if test="realityIrY != null">
+        REALITY_IR_Y,
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE,
+      </if>
+      <if test="overdueIr != null">
+        OVERDUE_IR,
+      </if>
+      <if test="defaultRate != null">
+        DEFAULT_RATE,
+      </if>
+      <if test="defaultIr != null">
+        DEFAULT_IR,
+      </if>
+      <if test="ciRate != null">
+        CI_RATE,
+      </if>
+      <if test="ciIr != null">
+        CI_IR,
+      </if>
+      <if test="irAdjustMode != null">
+        IR_ADJUST_MODE,
+      </if>
+      <if test="frequency != null">
+        FREQUENCY,
+      </if>
+      <if test="payDistance != null">
+        PAY_DISTANCE,
+      </if>
+      <if test="assureMeansMain != null">
+        ASSURE_MEANS_MAIN,
+      </if>
+      <if test="assureMeans1 != null">
+        ASSURE_MEANS1,
+      </if>
+      <if test="assureMeans2 != null">
+        ASSURE_MEANS2,
+      </if>
+      <if test="appWorkflowId != null">
+        APP_WORKFLOW_ID,
+      </if>
+      <if test="appForm != null">
+        APP_FORM,
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY,
+      </if>
+      <if test="applyCurType != null">
+        APPLY_CUR_TYPE,
+      </if>
+      <if test="daysOfGrace != null">
+        DAYS_OF_GRACE,
+      </if>
+      <if test="payType != null">
+        PAY_TYPE,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="termTimeType != null">
+        TERM_TIME_TYPE,
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON,
+      </if>
+      <if test="applyAdvise != null">
+        APPLY_ADVISE,
+      </if>
+      <if test="isFlag != null">
+        IS_FLAG,
+      </if>
+      <if test="contName != null">
+        CONT_NAME,
+      </if>
+      <if test="dueFirstDay != null">
+        DUE_FIRST_DAY,
+      </if>
+      <if test="contPublic != null">
+        CONT_PUBLIC,
+      </if>
+      <if test="isRecord != null">
+        IS_RECORD,
+      </if>
+      <if test="refuseTime != null">
+        REFUSE_TIME,
+      </if>
+      <if test="refuseCode != null">
+        REFUSE_CODE,
+      </if>
+      <if test="guarantor != null">
+        GUARANTOR,
+      </if>
+      <if test="guarantorOcc != null">
+        GUARANTOR_OCC,
+      </if>
+      <if test="guarantorIncm != null">
+        GUARANTOR_INCM,
+      </if>
+      <if test="guarantorCode != null">
+        GUARANTOR_CODE,
+      </if>
+      <if test="guarantorPhone != null">
+        GUARANTOR_PHONE,
+      </if>
+      <if test="guarantorRelate != null">
+        GUARANTOR_RELATE,
+      </if>
+      <if test="corpGuarName != null">
+        CORP_GUAR_NAME,
+      </if>
+      <if test="corpRelate != null">
+        CORP_RELATE,
+      </if>
+      <if test="corpDesc != null">
+        CORP_DESC,
+      </if>
+      <if test="mayGrt != null">
+        MAY_GRT,
+      </if>
+      <if test="grtValue != null">
+        GRT_VALUE,
+      </if>
+      <if test="isWorth != null">
+        IS_WORTH,
+      </if>
+      <if test="spreadTime != null">
+        SPREAD_TIME,
+      </if>
+      <if test="spreadPlace != null">
+        SPREAD_PLACE,
+      </if>
+      <if test="spreadName != null">
+        SPREAD_NAME,
+      </if>
+      <if test="riskAnalyse != null">
+        RISK_ANALYSE,
+      </if>
+      <if test="managerAdvice != null">
+        MANAGER_ADVICE,
+      </if>
+      <if test="cusSex != null">
+        CUS_SEX,
+      </if>
+      <if test="loanUse != null">
+        LOAN_USE,
+      </if>
+      <if test="readFlag != null">
+        READ_FLAG,
+      </if>
+      <if test="loanUseDesc != null">
+        LOAN_USE_DESC,
+      </if>
+      <if test="assiId != null">
+        ASSI_ID,
+      </if>
+      <if test="assiName != null">
+        ASSI_NAME,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="usingIr != null">
+        USING_IR,
+      </if>
+      <if test="prdId != null">
+        PRD_ID,
+      </if>
+      <if test="inputBrName != null">
+        INPUT_BR_NAME,
+      </if>
+      <if test="inputLevel != null">
+        INPUT_LEVEL,
+      </if>
+      <if test="mainLevel != null">
+        MAIN_LEVEL,
+      </if>
+      <if test="prop != null">
+        PROP,
+      </if>
+      <if test="isMoreLoan != null">
+        IS_MORE_LOAN,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="appStatus != null">
+        APP_STATUS,
+      </if>
+      <if test="partnerType != null">
+        PARTNER_TYPE,
+      </if>
+      <if test="partnerCertCode != null">
+        PARTNER_CERT_CODE,
+      </if>
+      <if test="partnerCertType != null">
+        PARTNER_CERT_TYPE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="isAgriculture != null">
+        IS_AGRICULTURE,
+      </if>
+      <if test="inputChannel != null">
+        INPUT_CHANNEL,
+      </if>
+      <if test="isAddCus != null">
+        IS_ADD_CUS,
+      </if>
+      <if test="newApproveStatus != null">
+        NEW_APPROVE_STATUS,
+      </if>
+      <if test="channelNo != null">
+        CHANNEL_NO,
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME,
+      </if>
+      <if test="isAlready != null">
+        IS_ALREADY,
+      </if>
+      <if test="isOrder != null">
+        IS_ORDER,
+      </if>
+      <if test="prjCost != null">
+        PRJ_COST,
+      </if>
+      <if test="prjStep != null">
+        PRJ_STEP,
+      </if>
+      <if test="useDetail != null">
+        USE_DETAIL,
+      </if>
+      <if test="loanReason != null">
+        LOAN_REASON,
+      </if>
+      <if test="adviseAmt != null">
+        ADVISE_AMT,
+      </if>
+      <if test="adviseDeadline != null">
+        ADVISE_DEADLINE,
+      </if>
+      <if test="adviseRepaymentWay != null">
+        ADVISE_REPAYMENT_WAY,
+      </if>
+      <if test="adviseGuarPerson != null">
+        ADVISE_GUAR_PERSON,
+      </if>
+      <if test="specialCase != null">
+        SPECIAL_CASE,
+      </if>
+      <if test="cusMgr != null">
+        CUS_MGR,
+      </if>
+      <if test="adviseDate != null">
+        ADVISE_DATE,
+      </if>
+      <if test="guaranteeSerno != null">
+        GUARANTEE_SERNO,
+      </if>
+      <if test="teamno != null">
+        TEAMNO,
+      </if>
+      <if test="teamLeader != null">
+        TEAM_LEADER,
+      </if>
+      <if test="groupno != null">
+        GROUPNO,
+      </if>
+      <if test="groupLeader != null">
+        GROUP_LEADER,
+      </if>
+      <if test="isCancel != null">
+        IS_CANCEL,
+      </if>
+      <if test="businessPersionId != null">
+        BUSINESS_PERSION_ID,
+      </if>
+      <if test="businessPersionName != null">
+        BUSINESS_PERSION_NAME,
+      </if>
+      <if test="businessPersionPhone != null">
+        BUSINESS_PERSION_PHONE,
+      </if>
+      <if test="bankCusMgr != null">
+        BANK_CUS_MGR,
+      </if>
+      <if test="bankMgrPhone != null">
+        BANK_MGR_PHONE,
+      </if>
+      <if test="optType != null">
+        OPT_TYPE,
+      </if>
+      <if test="isBatcBiz != null">
+        IS_BATC_BIZ,
+      </if>
+      <if test="repaymentModeDesc != null">
+        REPAYMENT_MODE_DESC,
+      </if>
+      <if test="adviseRepaymentWayDesc != null">
+        ADVISE_REPAYMENT_WAY_DESC,
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE,
+      </if>
+      <if test="loanForm != null">
+        LOAN_FORM,
+      </if>
+      <if test="repaymentSrc != null">
+        REPAYMENT_SRC,
+      </if>
+      <if test="guarantyType != null">
+        GUARANTY_TYPE,
+      </if>
+      <if test="guarantyName != null">
+        GUARANTY_NAME,
+      </if>
+      <if test="houseCertNo != null">
+        HOUSE_CERT_NO,
+      </if>
+      <if test="righterName != null">
+        RIGHTER_NAME,
+      </if>
+      <if test="righterCertType != null">
+        RIGHTER_CERT_TYPE,
+      </if>
+      <if test="righterCertCode != null">
+        RIGHTER_CERT_CODE,
+      </if>
+      <if test="isGrtThird != null">
+        IS_GRT_THIRD,
+      </if>
+      <if test="oBillNo != null">
+        O_BILL_NO,
+      </if>
+      <if test="oContNo != null">
+        O_CONT_NO,
+      </if>
+      <if test="loanBalance != null">
+        LOAN_BALANCE,
+      </if>
+      <if test="oUsingIr != null">
+        O_USING_IR,
+      </if>
+      <if test="oLoanStartDate != null">
+        O_LOAN_START_DATE,
+      </if>
+      <if test="oLoanEndDate != null">
+        O_LOAN_END_DATE,
+      </if>
+      <if test="businessBrId != null">
+        BUSINESS_BR_ID,
+      </if>
+      <if test="totalNessRate != null">
+        TOTAL_NESS_RATE,
+      </if>
+      <if test="cancelFailCause != null">
+        CANCEL_FAIL_CAUSE,
+      </if>
+      <if test="evalNetValue != null">
+        EVAL_NET_VALUE,
+      </if>
+      <if test="unassureMeansActions != null">
+        UNASSURE_MEANS_ACTIONS,
+      </if>
+      <if test="spreadPlaceDesc != null">
+        SPREAD_PLACE_DESC,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="costRate != null">
+        COST_RATE,
+      </if>
+      <if test="acceptLoanAmount != null">
+        ACCEPT_LOAN_AMOUNT,
+      </if>
+      <if test="suborganno != null">
+        SUBORGANNO,
+      </if>
+      <if test="impThiSrc != null">
+        IMP_THI_SRC,
+      </if>
+      <if test="isElecIns != null">
+        IS_ELEC_INS,
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE,
+      </if>
+      <if test="isPass != null">
+        IS_PASS,
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT,
+      </if>
+      <if test="adviseRepayPercent != null">
+        ADVISE_REPAY_PERCENT,
+      </if>
+      <if test="ficoScore != null">
+        FICO_SCORE,
+      </if>
+      <if test="notThroughReason != null">
+        NOT_THROUGH_REASON,
+      </if>
+      <if test="ficoRecordId != null">
+        FICO_RECORD_ID,
+      </if>
+      <if test="spreadDate != null">
+        SPREAD_DATE,
+      </if>
+      <if test="operName != null">
+        OPER_NAME,
+      </if>
+      <if test="operPhone != null">
+        OPER_PHONE,
+      </if>
+      <if test="operTelNo != null">
+        OPER_TEL_NO,
+      </if>
+      <if test="belongBrId != null">
+        BELONG_BR_ID,
+      </if>
+      <if test="p2pApproveStatus != null">
+        P2P_APPROVE_STATUS,
+      </if>
+      <if test="refuseremark != null">
+        REFUSEREMARK,
+      </if>
+      <if test="isSendLoan != null">
+        IS_SEND_LOAN,
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME,
+      </if>
+      <if test="thirdPlatform != null">
+        THIRD_PLATFORM,
+      </if>
+      <if test="thirdPlatformName != null">
+        THIRD_PLATFORM_NAME,
+      </if>
+      <if test="canSingle != null">
+        CAN_SINGLE,
+      </if>
+      <if test="isDistribution != null">
+        IS_DISTRIBUTION,
+      </if>
+      <if test="termDay != null">
+        TERM_DAY,
+      </if>
+      <if test="adviseTerm != null">
+        ADVISE_TERM,
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS,
+      </if>
+      <if test="sendImageStatus != null">
+        SEND_IMAGE_STATUS,
+      </if>
+      <if test="cusTypeNew != null">
+        CUS_TYPE_NEW,
+      </if>
+      <if test="accAgreeNo != null">
+        ACC_AGREE_NO,
+      </if>
+      <if test="pushBrId != null">
+        PUSH_BR_ID,
+      </if>
+      <if test="period != null">
+        PERIOD,
+      </if>
+      <if test="autoappr != null">
+        AUTOAPPR,
+      </if>
+      <if test="caccelLoanRemarks != null">
+        CACCEL_LOAN_REMARKS,
+      </if>
+      <if test="caccelLoanReason != null">
+        CACCEL_LOAN_REASON,
+      </if>
+      <if test="bidCusId != null">
+        BID_CUS_ID,
+      </if>
+      <if test="cAppnt != null">
+        C_APPNT,
+      </if>
+      <if test="bankCardNo != null">
+        BANK_CARD_NO,
+      </if>
+      <if test="validResult != null">
+        VALID_RESULT,
+      </if>
+      <if test="isAutoApprove != null">
+        IS_AUTO_APPROVE,
+      </if>
+      <if test="partnerCusId != null">
+        PARTNER_CUS_ID,
+      </if>
+      <if test="modifyreason != null">
+        MODIFYREASON,
+      </if>
+      <if test="specialFlag != null">
+        SPECIAL_FLAG,
+      </if>
+      <if test="jiraNo != null">
+        JIRA_NO,
+      </if>
+      <if test="ruleLoanAmt != null">
+        RULE_LOAN_AMT,
+      </if>
+      <if test="specialRemark != null">
+        SPECIAL_REMARK,
+      </if>
+      <if test="busiStatus != null">
+        BUSI_STATUS,
+      </if>
+      <if test="repayBank != null">
+        REPAY_BANK,
+      </if>
+      <if test="repayAccountName != null">
+        REPAY_ACCOUNT_NAME,
+      </if>
+      <if test="repayAccount != null">
+        REPAY_ACCOUNT,
+      </if>
+      <if test="payeeBank != null">
+        PAYEE_BANK,
+      </if>
+      <if test="payeeAccountName != null">
+        PAYEE_ACCOUNT_NAME,
+      </if>
+      <if test="payeeAccount != null">
+        PAYEE_ACCOUNT,
+      </if>
+      <if test="ransomType != null">
+        RANSOM_TYPE,
+      </if>
+      <if test="oldHouseAmount != null">
+        OLD_HOUSE_AMOUNT,
+      </if>
+      <if test="useDate != null">
+        USE_DATE,
+      </if>
+      <if test="buyerCusId != null">
+        BUYER_CUS_ID,
+      </if>
+      <if test="sellerCusId != null">
+        SELLER_CUS_ID,
+      </if>
+      <if test="buyerCertType != null">
+        BUYER_CERT_TYPE,
+      </if>
+      <if test="buyerCertCode != null">
+        BUYER_CERT_CODE,
+      </if>
+      <if test="buyerCusType != null">
+        BUYER_CUS_TYPE,
+      </if>
+      <if test="buyerCusName != null">
+        BUYER_CUS_NAME,
+      </if>
+      <if test="buyerPhone != null">
+        BUYER_PHONE,
+      </if>
+      <if test="sellerCertType != null">
+        SELLER_CERT_TYPE,
+      </if>
+      <if test="sellerCertCode != null">
+        SELLER_CERT_CODE,
+      </if>
+      <if test="sellerCusType != null">
+        SELLER_CUS_TYPE,
+      </if>
+      <if test="sellerCusName != null">
+        SELLER_CUS_NAME,
+      </if>
+      <if test="sellerPhone != null">
+        SELLER_PHONE,
+      </if>
+      <if test="buyerFirstAmount != null">
+        BUYER_FIRST_AMOUNT,
+      </if>
+      <if test="buyerAmount != null">
+        BUYER_AMOUNT,
+      </if>
+      <if test="buyerBankName != null">
+        BUYER_BANK_NAME,
+      </if>
+      <if test="buyerBankCode != null">
+        BUYER_BANK_CODE,
+      </if>
+      <if test="riskResult != null">
+        RISK_RESULT,
+      </if>
+      <if test="isMustRansom != null">
+        IS_MUST_RANSOM,
+      </if>
+      <if test="visaInterviewCoordinate != null">
+        VISA_INTERVIEW_COORDINATE,
+      </if>
+      <if test="loanCoordinate != null">
+        LOAN_COORDINATE,
+      </if>
+      <if test="microCreditCoordinate != null">
+        MICRO_CREDIT_COORDINATE,
+      </if>
+      <if test="isCreditImplementation != null">
+        IS_CREDIT_IMPLEMENTATION,
+      </if>
+      <if test="isFaceSign != null">
+        IS_FACE_SIGN,
+      </if>
+      <if test="goodsDetailId != null">
+        GOODS_DETAIL_ID,
+      </if>
+      <if test="terminalSource != null">
+        TERMINAL_SOURCE,
+      </if>
+      <if test="countyCode != null">
+        COUNTY_CODE,
+      </if>
+      <if test="creditCoordinate != null">
+        CREDIT_COORDINATE,
+      </if>
+      <if test="terminalType != null">
+        TERMINAL_TYPE,
+      </if>
+      <if test="downPayment != null">
+        DOWN_PAYMENT,
+      </if>
+      <if test="downAmount != null">
+        DOWN_AMOUNT,
+      </if>
+      <if test="monthlySupply != null">
+        MONTHLY_SUPPLY,
+      </if>
+      <if test="monthlyAmount != null">
+        MONTHLY_AMOUNT,
+      </if>
+      <if test="goodsId != null">
+        GOODS_ID,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="alipayAccount != null">
+        ALIPAY_ACCOUNT,
+      </if>
+      <if test="alipayRoleId != null">
+        ALIPAY_ROLE_ID,
+      </if>
+      <if test="bankNo != null">
+        BANK_NO,
+      </if>
+      <if test="signAmount != null">
+        SIGN_AMOUNT,
+      </if>
+      <if test="blackBox != null">
+        BLACK_BOX,
+      </if>
+      <if test="isloaned != null">
+        ISLOANED,
+      </if>
+      <if test="lastBankLoanAmount != null">
+        LAST_BANK_LOAN_AMOUNT,
+      </if>
+      <if test="isAuthorize != null">
+        IS_AUTHORIZE,
+      </if>
+      <if test="includeInsFee != null">
+        INCLUDE_INS_FEE,
+      </if>
+      <if test="handPoricyId != null">
+        HAND_PORICY_ID,
+      </if>
+      <if test="loanLx != null">
+        LOAN_LX,
+      </if>
+      <if test="estimationAmount != null">
+        ESTIMATION_AMOUNT,
+      </if>
+      <if test="payWay != null">
+        PAY_WAY,
+      </if>
+      <if test="repayAilPayAccount != null">
+        REPAY_AIL_PAY_ACCOUNT,
+      </if>
+      <if test="payeeAccountType != null">
+        PAYEE_ACCOUNT_TYPE,
+      </if>
+      <if test="accessoryRisk != null">
+        ACCESSORY_RISK,
+      </if>
+      <if test="fristLoanPartnerName != null">
+        FRIST_LOAN_PARTNER_NAME,
+      </if>
+      <if test="lastLoanPartnerName != null">
+        LAST_LOAN_PARTNER_NAME,
+      </if>
+      <if test="fristLoanPartnerNo != null">
+        FRIST_LOAN_PARTNER_NO,
+      </if>
+      <if test="lastLoanPartnerNo != null">
+        LAST_LOAN_PARTNER_NO,
+      </if>
+      <if test="singlePrem != null">
+        SINGLE_PREM,
+      </if>
+      <if test="firstPremRate != null">
+        FIRST_PREM_RATE,
+      </if>
+      <if test="everyPremRate != null">
+        EVERY_PREM_RATE,
+      </if>
+      <if test="trustPlan != null">
+        TRUST_PLAN,
+      </if>
+      <if test="batchNo != null">
+        BATCH_NO,
+      </if>
+      <if test="businessRecomOrgname != null">
+        BUSINESS_RECOM_ORGNAME,
+      </if>
+      <if test="businessRecomOrgid != null">
+        BUSINESS_RECOM_ORGID,
+      </if>
+      <if test="busiArea != null">
+        BUSI_AREA,
+      </if>
+      <if test="newLoanApproval != null">
+        NEW_LOAN_APPROVAL,
+      </if>
+      <if test="newLoanBank != null">
+        NEW_LOAN_BANK,
+      </if>
+      <if test="repayBankNo != null">
+        REPAY_BANK_NO,
+      </if>
+      <if test="etLoanAcc != null">
+        ET_LOAN_ACC,
+      </if>
+      <if test="etLoanAccName != null">
+        ET_LOAN_ACC_NAME,
+      </if>
+      <if test="etLoanAccBank != null">
+        ET_LOAN_ACC_BANK,
+      </if>
+      <if test="etLoanAccBankNme != null">
+        ET_LOAN_ACC_BANK_NME,
+      </if>
+      <if test="loanDirectionCredit != null">
+        LOAN_DIRECTION_CREDIT,
+      </if>
+        <if test="insureRateCode != null">
+        INSURE_RATE_CODE,
+      </if>
+      <if test="paymentAccount != null">
+        PAYMENT_ACCOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="geoLoc != null">
+        #{geoLoc,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeType != null">
+        #{schemeType,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseType != null">
+        #{loanUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="useDec != null">
+        #{useDec,jdbcType=VARCHAR},
+      </if>
+      <if test="infoChannel != null">
+        #{infoChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="anotherInfoChannel != null">
+        #{anotherInfoChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerName != null">
+        #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="isAssure != null">
+        #{isAssure,jdbcType=CHAR},
+      </if>
+      <if test="assureAgreeNo != null">
+        #{assureAgreeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assureAgreeName != null">
+        #{assureAgreeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isOtherPlace != null">
+        #{isOtherPlace,jdbcType=CHAR},
+      </if>
+      <if test="bizTypeSub != null">
+        #{bizTypeSub,jdbcType=VARCHAR},
+      </if>
+      <if test="otherRemark != null">
+        #{otherRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="loanDirection != null">
+        #{loanDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="directionName != null">
+        #{directionName,jdbcType=VARCHAR},
+      </if>
+      <if test="analysisDate != null">
+        #{analysisDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptId != null">
+        #{acceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptName != null">
+        #{acceptName,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputName != null">
+        #{inputName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainUserId != null">
+        #{mainUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainUserName != null">
+        #{mainUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="competence != null">
+        #{competence,jdbcType=DECIMAL},
+      </if>
+      <if test="approveStatus != null">
+        #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="interestAccMode != null">
+        #{interestAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentMode != null">
+        #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="irType != null">
+        #{irType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTerm != null">
+        #{applyTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="rulingIr != null">
+        #{rulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="sprdRate != null">
+        #{sprdRate,jdbcType=DECIMAL},
+      </if>
+      <if test="floatingType != null">
+        #{floatingType,jdbcType=VARCHAR},
+      </if>
+      <if test="floatingRate != null">
+        #{floatingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="realityIrY != null">
+        #{realityIrY,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRate != null">
+        #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueIr != null">
+        #{overdueIr,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultRate != null">
+        #{defaultRate,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultIr != null">
+        #{defaultIr,jdbcType=DECIMAL},
+      </if>
+      <if test="ciRate != null">
+        #{ciRate,jdbcType=DECIMAL},
+      </if>
+      <if test="ciIr != null">
+        #{ciIr,jdbcType=DECIMAL},
+      </if>
+      <if test="irAdjustMode != null">
+        #{irAdjustMode,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=CHAR},
+      </if>
+      <if test="payDistance != null">
+        #{payDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="assureMeansMain != null">
+        #{assureMeansMain,jdbcType=CHAR},
+      </if>
+      <if test="assureMeans1 != null">
+        #{assureMeans1,jdbcType=CHAR},
+      </if>
+      <if test="assureMeans2 != null">
+        #{assureMeans2,jdbcType=CHAR},
+      </if>
+      <if test="appWorkflowId != null">
+        #{appWorkflowId,jdbcType=VARCHAR},
+      </if>
+      <if test="appForm != null">
+        #{appForm,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDay != null">
+        #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="applyCurType != null">
+        #{applyCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="daysOfGrace != null">
+        #{daysOfGrace,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="termTimeType != null">
+        #{termTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAdvise != null">
+        #{applyAdvise,jdbcType=VARCHAR},
+      </if>
+      <if test="isFlag != null">
+        #{isFlag,jdbcType=CHAR},
+      </if>
+      <if test="contName != null">
+        #{contName,jdbcType=VARCHAR},
+      </if>
+      <if test="dueFirstDay != null">
+        #{dueFirstDay,jdbcType=VARCHAR},
+      </if>
+      <if test="contPublic != null">
+        #{contPublic,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecord != null">
+        #{isRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseTime != null">
+        #{refuseTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseCode != null">
+        #{refuseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantor != null">
+        #{guarantor,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorOcc != null">
+        #{guarantorOcc,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorIncm != null">
+        #{guarantorIncm,jdbcType=DECIMAL},
+      </if>
+      <if test="guarantorCode != null">
+        #{guarantorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorPhone != null">
+        #{guarantorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorRelate != null">
+        #{guarantorRelate,jdbcType=CHAR},
+      </if>
+      <if test="corpGuarName != null">
+        #{corpGuarName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpRelate != null">
+        #{corpRelate,jdbcType=CHAR},
+      </if>
+      <if test="corpDesc != null">
+        #{corpDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mayGrt != null">
+        #{mayGrt,jdbcType=VARCHAR},
+      </if>
+      <if test="grtValue != null">
+        #{grtValue,jdbcType=DECIMAL},
+      </if>
+      <if test="isWorth != null">
+        #{isWorth,jdbcType=CHAR},
+      </if>
+      <if test="spreadTime != null">
+        #{spreadTime,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadPlace != null">
+        #{spreadPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadName != null">
+        #{spreadName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAnalyse != null">
+        #{riskAnalyse,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdvice != null">
+        #{managerAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="cusSex != null">
+        #{cusSex,jdbcType=CHAR},
+      </if>
+      <if test="loanUse != null">
+        #{loanUse,jdbcType=VARCHAR},
+      </if>
+      <if test="readFlag != null">
+        #{readFlag,jdbcType=CHAR},
+      </if>
+      <if test="loanUseDesc != null">
+        #{loanUseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="assiId != null">
+        #{assiId,jdbcType=VARCHAR},
+      </if>
+      <if test="assiName != null">
+        #{assiName,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="usingIr != null">
+        #{usingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="prdId != null">
+        #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrName != null">
+        #{inputBrName,jdbcType=VARCHAR},
+      </if>
+      <if test="inputLevel != null">
+        #{inputLevel,jdbcType=CHAR},
+      </if>
+      <if test="mainLevel != null">
+        #{mainLevel,jdbcType=CHAR},
+      </if>
+      <if test="prop != null">
+        #{prop,jdbcType=VARCHAR},
+      </if>
+      <if test="isMoreLoan != null">
+        #{isMoreLoan,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="appStatus != null">
+        #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerType != null">
+        #{partnerType,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCertCode != null">
+        #{partnerCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCertType != null">
+        #{partnerCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="isAgriculture != null">
+        #{isAgriculture,jdbcType=CHAR},
+      </if>
+      <if test="inputChannel != null">
+        #{inputChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="isAddCus != null">
+        #{isAddCus,jdbcType=CHAR},
+      </if>
+      <if test="newApproveStatus != null">
+        #{newApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="isAlready != null">
+        #{isAlready,jdbcType=CHAR},
+      </if>
+      <if test="isOrder != null">
+        #{isOrder,jdbcType=CHAR},
+      </if>
+      <if test="prjCost != null">
+        #{prjCost,jdbcType=DECIMAL},
+      </if>
+      <if test="prjStep != null">
+        #{prjStep,jdbcType=VARCHAR},
+      </if>
+      <if test="useDetail != null">
+        #{useDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="loanReason != null">
+        #{loanReason,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseAmt != null">
+        #{adviseAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="adviseDeadline != null">
+        #{adviseDeadline,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseRepaymentWay != null">
+        #{adviseRepaymentWay,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseGuarPerson != null">
+        #{adviseGuarPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="specialCase != null">
+        #{specialCase,jdbcType=VARCHAR},
+      </if>
+      <if test="cusMgr != null">
+        #{cusMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseDate != null">
+        #{adviseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeSerno != null">
+        #{guaranteeSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="teamno != null">
+        #{teamno,jdbcType=VARCHAR},
+      </if>
+      <if test="teamLeader != null">
+        #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="groupno != null">
+        #{groupno,jdbcType=VARCHAR},
+      </if>
+      <if test="groupLeader != null">
+        #{groupLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="isCancel != null">
+        #{isCancel,jdbcType=CHAR},
+      </if>
+      <if test="businessPersionId != null">
+        #{businessPersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPersionName != null">
+        #{businessPersionName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPersionPhone != null">
+        #{businessPersionPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCusMgr != null">
+        #{bankCusMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="bankMgrPhone != null">
+        #{bankMgrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="optType != null">
+        #{optType,jdbcType=CHAR},
+      </if>
+      <if test="isBatcBiz != null">
+        #{isBatcBiz,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentModeDesc != null">
+        #{repaymentModeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseRepaymentWayDesc != null">
+        #{adviseRepaymentWayDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMode != null">
+        #{bizMode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanForm != null">
+        #{loanForm,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentSrc != null">
+        #{repaymentSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantyType != null">
+        #{guarantyType,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantyName != null">
+        #{guarantyName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseCertNo != null">
+        #{houseCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="righterName != null">
+        #{righterName,jdbcType=VARCHAR},
+      </if>
+      <if test="righterCertType != null">
+        #{righterCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="righterCertCode != null">
+        #{righterCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isGrtThird != null">
+        #{isGrtThird,jdbcType=VARCHAR},
+      </if>
+      <if test="oBillNo != null">
+        #{oBillNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oContNo != null">
+        #{oContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanBalance != null">
+        #{loanBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="oUsingIr != null">
+        #{oUsingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="oLoanStartDate != null">
+        #{oLoanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="oLoanEndDate != null">
+        #{oLoanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessBrId != null">
+        #{businessBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalNessRate != null">
+        #{totalNessRate,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelFailCause != null">
+        #{cancelFailCause,jdbcType=VARCHAR},
+      </if>
+      <if test="evalNetValue != null">
+        #{evalNetValue,jdbcType=DECIMAL},
+      </if>
+      <if test="unassureMeansActions != null">
+        #{unassureMeansActions,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadPlaceDesc != null">
+        #{spreadPlaceDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptLoanAmount != null">
+        #{acceptLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="suborganno != null">
+        #{suborganno,jdbcType=VARCHAR},
+      </if>
+      <if test="impThiSrc != null">
+        #{impThiSrc,jdbcType=CHAR},
+      </if>
+      <if test="isElecIns != null">
+        #{isElecIns,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpdate != null">
+        #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="isPass != null">
+        #{isPass,jdbcType=VARCHAR},
+      </if>
+      <if test="repayPercent != null">
+        #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="adviseRepayPercent != null">
+        #{adviseRepayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="ficoScore != null">
+        #{ficoScore,jdbcType=VARCHAR},
+      </if>
+      <if test="notThroughReason != null">
+        #{notThroughReason,jdbcType=VARCHAR},
+      </if>
+      <if test="ficoRecordId != null">
+        #{ficoRecordId,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadDate != null">
+        #{spreadDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operPhone != null">
+        #{operPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="operTelNo != null">
+        #{operTelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="belongBrId != null">
+        #{belongBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="p2pApproveStatus != null">
+        #{p2pApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseremark != null">
+        #{refuseremark,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendLoan != null">
+        #{isSendLoan,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        #{handleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdPlatform != null">
+        #{thirdPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdPlatformName != null">
+        #{thirdPlatformName,jdbcType=VARCHAR},
+      </if>
+      <if test="canSingle != null">
+        #{canSingle,jdbcType=VARCHAR},
+      </if>
+      <if test="isDistribution != null">
+        #{isDistribution,jdbcType=VARCHAR},
+      </if>
+      <if test="termDay != null">
+        #{termDay,jdbcType=DECIMAL},
+      </if>
+      <if test="adviseTerm != null">
+        #{adviseTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sendImageStatus != null">
+        #{sendImageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cusTypeNew != null">
+        #{cusTypeNew,jdbcType=VARCHAR},
+      </if>
+      <if test="accAgreeNo != null">
+        #{accAgreeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pushBrId != null">
+        #{pushBrId,jdbcType=CHAR},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=DECIMAL},
+      </if>
+      <if test="autoappr != null">
+        #{autoappr,jdbcType=VARCHAR},
+      </if>
+      <if test="caccelLoanRemarks != null">
+        #{caccelLoanRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="caccelLoanReason != null">
+        #{caccelLoanReason,jdbcType=VARCHAR},
+      </if>
+      <if test="bidCusId != null">
+        #{bidCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cAppnt != null">
+        #{cAppnt,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null">
+        #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="validResult != null">
+        #{validResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isAutoApprove != null">
+        #{isAutoApprove,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCusId != null">
+        #{partnerCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyreason != null">
+        #{modifyreason,jdbcType=VARCHAR},
+      </if>
+      <if test="specialFlag != null">
+        #{specialFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="jiraNo != null">
+        #{jiraNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleLoanAmt != null">
+        #{ruleLoanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="specialRemark != null">
+        #{specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="busiStatus != null">
+        #{busiStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="repayBank != null">
+        #{repayBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccountName != null">
+        #{repayAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccount != null">
+        #{repayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBank != null">
+        #{payeeBank,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountName != null">
+        #{payeeAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccount != null">
+        #{payeeAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="ransomType != null">
+        #{ransomType,jdbcType=VARCHAR},
+      </if>
+      <if test="oldHouseAmount != null">
+        #{oldHouseAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="useDate != null">
+        #{useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCusId != null">
+        #{buyerCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCusId != null">
+        #{sellerCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCertType != null">
+        #{buyerCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCertCode != null">
+        #{buyerCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCusType != null">
+        #{buyerCusType,jdbcType=CHAR},
+      </if>
+      <if test="buyerCusName != null">
+        #{buyerCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerPhone != null">
+        #{buyerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCertType != null">
+        #{sellerCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCertCode != null">
+        #{sellerCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCusType != null">
+        #{sellerCusType,jdbcType=CHAR},
+      </if>
+      <if test="sellerCusName != null">
+        #{sellerCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPhone != null">
+        #{sellerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerFirstAmount != null">
+        #{buyerFirstAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="buyerAmount != null">
+        #{buyerAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="buyerBankName != null">
+        #{buyerBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBankCode != null">
+        #{buyerBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskResult != null">
+        #{riskResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isMustRansom != null">
+        #{isMustRansom,jdbcType=CHAR},
+      </if>
+      <if test="visaInterviewCoordinate != null">
+        #{visaInterviewCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCoordinate != null">
+        #{loanCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="microCreditCoordinate != null">
+        #{microCreditCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="isCreditImplementation != null">
+        #{isCreditImplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="isFaceSign != null">
+        #{isFaceSign,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetailId != null">
+        #{goodsDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSource != null">
+        #{terminalSource,jdbcType=VARCHAR},
+      </if>
+      <if test="countyCode != null">
+        #{countyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCoordinate != null">
+        #{creditCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalType != null">
+        #{terminalType,jdbcType=VARCHAR},
+      </if>
+      <if test="downPayment != null">
+        #{downPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="downAmount != null">
+        #{downAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlySupply != null">
+        #{monthlySupply,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyAmount != null">
+        #{monthlyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccount != null">
+        #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayRoleId != null">
+        #{alipayRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null">
+        #{bankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="signAmount != null">
+        #{signAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="blackBox != null">
+        #{blackBox,jdbcType=VARCHAR},
+      </if>
+      <if test="isloaned != null">
+        #{isloaned,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBankLoanAmount != null">
+        #{lastBankLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isAuthorize != null">
+        #{isAuthorize,jdbcType=VARCHAR},
+      </if>
+      <if test="includeInsFee != null">
+        #{includeInsFee,jdbcType=VARCHAR},
+      </if>
+      <if test="handPoricyId != null">
+        #{handPoricyId,jdbcType=VARCHAR},
+      </if>
+      <if test="loanLx != null">
+        #{loanLx,jdbcType=DECIMAL},
+      </if>
+      <if test="estimationAmount != null">
+        #{estimationAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payWay != null">
+        #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAilPayAccount != null">
+        #{repayAilPayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountType != null">
+        #{payeeAccountType,jdbcType=CHAR},
+      </if>
+      <if test="accessoryRisk != null">
+        #{accessoryRisk,jdbcType=CHAR},
+      </if>
+      <if test="fristLoanPartnerName != null">
+        #{fristLoanPartnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoanPartnerName != null">
+        #{lastLoanPartnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fristLoanPartnerNo != null">
+        #{fristLoanPartnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoanPartnerNo != null">
+        #{lastLoanPartnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="singlePrem != null">
+        #{singlePrem,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPremRate != null">
+        #{firstPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="everyPremRate != null">
+        #{everyPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="trustPlan != null">
+        #{trustPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRecomOrgname != null">
+        #{businessRecomOrgname,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRecomOrgid != null">
+        #{businessRecomOrgid,jdbcType=VARCHAR},
+      </if>
+      <if test="busiArea != null">
+        #{busiArea,jdbcType=VARCHAR},
+      </if>
+      <if test="newLoanApproval != null">
+        #{newLoanApproval,jdbcType=CHAR},
+      </if>
+      <if test="newLoanBank != null">
+        #{newLoanBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayBankNo != null">
+        #{repayBankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAcc != null">
+        #{etLoanAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAccName != null">
+        #{etLoanAccName,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAccBank != null">
+        #{etLoanAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAccBankNme != null">
+        #{etLoanAccBankNme,jdbcType=VARCHAR},
+      </if>
+      <if test="loanDirectionCredit != null">
+        #{loanDirectionCredit,jdbcType=VARCHAR},
+      </if>
+       <if test="insureRateCode != null">
+        #{insureRateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null">
+        #{paymentAccount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeLoanApp">
+    update IQP_ME_LOAN_APP
+    <set>
+      <if test="cusId != null">
+        CUS_ID = #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        APPLY_DATE = #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="geoLoc != null">
+        GEO_LOC = #{geoLoc,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeType != null">
+        SCHEME_TYPE = #{schemeType,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseType != null">
+        LOAN_USE_TYPE = #{loanUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="useDec != null">
+        USE_DEC = #{useDec,jdbcType=VARCHAR},
+      </if>
+      <if test="infoChannel != null">
+        INFO_CHANNEL = #{infoChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="anotherInfoChannel != null">
+        ANOTHER_INFO_CHANNEL = #{anotherInfoChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO = #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerName != null">
+        PARTNER_NAME = #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="isAssure != null">
+        IS_ASSURE = #{isAssure,jdbcType=CHAR},
+      </if>
+      <if test="assureAgreeNo != null">
+        ASSURE_AGREE_NO = #{assureAgreeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assureAgreeName != null">
+        ASSURE_AGREE_NAME = #{assureAgreeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isOtherPlace != null">
+        IS_OTHER_PLACE = #{isOtherPlace,jdbcType=CHAR},
+      </if>
+      <if test="bizTypeSub != null">
+        BIZ_TYPE_SUB = #{bizTypeSub,jdbcType=VARCHAR},
+      </if>
+      <if test="otherRemark != null">
+        OTHER_REMARK = #{otherRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="loanDirection != null">
+        LOAN_DIRECTION = #{loanDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="directionName != null">
+        DIRECTION_NAME = #{directionName,jdbcType=VARCHAR},
+      </if>
+      <if test="analysisDate != null">
+        ANALYSIS_DATE = #{analysisDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptId != null">
+        ACCEPT_ID = #{acceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptName != null">
+        ACCEPT_NAME = #{acceptName,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputName != null">
+        INPUT_NAME = #{inputName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainUserId != null">
+        MAIN_USER_ID = #{mainUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainUserName != null">
+        MAIN_USER_NAME = #{mainUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="competence != null">
+        COMPETENCE = #{competence,jdbcType=DECIMAL},
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS = #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="interestAccMode != null">
+        INTEREST_ACC_MODE = #{interestAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE = #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="irType != null">
+        IR_TYPE = #{irType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTerm != null">
+        APPLY_TERM = #{applyTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="rulingIr != null">
+        RULING_IR = #{rulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="sprdRate != null">
+        SPRD_RATE = #{sprdRate,jdbcType=DECIMAL},
+      </if>
+      <if test="floatingType != null">
+        FLOATING_TYPE = #{floatingType,jdbcType=VARCHAR},
+      </if>
+      <if test="floatingRate != null">
+        FLOATING_RATE = #{floatingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="realityIrY != null">
+        REALITY_IR_Y = #{realityIrY,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE = #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueIr != null">
+        OVERDUE_IR = #{overdueIr,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultRate != null">
+        DEFAULT_RATE = #{defaultRate,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultIr != null">
+        DEFAULT_IR = #{defaultIr,jdbcType=DECIMAL},
+      </if>
+      <if test="ciRate != null">
+        CI_RATE = #{ciRate,jdbcType=DECIMAL},
+      </if>
+      <if test="ciIr != null">
+        CI_IR = #{ciIr,jdbcType=DECIMAL},
+      </if>
+      <if test="irAdjustMode != null">
+        IR_ADJUST_MODE = #{irAdjustMode,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        FREQUENCY = #{frequency,jdbcType=CHAR},
+      </if>
+      <if test="payDistance != null">
+        PAY_DISTANCE = #{payDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="assureMeansMain != null">
+        ASSURE_MEANS_MAIN = #{assureMeansMain,jdbcType=CHAR},
+      </if>
+      <if test="assureMeans1 != null">
+        ASSURE_MEANS1 = #{assureMeans1,jdbcType=CHAR},
+      </if>
+      <if test="assureMeans2 != null">
+        ASSURE_MEANS2 = #{assureMeans2,jdbcType=CHAR},
+      </if>
+      <if test="appWorkflowId != null">
+        APP_WORKFLOW_ID = #{appWorkflowId,jdbcType=VARCHAR},
+      </if>
+      <if test="appForm != null">
+        APP_FORM = #{appForm,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY = #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="applyCurType != null">
+        APPLY_CUR_TYPE = #{applyCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="daysOfGrace != null">
+        DAYS_OF_GRACE = #{daysOfGrace,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="termTimeType != null">
+        TERM_TIME_TYPE = #{termTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAdvise != null">
+        APPLY_ADVISE = #{applyAdvise,jdbcType=VARCHAR},
+      </if>
+      <if test="isFlag != null">
+        IS_FLAG = #{isFlag,jdbcType=CHAR},
+      </if>
+      <if test="contName != null">
+        CONT_NAME = #{contName,jdbcType=VARCHAR},
+      </if>
+      <if test="dueFirstDay != null">
+        DUE_FIRST_DAY = #{dueFirstDay,jdbcType=VARCHAR},
+      </if>
+      <if test="contPublic != null">
+        CONT_PUBLIC = #{contPublic,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecord != null">
+        IS_RECORD = #{isRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseTime != null">
+        REFUSE_TIME = #{refuseTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseCode != null">
+        REFUSE_CODE = #{refuseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantor != null">
+        GUARANTOR = #{guarantor,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorOcc != null">
+        GUARANTOR_OCC = #{guarantorOcc,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorIncm != null">
+        GUARANTOR_INCM = #{guarantorIncm,jdbcType=DECIMAL},
+      </if>
+      <if test="guarantorCode != null">
+        GUARANTOR_CODE = #{guarantorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorPhone != null">
+        GUARANTOR_PHONE = #{guarantorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantorRelate != null">
+        GUARANTOR_RELATE = #{guarantorRelate,jdbcType=CHAR},
+      </if>
+      <if test="corpGuarName != null">
+        CORP_GUAR_NAME = #{corpGuarName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpRelate != null">
+        CORP_RELATE = #{corpRelate,jdbcType=CHAR},
+      </if>
+      <if test="corpDesc != null">
+        CORP_DESC = #{corpDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mayGrt != null">
+        MAY_GRT = #{mayGrt,jdbcType=VARCHAR},
+      </if>
+      <if test="grtValue != null">
+        GRT_VALUE = #{grtValue,jdbcType=DECIMAL},
+      </if>
+      <if test="isWorth != null">
+        IS_WORTH = #{isWorth,jdbcType=CHAR},
+      </if>
+      <if test="spreadTime != null">
+        SPREAD_TIME = #{spreadTime,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadPlace != null">
+        SPREAD_PLACE = #{spreadPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadName != null">
+        SPREAD_NAME = #{spreadName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAnalyse != null">
+        RISK_ANALYSE = #{riskAnalyse,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdvice != null">
+        MANAGER_ADVICE = #{managerAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="cusSex != null">
+        CUS_SEX = #{cusSex,jdbcType=CHAR},
+      </if>
+      <if test="loanUse != null">
+        LOAN_USE = #{loanUse,jdbcType=VARCHAR},
+      </if>
+      <if test="readFlag != null">
+        READ_FLAG = #{readFlag,jdbcType=CHAR},
+      </if>
+      <if test="loanUseDesc != null">
+        LOAN_USE_DESC = #{loanUseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="assiId != null">
+        ASSI_ID = #{assiId,jdbcType=VARCHAR},
+      </if>
+      <if test="assiName != null">
+        ASSI_NAME = #{assiName,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="usingIr != null">
+        USING_IR = #{usingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="prdId != null">
+        PRD_ID = #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrName != null">
+        INPUT_BR_NAME = #{inputBrName,jdbcType=VARCHAR},
+      </if>
+      <if test="inputLevel != null">
+        INPUT_LEVEL = #{inputLevel,jdbcType=CHAR},
+      </if>
+      <if test="mainLevel != null">
+        MAIN_LEVEL = #{mainLevel,jdbcType=CHAR},
+      </if>
+      <if test="prop != null">
+        PROP = #{prop,jdbcType=VARCHAR},
+      </if>
+      <if test="isMoreLoan != null">
+        IS_MORE_LOAN = #{isMoreLoan,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="appStatus != null">
+        APP_STATUS = #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerType != null">
+        PARTNER_TYPE = #{partnerType,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCertCode != null">
+        PARTNER_CERT_CODE = #{partnerCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCertType != null">
+        PARTNER_CERT_TYPE = #{partnerCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="isAgriculture != null">
+        IS_AGRICULTURE = #{isAgriculture,jdbcType=CHAR},
+      </if>
+      <if test="inputChannel != null">
+        INPUT_CHANNEL = #{inputChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="isAddCus != null">
+        IS_ADD_CUS = #{isAddCus,jdbcType=CHAR},
+      </if>
+      <if test="newApproveStatus != null">
+        NEW_APPROVE_STATUS = #{newApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        CHANNEL_NO = #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="isAlready != null">
+        IS_ALREADY = #{isAlready,jdbcType=CHAR},
+      </if>
+      <if test="isOrder != null">
+        IS_ORDER = #{isOrder,jdbcType=CHAR},
+      </if>
+      <if test="prjCost != null">
+        PRJ_COST = #{prjCost,jdbcType=DECIMAL},
+      </if>
+      <if test="prjStep != null">
+        PRJ_STEP = #{prjStep,jdbcType=VARCHAR},
+      </if>
+      <if test="useDetail != null">
+        USE_DETAIL = #{useDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="loanReason != null">
+        LOAN_REASON = #{loanReason,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseAmt != null">
+        ADVISE_AMT = #{adviseAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="adviseDeadline != null">
+        ADVISE_DEADLINE = #{adviseDeadline,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseRepaymentWay != null">
+        ADVISE_REPAYMENT_WAY = #{adviseRepaymentWay,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseGuarPerson != null">
+        ADVISE_GUAR_PERSON = #{adviseGuarPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="specialCase != null">
+        SPECIAL_CASE = #{specialCase,jdbcType=VARCHAR},
+      </if>
+      <if test="cusMgr != null">
+        CUS_MGR = #{cusMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseDate != null">
+        ADVISE_DATE = #{adviseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeSerno != null">
+        GUARANTEE_SERNO = #{guaranteeSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="teamno != null">
+        TEAMNO = #{teamno,jdbcType=VARCHAR},
+      </if>
+      <if test="teamLeader != null">
+        TEAM_LEADER = #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="groupno != null">
+        GROUPNO = #{groupno,jdbcType=VARCHAR},
+      </if>
+      <if test="groupLeader != null">
+        GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="isCancel != null">
+        IS_CANCEL = #{isCancel,jdbcType=CHAR},
+      </if>
+      <if test="businessPersionId != null">
+        BUSINESS_PERSION_ID = #{businessPersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPersionName != null">
+        BUSINESS_PERSION_NAME = #{businessPersionName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPersionPhone != null">
+        BUSINESS_PERSION_PHONE = #{businessPersionPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCusMgr != null">
+        BANK_CUS_MGR = #{bankCusMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="bankMgrPhone != null">
+        BANK_MGR_PHONE = #{bankMgrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="optType != null">
+        OPT_TYPE = #{optType,jdbcType=CHAR},
+      </if>
+      <if test="isBatcBiz != null">
+        IS_BATC_BIZ = #{isBatcBiz,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentModeDesc != null">
+        REPAYMENT_MODE_DESC = #{repaymentModeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="adviseRepaymentWayDesc != null">
+        ADVISE_REPAYMENT_WAY_DESC = #{adviseRepaymentWayDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE = #{bizMode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanForm != null">
+        LOAN_FORM = #{loanForm,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentSrc != null">
+        REPAYMENT_SRC = #{repaymentSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantyType != null">
+        GUARANTY_TYPE = #{guarantyType,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantyName != null">
+        GUARANTY_NAME = #{guarantyName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseCertNo != null">
+        HOUSE_CERT_NO = #{houseCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="righterName != null">
+        RIGHTER_NAME = #{righterName,jdbcType=VARCHAR},
+      </if>
+      <if test="righterCertType != null">
+        RIGHTER_CERT_TYPE = #{righterCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="righterCertCode != null">
+        RIGHTER_CERT_CODE = #{righterCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isGrtThird != null">
+        IS_GRT_THIRD = #{isGrtThird,jdbcType=VARCHAR},
+      </if>
+      <if test="oBillNo != null">
+        O_BILL_NO = #{oBillNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oContNo != null">
+        O_CONT_NO = #{oContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanBalance != null">
+        LOAN_BALANCE = #{loanBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="oUsingIr != null">
+        O_USING_IR = #{oUsingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="oLoanStartDate != null">
+        O_LOAN_START_DATE = #{oLoanStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="oLoanEndDate != null">
+        O_LOAN_END_DATE = #{oLoanEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessBrId != null">
+        BUSINESS_BR_ID = #{businessBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalNessRate != null">
+        TOTAL_NESS_RATE = #{totalNessRate,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelFailCause != null">
+        CANCEL_FAIL_CAUSE = #{cancelFailCause,jdbcType=VARCHAR},
+      </if>
+      <if test="evalNetValue != null">
+        EVAL_NET_VALUE = #{evalNetValue,jdbcType=DECIMAL},
+      </if>
+      <if test="unassureMeansActions != null">
+        UNASSURE_MEANS_ACTIONS = #{unassureMeansActions,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadPlaceDesc != null">
+        SPREAD_PLACE_DESC = #{spreadPlaceDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        COST_RATE = #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptLoanAmount != null">
+        ACCEPT_LOAN_AMOUNT = #{acceptLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="suborganno != null">
+        SUBORGANNO = #{suborganno,jdbcType=VARCHAR},
+      </if>
+      <if test="impThiSrc != null">
+        IMP_THI_SRC = #{impThiSrc,jdbcType=CHAR},
+      </if>
+      <if test="isElecIns != null">
+        IS_ELEC_INS = #{isElecIns,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="isPass != null">
+        IS_PASS = #{isPass,jdbcType=VARCHAR},
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT = #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="adviseRepayPercent != null">
+        ADVISE_REPAY_PERCENT = #{adviseRepayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="ficoScore != null">
+        FICO_SCORE = #{ficoScore,jdbcType=VARCHAR},
+      </if>
+      <if test="notThroughReason != null">
+        NOT_THROUGH_REASON = #{notThroughReason,jdbcType=VARCHAR},
+      </if>
+      <if test="ficoRecordId != null">
+        FICO_RECORD_ID = #{ficoRecordId,jdbcType=VARCHAR},
+      </if>
+      <if test="spreadDate != null">
+        SPREAD_DATE = #{spreadDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        OPER_NAME = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operPhone != null">
+        OPER_PHONE = #{operPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="operTelNo != null">
+        OPER_TEL_NO = #{operTelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="belongBrId != null">
+        BELONG_BR_ID = #{belongBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="p2pApproveStatus != null">
+        P2P_APPROVE_STATUS = #{p2pApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseremark != null">
+        REFUSEREMARK = #{refuseremark,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendLoan != null">
+        IS_SEND_LOAN = #{isSendLoan,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME = #{handleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdPlatform != null">
+        THIRD_PLATFORM = #{thirdPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdPlatformName != null">
+        THIRD_PLATFORM_NAME = #{thirdPlatformName,jdbcType=VARCHAR},
+      </if>
+      <if test="canSingle != null">
+        CAN_SINGLE = #{canSingle,jdbcType=VARCHAR},
+      </if>
+      <if test="isDistribution != null">
+        IS_DISTRIBUTION = #{isDistribution,jdbcType=VARCHAR},
+      </if>
+      <if test="termDay != null">
+        TERM_DAY = #{termDay,jdbcType=DECIMAL},
+      </if>
+      <if test="adviseTerm != null">
+        ADVISE_TERM = #{adviseTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS = #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sendImageStatus != null">
+        SEND_IMAGE_STATUS = #{sendImageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cusTypeNew != null">
+        CUS_TYPE_NEW = #{cusTypeNew,jdbcType=VARCHAR},
+      </if>
+      <if test="accAgreeNo != null">
+        ACC_AGREE_NO = #{accAgreeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pushBrId != null">
+        PUSH_BR_ID = #{pushBrId,jdbcType=CHAR},
+      </if>
+      <if test="period != null">
+        PERIOD = #{period,jdbcType=DECIMAL},
+      </if>
+      <if test="autoappr != null">
+        AUTOAPPR = #{autoappr,jdbcType=VARCHAR},
+      </if>
+      <if test="caccelLoanRemarks != null">
+        CACCEL_LOAN_REMARKS = #{caccelLoanRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="caccelLoanReason != null">
+        CACCEL_LOAN_REASON = #{caccelLoanReason,jdbcType=VARCHAR},
+      </if>
+      <if test="bidCusId != null">
+        BID_CUS_ID = #{bidCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cAppnt != null">
+        C_APPNT = #{cAppnt,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null">
+        BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="validResult != null">
+        VALID_RESULT = #{validResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isAutoApprove != null">
+        IS_AUTO_APPROVE = #{isAutoApprove,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCusId != null">
+        PARTNER_CUS_ID = #{partnerCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyreason != null">
+        MODIFYREASON = #{modifyreason,jdbcType=VARCHAR},
+      </if>
+      <if test="specialFlag != null">
+        SPECIAL_FLAG = #{specialFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="jiraNo != null">
+        JIRA_NO = #{jiraNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleLoanAmt != null">
+        RULE_LOAN_AMT = #{ruleLoanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="specialRemark != null">
+        SPECIAL_REMARK = #{specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="busiStatus != null">
+        BUSI_STATUS = #{busiStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="repayBank != null">
+        REPAY_BANK = #{repayBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccountName != null">
+        REPAY_ACCOUNT_NAME = #{repayAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAccount != null">
+        REPAY_ACCOUNT = #{repayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBank != null">
+        PAYEE_BANK = #{payeeBank,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountName != null">
+        PAYEE_ACCOUNT_NAME = #{payeeAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccount != null">
+        PAYEE_ACCOUNT = #{payeeAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="ransomType != null">
+        RANSOM_TYPE = #{ransomType,jdbcType=VARCHAR},
+      </if>
+      <if test="oldHouseAmount != null">
+        OLD_HOUSE_AMOUNT = #{oldHouseAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="useDate != null">
+        USE_DATE = #{useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCusId != null">
+        BUYER_CUS_ID = #{buyerCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCusId != null">
+        SELLER_CUS_ID = #{sellerCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCertType != null">
+        BUYER_CERT_TYPE = #{buyerCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCertCode != null">
+        BUYER_CERT_CODE = #{buyerCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerCusType != null">
+        BUYER_CUS_TYPE = #{buyerCusType,jdbcType=CHAR},
+      </if>
+      <if test="buyerCusName != null">
+        BUYER_CUS_NAME = #{buyerCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerPhone != null">
+        BUYER_PHONE = #{buyerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCertType != null">
+        SELLER_CERT_TYPE = #{sellerCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCertCode != null">
+        SELLER_CERT_CODE = #{sellerCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCusType != null">
+        SELLER_CUS_TYPE = #{sellerCusType,jdbcType=CHAR},
+      </if>
+      <if test="sellerCusName != null">
+        SELLER_CUS_NAME = #{sellerCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPhone != null">
+        SELLER_PHONE = #{sellerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerFirstAmount != null">
+        BUYER_FIRST_AMOUNT = #{buyerFirstAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="buyerAmount != null">
+        BUYER_AMOUNT = #{buyerAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="buyerBankName != null">
+        BUYER_BANK_NAME = #{buyerBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBankCode != null">
+        BUYER_BANK_CODE = #{buyerBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskResult != null">
+        RISK_RESULT = #{riskResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isMustRansom != null">
+        IS_MUST_RANSOM = #{isMustRansom,jdbcType=CHAR},
+      </if>
+      <if test="visaInterviewCoordinate != null">
+        VISA_INTERVIEW_COORDINATE = #{visaInterviewCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCoordinate != null">
+        LOAN_COORDINATE = #{loanCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="microCreditCoordinate != null">
+        MICRO_CREDIT_COORDINATE = #{microCreditCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="isCreditImplementation != null">
+        IS_CREDIT_IMPLEMENTATION = #{isCreditImplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="isFaceSign != null">
+        IS_FACE_SIGN = #{isFaceSign,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetailId != null">
+        GOODS_DETAIL_ID = #{goodsDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSource != null">
+        TERMINAL_SOURCE = #{terminalSource,jdbcType=VARCHAR},
+      </if>
+      <if test="countyCode != null">
+        COUNTY_CODE = #{countyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCoordinate != null">
+        CREDIT_COORDINATE = #{creditCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalType != null">
+        TERMINAL_TYPE = #{terminalType,jdbcType=VARCHAR},
+      </if>
+      <if test="downPayment != null">
+        DOWN_PAYMENT = #{downPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="downAmount != null">
+        DOWN_AMOUNT = #{downAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlySupply != null">
+        MONTHLY_SUPPLY = #{monthlySupply,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyAmount != null">
+        MONTHLY_AMOUNT = #{monthlyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsId != null">
+        GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccount != null">
+        ALIPAY_ACCOUNT = #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayRoleId != null">
+        ALIPAY_ROLE_ID = #{alipayRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null">
+        BANK_NO = #{bankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="signAmount != null">
+        SIGN_AMOUNT = #{signAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="blackBox != null">
+        BLACK_BOX = #{blackBox,jdbcType=VARCHAR},
+      </if>
+      <if test="isloaned != null">
+        ISLOANED = #{isloaned,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBankLoanAmount != null">
+        LAST_BANK_LOAN_AMOUNT = #{lastBankLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isAuthorize != null">
+        IS_AUTHORIZE = #{isAuthorize,jdbcType=VARCHAR},
+      </if>
+      <if test="includeInsFee != null">
+        INCLUDE_INS_FEE = #{includeInsFee,jdbcType=VARCHAR},
+      </if>
+      <if test="handPoricyId != null">
+        HAND_PORICY_ID = #{handPoricyId,jdbcType=VARCHAR},
+      </if>
+      <if test="loanLx != null">
+        LOAN_LX = #{loanLx,jdbcType=DECIMAL},
+      </if>
+      <if test="estimationAmount != null">
+        ESTIMATION_AMOUNT = #{estimationAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payWay != null">
+        PAY_WAY = #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="repayAilPayAccount != null">
+        REPAY_AIL_PAY_ACCOUNT = #{repayAilPayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountType != null">
+        PAYEE_ACCOUNT_TYPE = #{payeeAccountType,jdbcType=CHAR},
+      </if>
+      <if test="accessoryRisk != null">
+        ACCESSORY_RISK = #{accessoryRisk,jdbcType=CHAR},
+      </if>
+      <if test="fristLoanPartnerName != null">
+        FRIST_LOAN_PARTNER_NAME = #{fristLoanPartnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoanPartnerName != null">
+        LAST_LOAN_PARTNER_NAME = #{lastLoanPartnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fristLoanPartnerNo != null">
+        FRIST_LOAN_PARTNER_NO = #{fristLoanPartnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoanPartnerNo != null">
+        LAST_LOAN_PARTNER_NO = #{lastLoanPartnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="singlePrem != null">
+        SINGLE_PREM = #{singlePrem,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPremRate != null">
+        FIRST_PREM_RATE = #{firstPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="everyPremRate != null">
+        EVERY_PREM_RATE = #{everyPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="trustPlan != null">
+        TRUST_PLAN = #{trustPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRecomOrgname != null">
+        BUSINESS_RECOM_ORGNAME = #{businessRecomOrgname,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRecomOrgid != null">
+        BUSINESS_RECOM_ORGID = #{businessRecomOrgid,jdbcType=VARCHAR},
+      </if>
+      <if test="busiArea != null">
+        BUSI_AREA = #{busiArea,jdbcType=VARCHAR},
+      </if>
+      <if test="newLoanApproval != null">
+        NEW_LOAN_APPROVAL = #{newLoanApproval,jdbcType=CHAR},
+      </if>
+      <if test="newLoanBank != null">
+        NEW_LOAN_BANK = #{newLoanBank,jdbcType=VARCHAR},
+      </if>
+      <if test="repayBankNo != null">
+        REPAY_BANK_NO = #{repayBankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAcc != null">
+        ET_LOAN_ACC = #{etLoanAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAccName != null">
+        ET_LOAN_ACC_NAME = #{etLoanAccName,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAccBank != null">
+        ET_LOAN_ACC_BANK = #{etLoanAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="etLoanAccBankNme != null">
+        ET_LOAN_ACC_BANK_NME = #{etLoanAccBankNme,jdbcType=VARCHAR},
+      </if>
+      <if test="loanDirectionCredit != null">
+        LOAN_DIRECTION_CREDIT = #{loanDirectionCredit,jdbcType=VARCHAR},
+      </if>
+       <if test="insureRateCode != null">
+        INSURE_RATE_CODE = #{insureRateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null">
+        PAYMENT_ACCOUNT = #{paymentAccount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeLoanApp">
+    update IQP_ME_LOAN_APP
+    set CUS_ID = #{cusId,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      APPLY_DATE = #{applyDate,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      GEO_LOC = #{geoLoc,jdbcType=VARCHAR},
+      SCHEME_TYPE = #{schemeType,jdbcType=VARCHAR},
+      LOAN_USE_TYPE = #{loanUseType,jdbcType=VARCHAR},
+      USE_DEC = #{useDec,jdbcType=VARCHAR},
+      INFO_CHANNEL = #{infoChannel,jdbcType=VARCHAR},
+      ANOTHER_INFO_CHANNEL = #{anotherInfoChannel,jdbcType=VARCHAR},
+      PARTNER_NO = #{partnerNo,jdbcType=VARCHAR},
+      PARTNER_NAME = #{partnerName,jdbcType=VARCHAR},
+      IS_ASSURE = #{isAssure,jdbcType=CHAR},
+      ASSURE_AGREE_NO = #{assureAgreeNo,jdbcType=VARCHAR},
+      ASSURE_AGREE_NAME = #{assureAgreeName,jdbcType=VARCHAR},
+      IS_OTHER_PLACE = #{isOtherPlace,jdbcType=CHAR},
+      BIZ_TYPE_SUB = #{bizTypeSub,jdbcType=VARCHAR},
+      OTHER_REMARK = #{otherRemark,jdbcType=VARCHAR},
+      LOAN_DIRECTION = #{loanDirection,jdbcType=VARCHAR},
+      DIRECTION_NAME = #{directionName,jdbcType=VARCHAR},
+      ANALYSIS_DATE = #{analysisDate,jdbcType=VARCHAR},
+      ACCEPT_ID = #{acceptId,jdbcType=VARCHAR},
+      ACCEPT_NAME = #{acceptName,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_NAME = #{inputName,jdbcType=VARCHAR},
+      MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      MAIN_USER_ID = #{mainUserId,jdbcType=VARCHAR},
+      MAIN_USER_NAME = #{mainUserName,jdbcType=VARCHAR},
+      COMPETENCE = #{competence,jdbcType=DECIMAL},
+      APPROVE_STATUS = #{approveStatus,jdbcType=VARCHAR},
+      INTEREST_ACC_MODE = #{interestAccMode,jdbcType=VARCHAR},
+      REPAYMENT_MODE = #{repaymentMode,jdbcType=VARCHAR},
+      BIZ_TYPE = #{bizType,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      IR_TYPE = #{irType,jdbcType=VARCHAR},
+      APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      TERM = #{term,jdbcType=DECIMAL},
+      APPLY_TERM = #{applyTerm,jdbcType=DECIMAL},
+      RULING_IR = #{rulingIr,jdbcType=DECIMAL},
+      SPRD_RATE = #{sprdRate,jdbcType=DECIMAL},
+      FLOATING_TYPE = #{floatingType,jdbcType=VARCHAR},
+      FLOATING_RATE = #{floatingRate,jdbcType=DECIMAL},
+      REALITY_IR_Y = #{realityIrY,jdbcType=DECIMAL},
+      OVERDUE_RATE = #{overdueRate,jdbcType=DECIMAL},
+      OVERDUE_IR = #{overdueIr,jdbcType=DECIMAL},
+      DEFAULT_RATE = #{defaultRate,jdbcType=DECIMAL},
+      DEFAULT_IR = #{defaultIr,jdbcType=DECIMAL},
+      CI_RATE = #{ciRate,jdbcType=DECIMAL},
+      CI_IR = #{ciIr,jdbcType=DECIMAL},
+      IR_ADJUST_MODE = #{irAdjustMode,jdbcType=VARCHAR},
+      FREQUENCY = #{frequency,jdbcType=CHAR},
+      PAY_DISTANCE = #{payDistance,jdbcType=VARCHAR},
+      ASSURE_MEANS_MAIN = #{assureMeansMain,jdbcType=CHAR},
+      ASSURE_MEANS1 = #{assureMeans1,jdbcType=CHAR},
+      ASSURE_MEANS2 = #{assureMeans2,jdbcType=CHAR},
+      APP_WORKFLOW_ID = #{appWorkflowId,jdbcType=VARCHAR},
+      APP_FORM = #{appForm,jdbcType=VARCHAR},
+      DUE_DAY = #{dueDay,jdbcType=DECIMAL},
+      APPLY_CUR_TYPE = #{applyCurType,jdbcType=VARCHAR},
+      DAYS_OF_GRACE = #{daysOfGrace,jdbcType=DECIMAL},
+      PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      TERM_TIME_TYPE = #{termTimeType,jdbcType=VARCHAR},
+      REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      APPLY_ADVISE = #{applyAdvise,jdbcType=VARCHAR},
+      IS_FLAG = #{isFlag,jdbcType=CHAR},
+      CONT_NAME = #{contName,jdbcType=VARCHAR},
+      DUE_FIRST_DAY = #{dueFirstDay,jdbcType=VARCHAR},
+      CONT_PUBLIC = #{contPublic,jdbcType=VARCHAR},
+      IS_RECORD = #{isRecord,jdbcType=VARCHAR},
+      REFUSE_TIME = #{refuseTime,jdbcType=VARCHAR},
+      REFUSE_CODE = #{refuseCode,jdbcType=VARCHAR},
+      GUARANTOR = #{guarantor,jdbcType=VARCHAR},
+      GUARANTOR_OCC = #{guarantorOcc,jdbcType=VARCHAR},
+      GUARANTOR_INCM = #{guarantorIncm,jdbcType=DECIMAL},
+      GUARANTOR_CODE = #{guarantorCode,jdbcType=VARCHAR},
+      GUARANTOR_PHONE = #{guarantorPhone,jdbcType=VARCHAR},
+      GUARANTOR_RELATE = #{guarantorRelate,jdbcType=CHAR},
+      CORP_GUAR_NAME = #{corpGuarName,jdbcType=VARCHAR},
+      CORP_RELATE = #{corpRelate,jdbcType=CHAR},
+      CORP_DESC = #{corpDesc,jdbcType=VARCHAR},
+      MAY_GRT = #{mayGrt,jdbcType=VARCHAR},
+      GRT_VALUE = #{grtValue,jdbcType=DECIMAL},
+      IS_WORTH = #{isWorth,jdbcType=CHAR},
+      SPREAD_TIME = #{spreadTime,jdbcType=VARCHAR},
+      SPREAD_PLACE = #{spreadPlace,jdbcType=VARCHAR},
+      SPREAD_NAME = #{spreadName,jdbcType=VARCHAR},
+      RISK_ANALYSE = #{riskAnalyse,jdbcType=VARCHAR},
+      MANAGER_ADVICE = #{managerAdvice,jdbcType=VARCHAR},
+      CUS_SEX = #{cusSex,jdbcType=CHAR},
+      LOAN_USE = #{loanUse,jdbcType=VARCHAR},
+      READ_FLAG = #{readFlag,jdbcType=CHAR},
+      LOAN_USE_DESC = #{loanUseDesc,jdbcType=VARCHAR},
+      ASSI_ID = #{assiId,jdbcType=VARCHAR},
+      ASSI_NAME = #{assiName,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      USING_IR = #{usingIr,jdbcType=DECIMAL},
+      PRD_ID = #{prdId,jdbcType=VARCHAR},
+      INPUT_BR_NAME = #{inputBrName,jdbcType=VARCHAR},
+      INPUT_LEVEL = #{inputLevel,jdbcType=CHAR},
+      MAIN_LEVEL = #{mainLevel,jdbcType=CHAR},
+      PROP = #{prop,jdbcType=VARCHAR},
+      IS_MORE_LOAN = #{isMoreLoan,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      APP_STATUS = #{appStatus,jdbcType=VARCHAR},
+      PARTNER_TYPE = #{partnerType,jdbcType=VARCHAR},
+      PARTNER_CERT_CODE = #{partnerCertCode,jdbcType=VARCHAR},
+      PARTNER_CERT_TYPE = #{partnerCertType,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      IS_AGRICULTURE = #{isAgriculture,jdbcType=CHAR},
+      INPUT_CHANNEL = #{inputChannel,jdbcType=VARCHAR},
+      IS_ADD_CUS = #{isAddCus,jdbcType=CHAR},
+      NEW_APPROVE_STATUS = #{newApproveStatus,jdbcType=VARCHAR},
+      CHANNEL_NO = #{channelNo,jdbcType=VARCHAR},
+      CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      IS_ALREADY = #{isAlready,jdbcType=CHAR},
+      IS_ORDER = #{isOrder,jdbcType=CHAR},
+      PRJ_COST = #{prjCost,jdbcType=DECIMAL},
+      PRJ_STEP = #{prjStep,jdbcType=VARCHAR},
+      USE_DETAIL = #{useDetail,jdbcType=VARCHAR},
+      LOAN_REASON = #{loanReason,jdbcType=VARCHAR},
+      ADVISE_AMT = #{adviseAmt,jdbcType=DECIMAL},
+      ADVISE_DEADLINE = #{adviseDeadline,jdbcType=VARCHAR},
+      ADVISE_REPAYMENT_WAY = #{adviseRepaymentWay,jdbcType=VARCHAR},
+      ADVISE_GUAR_PERSON = #{adviseGuarPerson,jdbcType=VARCHAR},
+      SPECIAL_CASE = #{specialCase,jdbcType=VARCHAR},
+      CUS_MGR = #{cusMgr,jdbcType=VARCHAR},
+      ADVISE_DATE = #{adviseDate,jdbcType=VARCHAR},
+      GUARANTEE_SERNO = #{guaranteeSerno,jdbcType=VARCHAR},
+      TEAMNO = #{teamno,jdbcType=VARCHAR},
+      TEAM_LEADER = #{teamLeader,jdbcType=VARCHAR},
+      GROUPNO = #{groupno,jdbcType=VARCHAR},
+      GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+      IS_CANCEL = #{isCancel,jdbcType=CHAR},
+      BUSINESS_PERSION_ID = #{businessPersionId,jdbcType=VARCHAR},
+      BUSINESS_PERSION_NAME = #{businessPersionName,jdbcType=VARCHAR},
+      BUSINESS_PERSION_PHONE = #{businessPersionPhone,jdbcType=VARCHAR},
+      BANK_CUS_MGR = #{bankCusMgr,jdbcType=VARCHAR},
+      BANK_MGR_PHONE = #{bankMgrPhone,jdbcType=VARCHAR},
+      OPT_TYPE = #{optType,jdbcType=CHAR},
+      IS_BATC_BIZ = #{isBatcBiz,jdbcType=VARCHAR},
+      REPAYMENT_MODE_DESC = #{repaymentModeDesc,jdbcType=VARCHAR},
+      ADVISE_REPAYMENT_WAY_DESC = #{adviseRepaymentWayDesc,jdbcType=VARCHAR},
+      BIZ_MODE = #{bizMode,jdbcType=VARCHAR},
+      LOAN_FORM = #{loanForm,jdbcType=VARCHAR},
+      REPAYMENT_SRC = #{repaymentSrc,jdbcType=VARCHAR},
+      GUARANTY_TYPE = #{guarantyType,jdbcType=VARCHAR},
+      GUARANTY_NAME = #{guarantyName,jdbcType=VARCHAR},
+      HOUSE_CERT_NO = #{houseCertNo,jdbcType=VARCHAR},
+      RIGHTER_NAME = #{righterName,jdbcType=VARCHAR},
+      RIGHTER_CERT_TYPE = #{righterCertType,jdbcType=VARCHAR},
+      RIGHTER_CERT_CODE = #{righterCertCode,jdbcType=VARCHAR},
+      IS_GRT_THIRD = #{isGrtThird,jdbcType=VARCHAR},
+      O_BILL_NO = #{oBillNo,jdbcType=VARCHAR},
+      O_CONT_NO = #{oContNo,jdbcType=VARCHAR},
+      LOAN_BALANCE = #{loanBalance,jdbcType=DECIMAL},
+      O_USING_IR = #{oUsingIr,jdbcType=DECIMAL},
+      O_LOAN_START_DATE = #{oLoanStartDate,jdbcType=VARCHAR},
+      O_LOAN_END_DATE = #{oLoanEndDate,jdbcType=VARCHAR},
+      BUSINESS_BR_ID = #{businessBrId,jdbcType=VARCHAR},
+      TOTAL_NESS_RATE = #{totalNessRate,jdbcType=DECIMAL},
+      CANCEL_FAIL_CAUSE = #{cancelFailCause,jdbcType=VARCHAR},
+      EVAL_NET_VALUE = #{evalNetValue,jdbcType=DECIMAL},
+      UNASSURE_MEANS_ACTIONS = #{unassureMeansActions,jdbcType=VARCHAR},
+      SPREAD_PLACE_DESC = #{spreadPlaceDesc,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      COST_RATE = #{costRate,jdbcType=DECIMAL},
+      ACCEPT_LOAN_AMOUNT = #{acceptLoanAmount,jdbcType=DECIMAL},
+      SUBORGANNO = #{suborganno,jdbcType=VARCHAR},
+      IMP_THI_SRC = #{impThiSrc,jdbcType=CHAR},
+      IS_ELEC_INS = #{isElecIns,jdbcType=VARCHAR},
+      IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      IS_PASS = #{isPass,jdbcType=VARCHAR},
+      REPAY_PERCENT = #{repayPercent,jdbcType=DECIMAL},
+      ADVISE_REPAY_PERCENT = #{adviseRepayPercent,jdbcType=DECIMAL},
+      FICO_SCORE = #{ficoScore,jdbcType=VARCHAR},
+      NOT_THROUGH_REASON = #{notThroughReason,jdbcType=VARCHAR},
+      FICO_RECORD_ID = #{ficoRecordId,jdbcType=VARCHAR},
+      SPREAD_DATE = #{spreadDate,jdbcType=VARCHAR},
+      OPER_NAME = #{operName,jdbcType=VARCHAR},
+      OPER_PHONE = #{operPhone,jdbcType=VARCHAR},
+      OPER_TEL_NO = #{operTelNo,jdbcType=VARCHAR},
+      BELONG_BR_ID = #{belongBrId,jdbcType=VARCHAR},
+      P2P_APPROVE_STATUS = #{p2pApproveStatus,jdbcType=VARCHAR},
+      REFUSEREMARK = #{refuseremark,jdbcType=VARCHAR},
+      IS_SEND_LOAN = #{isSendLoan,jdbcType=VARCHAR},
+      HANDLE_TIME = #{handleTime,jdbcType=VARCHAR},
+      THIRD_PLATFORM = #{thirdPlatform,jdbcType=VARCHAR},
+      THIRD_PLATFORM_NAME = #{thirdPlatformName,jdbcType=VARCHAR},
+      CAN_SINGLE = #{canSingle,jdbcType=VARCHAR},
+      IS_DISTRIBUTION = #{isDistribution,jdbcType=VARCHAR},
+      TERM_DAY = #{termDay,jdbcType=DECIMAL},
+      ADVISE_TERM = #{adviseTerm,jdbcType=VARCHAR},
+      LOAN_STATUS = #{loanStatus,jdbcType=VARCHAR},
+      SEND_IMAGE_STATUS = #{sendImageStatus,jdbcType=VARCHAR},
+      CUS_TYPE_NEW = #{cusTypeNew,jdbcType=VARCHAR},
+      ACC_AGREE_NO = #{accAgreeNo,jdbcType=VARCHAR},
+      PUSH_BR_ID = #{pushBrId,jdbcType=CHAR},
+      PERIOD = #{period,jdbcType=DECIMAL},
+      AUTOAPPR = #{autoappr,jdbcType=VARCHAR},
+      CACCEL_LOAN_REMARKS = #{caccelLoanRemarks,jdbcType=VARCHAR},
+      CACCEL_LOAN_REASON = #{caccelLoanReason,jdbcType=VARCHAR},
+      BID_CUS_ID = #{bidCusId,jdbcType=VARCHAR},
+      C_APPNT = #{cAppnt,jdbcType=VARCHAR},
+      BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR},
+      VALID_RESULT = #{validResult,jdbcType=VARCHAR},
+      IS_AUTO_APPROVE = #{isAutoApprove,jdbcType=VARCHAR},
+      PARTNER_CUS_ID = #{partnerCusId,jdbcType=VARCHAR},
+      MODIFYREASON = #{modifyreason,jdbcType=VARCHAR},
+      SPECIAL_FLAG = #{specialFlag,jdbcType=VARCHAR},
+      JIRA_NO = #{jiraNo,jdbcType=VARCHAR},
+      RULE_LOAN_AMT = #{ruleLoanAmt,jdbcType=DECIMAL},
+      SPECIAL_REMARK = #{specialRemark,jdbcType=VARCHAR},
+      BUSI_STATUS = #{busiStatus,jdbcType=VARCHAR},
+      REPAY_BANK = #{repayBank,jdbcType=VARCHAR},
+      REPAY_ACCOUNT_NAME = #{repayAccountName,jdbcType=VARCHAR},
+      REPAY_ACCOUNT = #{repayAccount,jdbcType=VARCHAR},
+      PAYEE_BANK = #{payeeBank,jdbcType=VARCHAR},
+      PAYEE_ACCOUNT_NAME = #{payeeAccountName,jdbcType=VARCHAR},
+      PAYEE_ACCOUNT = #{payeeAccount,jdbcType=VARCHAR},
+      RANSOM_TYPE = #{ransomType,jdbcType=VARCHAR},
+      OLD_HOUSE_AMOUNT = #{oldHouseAmount,jdbcType=DECIMAL},
+      USE_DATE = #{useDate,jdbcType=VARCHAR},
+      BUYER_CUS_ID = #{buyerCusId,jdbcType=VARCHAR},
+      SELLER_CUS_ID = #{sellerCusId,jdbcType=VARCHAR},
+      BUYER_CERT_TYPE = #{buyerCertType,jdbcType=VARCHAR},
+      BUYER_CERT_CODE = #{buyerCertCode,jdbcType=VARCHAR},
+      BUYER_CUS_TYPE = #{buyerCusType,jdbcType=CHAR},
+      BUYER_CUS_NAME = #{buyerCusName,jdbcType=VARCHAR},
+      BUYER_PHONE = #{buyerPhone,jdbcType=VARCHAR},
+      SELLER_CERT_TYPE = #{sellerCertType,jdbcType=VARCHAR},
+      SELLER_CERT_CODE = #{sellerCertCode,jdbcType=VARCHAR},
+      SELLER_CUS_TYPE = #{sellerCusType,jdbcType=CHAR},
+      SELLER_CUS_NAME = #{sellerCusName,jdbcType=VARCHAR},
+      SELLER_PHONE = #{sellerPhone,jdbcType=VARCHAR},
+      BUYER_FIRST_AMOUNT = #{buyerFirstAmount,jdbcType=DECIMAL},
+      BUYER_AMOUNT = #{buyerAmount,jdbcType=DECIMAL},
+      BUYER_BANK_NAME = #{buyerBankName,jdbcType=VARCHAR},
+      BUYER_BANK_CODE = #{buyerBankCode,jdbcType=VARCHAR},
+      RISK_RESULT = #{riskResult,jdbcType=VARCHAR},
+      IS_MUST_RANSOM = #{isMustRansom,jdbcType=CHAR},
+      VISA_INTERVIEW_COORDINATE = #{visaInterviewCoordinate,jdbcType=VARCHAR},
+      LOAN_COORDINATE = #{loanCoordinate,jdbcType=VARCHAR},
+      MICRO_CREDIT_COORDINATE = #{microCreditCoordinate,jdbcType=VARCHAR},
+      IS_CREDIT_IMPLEMENTATION = #{isCreditImplementation,jdbcType=VARCHAR},
+      IS_FACE_SIGN = #{isFaceSign,jdbcType=VARCHAR},
+      GOODS_DETAIL_ID = #{goodsDetailId,jdbcType=VARCHAR},
+      TERMINAL_SOURCE = #{terminalSource,jdbcType=VARCHAR},
+      COUNTY_CODE = #{countyCode,jdbcType=VARCHAR},
+      CREDIT_COORDINATE = #{creditCoordinate,jdbcType=VARCHAR},
+      TERMINAL_TYPE = #{terminalType,jdbcType=VARCHAR},
+      DOWN_PAYMENT = #{downPayment,jdbcType=DECIMAL},
+      DOWN_AMOUNT = #{downAmount,jdbcType=DECIMAL},
+      MONTHLY_SUPPLY = #{monthlySupply,jdbcType=DECIMAL},
+      MONTHLY_AMOUNT = #{monthlyAmount,jdbcType=DECIMAL},
+      GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      PRD_TYPE = #{prdType,jdbcType=VARCHAR},
+      ALIPAY_ACCOUNT = #{alipayAccount,jdbcType=VARCHAR},
+      ALIPAY_ROLE_ID = #{alipayRoleId,jdbcType=VARCHAR},
+      BANK_NO = #{bankNo,jdbcType=VARCHAR},
+      SIGN_AMOUNT = #{signAmount,jdbcType=DECIMAL},
+      BLACK_BOX = #{blackBox,jdbcType=VARCHAR},
+      ISLOANED = #{isloaned,jdbcType=VARCHAR},
+      LAST_BANK_LOAN_AMOUNT = #{lastBankLoanAmount,jdbcType=DECIMAL},
+      IS_AUTHORIZE = #{isAuthorize,jdbcType=VARCHAR},
+      INCLUDE_INS_FEE = #{includeInsFee,jdbcType=VARCHAR},
+      HAND_PORICY_ID = #{handPoricyId,jdbcType=VARCHAR},
+      LOAN_LX = #{loanLx,jdbcType=DECIMAL},
+      ESTIMATION_AMOUNT = #{estimationAmount,jdbcType=DECIMAL},
+      PAY_WAY = #{payWay,jdbcType=VARCHAR},
+      REPAY_AIL_PAY_ACCOUNT = #{repayAilPayAccount,jdbcType=VARCHAR},
+      PAYEE_ACCOUNT_TYPE = #{payeeAccountType,jdbcType=CHAR},
+      ACCESSORY_RISK = #{accessoryRisk,jdbcType=CHAR},
+      FRIST_LOAN_PARTNER_NAME = #{fristLoanPartnerName,jdbcType=VARCHAR},
+      LAST_LOAN_PARTNER_NAME = #{lastLoanPartnerName,jdbcType=VARCHAR},
+      FRIST_LOAN_PARTNER_NO = #{fristLoanPartnerNo,jdbcType=VARCHAR},
+      LAST_LOAN_PARTNER_NO = #{lastLoanPartnerNo,jdbcType=VARCHAR},
+      SINGLE_PREM = #{singlePrem,jdbcType=VARCHAR},
+      FIRST_PREM_RATE = #{firstPremRate,jdbcType=DECIMAL},
+      EVERY_PREM_RATE = #{everyPremRate,jdbcType=DECIMAL},
+      TRUST_PLAN = #{trustPlan,jdbcType=VARCHAR},
+      BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      BUSINESS_RECOM_ORGNAME = #{businessRecomOrgname,jdbcType=VARCHAR},
+      BUSINESS_RECOM_ORGID = #{businessRecomOrgid,jdbcType=VARCHAR},
+      BUSI_AREA = #{busiArea,jdbcType=VARCHAR},
+      NEW_LOAN_APPROVAL = #{newLoanApproval,jdbcType=CHAR},
+      NEW_LOAN_BANK = #{newLoanBank,jdbcType=VARCHAR},
+      REPAY_BANK_NO = #{repayBankNo,jdbcType=VARCHAR},
+      ET_LOAN_ACC = #{etLoanAcc,jdbcType=VARCHAR},
+      ET_LOAN_ACC_NAME = #{etLoanAccName,jdbcType=VARCHAR},
+      ET_LOAN_ACC_BANK = #{etLoanAccBank,jdbcType=VARCHAR},
+      ET_LOAN_ACC_BANK_NME = #{etLoanAccBankNme,jdbcType=VARCHAR},
+      PAYMENT_ACCOUNT = #{paymentAccount,jdbcType=VARCHAR},
+      LOAN_DIRECTION_CREDIT = #{loanDirectionCredit,jdbcType=VARCHAR},
+      INSURE_RATE_CODE = #{insureRateCode,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <select id="getCountBySerno" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(1) from IQP_ME_lOAN_APP la,LST_IQP_INFO t where t.iqp_loan_serno = la.serno and la.SERNO= #{serno,jdbcType=VARCHAR} and t.ispermit = '1'
+  </select>
+  <select id="getCancelBySerno" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(1) from LST_IQP_INFO t where t.iqp_loan_serno = #{serno,jdbcType=VARCHAR} and t.cover_create_status = '03'
+  </select>
+  <select id="getIqpSucBySerno" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(1) from LST_IQP_INFO t where t.iqp_loan_serno = #{serno,jdbcType=VARCHAR} and t.cover_create_status = '00'
+  </select>
+  <select id="getIqpSucSignBySerno" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(1) from LST_IQP_INFO t where t.iqp_loan_serno = #{serno,jdbcType=VARCHAR} and t.cover_create_status = '00' and t.ispermit = '1'
+  </select>
+  
+  <select id="getCountById" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(1) from iqp_me_loan_app a where a.SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 据申请号查询已核保的数据 -->
+  <select id="getBySernoAndSatus" parameterType="cn.com.sinosafe.domain.entity.IqpMeLoanApp" resultMap="BaseResultMap">
+	select
+	<include refid="Base_Column_List" />
+	from IQP_ME_lOAN_APP
+	 where 1=1 and SERNO = #{serno,jdbcType=VARCHAR} AND (NEW_APPROVE_STATUS = '06' or NEW_APPROVE_STATUS = '08')
+  </select>
+
+  <select id="getByAccAgreeNo"  parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select
+    <include refid="Base_Column_List" />
+  	from iqp_me_loan_app
+  	where acc_agree_no = #{accAgreeNo,jdbcType=VARCHAR}
+  	and (is_cancel is null or is_cancel ='2' )
+	and new_approve_status not in( '998' ,'993','999','013','014','015','020')
+  </select>
+
+  <select id="getContNoByAccAgreeNo" parameterType="java.lang.String" resultType="java.lang.String" >
+		select tmp.cont_no
+		  from (select t1.cont_no cont_no
+		          from lst_iqp_info t1, iqp_me_loan_app t2
+		         where t1.iqp_loan_serno = t2.serno
+		           and t1.cont_no = #{accAgreeNo,jdbcType=VARCHAR}
+		           and t1.cover_create_status != '03'
+		           and t2.new_approve_status not in( '998' ,'993','999','013','014','015','020') ) tmp
+		  left join acc_mtd_plan plan
+		    on tmp.cont_no = plan.bill_no
+		    where plan.REPAY_FLAG not in ('10', '21')
+		    or plan.REPAY_FLAG is null
+  </select>
+  
+  
+  <select id="selectCusSignIqpInfo"  parameterType="java.lang.String" resultType="java.util.HashMap">
+     select  t.serno as serno,t.cus_name as cus_name,a.cop_cus_name as cop_cus_name,t.amount as amount,
+     t.term_day as term_day,t.term as term,t.input_date as input_date,t.partner_no as partner_no,t.prd_id as prd_id,
+     t.bank_card_no as bank_card_no,t.cus_id as cus_id,
+     t.payee_account as payee_account,t.payee_bank as payee_bank, t.phone as phone
+     from iqp_me_loan_app t,iqp_me_prj_cop a,sent_status c
+     where t.serno = a.serno and t.serno = c.sent_serno and c.sent_status = '01'
+     and c.sent_type like '%xd_sign%' and t.cus_name = #{cusName,jdbcType=VARCHAR}
+     and t.cert_code  = #{certCode,jdbcType=VARCHAR}
+  </select>
+</mapper>

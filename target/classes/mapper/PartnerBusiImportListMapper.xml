@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PartnerBusiImportListMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PartnerBusiImportList">
+    <id column="BATCH_NO" jdbcType="VARCHAR" property="batchNo" />
+    <result column="BATCH_NAME" jdbcType="VARCHAR" property="batchName" />
+    <result column="TOTAL_COUNT" jdbcType="DECIMAL" property="totalCount" />
+    <result column="PASS_COUNT" jdbcType="DECIMAL" property="passCount" />
+    <result column="NO_PASS_COUNT" jdbcType="DECIMAL" property="noPassCount" />
+    <result column="IMPORT_DATE" jdbcType="VARCHAR" property="importDate" />
+    <result column="INSUR_NO" jdbcType="VARCHAR" property="insurNo" />
+    <result column="INSUR_ADD_NO" jdbcType="VARCHAR" property="insurAddNo" />
+    <result column="INPUT_USER_ID" jdbcType="VARCHAR" property="inputUserId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="BUSI_COP_NO" jdbcType="VARCHAR" property="busiCopNo" />
+    <result column="IS_BATCH_INSUR" jdbcType="VARCHAR" property="isBatchInsur" />
+    <result column="BIZ_MODE" jdbcType="VARCHAR" property="bizMode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BATCH_NO, BATCH_NAME, TOTAL_COUNT, PASS_COUNT, NO_PASS_COUNT, IMPORT_DATE, INSUR_NO, 
+    INSUR_ADD_NO, INPUT_USER_ID, INPUT_BR_ID, STATUS, COP_NO, PRD_CODE, BUSI_COP_NO, 
+    IS_BATCH_INSUR, BIZ_MODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PARTNER_BUSI_IMPORT_LIST
+    where BATCH_NO = #{batchNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByContNo" parameterType="String" resultMap="BaseResultMap">
+  	select a.* from PARTNER_BUSI_IMPORT_LIST a
+  	left join partner_busi_import_detail b on a.batch_no = b.batch_no
+  	where b.loan_cont_no = #{contNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PARTNER_BUSI_IMPORT_LIST
+    where BATCH_NO = #{batchNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportList">
+    insert into PARTNER_BUSI_IMPORT_LIST (BATCH_NO, BATCH_NAME, TOTAL_COUNT, 
+      PASS_COUNT, NO_PASS_COUNT, IMPORT_DATE, 
+      INSUR_NO, INSUR_ADD_NO, INPUT_USER_ID, 
+      INPUT_BR_ID, STATUS, COP_NO, 
+      PRD_CODE, BUSI_COP_NO, IS_BATCH_INSUR, 
+      BIZ_MODE)
+    values (#{batchNo,jdbcType=VARCHAR}, #{batchName,jdbcType=VARCHAR}, #{totalCount,jdbcType=DECIMAL}, 
+      #{passCount,jdbcType=DECIMAL}, #{noPassCount,jdbcType=DECIMAL}, #{importDate,jdbcType=VARCHAR}, 
+      #{insurNo,jdbcType=VARCHAR}, #{insurAddNo,jdbcType=VARCHAR}, #{inputUserId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, 
+      #{prdCode,jdbcType=VARCHAR}, #{busiCopNo,jdbcType=VARCHAR}, #{isBatchInsur,jdbcType=VARCHAR}, 
+      #{bizMode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportList">
+    insert into PARTNER_BUSI_IMPORT_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="batchNo != null">
+        BATCH_NO,
+      </if>
+      <if test="batchName != null">
+        BATCH_NAME,
+      </if>
+      <if test="totalCount != null">
+        TOTAL_COUNT,
+      </if>
+      <if test="passCount != null">
+        PASS_COUNT,
+      </if>
+      <if test="noPassCount != null">
+        NO_PASS_COUNT,
+      </if>
+      <if test="importDate != null">
+        IMPORT_DATE,
+      </if>
+      <if test="insurNo != null">
+        INSUR_NO,
+      </if>
+      <if test="insurAddNo != null">
+        INSUR_ADD_NO,
+      </if>
+      <if test="inputUserId != null">
+        INPUT_USER_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="busiCopNo != null">
+        BUSI_COP_NO,
+      </if>
+      <if test="isBatchInsur != null">
+        IS_BATCH_INSUR,
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchName != null">
+        #{batchName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=DECIMAL},
+      </if>
+      <if test="passCount != null">
+        #{passCount,jdbcType=DECIMAL},
+      </if>
+      <if test="noPassCount != null">
+        #{noPassCount,jdbcType=DECIMAL},
+      </if>
+      <if test="importDate != null">
+        #{importDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insurNo != null">
+        #{insurNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insurAddNo != null">
+        #{insurAddNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUserId != null">
+        #{inputUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiCopNo != null">
+        #{busiCopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isBatchInsur != null">
+        #{isBatchInsur,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMode != null">
+        #{bizMode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportList">
+    update PARTNER_BUSI_IMPORT_LIST
+    <set>
+      <if test="batchName != null">
+        BATCH_NAME = #{batchName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        TOTAL_COUNT = #{totalCount,jdbcType=DECIMAL},
+      </if>
+      <if test="passCount != null">
+        PASS_COUNT = #{passCount,jdbcType=DECIMAL},
+      </if>
+      <if test="noPassCount != null">
+        NO_PASS_COUNT = #{noPassCount,jdbcType=DECIMAL},
+      </if>
+      <if test="importDate != null">
+        IMPORT_DATE = #{importDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insurNo != null">
+        INSUR_NO = #{insurNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insurAddNo != null">
+        INSUR_ADD_NO = #{insurAddNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUserId != null">
+        INPUT_USER_ID = #{inputUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiCopNo != null">
+        BUSI_COP_NO = #{busiCopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isBatchInsur != null">
+        IS_BATCH_INSUR = #{isBatchInsur,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE = #{bizMode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BATCH_NO = #{batchNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PartnerBusiImportList">
+    update PARTNER_BUSI_IMPORT_LIST
+    set BATCH_NAME = #{batchName,jdbcType=VARCHAR},
+      TOTAL_COUNT = #{totalCount,jdbcType=DECIMAL},
+      PASS_COUNT = #{passCount,jdbcType=DECIMAL},
+      NO_PASS_COUNT = #{noPassCount,jdbcType=DECIMAL},
+      IMPORT_DATE = #{importDate,jdbcType=VARCHAR},
+      INSUR_NO = #{insurNo,jdbcType=VARCHAR},
+      INSUR_ADD_NO = #{insurAddNo,jdbcType=VARCHAR},
+      INPUT_USER_ID = #{inputUserId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      BUSI_COP_NO = #{busiCopNo,jdbcType=VARCHAR},
+      IS_BATCH_INSUR = #{isBatchInsur,jdbcType=VARCHAR},
+      BIZ_MODE = #{bizMode,jdbcType=VARCHAR}
+    where BATCH_NO = #{batchNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

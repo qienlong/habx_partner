@@ -1,0 +1,2313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CusComMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CusCom">
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="TRANS_CUS_ID" jdbcType="VARCHAR" property="transCusId" />
+    <result column="BELONG_TO" jdbcType="VARCHAR" property="belongTo" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="CUS_TYPE" jdbcType="CHAR" property="cusType" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CUS_PRO" jdbcType="VARCHAR" property="cusPro" />
+    <result column="CUS_SHORT_NAME" jdbcType="VARCHAR" property="cusShortName" />
+    <result column="CUS_EN_NAME" jdbcType="VARCHAR" property="cusEnName" />
+    <result column="COM_COUNTRY" jdbcType="CHAR" property="comCountry" />
+    <result column="COM_CITY_FLG" jdbcType="VARCHAR" property="comCityFlg" />
+    <result column="INVEST_TYPE" jdbcType="VARCHAR" property="investType" />
+    <result column="COM_SUB_TYP" jdbcType="VARCHAR" property="comSubTyp" />
+    <result column="COM_HOLD_TYPE" jdbcType="VARCHAR" property="comHoldType" />
+    <result column="COM_CLL_TYPE" jdbcType="VARCHAR" property="comCllType" />
+    <result column="COM_CLL_NAME" jdbcType="VARCHAR" property="comCllName" />
+    <result column="COM_STR_DATE" jdbcType="VARCHAR" property="comStrDate" />
+    <result column="COM_EMPLOYEE" jdbcType="DECIMAL" property="comEmployee" />
+    <result column="COM_SCALE_CLL_TYPE" jdbcType="VARCHAR" property="comScaleCllType" />
+    <result column="SAL_VOLUME" jdbcType="DECIMAL" property="salVolume" />
+    <result column="OPER_INCOME" jdbcType="DECIMAL" property="operIncome" />
+    <result column="ASS_TOTAL" jdbcType="DECIMAL" property="assTotal" />
+    <result column="COM_SCALE" jdbcType="VARCHAR" property="comScale" />
+    <result column="MID_LIT_CLL_TYPE" jdbcType="VARCHAR" property="midLitCllType" />
+    <result column="MID_LIT_COM_TYPE" jdbcType="VARCHAR" property="midLitComType" />
+    <result column="COM_INS_CODE" jdbcType="VARCHAR" property="comInsCode" />
+    <result column="COM_INS_REG_DATE" jdbcType="VARCHAR" property="comInsRegDate" />
+    <result column="COM_INS_EXP_DATE" jdbcType="CHAR" property="comInsExpDate" />
+    <result column="COM_INS_ORG" jdbcType="VARCHAR" property="comInsOrg" />
+    <result column="COM_INS_ANN_DATE" jdbcType="VARCHAR" property="comInsAnnDate" />
+    <result column="REG_CODE" jdbcType="VARCHAR" property="regCode" />
+    <result column="REG_TYPE" jdbcType="VARCHAR" property="regType" />
+    <result column="ADMIN_ORG" jdbcType="VARCHAR" property="adminOrg" />
+    <result column="APPR_ORG" jdbcType="VARCHAR" property="apprOrg" />
+    <result column="APPR_DOC_NO" jdbcType="VARCHAR" property="apprDocNo" />
+    <result column="REG_STATE_CODE" jdbcType="VARCHAR" property="regStateCode" />
+    <result column="REG_AREA_NAME" jdbcType="VARCHAR" property="regAreaName" />
+    <result column="REG_ADDR" jdbcType="VARCHAR" property="regAddr" />
+    <result column="EN_REG_ADDR" jdbcType="VARCHAR" property="enRegAddr" />
+    <result column="ACU_STATE_CODE" jdbcType="VARCHAR" property="acuStateCode" />
+    <result column="ACU_AREA_NAME" jdbcType="VARCHAR" property="acuAreaName" />
+    <result column="ACU_ADDR" jdbcType="VARCHAR" property="acuAddr" />
+    <result column="REG_CUR_TYPE" jdbcType="VARCHAR" property="regCurType" />
+    <result column="REG_CAP_AMT" jdbcType="DECIMAL" property="regCapAmt" />
+    <result column="FUN_SOURCE" jdbcType="VARCHAR" property="funSource" />
+    <result column="COM_MAIN_OPT_SCP" jdbcType="VARCHAR" property="comMainOptScp" />
+    <result column="COM_PART_OPT_SCP" jdbcType="VARCHAR" property="comPartOptScp" />
+    <result column="REG_START_DATE" jdbcType="VARCHAR" property="regStartDate" />
+    <result column="REG_END_DATE" jdbcType="VARCHAR" property="regEndDate" />
+    <result column="REG_ORG" jdbcType="VARCHAR" property="regOrg" />
+    <result column="ANN_DATE" jdbcType="VARCHAR" property="annDate" />
+    <result column="REG_AREA_CODE2" jdbcType="VARCHAR" property="regAreaCode2" />
+    <result column="PAID_CAP_CUR_TYPE" jdbcType="VARCHAR" property="paidCapCurType" />
+    <result column="PAID_CAP_AMT" jdbcType="DECIMAL" property="paidCapAmt" />
+    <result column="REG_AUDIT" jdbcType="VARCHAR" property="regAudit" />
+    <result column="REG_AUDIT_DATE" jdbcType="VARCHAR" property="regAuditDate" />
+    <result column="LOC_TAX_REG_CODE" jdbcType="VARCHAR" property="locTaxRegCode" />
+    <result column="LOC_TAX_REG_DT" jdbcType="VARCHAR" property="locTaxRegDt" />
+    <result column="LOC_TAX_REG_END_DT" jdbcType="VARCHAR" property="locTaxRegEndDt" />
+    <result column="LOC_TAX_ANN_DATE" jdbcType="CHAR" property="locTaxAnnDate" />
+    <result column="LOC_TAX_REG_ORG" jdbcType="VARCHAR" property="locTaxRegOrg" />
+    <result column="NAT_TAX_REG_CODE" jdbcType="VARCHAR" property="natTaxRegCode" />
+    <result column="NAT_TAX_REG_DT" jdbcType="VARCHAR" property="natTaxRegDt" />
+    <result column="NAT_TAX_REG_END_DT" jdbcType="VARCHAR" property="natTaxRegEndDt" />
+    <result column="NAT_TAX_ANN_DATE" jdbcType="VARCHAR" property="natTaxAnnDate" />
+    <result column="NAT_TAX_REG_ORG" jdbcType="VARCHAR" property="natTaxRegOrg" />
+    <result column="LOAN_CARD_FLG" jdbcType="CHAR" property="loanCardFlg" />
+    <result column="LOAN_CARD_ID" jdbcType="VARCHAR" property="loanCardId" />
+    <result column="LOAN_CARD_PWD" jdbcType="VARCHAR" property="loanCardPwd" />
+    <result column="LOAN_CARD_EFF_FLG" jdbcType="VARCHAR" property="loanCardEffFlg" />
+    <result column="BAS_ACC_FLG" jdbcType="CHAR" property="basAccFlg" />
+    <result column="BAS_ACC_LICENCE" jdbcType="VARCHAR" property="basAccLicence" />
+    <result column="BAS_ACC_BANK" jdbcType="VARCHAR" property="basAccBank" />
+    <result column="BAS_ACC_NO" jdbcType="VARCHAR" property="basAccNo" />
+    <result column="BAS_ACC_DATE" jdbcType="VARCHAR" property="basAccDate" />
+    <result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+    <result column="LEGAL_SEX" jdbcType="CHAR" property="legalSex" />
+    <result column="CUS_ID_REL" jdbcType="VARCHAR" property="cusIdRel" />
+    <result column="LEGAL_CERT_TYPE" jdbcType="VARCHAR" property="legalCertType" />
+    <result column="LEGAL_SIGN_INIT_DATE" jdbcType="VARCHAR" property="legalSignInitDate" />
+    <result column="LEGAL_END_INIT_DATE" jdbcType="VARCHAR" property="legalEndInitDate" />
+    <result column="LEGAL_CERT_CODE" jdbcType="VARCHAR" property="legalCertCode" />
+    <result column="LEGAL_RESUME" jdbcType="VARCHAR" property="legalResume" />
+    <result column="LEGAL_MAR_ST" jdbcType="CHAR" property="legalMarSt" />
+    <result column="LEGAL_SPS_ID_TYPE" jdbcType="CHAR" property="legalSpsIdType" />
+    <result column="LEGAL_SPS_ID_CODE" jdbcType="VARCHAR" property="legalSpsIdCode" />
+    <result column="LEGAL_SPS_NO" jdbcType="VARCHAR" property="legalSpsNo" />
+    <result column="LEGAL_SPS_NAME" jdbcType="VARCHAR" property="legalSpsName" />
+    <result column="REALITY_CONTROLER_ID_TYPE" jdbcType="VARCHAR" property="realityControlerIdType" />
+    <result column="REALITY_CONTROLER_ID_CODE" jdbcType="VARCHAR" property="realityControlerIdCode" />
+    <result column="REALITY_CONTROLER_NO" jdbcType="VARCHAR" property="realityControlerNo" />
+    <result column="REALITY_CONTROLER_NAME" jdbcType="VARCHAR" property="realityControlerName" />
+    <result column="REAL_SIGN_INIT_DATE" jdbcType="VARCHAR" property="realSignInitDate" />
+    <result column="REAL_SIGN_END_DATE" jdbcType="VARCHAR" property="realSignEndDate" />
+    <result column="REAL_ACCREDIT_INIT_DATE" jdbcType="VARCHAR" property="realAccreditInitDate" />
+    <result column="REAL_ACCREDIT_END_DATE" jdbcType="VARCHAR" property="realAccreditEndDate" />
+    <result column="REAL_WORK_RESUME" jdbcType="VARCHAR" property="realWorkResume" />
+    <result column="REALITY_MAR_ST" jdbcType="CHAR" property="realityMarSt" />
+    <result column="REALITY_SPS_ID_TYPE" jdbcType="VARCHAR" property="realitySpsIdType" />
+    <result column="REALITY_ID_CODE" jdbcType="VARCHAR" property="realityIdCode" />
+    <result column="REALITY_SPS_NO" jdbcType="VARCHAR" property="realitySpsNo" />
+    <result column="REALITY_SPS_NAME" jdbcType="VARCHAR" property="realitySpsName" />
+    <result column="FNA_MGR" jdbcType="VARCHAR" property="fnaMgr" />
+    <result column="FNA_CONTACT" jdbcType="VARCHAR" property="fnaContact" />
+    <result column="FNA_CON_PHONE" jdbcType="VARCHAR" property="fnaConPhone" />
+    <result column="FNA_CON_MOBILE_PHONE" jdbcType="VARCHAR" property="fnaConMobilePhone" />
+    <result column="POST_STATE_CODE" jdbcType="VARCHAR" property="postStateCode" />
+    <result column="POST_AREA_NAME" jdbcType="VARCHAR" property="postAreaName" />
+    <result column="POST_ADDR" jdbcType="VARCHAR" property="postAddr" />
+    <result column="POST_CODE" jdbcType="CHAR" property="postCode" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="FAX_CODE" jdbcType="VARCHAR" property="faxCode" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="WEB_URL" jdbcType="VARCHAR" property="webUrl" />
+    <result column="COM_MRK_FLG" jdbcType="CHAR" property="comMrkFlg" />
+    <result column="COM_MRK_AREA" jdbcType="VARCHAR" property="comMrkArea" />
+    <result column="COM_STOCK_ID" jdbcType="VARCHAR" property="comStockId" />
+    <result column="COM_GRP_FLAG" jdbcType="CHAR" property="comGrpFlag" />
+    <result column="COM_IMP_EXP_FLG" jdbcType="CHAR" property="comImpExpFlg" />
+    <result column="COM_FEXC_PRM_CODE" jdbcType="VARCHAR" property="comFexcPrmCode" />
+    <result column="COM_MAIN_PRODUCT" jdbcType="VARCHAR" property="comMainProduct" />
+    <result column="COM_PROD_EQUIP" jdbcType="VARCHAR" property="comProdEquip" />
+    <result column="COM_FACT_PROD" jdbcType="VARCHAR" property="comFactProd" />
+    <result column="COM_OPT_AERA" jdbcType="DECIMAL" property="comOptAera" />
+    <result column="COM_OPT_OWNER" jdbcType="VARCHAR" property="comOptOwner" />
+    <result column="COM_OPT_ST" jdbcType="CHAR" property="comOptSt" />
+    <result column="COM_IMPTT_FLG" jdbcType="CHAR" property="comImpttFlg" />
+    <result column="COM_PREP_FLG" jdbcType="CHAR" property="comPrepFlg" />
+    <result column="COM_DHGH_FLG" jdbcType="CHAR" property="comDhghFlg" />
+    <result column="COM_CL_ENTP" jdbcType="CHAR" property="comClEntp" />
+    <result column="COM_HD_ENTERPRISE" jdbcType="CHAR" property="comHdEnterprise" />
+    <result column="COM_MNG_ORG" jdbcType="VARCHAR" property="comMngOrg" />
+    <result column="COM_FIN_REP_TYPE" jdbcType="VARCHAR" property="comFinRepType" />
+    <result column="CUS_BANK_REL" jdbcType="CHAR" property="cusBankRel" />
+    <result column="COM_HOLD_STK_AMT" jdbcType="DECIMAL" property="comHoldStkAmt" />
+    <result column="COM_REL_DGR" jdbcType="VARCHAR" property="comRelDgr" />
+    <result column="COM_INIT_LOAN_DATE" jdbcType="VARCHAR" property="comInitLoanDate" />
+    <result column="COM_CUS_RANK" jdbcType="CHAR" property="comCusRank" />
+    <result column="COM_CRD_GRADE" jdbcType="CHAR" property="comCrdGrade" />
+    <result column="COM_CRD_DT" jdbcType="VARCHAR" property="comCrdDt" />
+    <result column="COM_OUT_CRD_GRADE" jdbcType="VARCHAR" property="comOutCrdGrade" />
+    <result column="COM_OUT_CRD_DT" jdbcType="VARCHAR" property="comOutCrdDt" />
+    <result column="COM_OUT_CRD_ORG" jdbcType="VARCHAR" property="comOutCrdOrg" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="CUST_MGR" jdbcType="VARCHAR" property="custMgr" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="LAST_UPD_ID" jdbcType="VARCHAR" property="lastUpdId" />
+    <result column="LAST_UPD_DATE" jdbcType="VARCHAR" property="lastUpdDate" />
+    <result column="CUS_STATUS" jdbcType="VARCHAR" property="cusStatus" />
+    <result column="MNG_BR_ID" jdbcType="VARCHAR" property="mngBrId" />
+    <result column="REG_END_TYPE" jdbcType="VARCHAR" property="regEndType" />
+    <result column="REALITY_CONTROLER_PHONE" jdbcType="VARCHAR" property="realityControlerPhone" />
+    <result column="REALITY_SPS_PHONE" jdbcType="VARCHAR" property="realitySpsPhone" />
+    <result column="LEGAL_HOME_ADDR" jdbcType="VARCHAR" property="legalHomeAddr" />
+    <result column="LEGAL_POST_CODE" jdbcType="CHAR" property="legalPostCode" />
+    <result column="LEGAL_PHONE" jdbcType="VARCHAR" property="legalPhone" />
+    <result column="LEGAL_SPS_PHONE" jdbcType="VARCHAR" property="legalSpsPhone" />
+    <result column="UNIT_CATE" jdbcType="VARCHAR" property="unitCate" />
+    <result column="UNIT_TYPE" jdbcType="VARCHAR" property="unitType" />
+    <result column="CREDIT_CERT_TYPE" jdbcType="VARCHAR" property="creditCertType" />
+    <result column="CREDIT_CERT_CODE" jdbcType="VARCHAR" property="creditCertCode" />
+    <result column="QUALIFICATION_GRADE" jdbcType="VARCHAR" property="qualificationGrade" />
+    <result column="PERFORMANCE_ABILITY" jdbcType="VARCHAR" property="performanceAbility" />
+    <result column="IMPORTANCE_ABILITY" jdbcType="VARCHAR" property="importanceAbility" />
+    <result column="SHAREHOLDER_DETAILS" jdbcType="VARCHAR" property="shareholderDetails" />
+    <result column="ID_CODE_TIME" jdbcType="VARCHAR" property="idCodeTime" />
+    <result column="REALITY_CONTROLER_ID_CODE_TIME" jdbcType="VARCHAR" property="realityControlerIdCodeTime" />
+    <result column="LEGAL_CERT_CODE_TIME" jdbcType="VARCHAR" property="legalCertCodeTime" />
+    <result column="OFFICIAL_NAME" jdbcType="VARCHAR" property="officialName" />
+    <result column="OFFICIAL_ID_TYPE" jdbcType="VARCHAR" property="officialIdType" />
+    <result column="OFFICIAL_NO" jdbcType="VARCHAR" property="officialNo" />
+    <result column="OFFICIAL_PV" jdbcType="VARCHAR" property="officialPv" />
+    <result column="OPERATOR_NAME" jdbcType="VARCHAR" property="operatorName" />
+    <result column="OPERATOR_ID_TYPE" jdbcType="VARCHAR" property="operatorIdType" />
+    <result column="OPERATOR_NO" jdbcType="VARCHAR" property="operatorNo" />
+    <result column="OPERATOR_PV" jdbcType="VARCHAR" property="operatorPv" />
+    <result column="BENEFICIAL_NAME" jdbcType="VARCHAR" property="beneficialName" />
+    <result column="BENEFICIAL_ADDRESS" jdbcType="VARCHAR" property="beneficialAddress" />
+    <result column="BENEFICIAL_ID_TYPE" jdbcType="VARCHAR" property="beneficialIdType" />
+    <result column="BENEFICIAL_NO" jdbcType="VARCHAR" property="beneficialNo" />
+    <result column="BENEFICIAL_PV" jdbcType="VARCHAR" property="beneficialPv" />
+    <result column="INSURANT_ADDRESSS" jdbcType="VARCHAR" property="insurantAddresss" />
+    <result column="INSURANT_MOBILE" jdbcType="VARCHAR" property="insurantMobile" />
+    <result column="INSURANT_NAME" jdbcType="VARCHAR" property="insurantName" />
+    <result column="OFFICIAL_START_DATE" jdbcType="VARCHAR" property="officialStartDate" />
+    <result column="OPERATOR_START_DATE" jdbcType="VARCHAR" property="operatorStartDate" />
+    <result column="BENEFICIAL_START_DATE" jdbcType="VARCHAR" property="beneficialStartDate" />
+    <result column="REALITY_CONTROLER_END_DATE" jdbcType="OTHER" property="realityControlerEndDate" />
+    <result column="REALITY_CONTROLER_START_DATE" jdbcType="OTHER" property="realityControlerStartDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CUS_ID, TRANS_CUS_ID, BELONG_TO, CUS_NAME, CUS_TYPE, CERT_TYPE, CERT_CODE, CUS_PRO, 
+    CUS_SHORT_NAME, CUS_EN_NAME, COM_COUNTRY, COM_CITY_FLG, INVEST_TYPE, COM_SUB_TYP, 
+    COM_HOLD_TYPE, COM_CLL_TYPE, COM_CLL_NAME, COM_STR_DATE, COM_EMPLOYEE, COM_SCALE_CLL_TYPE, 
+    SAL_VOLUME, OPER_INCOME, ASS_TOTAL, COM_SCALE, MID_LIT_CLL_TYPE, MID_LIT_COM_TYPE, 
+    COM_INS_CODE, COM_INS_REG_DATE, COM_INS_EXP_DATE, COM_INS_ORG, COM_INS_ANN_DATE, 
+    REG_CODE, REG_TYPE, ADMIN_ORG, APPR_ORG, APPR_DOC_NO, REG_STATE_CODE, REG_AREA_NAME, 
+    REG_ADDR, EN_REG_ADDR, ACU_STATE_CODE, ACU_AREA_NAME, ACU_ADDR, REG_CUR_TYPE, REG_CAP_AMT, 
+    FUN_SOURCE, COM_MAIN_OPT_SCP, COM_PART_OPT_SCP, REG_START_DATE, REG_END_DATE, REG_ORG, 
+    ANN_DATE, REG_AREA_CODE2, PAID_CAP_CUR_TYPE, PAID_CAP_AMT, REG_AUDIT, REG_AUDIT_DATE, 
+    LOC_TAX_REG_CODE, LOC_TAX_REG_DT, LOC_TAX_REG_END_DT, LOC_TAX_ANN_DATE, LOC_TAX_REG_ORG, 
+    NAT_TAX_REG_CODE, NAT_TAX_REG_DT, NAT_TAX_REG_END_DT, NAT_TAX_ANN_DATE, NAT_TAX_REG_ORG, 
+    LOAN_CARD_FLG, LOAN_CARD_ID, LOAN_CARD_PWD, LOAN_CARD_EFF_FLG, BAS_ACC_FLG, BAS_ACC_LICENCE, 
+    BAS_ACC_BANK, BAS_ACC_NO, BAS_ACC_DATE, LEGAL_NAME, LEGAL_SEX, CUS_ID_REL, LEGAL_CERT_TYPE, 
+    LEGAL_SIGN_INIT_DATE, LEGAL_END_INIT_DATE, LEGAL_CERT_CODE, LEGAL_RESUME, LEGAL_MAR_ST, 
+    LEGAL_SPS_ID_TYPE, LEGAL_SPS_ID_CODE, LEGAL_SPS_NO, LEGAL_SPS_NAME, REALITY_CONTROLER_ID_TYPE, 
+    REALITY_CONTROLER_ID_CODE, REALITY_CONTROLER_NO, REALITY_CONTROLER_NAME, REAL_SIGN_INIT_DATE, 
+    REAL_SIGN_END_DATE, REAL_ACCREDIT_INIT_DATE, REAL_ACCREDIT_END_DATE, REAL_WORK_RESUME, 
+    REALITY_MAR_ST, REALITY_SPS_ID_TYPE, REALITY_ID_CODE, REALITY_SPS_NO, REALITY_SPS_NAME, 
+    FNA_MGR, FNA_CONTACT, FNA_CON_PHONE, FNA_CON_MOBILE_PHONE, POST_STATE_CODE, POST_AREA_NAME, 
+    POST_ADDR, POST_CODE, PHONE, FAX_CODE, EMAIL, WEB_URL, COM_MRK_FLG, COM_MRK_AREA, 
+    COM_STOCK_ID, COM_GRP_FLAG, COM_IMP_EXP_FLG, COM_FEXC_PRM_CODE, COM_MAIN_PRODUCT, 
+    COM_PROD_EQUIP, COM_FACT_PROD, COM_OPT_AERA, COM_OPT_OWNER, COM_OPT_ST, COM_IMPTT_FLG, 
+    COM_PREP_FLG, COM_DHGH_FLG, COM_CL_ENTP, COM_HD_ENTERPRISE, COM_MNG_ORG, COM_FIN_REP_TYPE, 
+    CUS_BANK_REL, COM_HOLD_STK_AMT, COM_REL_DGR, COM_INIT_LOAN_DATE, COM_CUS_RANK, COM_CRD_GRADE, 
+    COM_CRD_DT, COM_OUT_CRD_GRADE, COM_OUT_CRD_DT, COM_OUT_CRD_ORG, MAIN_BR_ID, CUST_MGR, 
+    INPUT_ID, INPUT_DATE, INPUT_BR_ID, LAST_UPD_ID, LAST_UPD_DATE, CUS_STATUS, MNG_BR_ID, 
+    REG_END_TYPE, REALITY_CONTROLER_PHONE, REALITY_SPS_PHONE, LEGAL_HOME_ADDR, LEGAL_POST_CODE, 
+    LEGAL_PHONE, LEGAL_SPS_PHONE, UNIT_CATE, UNIT_TYPE, CREDIT_CERT_TYPE, CREDIT_CERT_CODE, 
+    QUALIFICATION_GRADE, PERFORMANCE_ABILITY, IMPORTANCE_ABILITY, SHAREHOLDER_DETAILS, 
+    ID_CODE_TIME, REALITY_CONTROLER_ID_CODE_TIME, LEGAL_CERT_CODE_TIME, OFFICIAL_NAME, 
+    OFFICIAL_ID_TYPE, OFFICIAL_NO, OFFICIAL_PV, OPERATOR_NAME, OPERATOR_ID_TYPE, OPERATOR_NO, 
+    OPERATOR_PV, BENEFICIAL_NAME, BENEFICIAL_ADDRESS, BENEFICIAL_ID_TYPE, BENEFICIAL_NO, 
+    BENEFICIAL_PV, INSURANT_ADDRESSS, INSURANT_MOBILE, INSURANT_NAME, OFFICIAL_START_DATE, 
+    OPERATOR_START_DATE, BENEFICIAL_START_DATE, REALITY_CONTROLER_END_DATE, REALITY_CONTROLER_START_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CUS_COM
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CUS_COM
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CusCom">
+    insert into CUS_COM (CUS_ID, TRANS_CUS_ID, BELONG_TO, 
+      CUS_NAME, CUS_TYPE, CERT_TYPE, 
+      CERT_CODE, CUS_PRO, CUS_SHORT_NAME, 
+      CUS_EN_NAME, COM_COUNTRY, COM_CITY_FLG, 
+      INVEST_TYPE, COM_SUB_TYP, COM_HOLD_TYPE, 
+      COM_CLL_TYPE, COM_CLL_NAME, COM_STR_DATE, 
+      COM_EMPLOYEE, COM_SCALE_CLL_TYPE, SAL_VOLUME, 
+      OPER_INCOME, ASS_TOTAL, COM_SCALE, 
+      MID_LIT_CLL_TYPE, MID_LIT_COM_TYPE, COM_INS_CODE, 
+      COM_INS_REG_DATE, COM_INS_EXP_DATE, COM_INS_ORG, 
+      COM_INS_ANN_DATE, REG_CODE, REG_TYPE, 
+      ADMIN_ORG, APPR_ORG, APPR_DOC_NO, 
+      REG_STATE_CODE, REG_AREA_NAME, REG_ADDR, 
+      EN_REG_ADDR, ACU_STATE_CODE, ACU_AREA_NAME, 
+      ACU_ADDR, REG_CUR_TYPE, REG_CAP_AMT, 
+      FUN_SOURCE, COM_MAIN_OPT_SCP, COM_PART_OPT_SCP, 
+      REG_START_DATE, REG_END_DATE, REG_ORG, 
+      ANN_DATE, REG_AREA_CODE2, PAID_CAP_CUR_TYPE, 
+      PAID_CAP_AMT, REG_AUDIT, REG_AUDIT_DATE, 
+      LOC_TAX_REG_CODE, LOC_TAX_REG_DT, LOC_TAX_REG_END_DT, 
+      LOC_TAX_ANN_DATE, LOC_TAX_REG_ORG, NAT_TAX_REG_CODE, 
+      NAT_TAX_REG_DT, NAT_TAX_REG_END_DT, NAT_TAX_ANN_DATE, 
+      NAT_TAX_REG_ORG, LOAN_CARD_FLG, LOAN_CARD_ID, 
+      LOAN_CARD_PWD, LOAN_CARD_EFF_FLG, BAS_ACC_FLG, 
+      BAS_ACC_LICENCE, BAS_ACC_BANK, BAS_ACC_NO, 
+      BAS_ACC_DATE, LEGAL_NAME, LEGAL_SEX, 
+      CUS_ID_REL, LEGAL_CERT_TYPE, LEGAL_SIGN_INIT_DATE, 
+      LEGAL_END_INIT_DATE, LEGAL_CERT_CODE, LEGAL_RESUME, 
+      LEGAL_MAR_ST, LEGAL_SPS_ID_TYPE, LEGAL_SPS_ID_CODE, 
+      LEGAL_SPS_NO, LEGAL_SPS_NAME, REALITY_CONTROLER_ID_TYPE, 
+      REALITY_CONTROLER_ID_CODE, REALITY_CONTROLER_NO, 
+      REALITY_CONTROLER_NAME, REAL_SIGN_INIT_DATE, 
+      REAL_SIGN_END_DATE, REAL_ACCREDIT_INIT_DATE, 
+      REAL_ACCREDIT_END_DATE, REAL_WORK_RESUME, REALITY_MAR_ST, 
+      REALITY_SPS_ID_TYPE, REALITY_ID_CODE, REALITY_SPS_NO, 
+      REALITY_SPS_NAME, FNA_MGR, FNA_CONTACT, 
+      FNA_CON_PHONE, FNA_CON_MOBILE_PHONE, POST_STATE_CODE, 
+      POST_AREA_NAME, POST_ADDR, POST_CODE, 
+      PHONE, FAX_CODE, EMAIL, 
+      WEB_URL, COM_MRK_FLG, COM_MRK_AREA, 
+      COM_STOCK_ID, COM_GRP_FLAG, COM_IMP_EXP_FLG, 
+      COM_FEXC_PRM_CODE, COM_MAIN_PRODUCT, COM_PROD_EQUIP, 
+      COM_FACT_PROD, COM_OPT_AERA, COM_OPT_OWNER, 
+      COM_OPT_ST, COM_IMPTT_FLG, COM_PREP_FLG, 
+      COM_DHGH_FLG, COM_CL_ENTP, COM_HD_ENTERPRISE, 
+      COM_MNG_ORG, COM_FIN_REP_TYPE, CUS_BANK_REL, 
+      COM_HOLD_STK_AMT, COM_REL_DGR, COM_INIT_LOAN_DATE, 
+      COM_CUS_RANK, COM_CRD_GRADE, COM_CRD_DT, 
+      COM_OUT_CRD_GRADE, COM_OUT_CRD_DT, COM_OUT_CRD_ORG, 
+      MAIN_BR_ID, CUST_MGR, INPUT_ID, 
+      INPUT_DATE, INPUT_BR_ID, LAST_UPD_ID, 
+      LAST_UPD_DATE, CUS_STATUS, MNG_BR_ID, 
+      REG_END_TYPE, REALITY_CONTROLER_PHONE, REALITY_SPS_PHONE, 
+      LEGAL_HOME_ADDR, LEGAL_POST_CODE, LEGAL_PHONE, 
+      LEGAL_SPS_PHONE, UNIT_CATE, UNIT_TYPE, 
+      CREDIT_CERT_TYPE, CREDIT_CERT_CODE, QUALIFICATION_GRADE, 
+      PERFORMANCE_ABILITY, IMPORTANCE_ABILITY, 
+      SHAREHOLDER_DETAILS, ID_CODE_TIME, REALITY_CONTROLER_ID_CODE_TIME, 
+      LEGAL_CERT_CODE_TIME, OFFICIAL_NAME, OFFICIAL_ID_TYPE, 
+      OFFICIAL_NO, OFFICIAL_PV, OPERATOR_NAME, 
+      OPERATOR_ID_TYPE, OPERATOR_NO, OPERATOR_PV, 
+      BENEFICIAL_NAME, BENEFICIAL_ADDRESS, BENEFICIAL_ID_TYPE, 
+      BENEFICIAL_NO, BENEFICIAL_PV, INSURANT_ADDRESSS, 
+      INSURANT_MOBILE, INSURANT_NAME, OFFICIAL_START_DATE, 
+      OPERATOR_START_DATE, BENEFICIAL_START_DATE, 
+      REALITY_CONTROLER_END_DATE, REALITY_CONTROLER_START_DATE
+      )
+    values (#{cusId,jdbcType=VARCHAR}, #{transCusId,jdbcType=VARCHAR}, #{belongTo,jdbcType=VARCHAR}, 
+      #{cusName,jdbcType=VARCHAR}, #{cusType,jdbcType=CHAR}, #{certType,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{cusPro,jdbcType=VARCHAR}, #{cusShortName,jdbcType=VARCHAR}, 
+      #{cusEnName,jdbcType=VARCHAR}, #{comCountry,jdbcType=CHAR}, #{comCityFlg,jdbcType=VARCHAR}, 
+      #{investType,jdbcType=VARCHAR}, #{comSubTyp,jdbcType=VARCHAR}, #{comHoldType,jdbcType=VARCHAR}, 
+      #{comCllType,jdbcType=VARCHAR}, #{comCllName,jdbcType=VARCHAR}, #{comStrDate,jdbcType=VARCHAR}, 
+      #{comEmployee,jdbcType=DECIMAL}, #{comScaleCllType,jdbcType=VARCHAR}, #{salVolume,jdbcType=DECIMAL}, 
+      #{operIncome,jdbcType=DECIMAL}, #{assTotal,jdbcType=DECIMAL}, #{comScale,jdbcType=VARCHAR}, 
+      #{midLitCllType,jdbcType=VARCHAR}, #{midLitComType,jdbcType=VARCHAR}, #{comInsCode,jdbcType=VARCHAR}, 
+      #{comInsRegDate,jdbcType=VARCHAR}, #{comInsExpDate,jdbcType=CHAR}, #{comInsOrg,jdbcType=VARCHAR}, 
+      #{comInsAnnDate,jdbcType=VARCHAR}, #{regCode,jdbcType=VARCHAR}, #{regType,jdbcType=VARCHAR}, 
+      #{adminOrg,jdbcType=VARCHAR}, #{apprOrg,jdbcType=VARCHAR}, #{apprDocNo,jdbcType=VARCHAR}, 
+      #{regStateCode,jdbcType=VARCHAR}, #{regAreaName,jdbcType=VARCHAR}, #{regAddr,jdbcType=VARCHAR}, 
+      #{enRegAddr,jdbcType=VARCHAR}, #{acuStateCode,jdbcType=VARCHAR}, #{acuAreaName,jdbcType=VARCHAR}, 
+      #{acuAddr,jdbcType=VARCHAR}, #{regCurType,jdbcType=VARCHAR}, #{regCapAmt,jdbcType=DECIMAL}, 
+      #{funSource,jdbcType=VARCHAR}, #{comMainOptScp,jdbcType=VARCHAR}, #{comPartOptScp,jdbcType=VARCHAR}, 
+      #{regStartDate,jdbcType=VARCHAR}, #{regEndDate,jdbcType=VARCHAR}, #{regOrg,jdbcType=VARCHAR}, 
+      #{annDate,jdbcType=VARCHAR}, #{regAreaCode2,jdbcType=VARCHAR}, #{paidCapCurType,jdbcType=VARCHAR}, 
+      #{paidCapAmt,jdbcType=DECIMAL}, #{regAudit,jdbcType=VARCHAR}, #{regAuditDate,jdbcType=VARCHAR}, 
+      #{locTaxRegCode,jdbcType=VARCHAR}, #{locTaxRegDt,jdbcType=VARCHAR}, #{locTaxRegEndDt,jdbcType=VARCHAR}, 
+      #{locTaxAnnDate,jdbcType=CHAR}, #{locTaxRegOrg,jdbcType=VARCHAR}, #{natTaxRegCode,jdbcType=VARCHAR}, 
+      #{natTaxRegDt,jdbcType=VARCHAR}, #{natTaxRegEndDt,jdbcType=VARCHAR}, #{natTaxAnnDate,jdbcType=VARCHAR}, 
+      #{natTaxRegOrg,jdbcType=VARCHAR}, #{loanCardFlg,jdbcType=CHAR}, #{loanCardId,jdbcType=VARCHAR}, 
+      #{loanCardPwd,jdbcType=VARCHAR}, #{loanCardEffFlg,jdbcType=VARCHAR}, #{basAccFlg,jdbcType=CHAR}, 
+      #{basAccLicence,jdbcType=VARCHAR}, #{basAccBank,jdbcType=VARCHAR}, #{basAccNo,jdbcType=VARCHAR}, 
+      #{basAccDate,jdbcType=VARCHAR}, #{legalName,jdbcType=VARCHAR}, #{legalSex,jdbcType=CHAR}, 
+      #{cusIdRel,jdbcType=VARCHAR}, #{legalCertType,jdbcType=VARCHAR}, #{legalSignInitDate,jdbcType=VARCHAR}, 
+      #{legalEndInitDate,jdbcType=VARCHAR}, #{legalCertCode,jdbcType=VARCHAR}, #{legalResume,jdbcType=VARCHAR}, 
+      #{legalMarSt,jdbcType=CHAR}, #{legalSpsIdType,jdbcType=CHAR}, #{legalSpsIdCode,jdbcType=VARCHAR}, 
+      #{legalSpsNo,jdbcType=VARCHAR}, #{legalSpsName,jdbcType=VARCHAR}, #{realityControlerIdType,jdbcType=VARCHAR}, 
+      #{realityControlerIdCode,jdbcType=VARCHAR}, #{realityControlerNo,jdbcType=VARCHAR}, 
+      #{realityControlerName,jdbcType=VARCHAR}, #{realSignInitDate,jdbcType=VARCHAR}, 
+      #{realSignEndDate,jdbcType=VARCHAR}, #{realAccreditInitDate,jdbcType=VARCHAR}, 
+      #{realAccreditEndDate,jdbcType=VARCHAR}, #{realWorkResume,jdbcType=VARCHAR}, #{realityMarSt,jdbcType=CHAR}, 
+      #{realitySpsIdType,jdbcType=VARCHAR}, #{realityIdCode,jdbcType=VARCHAR}, #{realitySpsNo,jdbcType=VARCHAR}, 
+      #{realitySpsName,jdbcType=VARCHAR}, #{fnaMgr,jdbcType=VARCHAR}, #{fnaContact,jdbcType=VARCHAR}, 
+      #{fnaConPhone,jdbcType=VARCHAR}, #{fnaConMobilePhone,jdbcType=VARCHAR}, #{postStateCode,jdbcType=VARCHAR}, 
+      #{postAreaName,jdbcType=VARCHAR}, #{postAddr,jdbcType=VARCHAR}, #{postCode,jdbcType=CHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{faxCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{webUrl,jdbcType=VARCHAR}, #{comMrkFlg,jdbcType=CHAR}, #{comMrkArea,jdbcType=VARCHAR}, 
+      #{comStockId,jdbcType=VARCHAR}, #{comGrpFlag,jdbcType=CHAR}, #{comImpExpFlg,jdbcType=CHAR}, 
+      #{comFexcPrmCode,jdbcType=VARCHAR}, #{comMainProduct,jdbcType=VARCHAR}, #{comProdEquip,jdbcType=VARCHAR}, 
+      #{comFactProd,jdbcType=VARCHAR}, #{comOptAera,jdbcType=DECIMAL}, #{comOptOwner,jdbcType=VARCHAR}, 
+      #{comOptSt,jdbcType=CHAR}, #{comImpttFlg,jdbcType=CHAR}, #{comPrepFlg,jdbcType=CHAR}, 
+      #{comDhghFlg,jdbcType=CHAR}, #{comClEntp,jdbcType=CHAR}, #{comHdEnterprise,jdbcType=CHAR}, 
+      #{comMngOrg,jdbcType=VARCHAR}, #{comFinRepType,jdbcType=VARCHAR}, #{cusBankRel,jdbcType=CHAR}, 
+      #{comHoldStkAmt,jdbcType=DECIMAL}, #{comRelDgr,jdbcType=VARCHAR}, #{comInitLoanDate,jdbcType=VARCHAR}, 
+      #{comCusRank,jdbcType=CHAR}, #{comCrdGrade,jdbcType=CHAR}, #{comCrdDt,jdbcType=VARCHAR}, 
+      #{comOutCrdGrade,jdbcType=VARCHAR}, #{comOutCrdDt,jdbcType=VARCHAR}, #{comOutCrdOrg,jdbcType=VARCHAR}, 
+      #{mainBrId,jdbcType=VARCHAR}, #{custMgr,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{lastUpdId,jdbcType=VARCHAR}, 
+      #{lastUpdDate,jdbcType=VARCHAR}, #{cusStatus,jdbcType=VARCHAR}, #{mngBrId,jdbcType=VARCHAR}, 
+      #{regEndType,jdbcType=VARCHAR}, #{realityControlerPhone,jdbcType=VARCHAR}, #{realitySpsPhone,jdbcType=VARCHAR}, 
+      #{legalHomeAddr,jdbcType=VARCHAR}, #{legalPostCode,jdbcType=CHAR}, #{legalPhone,jdbcType=VARCHAR}, 
+      #{legalSpsPhone,jdbcType=VARCHAR}, #{unitCate,jdbcType=VARCHAR}, #{unitType,jdbcType=VARCHAR}, 
+      #{creditCertType,jdbcType=VARCHAR}, #{creditCertCode,jdbcType=VARCHAR}, #{qualificationGrade,jdbcType=VARCHAR}, 
+      #{performanceAbility,jdbcType=VARCHAR}, #{importanceAbility,jdbcType=VARCHAR}, 
+      #{shareholderDetails,jdbcType=VARCHAR}, #{idCodeTime,jdbcType=VARCHAR}, #{realityControlerIdCodeTime,jdbcType=VARCHAR}, 
+      #{legalCertCodeTime,jdbcType=VARCHAR}, #{officialName,jdbcType=VARCHAR}, #{officialIdType,jdbcType=VARCHAR}, 
+      #{officialNo,jdbcType=VARCHAR}, #{officialPv,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}, 
+      #{operatorIdType,jdbcType=VARCHAR}, #{operatorNo,jdbcType=VARCHAR}, #{operatorPv,jdbcType=VARCHAR}, 
+      #{beneficialName,jdbcType=VARCHAR}, #{beneficialAddress,jdbcType=VARCHAR}, #{beneficialIdType,jdbcType=VARCHAR}, 
+      #{beneficialNo,jdbcType=VARCHAR}, #{beneficialPv,jdbcType=VARCHAR}, #{insurantAddresss,jdbcType=VARCHAR}, 
+      #{insurantMobile,jdbcType=VARCHAR}, #{insurantName,jdbcType=VARCHAR}, #{officialStartDate,jdbcType=VARCHAR}, 
+      #{operatorStartDate,jdbcType=VARCHAR}, #{beneficialStartDate,jdbcType=VARCHAR}, 
+      #{realityControlerEndDate,jdbcType=OTHER}, #{realityControlerStartDate,jdbcType=OTHER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CusCom">
+    insert into CUS_COM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="transCusId != null">
+        TRANS_CUS_ID,
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="cusPro != null">
+        CUS_PRO,
+      </if>
+      <if test="cusShortName != null">
+        CUS_SHORT_NAME,
+      </if>
+      <if test="cusEnName != null">
+        CUS_EN_NAME,
+      </if>
+      <if test="comCountry != null">
+        COM_COUNTRY,
+      </if>
+      <if test="comCityFlg != null">
+        COM_CITY_FLG,
+      </if>
+      <if test="investType != null">
+        INVEST_TYPE,
+      </if>
+      <if test="comSubTyp != null">
+        COM_SUB_TYP,
+      </if>
+      <if test="comHoldType != null">
+        COM_HOLD_TYPE,
+      </if>
+      <if test="comCllType != null">
+        COM_CLL_TYPE,
+      </if>
+      <if test="comCllName != null">
+        COM_CLL_NAME,
+      </if>
+      <if test="comStrDate != null">
+        COM_STR_DATE,
+      </if>
+      <if test="comEmployee != null">
+        COM_EMPLOYEE,
+      </if>
+      <if test="comScaleCllType != null">
+        COM_SCALE_CLL_TYPE,
+      </if>
+      <if test="salVolume != null">
+        SAL_VOLUME,
+      </if>
+      <if test="operIncome != null">
+        OPER_INCOME,
+      </if>
+      <if test="assTotal != null">
+        ASS_TOTAL,
+      </if>
+      <if test="comScale != null">
+        COM_SCALE,
+      </if>
+      <if test="midLitCllType != null">
+        MID_LIT_CLL_TYPE,
+      </if>
+      <if test="midLitComType != null">
+        MID_LIT_COM_TYPE,
+      </if>
+      <if test="comInsCode != null">
+        COM_INS_CODE,
+      </if>
+      <if test="comInsRegDate != null">
+        COM_INS_REG_DATE,
+      </if>
+      <if test="comInsExpDate != null">
+        COM_INS_EXP_DATE,
+      </if>
+      <if test="comInsOrg != null">
+        COM_INS_ORG,
+      </if>
+      <if test="comInsAnnDate != null">
+        COM_INS_ANN_DATE,
+      </if>
+      <if test="regCode != null">
+        REG_CODE,
+      </if>
+      <if test="regType != null">
+        REG_TYPE,
+      </if>
+      <if test="adminOrg != null">
+        ADMIN_ORG,
+      </if>
+      <if test="apprOrg != null">
+        APPR_ORG,
+      </if>
+      <if test="apprDocNo != null">
+        APPR_DOC_NO,
+      </if>
+      <if test="regStateCode != null">
+        REG_STATE_CODE,
+      </if>
+      <if test="regAreaName != null">
+        REG_AREA_NAME,
+      </if>
+      <if test="regAddr != null">
+        REG_ADDR,
+      </if>
+      <if test="enRegAddr != null">
+        EN_REG_ADDR,
+      </if>
+      <if test="acuStateCode != null">
+        ACU_STATE_CODE,
+      </if>
+      <if test="acuAreaName != null">
+        ACU_AREA_NAME,
+      </if>
+      <if test="acuAddr != null">
+        ACU_ADDR,
+      </if>
+      <if test="regCurType != null">
+        REG_CUR_TYPE,
+      </if>
+      <if test="regCapAmt != null">
+        REG_CAP_AMT,
+      </if>
+      <if test="funSource != null">
+        FUN_SOURCE,
+      </if>
+      <if test="comMainOptScp != null">
+        COM_MAIN_OPT_SCP,
+      </if>
+      <if test="comPartOptScp != null">
+        COM_PART_OPT_SCP,
+      </if>
+      <if test="regStartDate != null">
+        REG_START_DATE,
+      </if>
+      <if test="regEndDate != null">
+        REG_END_DATE,
+      </if>
+      <if test="regOrg != null">
+        REG_ORG,
+      </if>
+      <if test="annDate != null">
+        ANN_DATE,
+      </if>
+      <if test="regAreaCode2 != null">
+        REG_AREA_CODE2,
+      </if>
+      <if test="paidCapCurType != null">
+        PAID_CAP_CUR_TYPE,
+      </if>
+      <if test="paidCapAmt != null">
+        PAID_CAP_AMT,
+      </if>
+      <if test="regAudit != null">
+        REG_AUDIT,
+      </if>
+      <if test="regAuditDate != null">
+        REG_AUDIT_DATE,
+      </if>
+      <if test="locTaxRegCode != null">
+        LOC_TAX_REG_CODE,
+      </if>
+      <if test="locTaxRegDt != null">
+        LOC_TAX_REG_DT,
+      </if>
+      <if test="locTaxRegEndDt != null">
+        LOC_TAX_REG_END_DT,
+      </if>
+      <if test="locTaxAnnDate != null">
+        LOC_TAX_ANN_DATE,
+      </if>
+      <if test="locTaxRegOrg != null">
+        LOC_TAX_REG_ORG,
+      </if>
+      <if test="natTaxRegCode != null">
+        NAT_TAX_REG_CODE,
+      </if>
+      <if test="natTaxRegDt != null">
+        NAT_TAX_REG_DT,
+      </if>
+      <if test="natTaxRegEndDt != null">
+        NAT_TAX_REG_END_DT,
+      </if>
+      <if test="natTaxAnnDate != null">
+        NAT_TAX_ANN_DATE,
+      </if>
+      <if test="natTaxRegOrg != null">
+        NAT_TAX_REG_ORG,
+      </if>
+      <if test="loanCardFlg != null">
+        LOAN_CARD_FLG,
+      </if>
+      <if test="loanCardId != null">
+        LOAN_CARD_ID,
+      </if>
+      <if test="loanCardPwd != null">
+        LOAN_CARD_PWD,
+      </if>
+      <if test="loanCardEffFlg != null">
+        LOAN_CARD_EFF_FLG,
+      </if>
+      <if test="basAccFlg != null">
+        BAS_ACC_FLG,
+      </if>
+      <if test="basAccLicence != null">
+        BAS_ACC_LICENCE,
+      </if>
+      <if test="basAccBank != null">
+        BAS_ACC_BANK,
+      </if>
+      <if test="basAccNo != null">
+        BAS_ACC_NO,
+      </if>
+      <if test="basAccDate != null">
+        BAS_ACC_DATE,
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME,
+      </if>
+      <if test="legalSex != null">
+        LEGAL_SEX,
+      </if>
+      <if test="cusIdRel != null">
+        CUS_ID_REL,
+      </if>
+      <if test="legalCertType != null">
+        LEGAL_CERT_TYPE,
+      </if>
+      <if test="legalSignInitDate != null">
+        LEGAL_SIGN_INIT_DATE,
+      </if>
+      <if test="legalEndInitDate != null">
+        LEGAL_END_INIT_DATE,
+      </if>
+      <if test="legalCertCode != null">
+        LEGAL_CERT_CODE,
+      </if>
+      <if test="legalResume != null">
+        LEGAL_RESUME,
+      </if>
+      <if test="legalMarSt != null">
+        LEGAL_MAR_ST,
+      </if>
+      <if test="legalSpsIdType != null">
+        LEGAL_SPS_ID_TYPE,
+      </if>
+      <if test="legalSpsIdCode != null">
+        LEGAL_SPS_ID_CODE,
+      </if>
+      <if test="legalSpsNo != null">
+        LEGAL_SPS_NO,
+      </if>
+      <if test="legalSpsName != null">
+        LEGAL_SPS_NAME,
+      </if>
+      <if test="realityControlerIdType != null">
+        REALITY_CONTROLER_ID_TYPE,
+      </if>
+      <if test="realityControlerIdCode != null">
+        REALITY_CONTROLER_ID_CODE,
+      </if>
+      <if test="realityControlerNo != null">
+        REALITY_CONTROLER_NO,
+      </if>
+      <if test="realityControlerName != null">
+        REALITY_CONTROLER_NAME,
+      </if>
+      <if test="realSignInitDate != null">
+        REAL_SIGN_INIT_DATE,
+      </if>
+      <if test="realSignEndDate != null">
+        REAL_SIGN_END_DATE,
+      </if>
+      <if test="realAccreditInitDate != null">
+        REAL_ACCREDIT_INIT_DATE,
+      </if>
+      <if test="realAccreditEndDate != null">
+        REAL_ACCREDIT_END_DATE,
+      </if>
+      <if test="realWorkResume != null">
+        REAL_WORK_RESUME,
+      </if>
+      <if test="realityMarSt != null">
+        REALITY_MAR_ST,
+      </if>
+      <if test="realitySpsIdType != null">
+        REALITY_SPS_ID_TYPE,
+      </if>
+      <if test="realityIdCode != null">
+        REALITY_ID_CODE,
+      </if>
+      <if test="realitySpsNo != null">
+        REALITY_SPS_NO,
+      </if>
+      <if test="realitySpsName != null">
+        REALITY_SPS_NAME,
+      </if>
+      <if test="fnaMgr != null">
+        FNA_MGR,
+      </if>
+      <if test="fnaContact != null">
+        FNA_CONTACT,
+      </if>
+      <if test="fnaConPhone != null">
+        FNA_CON_PHONE,
+      </if>
+      <if test="fnaConMobilePhone != null">
+        FNA_CON_MOBILE_PHONE,
+      </if>
+      <if test="postStateCode != null">
+        POST_STATE_CODE,
+      </if>
+      <if test="postAreaName != null">
+        POST_AREA_NAME,
+      </if>
+      <if test="postAddr != null">
+        POST_ADDR,
+      </if>
+      <if test="postCode != null">
+        POST_CODE,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="faxCode != null">
+        FAX_CODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="webUrl != null">
+        WEB_URL,
+      </if>
+      <if test="comMrkFlg != null">
+        COM_MRK_FLG,
+      </if>
+      <if test="comMrkArea != null">
+        COM_MRK_AREA,
+      </if>
+      <if test="comStockId != null">
+        COM_STOCK_ID,
+      </if>
+      <if test="comGrpFlag != null">
+        COM_GRP_FLAG,
+      </if>
+      <if test="comImpExpFlg != null">
+        COM_IMP_EXP_FLG,
+      </if>
+      <if test="comFexcPrmCode != null">
+        COM_FEXC_PRM_CODE,
+      </if>
+      <if test="comMainProduct != null">
+        COM_MAIN_PRODUCT,
+      </if>
+      <if test="comProdEquip != null">
+        COM_PROD_EQUIP,
+      </if>
+      <if test="comFactProd != null">
+        COM_FACT_PROD,
+      </if>
+      <if test="comOptAera != null">
+        COM_OPT_AERA,
+      </if>
+      <if test="comOptOwner != null">
+        COM_OPT_OWNER,
+      </if>
+      <if test="comOptSt != null">
+        COM_OPT_ST,
+      </if>
+      <if test="comImpttFlg != null">
+        COM_IMPTT_FLG,
+      </if>
+      <if test="comPrepFlg != null">
+        COM_PREP_FLG,
+      </if>
+      <if test="comDhghFlg != null">
+        COM_DHGH_FLG,
+      </if>
+      <if test="comClEntp != null">
+        COM_CL_ENTP,
+      </if>
+      <if test="comHdEnterprise != null">
+        COM_HD_ENTERPRISE,
+      </if>
+      <if test="comMngOrg != null">
+        COM_MNG_ORG,
+      </if>
+      <if test="comFinRepType != null">
+        COM_FIN_REP_TYPE,
+      </if>
+      <if test="cusBankRel != null">
+        CUS_BANK_REL,
+      </if>
+      <if test="comHoldStkAmt != null">
+        COM_HOLD_STK_AMT,
+      </if>
+      <if test="comRelDgr != null">
+        COM_REL_DGR,
+      </if>
+      <if test="comInitLoanDate != null">
+        COM_INIT_LOAN_DATE,
+      </if>
+      <if test="comCusRank != null">
+        COM_CUS_RANK,
+      </if>
+      <if test="comCrdGrade != null">
+        COM_CRD_GRADE,
+      </if>
+      <if test="comCrdDt != null">
+        COM_CRD_DT,
+      </if>
+      <if test="comOutCrdGrade != null">
+        COM_OUT_CRD_GRADE,
+      </if>
+      <if test="comOutCrdDt != null">
+        COM_OUT_CRD_DT,
+      </if>
+      <if test="comOutCrdOrg != null">
+        COM_OUT_CRD_ORG,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID,
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE,
+      </if>
+      <if test="cusStatus != null">
+        CUS_STATUS,
+      </if>
+      <if test="mngBrId != null">
+        MNG_BR_ID,
+      </if>
+      <if test="regEndType != null">
+        REG_END_TYPE,
+      </if>
+      <if test="realityControlerPhone != null">
+        REALITY_CONTROLER_PHONE,
+      </if>
+      <if test="realitySpsPhone != null">
+        REALITY_SPS_PHONE,
+      </if>
+      <if test="legalHomeAddr != null">
+        LEGAL_HOME_ADDR,
+      </if>
+      <if test="legalPostCode != null">
+        LEGAL_POST_CODE,
+      </if>
+      <if test="legalPhone != null">
+        LEGAL_PHONE,
+      </if>
+      <if test="legalSpsPhone != null">
+        LEGAL_SPS_PHONE,
+      </if>
+      <if test="unitCate != null">
+        UNIT_CATE,
+      </if>
+      <if test="unitType != null">
+        UNIT_TYPE,
+      </if>
+      <if test="creditCertType != null">
+        CREDIT_CERT_TYPE,
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE,
+      </if>
+      <if test="qualificationGrade != null">
+        QUALIFICATION_GRADE,
+      </if>
+      <if test="performanceAbility != null">
+        PERFORMANCE_ABILITY,
+      </if>
+      <if test="importanceAbility != null">
+        IMPORTANCE_ABILITY,
+      </if>
+      <if test="shareholderDetails != null">
+        SHAREHOLDER_DETAILS,
+      </if>
+      <if test="idCodeTime != null">
+        ID_CODE_TIME,
+      </if>
+      <if test="realityControlerIdCodeTime != null">
+        REALITY_CONTROLER_ID_CODE_TIME,
+      </if>
+      <if test="legalCertCodeTime != null">
+        LEGAL_CERT_CODE_TIME,
+      </if>
+      <if test="officialName != null">
+        OFFICIAL_NAME,
+      </if>
+      <if test="officialIdType != null">
+        OFFICIAL_ID_TYPE,
+      </if>
+      <if test="officialNo != null">
+        OFFICIAL_NO,
+      </if>
+      <if test="officialPv != null">
+        OFFICIAL_PV,
+      </if>
+      <if test="operatorName != null">
+        OPERATOR_NAME,
+      </if>
+      <if test="operatorIdType != null">
+        OPERATOR_ID_TYPE,
+      </if>
+      <if test="operatorNo != null">
+        OPERATOR_NO,
+      </if>
+      <if test="operatorPv != null">
+        OPERATOR_PV,
+      </if>
+      <if test="beneficialName != null">
+        BENEFICIAL_NAME,
+      </if>
+      <if test="beneficialAddress != null">
+        BENEFICIAL_ADDRESS,
+      </if>
+      <if test="beneficialIdType != null">
+        BENEFICIAL_ID_TYPE,
+      </if>
+      <if test="beneficialNo != null">
+        BENEFICIAL_NO,
+      </if>
+      <if test="beneficialPv != null">
+        BENEFICIAL_PV,
+      </if>
+      <if test="insurantAddresss != null">
+        INSURANT_ADDRESSS,
+      </if>
+      <if test="insurantMobile != null">
+        INSURANT_MOBILE,
+      </if>
+      <if test="insurantName != null">
+        INSURANT_NAME,
+      </if>
+      <if test="officialStartDate != null">
+        OFFICIAL_START_DATE,
+      </if>
+      <if test="operatorStartDate != null">
+        OPERATOR_START_DATE,
+      </if>
+      <if test="beneficialStartDate != null">
+        BENEFICIAL_START_DATE,
+      </if>
+      <if test="realityControlerEndDate != null">
+        REALITY_CONTROLER_END_DATE,
+      </if>
+      <if test="realityControlerStartDate != null">
+        REALITY_CONTROLER_START_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="transCusId != null">
+        #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPro != null">
+        #{cusPro,jdbcType=VARCHAR},
+      </if>
+      <if test="cusShortName != null">
+        #{cusShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusEnName != null">
+        #{cusEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="comCountry != null">
+        #{comCountry,jdbcType=CHAR},
+      </if>
+      <if test="comCityFlg != null">
+        #{comCityFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="investType != null">
+        #{investType,jdbcType=VARCHAR},
+      </if>
+      <if test="comSubTyp != null">
+        #{comSubTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="comHoldType != null">
+        #{comHoldType,jdbcType=VARCHAR},
+      </if>
+      <if test="comCllType != null">
+        #{comCllType,jdbcType=VARCHAR},
+      </if>
+      <if test="comCllName != null">
+        #{comCllName,jdbcType=VARCHAR},
+      </if>
+      <if test="comStrDate != null">
+        #{comStrDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comEmployee != null">
+        #{comEmployee,jdbcType=DECIMAL},
+      </if>
+      <if test="comScaleCllType != null">
+        #{comScaleCllType,jdbcType=VARCHAR},
+      </if>
+      <if test="salVolume != null">
+        #{salVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="operIncome != null">
+        #{operIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="assTotal != null">
+        #{assTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="comScale != null">
+        #{comScale,jdbcType=VARCHAR},
+      </if>
+      <if test="midLitCllType != null">
+        #{midLitCllType,jdbcType=VARCHAR},
+      </if>
+      <if test="midLitComType != null">
+        #{midLitComType,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsCode != null">
+        #{comInsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsRegDate != null">
+        #{comInsRegDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsExpDate != null">
+        #{comInsExpDate,jdbcType=CHAR},
+      </if>
+      <if test="comInsOrg != null">
+        #{comInsOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsAnnDate != null">
+        #{comInsAnnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regCode != null">
+        #{regCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regType != null">
+        #{regType,jdbcType=VARCHAR},
+      </if>
+      <if test="adminOrg != null">
+        #{adminOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="apprOrg != null">
+        #{apprOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="apprDocNo != null">
+        #{apprDocNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regStateCode != null">
+        #{regStateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regAreaName != null">
+        #{regAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddr != null">
+        #{regAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="enRegAddr != null">
+        #{enRegAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="acuStateCode != null">
+        #{acuStateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acuAreaName != null">
+        #{acuAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="acuAddr != null">
+        #{acuAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="regCurType != null">
+        #{regCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapAmt != null">
+        #{regCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="funSource != null">
+        #{funSource,jdbcType=VARCHAR},
+      </if>
+      <if test="comMainOptScp != null">
+        #{comMainOptScp,jdbcType=VARCHAR},
+      </if>
+      <if test="comPartOptScp != null">
+        #{comPartOptScp,jdbcType=VARCHAR},
+      </if>
+      <if test="regStartDate != null">
+        #{regStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regEndDate != null">
+        #{regEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regOrg != null">
+        #{regOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="annDate != null">
+        #{annDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regAreaCode2 != null">
+        #{regAreaCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="paidCapCurType != null">
+        #{paidCapCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="paidCapAmt != null">
+        #{paidCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="regAudit != null">
+        #{regAudit,jdbcType=VARCHAR},
+      </if>
+      <if test="regAuditDate != null">
+        #{regAuditDate,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxRegCode != null">
+        #{locTaxRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxRegDt != null">
+        #{locTaxRegDt,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxRegEndDt != null">
+        #{locTaxRegEndDt,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxAnnDate != null">
+        #{locTaxAnnDate,jdbcType=CHAR},
+      </if>
+      <if test="locTaxRegOrg != null">
+        #{locTaxRegOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegCode != null">
+        #{natTaxRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegDt != null">
+        #{natTaxRegDt,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegEndDt != null">
+        #{natTaxRegEndDt,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxAnnDate != null">
+        #{natTaxAnnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegOrg != null">
+        #{natTaxRegOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardFlg != null">
+        #{loanCardFlg,jdbcType=CHAR},
+      </if>
+      <if test="loanCardId != null">
+        #{loanCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardPwd != null">
+        #{loanCardPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardEffFlg != null">
+        #{loanCardEffFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccFlg != null">
+        #{basAccFlg,jdbcType=CHAR},
+      </if>
+      <if test="basAccLicence != null">
+        #{basAccLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccBank != null">
+        #{basAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccNo != null">
+        #{basAccNo,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccDate != null">
+        #{basAccDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSex != null">
+        #{legalSex,jdbcType=CHAR},
+      </if>
+      <if test="cusIdRel != null">
+        #{cusIdRel,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertType != null">
+        #{legalCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSignInitDate != null">
+        #{legalSignInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalEndInitDate != null">
+        #{legalEndInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertCode != null">
+        #{legalCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalResume != null">
+        #{legalResume,jdbcType=VARCHAR},
+      </if>
+      <if test="legalMarSt != null">
+        #{legalMarSt,jdbcType=CHAR},
+      </if>
+      <if test="legalSpsIdType != null">
+        #{legalSpsIdType,jdbcType=CHAR},
+      </if>
+      <if test="legalSpsIdCode != null">
+        #{legalSpsIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSpsNo != null">
+        #{legalSpsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSpsName != null">
+        #{legalSpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerIdType != null">
+        #{realityControlerIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerIdCode != null">
+        #{realityControlerIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerNo != null">
+        #{realityControlerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerName != null">
+        #{realityControlerName,jdbcType=VARCHAR},
+      </if>
+      <if test="realSignInitDate != null">
+        #{realSignInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realSignEndDate != null">
+        #{realSignEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realAccreditInitDate != null">
+        #{realAccreditInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realAccreditEndDate != null">
+        #{realAccreditEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realWorkResume != null">
+        #{realWorkResume,jdbcType=VARCHAR},
+      </if>
+      <if test="realityMarSt != null">
+        #{realityMarSt,jdbcType=CHAR},
+      </if>
+      <if test="realitySpsIdType != null">
+        #{realitySpsIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="realityIdCode != null">
+        #{realityIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realitySpsNo != null">
+        #{realitySpsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="realitySpsName != null">
+        #{realitySpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaMgr != null">
+        #{fnaMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaContact != null">
+        #{fnaContact,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaConPhone != null">
+        #{fnaConPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaConMobilePhone != null">
+        #{fnaConMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="postStateCode != null">
+        #{postStateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postAreaName != null">
+        #{postAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddr != null">
+        #{postAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        #{postCode,jdbcType=CHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="faxCode != null">
+        #{faxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="webUrl != null">
+        #{webUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="comMrkFlg != null">
+        #{comMrkFlg,jdbcType=CHAR},
+      </if>
+      <if test="comMrkArea != null">
+        #{comMrkArea,jdbcType=VARCHAR},
+      </if>
+      <if test="comStockId != null">
+        #{comStockId,jdbcType=VARCHAR},
+      </if>
+      <if test="comGrpFlag != null">
+        #{comGrpFlag,jdbcType=CHAR},
+      </if>
+      <if test="comImpExpFlg != null">
+        #{comImpExpFlg,jdbcType=CHAR},
+      </if>
+      <if test="comFexcPrmCode != null">
+        #{comFexcPrmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comMainProduct != null">
+        #{comMainProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="comProdEquip != null">
+        #{comProdEquip,jdbcType=VARCHAR},
+      </if>
+      <if test="comFactProd != null">
+        #{comFactProd,jdbcType=VARCHAR},
+      </if>
+      <if test="comOptAera != null">
+        #{comOptAera,jdbcType=DECIMAL},
+      </if>
+      <if test="comOptOwner != null">
+        #{comOptOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="comOptSt != null">
+        #{comOptSt,jdbcType=CHAR},
+      </if>
+      <if test="comImpttFlg != null">
+        #{comImpttFlg,jdbcType=CHAR},
+      </if>
+      <if test="comPrepFlg != null">
+        #{comPrepFlg,jdbcType=CHAR},
+      </if>
+      <if test="comDhghFlg != null">
+        #{comDhghFlg,jdbcType=CHAR},
+      </if>
+      <if test="comClEntp != null">
+        #{comClEntp,jdbcType=CHAR},
+      </if>
+      <if test="comHdEnterprise != null">
+        #{comHdEnterprise,jdbcType=CHAR},
+      </if>
+      <if test="comMngOrg != null">
+        #{comMngOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="comFinRepType != null">
+        #{comFinRepType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusBankRel != null">
+        #{cusBankRel,jdbcType=CHAR},
+      </if>
+      <if test="comHoldStkAmt != null">
+        #{comHoldStkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comRelDgr != null">
+        #{comRelDgr,jdbcType=VARCHAR},
+      </if>
+      <if test="comInitLoanDate != null">
+        #{comInitLoanDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comCusRank != null">
+        #{comCusRank,jdbcType=CHAR},
+      </if>
+      <if test="comCrdGrade != null">
+        #{comCrdGrade,jdbcType=CHAR},
+      </if>
+      <if test="comCrdDt != null">
+        #{comCrdDt,jdbcType=VARCHAR},
+      </if>
+      <if test="comOutCrdGrade != null">
+        #{comOutCrdGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="comOutCrdDt != null">
+        #{comOutCrdDt,jdbcType=VARCHAR},
+      </if>
+      <if test="comOutCrdOrg != null">
+        #{comOutCrdOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStatus != null">
+        #{cusStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mngBrId != null">
+        #{mngBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="regEndType != null">
+        #{regEndType,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerPhone != null">
+        #{realityControlerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="realitySpsPhone != null">
+        #{realitySpsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalHomeAddr != null">
+        #{legalHomeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPostCode != null">
+        #{legalPostCode,jdbcType=CHAR},
+      </if>
+      <if test="legalPhone != null">
+        #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSpsPhone != null">
+        #{legalSpsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="unitCate != null">
+        #{unitCate,jdbcType=VARCHAR},
+      </if>
+      <if test="unitType != null">
+        #{unitType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertType != null">
+        #{creditCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="qualificationGrade != null">
+        #{qualificationGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="performanceAbility != null">
+        #{performanceAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="importanceAbility != null">
+        #{importanceAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholderDetails != null">
+        #{shareholderDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="idCodeTime != null">
+        #{idCodeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerIdCodeTime != null">
+        #{realityControlerIdCodeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertCodeTime != null">
+        #{legalCertCodeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="officialName != null">
+        #{officialName,jdbcType=VARCHAR},
+      </if>
+      <if test="officialIdType != null">
+        #{officialIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="officialNo != null">
+        #{officialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="officialPv != null">
+        #{officialPv,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null">
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorIdType != null">
+        #{operatorIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorNo != null">
+        #{operatorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorPv != null">
+        #{operatorPv,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialName != null">
+        #{beneficialName,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialAddress != null">
+        #{beneficialAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialIdType != null">
+        #{beneficialIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialNo != null">
+        #{beneficialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialPv != null">
+        #{beneficialPv,jdbcType=VARCHAR},
+      </if>
+      <if test="insurantAddresss != null">
+        #{insurantAddresss,jdbcType=VARCHAR},
+      </if>
+      <if test="insurantMobile != null">
+        #{insurantMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="insurantName != null">
+        #{insurantName,jdbcType=VARCHAR},
+      </if>
+      <if test="officialStartDate != null">
+        #{officialStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorStartDate != null">
+        #{operatorStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialStartDate != null">
+        #{beneficialStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerEndDate != null">
+        #{realityControlerEndDate,jdbcType=OTHER},
+      </if>
+      <if test="realityControlerStartDate != null">
+        #{realityControlerStartDate,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CusCom">
+    update CUS_COM
+    <set>
+      <if test="transCusId != null">
+        TRANS_CUS_ID = #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO = #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPro != null">
+        CUS_PRO = #{cusPro,jdbcType=VARCHAR},
+      </if>
+      <if test="cusShortName != null">
+        CUS_SHORT_NAME = #{cusShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusEnName != null">
+        CUS_EN_NAME = #{cusEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="comCountry != null">
+        COM_COUNTRY = #{comCountry,jdbcType=CHAR},
+      </if>
+      <if test="comCityFlg != null">
+        COM_CITY_FLG = #{comCityFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="investType != null">
+        INVEST_TYPE = #{investType,jdbcType=VARCHAR},
+      </if>
+      <if test="comSubTyp != null">
+        COM_SUB_TYP = #{comSubTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="comHoldType != null">
+        COM_HOLD_TYPE = #{comHoldType,jdbcType=VARCHAR},
+      </if>
+      <if test="comCllType != null">
+        COM_CLL_TYPE = #{comCllType,jdbcType=VARCHAR},
+      </if>
+      <if test="comCllName != null">
+        COM_CLL_NAME = #{comCllName,jdbcType=VARCHAR},
+      </if>
+      <if test="comStrDate != null">
+        COM_STR_DATE = #{comStrDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comEmployee != null">
+        COM_EMPLOYEE = #{comEmployee,jdbcType=DECIMAL},
+      </if>
+      <if test="comScaleCllType != null">
+        COM_SCALE_CLL_TYPE = #{comScaleCllType,jdbcType=VARCHAR},
+      </if>
+      <if test="salVolume != null">
+        SAL_VOLUME = #{salVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="operIncome != null">
+        OPER_INCOME = #{operIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="assTotal != null">
+        ASS_TOTAL = #{assTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="comScale != null">
+        COM_SCALE = #{comScale,jdbcType=VARCHAR},
+      </if>
+      <if test="midLitCllType != null">
+        MID_LIT_CLL_TYPE = #{midLitCllType,jdbcType=VARCHAR},
+      </if>
+      <if test="midLitComType != null">
+        MID_LIT_COM_TYPE = #{midLitComType,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsCode != null">
+        COM_INS_CODE = #{comInsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsRegDate != null">
+        COM_INS_REG_DATE = #{comInsRegDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsExpDate != null">
+        COM_INS_EXP_DATE = #{comInsExpDate,jdbcType=CHAR},
+      </if>
+      <if test="comInsOrg != null">
+        COM_INS_ORG = #{comInsOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsAnnDate != null">
+        COM_INS_ANN_DATE = #{comInsAnnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regCode != null">
+        REG_CODE = #{regCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regType != null">
+        REG_TYPE = #{regType,jdbcType=VARCHAR},
+      </if>
+      <if test="adminOrg != null">
+        ADMIN_ORG = #{adminOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="apprOrg != null">
+        APPR_ORG = #{apprOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="apprDocNo != null">
+        APPR_DOC_NO = #{apprDocNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regStateCode != null">
+        REG_STATE_CODE = #{regStateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regAreaName != null">
+        REG_AREA_NAME = #{regAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddr != null">
+        REG_ADDR = #{regAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="enRegAddr != null">
+        EN_REG_ADDR = #{enRegAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="acuStateCode != null">
+        ACU_STATE_CODE = #{acuStateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acuAreaName != null">
+        ACU_AREA_NAME = #{acuAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="acuAddr != null">
+        ACU_ADDR = #{acuAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="regCurType != null">
+        REG_CUR_TYPE = #{regCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapAmt != null">
+        REG_CAP_AMT = #{regCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="funSource != null">
+        FUN_SOURCE = #{funSource,jdbcType=VARCHAR},
+      </if>
+      <if test="comMainOptScp != null">
+        COM_MAIN_OPT_SCP = #{comMainOptScp,jdbcType=VARCHAR},
+      </if>
+      <if test="comPartOptScp != null">
+        COM_PART_OPT_SCP = #{comPartOptScp,jdbcType=VARCHAR},
+      </if>
+      <if test="regStartDate != null">
+        REG_START_DATE = #{regStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regEndDate != null">
+        REG_END_DATE = #{regEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regOrg != null">
+        REG_ORG = #{regOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="annDate != null">
+        ANN_DATE = #{annDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regAreaCode2 != null">
+        REG_AREA_CODE2 = #{regAreaCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="paidCapCurType != null">
+        PAID_CAP_CUR_TYPE = #{paidCapCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="paidCapAmt != null">
+        PAID_CAP_AMT = #{paidCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="regAudit != null">
+        REG_AUDIT = #{regAudit,jdbcType=VARCHAR},
+      </if>
+      <if test="regAuditDate != null">
+        REG_AUDIT_DATE = #{regAuditDate,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxRegCode != null">
+        LOC_TAX_REG_CODE = #{locTaxRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxRegDt != null">
+        LOC_TAX_REG_DT = #{locTaxRegDt,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxRegEndDt != null">
+        LOC_TAX_REG_END_DT = #{locTaxRegEndDt,jdbcType=VARCHAR},
+      </if>
+      <if test="locTaxAnnDate != null">
+        LOC_TAX_ANN_DATE = #{locTaxAnnDate,jdbcType=CHAR},
+      </if>
+      <if test="locTaxRegOrg != null">
+        LOC_TAX_REG_ORG = #{locTaxRegOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegCode != null">
+        NAT_TAX_REG_CODE = #{natTaxRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegDt != null">
+        NAT_TAX_REG_DT = #{natTaxRegDt,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegEndDt != null">
+        NAT_TAX_REG_END_DT = #{natTaxRegEndDt,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxAnnDate != null">
+        NAT_TAX_ANN_DATE = #{natTaxAnnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="natTaxRegOrg != null">
+        NAT_TAX_REG_ORG = #{natTaxRegOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardFlg != null">
+        LOAN_CARD_FLG = #{loanCardFlg,jdbcType=CHAR},
+      </if>
+      <if test="loanCardId != null">
+        LOAN_CARD_ID = #{loanCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardPwd != null">
+        LOAN_CARD_PWD = #{loanCardPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardEffFlg != null">
+        LOAN_CARD_EFF_FLG = #{loanCardEffFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccFlg != null">
+        BAS_ACC_FLG = #{basAccFlg,jdbcType=CHAR},
+      </if>
+      <if test="basAccLicence != null">
+        BAS_ACC_LICENCE = #{basAccLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccBank != null">
+        BAS_ACC_BANK = #{basAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccNo != null">
+        BAS_ACC_NO = #{basAccNo,jdbcType=VARCHAR},
+      </if>
+      <if test="basAccDate != null">
+        BAS_ACC_DATE = #{basAccDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME = #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSex != null">
+        LEGAL_SEX = #{legalSex,jdbcType=CHAR},
+      </if>
+      <if test="cusIdRel != null">
+        CUS_ID_REL = #{cusIdRel,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertType != null">
+        LEGAL_CERT_TYPE = #{legalCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSignInitDate != null">
+        LEGAL_SIGN_INIT_DATE = #{legalSignInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalEndInitDate != null">
+        LEGAL_END_INIT_DATE = #{legalEndInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertCode != null">
+        LEGAL_CERT_CODE = #{legalCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalResume != null">
+        LEGAL_RESUME = #{legalResume,jdbcType=VARCHAR},
+      </if>
+      <if test="legalMarSt != null">
+        LEGAL_MAR_ST = #{legalMarSt,jdbcType=CHAR},
+      </if>
+      <if test="legalSpsIdType != null">
+        LEGAL_SPS_ID_TYPE = #{legalSpsIdType,jdbcType=CHAR},
+      </if>
+      <if test="legalSpsIdCode != null">
+        LEGAL_SPS_ID_CODE = #{legalSpsIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSpsNo != null">
+        LEGAL_SPS_NO = #{legalSpsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSpsName != null">
+        LEGAL_SPS_NAME = #{legalSpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerIdType != null">
+        REALITY_CONTROLER_ID_TYPE = #{realityControlerIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerIdCode != null">
+        REALITY_CONTROLER_ID_CODE = #{realityControlerIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerNo != null">
+        REALITY_CONTROLER_NO = #{realityControlerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerName != null">
+        REALITY_CONTROLER_NAME = #{realityControlerName,jdbcType=VARCHAR},
+      </if>
+      <if test="realSignInitDate != null">
+        REAL_SIGN_INIT_DATE = #{realSignInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realSignEndDate != null">
+        REAL_SIGN_END_DATE = #{realSignEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realAccreditInitDate != null">
+        REAL_ACCREDIT_INIT_DATE = #{realAccreditInitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realAccreditEndDate != null">
+        REAL_ACCREDIT_END_DATE = #{realAccreditEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realWorkResume != null">
+        REAL_WORK_RESUME = #{realWorkResume,jdbcType=VARCHAR},
+      </if>
+      <if test="realityMarSt != null">
+        REALITY_MAR_ST = #{realityMarSt,jdbcType=CHAR},
+      </if>
+      <if test="realitySpsIdType != null">
+        REALITY_SPS_ID_TYPE = #{realitySpsIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="realityIdCode != null">
+        REALITY_ID_CODE = #{realityIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realitySpsNo != null">
+        REALITY_SPS_NO = #{realitySpsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="realitySpsName != null">
+        REALITY_SPS_NAME = #{realitySpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaMgr != null">
+        FNA_MGR = #{fnaMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaContact != null">
+        FNA_CONTACT = #{fnaContact,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaConPhone != null">
+        FNA_CON_PHONE = #{fnaConPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fnaConMobilePhone != null">
+        FNA_CON_MOBILE_PHONE = #{fnaConMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="postStateCode != null">
+        POST_STATE_CODE = #{postStateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postAreaName != null">
+        POST_AREA_NAME = #{postAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddr != null">
+        POST_ADDR = #{postAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        POST_CODE = #{postCode,jdbcType=CHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="faxCode != null">
+        FAX_CODE = #{faxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="webUrl != null">
+        WEB_URL = #{webUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="comMrkFlg != null">
+        COM_MRK_FLG = #{comMrkFlg,jdbcType=CHAR},
+      </if>
+      <if test="comMrkArea != null">
+        COM_MRK_AREA = #{comMrkArea,jdbcType=VARCHAR},
+      </if>
+      <if test="comStockId != null">
+        COM_STOCK_ID = #{comStockId,jdbcType=VARCHAR},
+      </if>
+      <if test="comGrpFlag != null">
+        COM_GRP_FLAG = #{comGrpFlag,jdbcType=CHAR},
+      </if>
+      <if test="comImpExpFlg != null">
+        COM_IMP_EXP_FLG = #{comImpExpFlg,jdbcType=CHAR},
+      </if>
+      <if test="comFexcPrmCode != null">
+        COM_FEXC_PRM_CODE = #{comFexcPrmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comMainProduct != null">
+        COM_MAIN_PRODUCT = #{comMainProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="comProdEquip != null">
+        COM_PROD_EQUIP = #{comProdEquip,jdbcType=VARCHAR},
+      </if>
+      <if test="comFactProd != null">
+        COM_FACT_PROD = #{comFactProd,jdbcType=VARCHAR},
+      </if>
+      <if test="comOptAera != null">
+        COM_OPT_AERA = #{comOptAera,jdbcType=DECIMAL},
+      </if>
+      <if test="comOptOwner != null">
+        COM_OPT_OWNER = #{comOptOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="comOptSt != null">
+        COM_OPT_ST = #{comOptSt,jdbcType=CHAR},
+      </if>
+      <if test="comImpttFlg != null">
+        COM_IMPTT_FLG = #{comImpttFlg,jdbcType=CHAR},
+      </if>
+      <if test="comPrepFlg != null">
+        COM_PREP_FLG = #{comPrepFlg,jdbcType=CHAR},
+      </if>
+      <if test="comDhghFlg != null">
+        COM_DHGH_FLG = #{comDhghFlg,jdbcType=CHAR},
+      </if>
+      <if test="comClEntp != null">
+        COM_CL_ENTP = #{comClEntp,jdbcType=CHAR},
+      </if>
+      <if test="comHdEnterprise != null">
+        COM_HD_ENTERPRISE = #{comHdEnterprise,jdbcType=CHAR},
+      </if>
+      <if test="comMngOrg != null">
+        COM_MNG_ORG = #{comMngOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="comFinRepType != null">
+        COM_FIN_REP_TYPE = #{comFinRepType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusBankRel != null">
+        CUS_BANK_REL = #{cusBankRel,jdbcType=CHAR},
+      </if>
+      <if test="comHoldStkAmt != null">
+        COM_HOLD_STK_AMT = #{comHoldStkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comRelDgr != null">
+        COM_REL_DGR = #{comRelDgr,jdbcType=VARCHAR},
+      </if>
+      <if test="comInitLoanDate != null">
+        COM_INIT_LOAN_DATE = #{comInitLoanDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comCusRank != null">
+        COM_CUS_RANK = #{comCusRank,jdbcType=CHAR},
+      </if>
+      <if test="comCrdGrade != null">
+        COM_CRD_GRADE = #{comCrdGrade,jdbcType=CHAR},
+      </if>
+      <if test="comCrdDt != null">
+        COM_CRD_DT = #{comCrdDt,jdbcType=VARCHAR},
+      </if>
+      <if test="comOutCrdGrade != null">
+        COM_OUT_CRD_GRADE = #{comOutCrdGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="comOutCrdDt != null">
+        COM_OUT_CRD_DT = #{comOutCrdDt,jdbcType=VARCHAR},
+      </if>
+      <if test="comOutCrdOrg != null">
+        COM_OUT_CRD_ORG = #{comOutCrdOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStatus != null">
+        CUS_STATUS = #{cusStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mngBrId != null">
+        MNG_BR_ID = #{mngBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="regEndType != null">
+        REG_END_TYPE = #{regEndType,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerPhone != null">
+        REALITY_CONTROLER_PHONE = #{realityControlerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="realitySpsPhone != null">
+        REALITY_SPS_PHONE = #{realitySpsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalHomeAddr != null">
+        LEGAL_HOME_ADDR = #{legalHomeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPostCode != null">
+        LEGAL_POST_CODE = #{legalPostCode,jdbcType=CHAR},
+      </if>
+      <if test="legalPhone != null">
+        LEGAL_PHONE = #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalSpsPhone != null">
+        LEGAL_SPS_PHONE = #{legalSpsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="unitCate != null">
+        UNIT_CATE = #{unitCate,jdbcType=VARCHAR},
+      </if>
+      <if test="unitType != null">
+        UNIT_TYPE = #{unitType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertType != null">
+        CREDIT_CERT_TYPE = #{creditCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE = #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="qualificationGrade != null">
+        QUALIFICATION_GRADE = #{qualificationGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="performanceAbility != null">
+        PERFORMANCE_ABILITY = #{performanceAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="importanceAbility != null">
+        IMPORTANCE_ABILITY = #{importanceAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholderDetails != null">
+        SHAREHOLDER_DETAILS = #{shareholderDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="idCodeTime != null">
+        ID_CODE_TIME = #{idCodeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerIdCodeTime != null">
+        REALITY_CONTROLER_ID_CODE_TIME = #{realityControlerIdCodeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertCodeTime != null">
+        LEGAL_CERT_CODE_TIME = #{legalCertCodeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="officialName != null">
+        OFFICIAL_NAME = #{officialName,jdbcType=VARCHAR},
+      </if>
+      <if test="officialIdType != null">
+        OFFICIAL_ID_TYPE = #{officialIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="officialNo != null">
+        OFFICIAL_NO = #{officialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="officialPv != null">
+        OFFICIAL_PV = #{officialPv,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null">
+        OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorIdType != null">
+        OPERATOR_ID_TYPE = #{operatorIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorNo != null">
+        OPERATOR_NO = #{operatorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorPv != null">
+        OPERATOR_PV = #{operatorPv,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialName != null">
+        BENEFICIAL_NAME = #{beneficialName,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialAddress != null">
+        BENEFICIAL_ADDRESS = #{beneficialAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialIdType != null">
+        BENEFICIAL_ID_TYPE = #{beneficialIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialNo != null">
+        BENEFICIAL_NO = #{beneficialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialPv != null">
+        BENEFICIAL_PV = #{beneficialPv,jdbcType=VARCHAR},
+      </if>
+      <if test="insurantAddresss != null">
+        INSURANT_ADDRESSS = #{insurantAddresss,jdbcType=VARCHAR},
+      </if>
+      <if test="insurantMobile != null">
+        INSURANT_MOBILE = #{insurantMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="insurantName != null">
+        INSURANT_NAME = #{insurantName,jdbcType=VARCHAR},
+      </if>
+      <if test="officialStartDate != null">
+        OFFICIAL_START_DATE = #{officialStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorStartDate != null">
+        OPERATOR_START_DATE = #{operatorStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficialStartDate != null">
+        BENEFICIAL_START_DATE = #{beneficialStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="realityControlerEndDate != null">
+        REALITY_CONTROLER_END_DATE = #{realityControlerEndDate,jdbcType=OTHER},
+      </if>
+      <if test="realityControlerStartDate != null">
+        REALITY_CONTROLER_START_DATE = #{realityControlerStartDate,jdbcType=OTHER},
+      </if>
+    </set>
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CusCom">
+    update CUS_COM
+    set TRANS_CUS_ID = #{transCusId,jdbcType=VARCHAR},
+      BELONG_TO = #{belongTo,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      CUS_TYPE = #{cusType,jdbcType=CHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      CUS_PRO = #{cusPro,jdbcType=VARCHAR},
+      CUS_SHORT_NAME = #{cusShortName,jdbcType=VARCHAR},
+      CUS_EN_NAME = #{cusEnName,jdbcType=VARCHAR},
+      COM_COUNTRY = #{comCountry,jdbcType=CHAR},
+      COM_CITY_FLG = #{comCityFlg,jdbcType=VARCHAR},
+      INVEST_TYPE = #{investType,jdbcType=VARCHAR},
+      COM_SUB_TYP = #{comSubTyp,jdbcType=VARCHAR},
+      COM_HOLD_TYPE = #{comHoldType,jdbcType=VARCHAR},
+      COM_CLL_TYPE = #{comCllType,jdbcType=VARCHAR},
+      COM_CLL_NAME = #{comCllName,jdbcType=VARCHAR},
+      COM_STR_DATE = #{comStrDate,jdbcType=VARCHAR},
+      COM_EMPLOYEE = #{comEmployee,jdbcType=DECIMAL},
+      COM_SCALE_CLL_TYPE = #{comScaleCllType,jdbcType=VARCHAR},
+      SAL_VOLUME = #{salVolume,jdbcType=DECIMAL},
+      OPER_INCOME = #{operIncome,jdbcType=DECIMAL},
+      ASS_TOTAL = #{assTotal,jdbcType=DECIMAL},
+      COM_SCALE = #{comScale,jdbcType=VARCHAR},
+      MID_LIT_CLL_TYPE = #{midLitCllType,jdbcType=VARCHAR},
+      MID_LIT_COM_TYPE = #{midLitComType,jdbcType=VARCHAR},
+      COM_INS_CODE = #{comInsCode,jdbcType=VARCHAR},
+      COM_INS_REG_DATE = #{comInsRegDate,jdbcType=VARCHAR},
+      COM_INS_EXP_DATE = #{comInsExpDate,jdbcType=CHAR},
+      COM_INS_ORG = #{comInsOrg,jdbcType=VARCHAR},
+      COM_INS_ANN_DATE = #{comInsAnnDate,jdbcType=VARCHAR},
+      REG_CODE = #{regCode,jdbcType=VARCHAR},
+      REG_TYPE = #{regType,jdbcType=VARCHAR},
+      ADMIN_ORG = #{adminOrg,jdbcType=VARCHAR},
+      APPR_ORG = #{apprOrg,jdbcType=VARCHAR},
+      APPR_DOC_NO = #{apprDocNo,jdbcType=VARCHAR},
+      REG_STATE_CODE = #{regStateCode,jdbcType=VARCHAR},
+      REG_AREA_NAME = #{regAreaName,jdbcType=VARCHAR},
+      REG_ADDR = #{regAddr,jdbcType=VARCHAR},
+      EN_REG_ADDR = #{enRegAddr,jdbcType=VARCHAR},
+      ACU_STATE_CODE = #{acuStateCode,jdbcType=VARCHAR},
+      ACU_AREA_NAME = #{acuAreaName,jdbcType=VARCHAR},
+      ACU_ADDR = #{acuAddr,jdbcType=VARCHAR},
+      REG_CUR_TYPE = #{regCurType,jdbcType=VARCHAR},
+      REG_CAP_AMT = #{regCapAmt,jdbcType=DECIMAL},
+      FUN_SOURCE = #{funSource,jdbcType=VARCHAR},
+      COM_MAIN_OPT_SCP = #{comMainOptScp,jdbcType=VARCHAR},
+      COM_PART_OPT_SCP = #{comPartOptScp,jdbcType=VARCHAR},
+      REG_START_DATE = #{regStartDate,jdbcType=VARCHAR},
+      REG_END_DATE = #{regEndDate,jdbcType=VARCHAR},
+      REG_ORG = #{regOrg,jdbcType=VARCHAR},
+      ANN_DATE = #{annDate,jdbcType=VARCHAR},
+      REG_AREA_CODE2 = #{regAreaCode2,jdbcType=VARCHAR},
+      PAID_CAP_CUR_TYPE = #{paidCapCurType,jdbcType=VARCHAR},
+      PAID_CAP_AMT = #{paidCapAmt,jdbcType=DECIMAL},
+      REG_AUDIT = #{regAudit,jdbcType=VARCHAR},
+      REG_AUDIT_DATE = #{regAuditDate,jdbcType=VARCHAR},
+      LOC_TAX_REG_CODE = #{locTaxRegCode,jdbcType=VARCHAR},
+      LOC_TAX_REG_DT = #{locTaxRegDt,jdbcType=VARCHAR},
+      LOC_TAX_REG_END_DT = #{locTaxRegEndDt,jdbcType=VARCHAR},
+      LOC_TAX_ANN_DATE = #{locTaxAnnDate,jdbcType=CHAR},
+      LOC_TAX_REG_ORG = #{locTaxRegOrg,jdbcType=VARCHAR},
+      NAT_TAX_REG_CODE = #{natTaxRegCode,jdbcType=VARCHAR},
+      NAT_TAX_REG_DT = #{natTaxRegDt,jdbcType=VARCHAR},
+      NAT_TAX_REG_END_DT = #{natTaxRegEndDt,jdbcType=VARCHAR},
+      NAT_TAX_ANN_DATE = #{natTaxAnnDate,jdbcType=VARCHAR},
+      NAT_TAX_REG_ORG = #{natTaxRegOrg,jdbcType=VARCHAR},
+      LOAN_CARD_FLG = #{loanCardFlg,jdbcType=CHAR},
+      LOAN_CARD_ID = #{loanCardId,jdbcType=VARCHAR},
+      LOAN_CARD_PWD = #{loanCardPwd,jdbcType=VARCHAR},
+      LOAN_CARD_EFF_FLG = #{loanCardEffFlg,jdbcType=VARCHAR},
+      BAS_ACC_FLG = #{basAccFlg,jdbcType=CHAR},
+      BAS_ACC_LICENCE = #{basAccLicence,jdbcType=VARCHAR},
+      BAS_ACC_BANK = #{basAccBank,jdbcType=VARCHAR},
+      BAS_ACC_NO = #{basAccNo,jdbcType=VARCHAR},
+      BAS_ACC_DATE = #{basAccDate,jdbcType=VARCHAR},
+      LEGAL_NAME = #{legalName,jdbcType=VARCHAR},
+      LEGAL_SEX = #{legalSex,jdbcType=CHAR},
+      CUS_ID_REL = #{cusIdRel,jdbcType=VARCHAR},
+      LEGAL_CERT_TYPE = #{legalCertType,jdbcType=VARCHAR},
+      LEGAL_SIGN_INIT_DATE = #{legalSignInitDate,jdbcType=VARCHAR},
+      LEGAL_END_INIT_DATE = #{legalEndInitDate,jdbcType=VARCHAR},
+      LEGAL_CERT_CODE = #{legalCertCode,jdbcType=VARCHAR},
+      LEGAL_RESUME = #{legalResume,jdbcType=VARCHAR},
+      LEGAL_MAR_ST = #{legalMarSt,jdbcType=CHAR},
+      LEGAL_SPS_ID_TYPE = #{legalSpsIdType,jdbcType=CHAR},
+      LEGAL_SPS_ID_CODE = #{legalSpsIdCode,jdbcType=VARCHAR},
+      LEGAL_SPS_NO = #{legalSpsNo,jdbcType=VARCHAR},
+      LEGAL_SPS_NAME = #{legalSpsName,jdbcType=VARCHAR},
+      REALITY_CONTROLER_ID_TYPE = #{realityControlerIdType,jdbcType=VARCHAR},
+      REALITY_CONTROLER_ID_CODE = #{realityControlerIdCode,jdbcType=VARCHAR},
+      REALITY_CONTROLER_NO = #{realityControlerNo,jdbcType=VARCHAR},
+      REALITY_CONTROLER_NAME = #{realityControlerName,jdbcType=VARCHAR},
+      REAL_SIGN_INIT_DATE = #{realSignInitDate,jdbcType=VARCHAR},
+      REAL_SIGN_END_DATE = #{realSignEndDate,jdbcType=VARCHAR},
+      REAL_ACCREDIT_INIT_DATE = #{realAccreditInitDate,jdbcType=VARCHAR},
+      REAL_ACCREDIT_END_DATE = #{realAccreditEndDate,jdbcType=VARCHAR},
+      REAL_WORK_RESUME = #{realWorkResume,jdbcType=VARCHAR},
+      REALITY_MAR_ST = #{realityMarSt,jdbcType=CHAR},
+      REALITY_SPS_ID_TYPE = #{realitySpsIdType,jdbcType=VARCHAR},
+      REALITY_ID_CODE = #{realityIdCode,jdbcType=VARCHAR},
+      REALITY_SPS_NO = #{realitySpsNo,jdbcType=VARCHAR},
+      REALITY_SPS_NAME = #{realitySpsName,jdbcType=VARCHAR},
+      FNA_MGR = #{fnaMgr,jdbcType=VARCHAR},
+      FNA_CONTACT = #{fnaContact,jdbcType=VARCHAR},
+      FNA_CON_PHONE = #{fnaConPhone,jdbcType=VARCHAR},
+      FNA_CON_MOBILE_PHONE = #{fnaConMobilePhone,jdbcType=VARCHAR},
+      POST_STATE_CODE = #{postStateCode,jdbcType=VARCHAR},
+      POST_AREA_NAME = #{postAreaName,jdbcType=VARCHAR},
+      POST_ADDR = #{postAddr,jdbcType=VARCHAR},
+      POST_CODE = #{postCode,jdbcType=CHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      FAX_CODE = #{faxCode,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      WEB_URL = #{webUrl,jdbcType=VARCHAR},
+      COM_MRK_FLG = #{comMrkFlg,jdbcType=CHAR},
+      COM_MRK_AREA = #{comMrkArea,jdbcType=VARCHAR},
+      COM_STOCK_ID = #{comStockId,jdbcType=VARCHAR},
+      COM_GRP_FLAG = #{comGrpFlag,jdbcType=CHAR},
+      COM_IMP_EXP_FLG = #{comImpExpFlg,jdbcType=CHAR},
+      COM_FEXC_PRM_CODE = #{comFexcPrmCode,jdbcType=VARCHAR},
+      COM_MAIN_PRODUCT = #{comMainProduct,jdbcType=VARCHAR},
+      COM_PROD_EQUIP = #{comProdEquip,jdbcType=VARCHAR},
+      COM_FACT_PROD = #{comFactProd,jdbcType=VARCHAR},
+      COM_OPT_AERA = #{comOptAera,jdbcType=DECIMAL},
+      COM_OPT_OWNER = #{comOptOwner,jdbcType=VARCHAR},
+      COM_OPT_ST = #{comOptSt,jdbcType=CHAR},
+      COM_IMPTT_FLG = #{comImpttFlg,jdbcType=CHAR},
+      COM_PREP_FLG = #{comPrepFlg,jdbcType=CHAR},
+      COM_DHGH_FLG = #{comDhghFlg,jdbcType=CHAR},
+      COM_CL_ENTP = #{comClEntp,jdbcType=CHAR},
+      COM_HD_ENTERPRISE = #{comHdEnterprise,jdbcType=CHAR},
+      COM_MNG_ORG = #{comMngOrg,jdbcType=VARCHAR},
+      COM_FIN_REP_TYPE = #{comFinRepType,jdbcType=VARCHAR},
+      CUS_BANK_REL = #{cusBankRel,jdbcType=CHAR},
+      COM_HOLD_STK_AMT = #{comHoldStkAmt,jdbcType=DECIMAL},
+      COM_REL_DGR = #{comRelDgr,jdbcType=VARCHAR},
+      COM_INIT_LOAN_DATE = #{comInitLoanDate,jdbcType=VARCHAR},
+      COM_CUS_RANK = #{comCusRank,jdbcType=CHAR},
+      COM_CRD_GRADE = #{comCrdGrade,jdbcType=CHAR},
+      COM_CRD_DT = #{comCrdDt,jdbcType=VARCHAR},
+      COM_OUT_CRD_GRADE = #{comOutCrdGrade,jdbcType=VARCHAR},
+      COM_OUT_CRD_DT = #{comOutCrdDt,jdbcType=VARCHAR},
+      COM_OUT_CRD_ORG = #{comOutCrdOrg,jdbcType=VARCHAR},
+      MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      CUS_STATUS = #{cusStatus,jdbcType=VARCHAR},
+      MNG_BR_ID = #{mngBrId,jdbcType=VARCHAR},
+      REG_END_TYPE = #{regEndType,jdbcType=VARCHAR},
+      REALITY_CONTROLER_PHONE = #{realityControlerPhone,jdbcType=VARCHAR},
+      REALITY_SPS_PHONE = #{realitySpsPhone,jdbcType=VARCHAR},
+      LEGAL_HOME_ADDR = #{legalHomeAddr,jdbcType=VARCHAR},
+      LEGAL_POST_CODE = #{legalPostCode,jdbcType=CHAR},
+      LEGAL_PHONE = #{legalPhone,jdbcType=VARCHAR},
+      LEGAL_SPS_PHONE = #{legalSpsPhone,jdbcType=VARCHAR},
+      UNIT_CATE = #{unitCate,jdbcType=VARCHAR},
+      UNIT_TYPE = #{unitType,jdbcType=VARCHAR},
+      CREDIT_CERT_TYPE = #{creditCertType,jdbcType=VARCHAR},
+      CREDIT_CERT_CODE = #{creditCertCode,jdbcType=VARCHAR},
+      QUALIFICATION_GRADE = #{qualificationGrade,jdbcType=VARCHAR},
+      PERFORMANCE_ABILITY = #{performanceAbility,jdbcType=VARCHAR},
+      IMPORTANCE_ABILITY = #{importanceAbility,jdbcType=VARCHAR},
+      SHAREHOLDER_DETAILS = #{shareholderDetails,jdbcType=VARCHAR},
+      ID_CODE_TIME = #{idCodeTime,jdbcType=VARCHAR},
+      REALITY_CONTROLER_ID_CODE_TIME = #{realityControlerIdCodeTime,jdbcType=VARCHAR},
+      LEGAL_CERT_CODE_TIME = #{legalCertCodeTime,jdbcType=VARCHAR},
+      OFFICIAL_NAME = #{officialName,jdbcType=VARCHAR},
+      OFFICIAL_ID_TYPE = #{officialIdType,jdbcType=VARCHAR},
+      OFFICIAL_NO = #{officialNo,jdbcType=VARCHAR},
+      OFFICIAL_PV = #{officialPv,jdbcType=VARCHAR},
+      OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR},
+      OPERATOR_ID_TYPE = #{operatorIdType,jdbcType=VARCHAR},
+      OPERATOR_NO = #{operatorNo,jdbcType=VARCHAR},
+      OPERATOR_PV = #{operatorPv,jdbcType=VARCHAR},
+      BENEFICIAL_NAME = #{beneficialName,jdbcType=VARCHAR},
+      BENEFICIAL_ADDRESS = #{beneficialAddress,jdbcType=VARCHAR},
+      BENEFICIAL_ID_TYPE = #{beneficialIdType,jdbcType=VARCHAR},
+      BENEFICIAL_NO = #{beneficialNo,jdbcType=VARCHAR},
+      BENEFICIAL_PV = #{beneficialPv,jdbcType=VARCHAR},
+      INSURANT_ADDRESSS = #{insurantAddresss,jdbcType=VARCHAR},
+      INSURANT_MOBILE = #{insurantMobile,jdbcType=VARCHAR},
+      INSURANT_NAME = #{insurantName,jdbcType=VARCHAR},
+      OFFICIAL_START_DATE = #{officialStartDate,jdbcType=VARCHAR},
+      OPERATOR_START_DATE = #{operatorStartDate,jdbcType=VARCHAR},
+      BENEFICIAL_START_DATE = #{beneficialStartDate,jdbcType=VARCHAR},
+      REALITY_CONTROLER_END_DATE = #{realityControlerEndDate,jdbcType=OTHER},
+      REALITY_CONTROLER_START_DATE = #{realityControlerStartDate,jdbcType=OTHER}
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+</mapper>

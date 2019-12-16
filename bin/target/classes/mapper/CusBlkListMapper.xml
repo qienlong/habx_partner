@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CusBlkListMapper">
+	<resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CusBlkList">
+		<result column="SERNO" jdbcType="VARCHAR" property="serno" />
+		<result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+		<result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+		<result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+		<result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+		<result column="BLACK_TYPE" jdbcType="VARCHAR" property="blackType" />
+		<result column="BLACK_LEVEL" jdbcType="VARCHAR" property="blackLevel" />
+		<result column="DATA_SOURCE" jdbcType="CHAR" property="dataSource" />
+		<result column="LEGAL_PHONE" jdbcType="VARCHAR" property="legalPhone" />
+		<result column="LEGAL_ADDR" jdbcType="VARCHAR" property="legalAddr" />
+		<result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+		<result column="BLACK_DATE" jdbcType="VARCHAR" property="blackDate" />
+		<result column="BLACK_REASON" jdbcType="VARCHAR" property="blackReason" />
+		<result column="LOGOUT_DATE" jdbcType="VARCHAR" property="logoutDate" />
+		<result column="LOGOUT_REASON" jdbcType="VARCHAR" property="logoutReason" />
+		<result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+		<result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+		<result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+		<result column="LOGOUT_ID" jdbcType="VARCHAR" property="logoutId" />
+		<result column="LOGOUT_BR_ID" jdbcType="VARCHAR" property="logoutBrId" />
+		<result column="APPR_ID" jdbcType="VARCHAR" property="apprId" />
+		<result column="APPR_BR_ID" jdbcType="VARCHAR" property="apprBrId" />
+		<result column="STATUS" jdbcType="VARCHAR" property="status" />
+		<result column="BLACK_DURATION" jdbcType="VARCHAR" property="blackDuration" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		SERNO, CUS_ID, CUS_NAME, CERT_TYPE, CERT_CODE, BLACK_TYPE,
+		BLACK_LEVEL, DATA_SOURCE, LEGAL_PHONE, LEGAL_ADDR, LEGAL_NAME,
+		BLACK_DATE, BLACK_REASON, LOGOUT_DATE, LOGOUT_REASON, INPUT_ID,
+		INPUT_BR_ID, INPUT_DATE, LOGOUT_ID, LOGOUT_BR_ID, APPR_ID, APPR_BR_ID,
+		STATUS, BLACK_DURATION
+	</sql>
+
+	<insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CusBlkList">
+		insert into CUS_BLK_LIST
+		(SERNO, CUS_ID, CUS_NAME,
+		CERT_TYPE, CERT_CODE, BLACK_TYPE,
+		BLACK_LEVEL, DATA_SOURCE, LEGAL_PHONE,
+		LEGAL_ADDR, LEGAL_NAME,
+		BLACK_DATE,
+		BLACK_REASON, LOGOUT_DATE, LOGOUT_REASON,
+		INPUT_ID,
+		INPUT_BR_ID, INPUT_DATE,
+		LOGOUT_ID, LOGOUT_BR_ID, APPR_ID,
+		APPR_BR_ID,
+		STATUS, BLACK_DURATION
+		)
+		values (#{serno,jdbcType=VARCHAR},
+		#{cusId,jdbcType=VARCHAR},
+		#{cusName,jdbcType=VARCHAR},
+		#{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR},
+		#{blackType,jdbcType=VARCHAR},
+		#{blackLevel,jdbcType=VARCHAR},
+		#{dataSource,jdbcType=CHAR},
+		#{legalPhone,jdbcType=VARCHAR},
+		#{legalAddr,jdbcType=VARCHAR}, #{legalName,jdbcType=VARCHAR},
+		#{blackDate,jdbcType=VARCHAR},
+		#{blackReason,jdbcType=VARCHAR},
+		#{logoutDate,jdbcType=VARCHAR},
+		#{logoutReason,jdbcType=VARCHAR},
+		#{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR},
+		#{inputDate,jdbcType=VARCHAR},
+		#{logoutId,jdbcType=VARCHAR},
+		#{logoutBrId,jdbcType=VARCHAR},
+		#{apprId,jdbcType=VARCHAR},
+		#{apprBrId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+		#{blackDuration,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CusBlkList">
+		insert into CUS_BLK_LIST
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="serno != null">
+				SERNO,
+			</if>
+			<if test="cusId != null">
+				CUS_ID,
+			</if>
+			<if test="cusName != null">
+				CUS_NAME,
+			</if>
+			<if test="certType != null">
+				CERT_TYPE,
+			</if>
+			<if test="certCode != null">
+				CERT_CODE,
+			</if>
+			<if test="blackType != null">
+				BLACK_TYPE,
+			</if>
+			<if test="blackLevel != null">
+				BLACK_LEVEL,
+			</if>
+			<if test="dataSource != null">
+				DATA_SOURCE,
+			</if>
+			<if test="legalPhone != null">
+				LEGAL_PHONE,
+			</if>
+			<if test="legalAddr != null">
+				LEGAL_ADDR,
+			</if>
+			<if test="legalName != null">
+				LEGAL_NAME,
+			</if>
+			<if test="blackDate != null">
+				BLACK_DATE,
+			</if>
+			<if test="blackReason != null">
+				BLACK_REASON,
+			</if>
+			<if test="logoutDate != null">
+				LOGOUT_DATE,
+			</if>
+			<if test="logoutReason != null">
+				LOGOUT_REASON,
+			</if>
+			<if test="inputId != null">
+				INPUT_ID,
+			</if>
+			<if test="inputBrId != null">
+				INPUT_BR_ID,
+			</if>
+			<if test="inputDate != null">
+				INPUT_DATE,
+			</if>
+			<if test="logoutId != null">
+				LOGOUT_ID,
+			</if>
+			<if test="logoutBrId != null">
+				LOGOUT_BR_ID,
+			</if>
+			<if test="apprId != null">
+				APPR_ID,
+			</if>
+			<if test="apprBrId != null">
+				APPR_BR_ID,
+			</if>
+			<if test="status != null">
+				STATUS,
+			</if>
+			<if test="blackDuration != null">
+				BLACK_DURATION,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="serno != null">
+				#{serno,jdbcType=VARCHAR},
+			</if>
+			<if test="cusId != null">
+				#{cusId,jdbcType=VARCHAR},
+			</if>
+			<if test="cusName != null">
+				#{cusName,jdbcType=VARCHAR},
+			</if>
+			<if test="certType != null">
+				#{certType,jdbcType=VARCHAR},
+			</if>
+			<if test="certCode != null">
+				#{certCode,jdbcType=VARCHAR},
+			</if>
+			<if test="blackType != null">
+				#{blackType,jdbcType=VARCHAR},
+			</if>
+			<if test="blackLevel != null">
+				#{blackLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="dataSource != null">
+				#{dataSource,jdbcType=CHAR},
+			</if>
+			<if test="legalPhone != null">
+				#{legalPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="legalAddr != null">
+				#{legalAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="legalName != null">
+				#{legalName,jdbcType=VARCHAR},
+			</if>
+			<if test="blackDate != null">
+				#{blackDate,jdbcType=VARCHAR},
+			</if>
+			<if test="blackReason != null">
+				#{blackReason,jdbcType=VARCHAR},
+			</if>
+			<if test="logoutDate != null">
+				#{logoutDate,jdbcType=VARCHAR},
+			</if>
+			<if test="logoutReason != null">
+				#{logoutReason,jdbcType=VARCHAR},
+			</if>
+			<if test="inputId != null">
+				#{inputId,jdbcType=VARCHAR},
+			</if>
+			<if test="inputBrId != null">
+				#{inputBrId,jdbcType=VARCHAR},
+			</if>
+			<if test="inputDate != null">
+				#{inputDate,jdbcType=VARCHAR},
+			</if>
+			<if test="logoutId != null">
+				#{logoutId,jdbcType=VARCHAR},
+			</if>
+			<if test="logoutBrId != null">
+				#{logoutBrId,jdbcType=VARCHAR},
+			</if>
+			<if test="apprId != null">
+				#{apprId,jdbcType=VARCHAR},
+			</if>
+			<if test="apprBrId != null">
+				#{apprBrId,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="blackDuration != null">
+				#{blackDuration,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据身份证号查询客户是否命中内部黑名单 -->
+	<select id="selectByCertCode" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from CUS_BLK_LIST
+		where CERT_CODE = #{certCode,jdbcType=VARCHAR}
+	</select>
+
+</mapper>

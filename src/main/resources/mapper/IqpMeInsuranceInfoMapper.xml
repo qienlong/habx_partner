@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeInsuranceInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeInsuranceInfo">
+    <id column="INSURANCE_ID" jdbcType="VARCHAR" property="insuranceId" />
+    <result column="IQP_SERNO" jdbcType="VARCHAR" property="iqpSerno" />
+    <result column="INSURANCE_TYPE" jdbcType="VARCHAR" property="insuranceType" />
+    <result column="INSURANCE_TYPE_NAME" jdbcType="VARCHAR" property="insuranceTypeName" />
+    <result column="INSURANCE_AMOUNT" jdbcType="DECIMAL" property="insuranceAmount" />
+    <result column="INSURANCE_START_TIME" jdbcType="VARCHAR" property="insuranceStartTime" />
+    <result column="INSURANCE_END_TIME" jdbcType="VARCHAR" property="insuranceEndTime" />
+    <result column="INSURANCE_RATE" jdbcType="DECIMAL" property="insuranceRate" />
+    <result column="INSURANCE_STATUS" jdbcType="VARCHAR" property="insuranceStatus" />
+    <result column="INSURANCE_FEE" jdbcType="DECIMAL" property="insuranceFee" />
+    <result column="INSURANCE_AMOUNT_SUM" jdbcType="DECIMAL" property="insuranceAmountSum" />
+    <result column="INSURANCE_AMOUNT_DAY" jdbcType="DECIMAL" property="insuranceAmountDay" />
+    <result column="SOURCE_TYPE" jdbcType="VARCHAR" property="sourceType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSURANCE_ID, IQP_SERNO, INSURANCE_TYPE, INSURANCE_TYPE_NAME, INSURANCE_AMOUNT, INSURANCE_START_TIME, 
+    INSURANCE_END_TIME, INSURANCE_RATE, INSURANCE_STATUS, INSURANCE_FEE, INSURANCE_AMOUNT_SUM, 
+    INSURANCE_AMOUNT_DAY, SOURCE_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_INSURANCE_INFO
+    where INSURANCE_ID = #{insuranceId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_INSURANCE_INFO
+    where INSURANCE_ID = #{insuranceId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsuranceInfo">
+    insert into IQP_ME_INSURANCE_INFO (INSURANCE_ID, IQP_SERNO, INSURANCE_TYPE, 
+      INSURANCE_TYPE_NAME, INSURANCE_AMOUNT, INSURANCE_START_TIME, 
+      INSURANCE_END_TIME, INSURANCE_RATE, INSURANCE_STATUS, 
+      INSURANCE_FEE, INSURANCE_AMOUNT_SUM, INSURANCE_AMOUNT_DAY, 
+      SOURCE_TYPE)
+    values (#{insuranceId,jdbcType=VARCHAR}, #{iqpSerno,jdbcType=VARCHAR}, #{insuranceType,jdbcType=VARCHAR}, 
+      #{insuranceTypeName,jdbcType=VARCHAR}, #{insuranceAmount,jdbcType=DECIMAL}, #{insuranceStartTime,jdbcType=VARCHAR}, 
+      #{insuranceEndTime,jdbcType=VARCHAR}, #{insuranceRate,jdbcType=DECIMAL}, #{insuranceStatus,jdbcType=VARCHAR}, 
+      #{insuranceFee,jdbcType=DECIMAL}, #{insuranceAmountSum,jdbcType=DECIMAL}, #{insuranceAmountDay,jdbcType=DECIMAL}, 
+      #{sourceType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsuranceInfo">
+    insert into IQP_ME_INSURANCE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="insuranceId != null">
+        INSURANCE_ID,
+      </if>
+      <if test="iqpSerno != null">
+        IQP_SERNO,
+      </if>
+      <if test="insuranceType != null">
+        INSURANCE_TYPE,
+      </if>
+      <if test="insuranceTypeName != null">
+        INSURANCE_TYPE_NAME,
+      </if>
+      <if test="insuranceAmount != null">
+        INSURANCE_AMOUNT,
+      </if>
+      <if test="insuranceStartTime != null">
+        INSURANCE_START_TIME,
+      </if>
+      <if test="insuranceEndTime != null">
+        INSURANCE_END_TIME,
+      </if>
+      <if test="insuranceRate != null">
+        INSURANCE_RATE,
+      </if>
+      <if test="insuranceStatus != null">
+        INSURANCE_STATUS,
+      </if>
+      <if test="insuranceFee != null">
+        INSURANCE_FEE,
+      </if>
+      <if test="insuranceAmountSum != null">
+        INSURANCE_AMOUNT_SUM,
+      </if>
+      <if test="insuranceAmountDay != null">
+        INSURANCE_AMOUNT_DAY,
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="insuranceId != null">
+        #{insuranceId,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpSerno != null">
+        #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceType != null">
+        #{insuranceType,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceTypeName != null">
+        #{insuranceTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceAmount != null">
+        #{insuranceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceStartTime != null">
+        #{insuranceStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceEndTime != null">
+        #{insuranceEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceRate != null">
+        #{insuranceRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceStatus != null">
+        #{insuranceStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceFee != null">
+        #{insuranceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceAmountSum != null">
+        #{insuranceAmountSum,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceAmountDay != null">
+        #{insuranceAmountDay,jdbcType=DECIMAL},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsuranceInfo">
+    update IQP_ME_INSURANCE_INFO
+    <set>
+      <if test="iqpSerno != null">
+        IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceType != null">
+        INSURANCE_TYPE = #{insuranceType,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceTypeName != null">
+        INSURANCE_TYPE_NAME = #{insuranceTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceAmount != null">
+        INSURANCE_AMOUNT = #{insuranceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceStartTime != null">
+        INSURANCE_START_TIME = #{insuranceStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceEndTime != null">
+        INSURANCE_END_TIME = #{insuranceEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceRate != null">
+        INSURANCE_RATE = #{insuranceRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceStatus != null">
+        INSURANCE_STATUS = #{insuranceStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceFee != null">
+        INSURANCE_FEE = #{insuranceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceAmountSum != null">
+        INSURANCE_AMOUNT_SUM = #{insuranceAmountSum,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceAmountDay != null">
+        INSURANCE_AMOUNT_DAY = #{insuranceAmountDay,jdbcType=DECIMAL},
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE = #{sourceType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSURANCE_ID = #{insuranceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsuranceInfo">
+    update IQP_ME_INSURANCE_INFO
+    set IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      INSURANCE_TYPE = #{insuranceType,jdbcType=VARCHAR},
+      INSURANCE_TYPE_NAME = #{insuranceTypeName,jdbcType=VARCHAR},
+      INSURANCE_AMOUNT = #{insuranceAmount,jdbcType=DECIMAL},
+      INSURANCE_START_TIME = #{insuranceStartTime,jdbcType=VARCHAR},
+      INSURANCE_END_TIME = #{insuranceEndTime,jdbcType=VARCHAR},
+      INSURANCE_RATE = #{insuranceRate,jdbcType=DECIMAL},
+      INSURANCE_STATUS = #{insuranceStatus,jdbcType=VARCHAR},
+      INSURANCE_FEE = #{insuranceFee,jdbcType=DECIMAL},
+      INSURANCE_AMOUNT_SUM = #{insuranceAmountSum,jdbcType=DECIMAL},
+      INSURANCE_AMOUNT_DAY = #{insuranceAmountDay,jdbcType=DECIMAL},
+      SOURCE_TYPE = #{sourceType,jdbcType=VARCHAR}
+    where INSURANCE_ID = #{insuranceId,jdbcType=VARCHAR}
+  </update>
+  
+  
+    <update id="updateByPrimarySerno" parameterType="cn.com.sinosafe.domain.entity.IqpMeInsuranceInfo">
+    update IQP_ME_INSURANCE_INFO
+    <set>
+      <if test="insuranceType != null">
+        INSURANCE_TYPE = #{insuranceType,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceTypeName != null">
+        INSURANCE_TYPE_NAME = #{insuranceTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceAmount != null">
+        INSURANCE_AMOUNT = #{insuranceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceStartTime != null">
+        INSURANCE_START_TIME = #{insuranceStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceEndTime != null">
+        INSURANCE_END_TIME = #{insuranceEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceRate != null">
+        INSURANCE_RATE = #{insuranceRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceStatus != null">
+        INSURANCE_STATUS = #{insuranceStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceFee != null">
+        INSURANCE_FEE = #{insuranceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceAmountSum != null">
+        INSURANCE_AMOUNT_SUM = #{insuranceAmountSum,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceAmountDay != null">
+        INSURANCE_AMOUNT_DAY = #{insuranceAmountDay,jdbcType=DECIMAL},
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE = #{sourceType,jdbcType=VARCHAR},
+      </if>
+    </set> 
+    where IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR}
+  </update>
+</mapper>

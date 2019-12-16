@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.AccMtdPsNoteMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.AccMtdPsNote">
+    <result column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="BANK_SERNO" jdbcType="VARCHAR" property="bankSerno" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="PS_REAL_DT" jdbcType="VARCHAR" property="psRealDt" />
+    <result column="PS_OD_INT_AMT" jdbcType="DECIMAL" property="psOdIntAmt" />
+    <result column="PS_COMM_OD_INT" jdbcType="DECIMAL" property="psCommOdInt" />
+    <result column="PS_REAL_PRCP_AMT" jdbcType="DECIMAL" property="psRealPrcpAmt" />
+    <result column="PS_REAL_INT_AMT" jdbcType="DECIMAL" property="psRealIntAmt" />
+    <result column="SETL_OD_INC_TAKEN" jdbcType="DECIMAL" property="setlOdIncTaken" />
+    <result column="SETL_COMM_OD_INT" jdbcType="DECIMAL" property="setlCommOdInt" />
+    <result column="ABSTRACT" jdbcType="VARCHAR" property="abstract_" />
+    <result column="UPDATE_WAY" jdbcType="VARCHAR" property="updateWay" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PS_REAL_SOURCE" jdbcType="VARCHAR" property="psRealSource" />
+    <result column="DOWNS_DATE" jdbcType="VARCHAR" property="downsDate" />
+    <result column="INPUT_DATE1" jdbcType="VARCHAR" property="inputDate1" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.AccMtdPsNote">
+    insert into ACC_MTD_PS_NOTE (PK_ID, BANK_SERNO, BILL_NO, 
+      PS_PERD_NO, PS_REAL_DT, PS_OD_INT_AMT, 
+      PS_COMM_OD_INT, PS_REAL_PRCP_AMT, PS_REAL_INT_AMT, 
+      SETL_OD_INC_TAKEN, SETL_COMM_OD_INT, ABSTRACT, 
+      UPDATE_WAY, INPUT_DATE, INPUT_ID, 
+      INPUT_BR_ID, REMARK, PS_REAL_SOURCE, 
+      DOWNS_DATE, INPUT_DATE1)
+    values (#{pkId,jdbcType=VARCHAR}, #{bankSerno,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, 
+      #{psPerdNo,jdbcType=DECIMAL}, #{psRealDt,jdbcType=VARCHAR}, #{psOdIntAmt,jdbcType=DECIMAL}, 
+      #{psCommOdInt,jdbcType=DECIMAL}, #{psRealPrcpAmt,jdbcType=DECIMAL}, #{psRealIntAmt,jdbcType=DECIMAL}, 
+      #{setlOdIncTaken,jdbcType=DECIMAL}, #{setlCommOdInt,jdbcType=DECIMAL}, #{abstract_,jdbcType=VARCHAR}, 
+      #{updateWay,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{psRealSource,jdbcType=VARCHAR}, 
+      #{downsDate,jdbcType=VARCHAR}, #{inputDate1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.AccMtdPsNote">
+    insert into ACC_MTD_PS_NOTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="bankSerno != null">
+        BANK_SERNO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT,
+      </if>
+      <if test="psOdIntAmt != null">
+        PS_OD_INT_AMT,
+      </if>
+      <if test="psCommOdInt != null">
+        PS_COMM_OD_INT,
+      </if>
+      <if test="psRealPrcpAmt != null">
+        PS_REAL_PRCP_AMT,
+      </if>
+      <if test="psRealIntAmt != null">
+        PS_REAL_INT_AMT,
+      </if>
+      <if test="setlOdIncTaken != null">
+        SETL_OD_INC_TAKEN,
+      </if>
+      <if test="setlCommOdInt != null">
+        SETL_COMM_OD_INT,
+      </if>
+      <if test="abstract_ != null">
+        ABSTRACT,
+      </if>
+      <if test="updateWay != null">
+        UPDATE_WAY,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="psRealSource != null">
+        PS_REAL_SOURCE,
+      </if>
+      <if test="downsDate != null">
+        DOWNS_DATE,
+      </if>
+      <if test="inputDate1 != null">
+        INPUT_DATE1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankSerno != null">
+        #{bankSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealDt != null">
+        #{psRealDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psOdIntAmt != null">
+        #{psOdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psCommOdInt != null">
+        #{psCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealPrcpAmt != null">
+        #{psRealPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealIntAmt != null">
+        #{psRealIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlOdIncTaken != null">
+        #{setlOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="setlCommOdInt != null">
+        #{setlCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="abstract_ != null">
+        #{abstract_,jdbcType=VARCHAR},
+      </if>
+      <if test="updateWay != null">
+        #{updateWay,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealSource != null">
+        #{psRealSource,jdbcType=VARCHAR},
+      </if>
+      <if test="downsDate != null">
+        #{downsDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate1 != null">
+        #{inputDate1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

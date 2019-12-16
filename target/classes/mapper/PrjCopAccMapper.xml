@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PrjCopAccMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PrjCopAcc">
+    <id column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="COP_CUS_ID" jdbcType="VARCHAR" property="copCusId" />
+    <result column="COP_CUS_NAME" jdbcType="VARCHAR" property="copCusName" />
+    <result column="COP_CERT_TYPE" jdbcType="VARCHAR" property="copCertType" />
+    <result column="COP_CERT_CODE" jdbcType="VARCHAR" property="copCertCode" />
+    <result column="AMT" jdbcType="DECIMAL" property="amt" />
+    <result column="CREDIT_AMT" jdbcType="DECIMAL" property="creditAmt" />
+    <result column="MINLOAN_AMT" jdbcType="DECIMAL" property="minloanAmt" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="ACCOUNT_STATUS" jdbcType="VARCHAR" property="accountStatus" />
+    <result column="COP_CUS_TYPE" jdbcType="VARCHAR" property="copCusType" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="MIN_COST_RATE" jdbcType="DECIMAL" property="minCostRate" />
+    <result column="MAX_COST_RATE" jdbcType="DECIMAL" property="maxCostRate" />
+    <result column="MIN_RATE_IR" jdbcType="DECIMAL" property="minRateIr" />
+    <result column="MAX_RATE_IR" jdbcType="DECIMAL" property="maxRateIr" />
+    <result column="COP_PHONE" jdbcType="VARCHAR" property="copPhone" />
+    <result column="COP_ADDRESS" jdbcType="VARCHAR" property="copAddress" />
+    <result column="PRINT_TYPE" jdbcType="VARCHAR" property="printType" />
+    <result column="PRJ_LEVEL" jdbcType="VARCHAR" property="prjLevel" />
+    <result column="ADDR_PLE_ID" jdbcType="VARCHAR" property="addrPleId" />
+    <result column="ADDR_PLE" jdbcType="VARCHAR" property="addrPle" />
+    <result column="SUP_PRJ_NO" jdbcType="VARCHAR" property="supPrjNo" />
+    <result column="SUP_PRJ_NAME" jdbcType="VARCHAR" property="supPrjName" />
+    <result column="LEADER" jdbcType="VARCHAR" property="leader" />
+    <result column="LEADER_PHONE" jdbcType="VARCHAR" property="leaderPhone" />
+    <result column="LOCAT_ORGNO" jdbcType="VARCHAR" property="locatOrgno" />
+    <result column="LOCAT_ORGNAME" jdbcType="VARCHAR" property="locatOrgname" />
+    <result column="LOCATE" jdbcType="VARCHAR" property="locate" />
+    <result column="P2P_PLATFORM" jdbcType="VARCHAR" property="p2pPlatform" />
+    <result column="LAST_UPD_ID" jdbcType="VARCHAR" property="lastUpdId" />
+    <result column="LAST_UPD_BR_ID" jdbcType="VARCHAR" property="lastUpdBrId" />
+    <result column="LAST_UPD_DATE" jdbcType="VARCHAR" property="lastUpdDate" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="OBL_COM_CERT_NO" jdbcType="VARCHAR" property="oblComCertNo" />
+    <result column="OBL_IND_CERT_NO" jdbcType="VARCHAR" property="oblIndCertNo" />
+    <result column="COP_ORGID" jdbcType="VARCHAR" property="copOrgid" />
+    <result column="COP_ORGNAME" jdbcType="VARCHAR" property="copOrgname" />
+    <result column="IS_ABUTMENT" jdbcType="VARCHAR" property="isAbutment" />
+    <result column="COP_ORG_ID" jdbcType="VARCHAR" property="copOrgId" />
+    <result column="COP_ORG_NAME" jdbcType="VARCHAR" property="copOrgName" />
+    <result column="BANKSUBBRANCHCODE" jdbcType="VARCHAR" property="banksubbranchcode" />
+    <result column="BANKSUBBRANCHNAME" jdbcType="VARCHAR" property="banksubbranchname" />
+    <result column="BANKBRANCHCODE" jdbcType="VARCHAR" property="bankbranchcode" />
+    <result column="BANKBRANCHNAME" jdbcType="VARCHAR" property="bankbranchname" />
+    <result column="AUTO_DATA_LINK" jdbcType="VARCHAR" property="autoDataLink" />
+    <result column="C_FEE_FLAG" jdbcType="CHAR" property="cFeeFlag" />
+    <result column="IS_PAY_FEE" jdbcType="VARCHAR" property="isPayFee" />
+    <result column="PRJ_TYPE" jdbcType="VARCHAR" property="prjType" />
+    <result column="AP_CREDIT_NO" jdbcType="VARCHAR" property="apCreditNo" />
+    <result column="AE_CREDIT_NO" jdbcType="VARCHAR" property="aeCreditNo" />
+    <result column="COP_CUS_CLASSES" jdbcType="VARCHAR" property="copCusClasses" />
+    <result column="FUND_PAY_WAY_NO" jdbcType="VARCHAR" property="fundPayWayNo" />
+    <result column="PAYEE_BANK_CITY_CODE" jdbcType="VARCHAR" property="payeeBankCityCode" />
+    <result column="PAYEE_BANK_CITY" jdbcType="VARCHAR" property="payeeBankCity" />
+    <result column="PAYEE_BANK_CODE" jdbcType="VARCHAR" property="payeeBankCode" />
+    <result column="PAYEE_BANK_NAME" jdbcType="VARCHAR" property="payeeBankName" />
+    <result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+    <result column="BANK_BRANCH_NAME" jdbcType="VARCHAR" property="bankBranchName" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="PUB_BANKS_URID" jdbcType="VARCHAR" property="pubBanksUrid" />
+    <result column="PUB_STANDARDAREAS_URID" jdbcType="VARCHAR" property="pubStandardareasUrid" />
+    <result column="BANK_PAY_TYPE" jdbcType="VARCHAR" property="bankPayType" />
+    <result column="PAYEE_TYPE" jdbcType="VARCHAR" property="payeeType" />
+    <result column="PAY_WAY" jdbcType="VARCHAR" property="payWay" />
+    <result column="CASH_DEPOSIT" jdbcType="DECIMAL" property="cashDeposit" />
+    <result column="REG_DATE" jdbcType="VARCHAR" property="regDate" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="ONLINE_STATUS" jdbcType="VARCHAR" property="onlineStatus" />
+    <result column="MAIN_RATIO" jdbcType="VARCHAR" property="mainRatio" />
+    <result column="NEXT_RATIO" jdbcType="VARCHAR" property="nextRatio" />
+    <result column="APP_ALTER_MSG" jdbcType="VARCHAR" property="appAlterMsg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COP_NO, COP_CUS_ID, COP_CUS_NAME, COP_CERT_TYPE, COP_CERT_CODE, AMT, CREDIT_AMT, 
+    MINLOAN_AMT, INPUT_ID, ACCOUNT_STATUS, COP_CUS_TYPE, INPUT_BR_ID, FLAG, MIN_COST_RATE, 
+    MAX_COST_RATE, MIN_RATE_IR, MAX_RATE_IR, COP_PHONE, COP_ADDRESS, PRINT_TYPE, PRJ_LEVEL, 
+    ADDR_PLE_ID, ADDR_PLE, SUP_PRJ_NO, SUP_PRJ_NAME, LEADER, LEADER_PHONE, LOCAT_ORGNO, 
+    LOCAT_ORGNAME, LOCATE, P2P_PLATFORM, LAST_UPD_ID, LAST_UPD_BR_ID, LAST_UPD_DATE, 
+    INPUT_DATE, OBL_COM_CERT_NO, OBL_IND_CERT_NO, COP_ORGID, COP_ORGNAME, IS_ABUTMENT, 
+    COP_ORG_ID, COP_ORG_NAME, BANKSUBBRANCHCODE, BANKSUBBRANCHNAME, BANKBRANCHCODE, BANKBRANCHNAME, 
+    AUTO_DATA_LINK, C_FEE_FLAG, IS_PAY_FEE, PRJ_TYPE, AP_CREDIT_NO, AE_CREDIT_NO, COP_CUS_CLASSES, 
+    FUND_PAY_WAY_NO, PAYEE_BANK_CITY_CODE, PAYEE_BANK_CITY, PAYEE_BANK_CODE, PAYEE_BANK_NAME, 
+    BANK_CODE, BANK_BRANCH_NAME, ACCOUNT_NAME, ACCOUNT_NO, PUB_BANKS_URID, PUB_STANDARDAREAS_URID, 
+    BANK_PAY_TYPE, PAYEE_TYPE, PAY_WAY, CASH_DEPOSIT, REG_DATE, EMAIL, ONLINE_STATUS, 
+    MAIN_RATIO, NEXT_RATIO, APP_ALTER_MSG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRJ_COP_ACC
+    where COP_NO = #{copNo,jdbcType=VARCHAR}
+  </select>
+   <select id="selectByCopCusName" resultType="cn.com.sinosafe.domain.entity.PrjCopAcc" resultMap="BaseResultMap">
+       select <include refid="Base_Column_List" /> from PRJ_COP_ACC where cop_cus_name=#{copCusName}
+   </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRJ_COP_ACC
+    where COP_NO = #{copNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PrjCopAcc">
+    insert into PRJ_COP_ACC (COP_NO, COP_CUS_ID, COP_CUS_NAME, 
+      COP_CERT_TYPE, COP_CERT_CODE, AMT, 
+      CREDIT_AMT, MINLOAN_AMT, INPUT_ID, 
+      ACCOUNT_STATUS, COP_CUS_TYPE, INPUT_BR_ID, 
+      FLAG, MIN_COST_RATE, MAX_COST_RATE, 
+      MIN_RATE_IR, MAX_RATE_IR, COP_PHONE, 
+      COP_ADDRESS, PRINT_TYPE, PRJ_LEVEL, 
+      ADDR_PLE_ID, ADDR_PLE, SUP_PRJ_NO, 
+      SUP_PRJ_NAME, LEADER, LEADER_PHONE, 
+      LOCAT_ORGNO, LOCAT_ORGNAME, LOCATE, 
+      P2P_PLATFORM, LAST_UPD_ID, LAST_UPD_BR_ID, 
+      LAST_UPD_DATE, INPUT_DATE, OBL_COM_CERT_NO, 
+      OBL_IND_CERT_NO, COP_ORGID, COP_ORGNAME, 
+      IS_ABUTMENT, COP_ORG_ID, COP_ORG_NAME, 
+      BANKSUBBRANCHCODE, BANKSUBBRANCHNAME, BANKBRANCHCODE, 
+      BANKBRANCHNAME, AUTO_DATA_LINK, C_FEE_FLAG, 
+      IS_PAY_FEE, PRJ_TYPE, AP_CREDIT_NO, 
+      AE_CREDIT_NO, COP_CUS_CLASSES, FUND_PAY_WAY_NO, 
+      PAYEE_BANK_CITY_CODE, PAYEE_BANK_CITY, PAYEE_BANK_CODE, 
+      PAYEE_BANK_NAME, BANK_CODE, BANK_BRANCH_NAME, 
+      ACCOUNT_NAME, ACCOUNT_NO, PUB_BANKS_URID, 
+      PUB_STANDARDAREAS_URID, BANK_PAY_TYPE, PAYEE_TYPE, 
+      PAY_WAY, CASH_DEPOSIT, REG_DATE, 
+      EMAIL, ONLINE_STATUS, MAIN_RATIO, 
+      NEXT_RATIO, APP_ALTER_MSG)
+    values (#{copNo,jdbcType=VARCHAR}, #{copCusId,jdbcType=VARCHAR}, #{copCusName,jdbcType=VARCHAR}, 
+      #{copCertType,jdbcType=VARCHAR}, #{copCertCode,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, 
+      #{creditAmt,jdbcType=DECIMAL}, #{minloanAmt,jdbcType=DECIMAL}, #{inputId,jdbcType=VARCHAR}, 
+      #{accountStatus,jdbcType=VARCHAR}, #{copCusType,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR}, #{minCostRate,jdbcType=DECIMAL}, #{maxCostRate,jdbcType=DECIMAL}, 
+      #{minRateIr,jdbcType=DECIMAL}, #{maxRateIr,jdbcType=DECIMAL}, #{copPhone,jdbcType=VARCHAR}, 
+      #{copAddress,jdbcType=VARCHAR}, #{printType,jdbcType=VARCHAR}, #{prjLevel,jdbcType=VARCHAR}, 
+      #{addrPleId,jdbcType=VARCHAR}, #{addrPle,jdbcType=VARCHAR}, #{supPrjNo,jdbcType=VARCHAR}, 
+      #{supPrjName,jdbcType=VARCHAR}, #{leader,jdbcType=VARCHAR}, #{leaderPhone,jdbcType=VARCHAR}, 
+      #{locatOrgno,jdbcType=VARCHAR}, #{locatOrgname,jdbcType=VARCHAR}, #{locate,jdbcType=VARCHAR}, 
+      #{p2pPlatform,jdbcType=VARCHAR}, #{lastUpdId,jdbcType=VARCHAR}, #{lastUpdBrId,jdbcType=VARCHAR}, 
+      #{lastUpdDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{oblComCertNo,jdbcType=VARCHAR}, 
+      #{oblIndCertNo,jdbcType=VARCHAR}, #{copOrgid,jdbcType=VARCHAR}, #{copOrgname,jdbcType=VARCHAR}, 
+      #{isAbutment,jdbcType=VARCHAR}, #{copOrgId,jdbcType=VARCHAR}, #{copOrgName,jdbcType=VARCHAR}, 
+      #{banksubbranchcode,jdbcType=VARCHAR}, #{banksubbranchname,jdbcType=VARCHAR}, #{bankbranchcode,jdbcType=VARCHAR}, 
+      #{bankbranchname,jdbcType=VARCHAR}, #{autoDataLink,jdbcType=VARCHAR}, #{cFeeFlag,jdbcType=CHAR}, 
+      #{isPayFee,jdbcType=VARCHAR}, #{prjType,jdbcType=VARCHAR}, #{apCreditNo,jdbcType=VARCHAR}, 
+      #{aeCreditNo,jdbcType=VARCHAR}, #{copCusClasses,jdbcType=VARCHAR}, #{fundPayWayNo,jdbcType=VARCHAR}, 
+      #{payeeBankCityCode,jdbcType=VARCHAR}, #{payeeBankCity,jdbcType=VARCHAR}, #{payeeBankCode,jdbcType=VARCHAR}, 
+      #{payeeBankName,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR}, #{bankBranchName,jdbcType=VARCHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{pubBanksUrid,jdbcType=VARCHAR}, 
+      #{pubStandardareasUrid,jdbcType=VARCHAR}, #{bankPayType,jdbcType=VARCHAR}, #{payeeType,jdbcType=VARCHAR}, 
+      #{payWay,jdbcType=VARCHAR}, #{cashDeposit,jdbcType=DECIMAL}, #{regDate,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{onlineStatus,jdbcType=VARCHAR}, #{mainRatio,jdbcType=VARCHAR}, 
+      #{nextRatio,jdbcType=VARCHAR}, #{appAlterMsg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PrjCopAcc">
+    insert into PRJ_COP_ACC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="copCusId != null">
+        COP_CUS_ID,
+      </if>
+      <if test="copCusName != null">
+        COP_CUS_NAME,
+      </if>
+      <if test="copCertType != null">
+        COP_CERT_TYPE,
+      </if>
+      <if test="copCertCode != null">
+        COP_CERT_CODE,
+      </if>
+      <if test="amt != null">
+        AMT,
+      </if>
+      <if test="creditAmt != null">
+        CREDIT_AMT,
+      </if>
+      <if test="minloanAmt != null">
+        MINLOAN_AMT,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="accountStatus != null">
+        ACCOUNT_STATUS,
+      </if>
+      <if test="copCusType != null">
+        COP_CUS_TYPE,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="minCostRate != null">
+        MIN_COST_RATE,
+      </if>
+      <if test="maxCostRate != null">
+        MAX_COST_RATE,
+      </if>
+      <if test="minRateIr != null">
+        MIN_RATE_IR,
+      </if>
+      <if test="maxRateIr != null">
+        MAX_RATE_IR,
+      </if>
+      <if test="copPhone != null">
+        COP_PHONE,
+      </if>
+      <if test="copAddress != null">
+        COP_ADDRESS,
+      </if>
+      <if test="printType != null">
+        PRINT_TYPE,
+      </if>
+      <if test="prjLevel != null">
+        PRJ_LEVEL,
+      </if>
+      <if test="addrPleId != null">
+        ADDR_PLE_ID,
+      </if>
+      <if test="addrPle != null">
+        ADDR_PLE,
+      </if>
+      <if test="supPrjNo != null">
+        SUP_PRJ_NO,
+      </if>
+      <if test="supPrjName != null">
+        SUP_PRJ_NAME,
+      </if>
+      <if test="leader != null">
+        LEADER,
+      </if>
+      <if test="leaderPhone != null">
+        LEADER_PHONE,
+      </if>
+      <if test="locatOrgno != null">
+        LOCAT_ORGNO,
+      </if>
+      <if test="locatOrgname != null">
+        LOCAT_ORGNAME,
+      </if>
+      <if test="locate != null">
+        LOCATE,
+      </if>
+      <if test="p2pPlatform != null">
+        P2P_PLATFORM,
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID,
+      </if>
+      <if test="lastUpdBrId != null">
+        LAST_UPD_BR_ID,
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="oblComCertNo != null">
+        OBL_COM_CERT_NO,
+      </if>
+      <if test="oblIndCertNo != null">
+        OBL_IND_CERT_NO,
+      </if>
+      <if test="copOrgid != null">
+        COP_ORGID,
+      </if>
+      <if test="copOrgname != null">
+        COP_ORGNAME,
+      </if>
+      <if test="isAbutment != null">
+        IS_ABUTMENT,
+      </if>
+      <if test="copOrgId != null">
+        COP_ORG_ID,
+      </if>
+      <if test="copOrgName != null">
+        COP_ORG_NAME,
+      </if>
+      <if test="banksubbranchcode != null">
+        BANKSUBBRANCHCODE,
+      </if>
+      <if test="banksubbranchname != null">
+        BANKSUBBRANCHNAME,
+      </if>
+      <if test="bankbranchcode != null">
+        BANKBRANCHCODE,
+      </if>
+      <if test="bankbranchname != null">
+        BANKBRANCHNAME,
+      </if>
+      <if test="autoDataLink != null">
+        AUTO_DATA_LINK,
+      </if>
+      <if test="cFeeFlag != null">
+        C_FEE_FLAG,
+      </if>
+      <if test="isPayFee != null">
+        IS_PAY_FEE,
+      </if>
+      <if test="prjType != null">
+        PRJ_TYPE,
+      </if>
+      <if test="apCreditNo != null">
+        AP_CREDIT_NO,
+      </if>
+      <if test="aeCreditNo != null">
+        AE_CREDIT_NO,
+      </if>
+      <if test="copCusClasses != null">
+        COP_CUS_CLASSES,
+      </if>
+      <if test="fundPayWayNo != null">
+        FUND_PAY_WAY_NO,
+      </if>
+      <if test="payeeBankCityCode != null">
+        PAYEE_BANK_CITY_CODE,
+      </if>
+      <if test="payeeBankCity != null">
+        PAYEE_BANK_CITY,
+      </if>
+      <if test="payeeBankCode != null">
+        PAYEE_BANK_CODE,
+      </if>
+      <if test="payeeBankName != null">
+        PAYEE_BANK_NAME,
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE,
+      </if>
+      <if test="bankBranchName != null">
+        BANK_BRANCH_NAME,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO,
+      </if>
+      <if test="pubBanksUrid != null">
+        PUB_BANKS_URID,
+      </if>
+      <if test="pubStandardareasUrid != null">
+        PUB_STANDARDAREAS_URID,
+      </if>
+      <if test="bankPayType != null">
+        BANK_PAY_TYPE,
+      </if>
+      <if test="payeeType != null">
+        PAYEE_TYPE,
+      </if>
+      <if test="payWay != null">
+        PAY_WAY,
+      </if>
+      <if test="cashDeposit != null">
+        CASH_DEPOSIT,
+      </if>
+      <if test="regDate != null">
+        REG_DATE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="onlineStatus != null">
+        ONLINE_STATUS,
+      </if>
+      <if test="mainRatio != null">
+        MAIN_RATIO,
+      </if>
+      <if test="nextRatio != null">
+        NEXT_RATIO,
+      </if>
+      <if test="appAlterMsg != null">
+        APP_ALTER_MSG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusId != null">
+        #{copCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusName != null">
+        #{copCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertType != null">
+        #{copCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertCode != null">
+        #{copCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmt != null">
+        #{creditAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="minloanAmt != null">
+        #{minloanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountStatus != null">
+        #{accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusType != null">
+        #{copCusType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="minCostRate != null">
+        #{minCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxCostRate != null">
+        #{maxCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="minRateIr != null">
+        #{minRateIr,jdbcType=DECIMAL},
+      </if>
+      <if test="maxRateIr != null">
+        #{maxRateIr,jdbcType=DECIMAL},
+      </if>
+      <if test="copPhone != null">
+        #{copPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="copAddress != null">
+        #{copAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="printType != null">
+        #{printType,jdbcType=VARCHAR},
+      </if>
+      <if test="prjLevel != null">
+        #{prjLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="addrPleId != null">
+        #{addrPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="addrPle != null">
+        #{addrPle,jdbcType=VARCHAR},
+      </if>
+      <if test="supPrjNo != null">
+        #{supPrjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supPrjName != null">
+        #{supPrjName,jdbcType=VARCHAR},
+      </if>
+      <if test="leader != null">
+        #{leader,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderPhone != null">
+        #{leaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="locatOrgno != null">
+        #{locatOrgno,jdbcType=VARCHAR},
+      </if>
+      <if test="locatOrgname != null">
+        #{locatOrgname,jdbcType=VARCHAR},
+      </if>
+      <if test="locate != null">
+        #{locate,jdbcType=VARCHAR},
+      </if>
+      <if test="p2pPlatform != null">
+        #{p2pPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdBrId != null">
+        #{lastUpdBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="oblComCertNo != null">
+        #{oblComCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oblIndCertNo != null">
+        #{oblIndCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgid != null">
+        #{copOrgid,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgname != null">
+        #{copOrgname,jdbcType=VARCHAR},
+      </if>
+      <if test="isAbutment != null">
+        #{isAbutment,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgId != null">
+        #{copOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgName != null">
+        #{copOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="banksubbranchcode != null">
+        #{banksubbranchcode,jdbcType=VARCHAR},
+      </if>
+      <if test="banksubbranchname != null">
+        #{banksubbranchname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankbranchcode != null">
+        #{bankbranchcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankbranchname != null">
+        #{bankbranchname,jdbcType=VARCHAR},
+      </if>
+      <if test="autoDataLink != null">
+        #{autoDataLink,jdbcType=VARCHAR},
+      </if>
+      <if test="cFeeFlag != null">
+        #{cFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="isPayFee != null">
+        #{isPayFee,jdbcType=VARCHAR},
+      </if>
+      <if test="prjType != null">
+        #{prjType,jdbcType=VARCHAR},
+      </if>
+      <if test="apCreditNo != null">
+        #{apCreditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="aeCreditNo != null">
+        #{aeCreditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusClasses != null">
+        #{copCusClasses,jdbcType=VARCHAR},
+      </if>
+      <if test="fundPayWayNo != null">
+        #{fundPayWayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCityCode != null">
+        #{payeeBankCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCity != null">
+        #{payeeBankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCode != null">
+        #{payeeBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankName != null">
+        #{payeeBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankBranchName != null">
+        #{bankBranchName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pubBanksUrid != null">
+        #{pubBanksUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="pubStandardareasUrid != null">
+        #{pubStandardareasUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPayType != null">
+        #{bankPayType,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeType != null">
+        #{payeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="cashDeposit != null">
+        #{cashDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="regDate != null">
+        #{regDate,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineStatus != null">
+        #{onlineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mainRatio != null">
+        #{mainRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="nextRatio != null">
+        #{nextRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="appAlterMsg != null">
+        #{appAlterMsg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PrjCopAcc">
+    update PRJ_COP_ACC
+    <set>
+      <if test="copCusId != null">
+        COP_CUS_ID = #{copCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusName != null">
+        COP_CUS_NAME = #{copCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertType != null">
+        COP_CERT_TYPE = #{copCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertCode != null">
+        COP_CERT_CODE = #{copCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null">
+        AMT = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmt != null">
+        CREDIT_AMT = #{creditAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="minloanAmt != null">
+        MINLOAN_AMT = #{minloanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountStatus != null">
+        ACCOUNT_STATUS = #{accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusType != null">
+        COP_CUS_TYPE = #{copCusType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="minCostRate != null">
+        MIN_COST_RATE = #{minCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxCostRate != null">
+        MAX_COST_RATE = #{maxCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="minRateIr != null">
+        MIN_RATE_IR = #{minRateIr,jdbcType=DECIMAL},
+      </if>
+      <if test="maxRateIr != null">
+        MAX_RATE_IR = #{maxRateIr,jdbcType=DECIMAL},
+      </if>
+      <if test="copPhone != null">
+        COP_PHONE = #{copPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="copAddress != null">
+        COP_ADDRESS = #{copAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="printType != null">
+        PRINT_TYPE = #{printType,jdbcType=VARCHAR},
+      </if>
+      <if test="prjLevel != null">
+        PRJ_LEVEL = #{prjLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="addrPleId != null">
+        ADDR_PLE_ID = #{addrPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="addrPle != null">
+        ADDR_PLE = #{addrPle,jdbcType=VARCHAR},
+      </if>
+      <if test="supPrjNo != null">
+        SUP_PRJ_NO = #{supPrjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supPrjName != null">
+        SUP_PRJ_NAME = #{supPrjName,jdbcType=VARCHAR},
+      </if>
+      <if test="leader != null">
+        LEADER = #{leader,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderPhone != null">
+        LEADER_PHONE = #{leaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="locatOrgno != null">
+        LOCAT_ORGNO = #{locatOrgno,jdbcType=VARCHAR},
+      </if>
+      <if test="locatOrgname != null">
+        LOCAT_ORGNAME = #{locatOrgname,jdbcType=VARCHAR},
+      </if>
+      <if test="locate != null">
+        LOCATE = #{locate,jdbcType=VARCHAR},
+      </if>
+      <if test="p2pPlatform != null">
+        P2P_PLATFORM = #{p2pPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdBrId != null">
+        LAST_UPD_BR_ID = #{lastUpdBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="oblComCertNo != null">
+        OBL_COM_CERT_NO = #{oblComCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oblIndCertNo != null">
+        OBL_IND_CERT_NO = #{oblIndCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgid != null">
+        COP_ORGID = #{copOrgid,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgname != null">
+        COP_ORGNAME = #{copOrgname,jdbcType=VARCHAR},
+      </if>
+      <if test="isAbutment != null">
+        IS_ABUTMENT = #{isAbutment,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgId != null">
+        COP_ORG_ID = #{copOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="copOrgName != null">
+        COP_ORG_NAME = #{copOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="banksubbranchcode != null">
+        BANKSUBBRANCHCODE = #{banksubbranchcode,jdbcType=VARCHAR},
+      </if>
+      <if test="banksubbranchname != null">
+        BANKSUBBRANCHNAME = #{banksubbranchname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankbranchcode != null">
+        BANKBRANCHCODE = #{bankbranchcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankbranchname != null">
+        BANKBRANCHNAME = #{bankbranchname,jdbcType=VARCHAR},
+      </if>
+      <if test="autoDataLink != null">
+        AUTO_DATA_LINK = #{autoDataLink,jdbcType=VARCHAR},
+      </if>
+      <if test="cFeeFlag != null">
+        C_FEE_FLAG = #{cFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="isPayFee != null">
+        IS_PAY_FEE = #{isPayFee,jdbcType=VARCHAR},
+      </if>
+      <if test="prjType != null">
+        PRJ_TYPE = #{prjType,jdbcType=VARCHAR},
+      </if>
+      <if test="apCreditNo != null">
+        AP_CREDIT_NO = #{apCreditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="aeCreditNo != null">
+        AE_CREDIT_NO = #{aeCreditNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusClasses != null">
+        COP_CUS_CLASSES = #{copCusClasses,jdbcType=VARCHAR},
+      </if>
+      <if test="fundPayWayNo != null">
+        FUND_PAY_WAY_NO = #{fundPayWayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCityCode != null">
+        PAYEE_BANK_CITY_CODE = #{payeeBankCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCity != null">
+        PAYEE_BANK_CITY = #{payeeBankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCode != null">
+        PAYEE_BANK_CODE = #{payeeBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankName != null">
+        PAYEE_BANK_NAME = #{payeeBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankBranchName != null">
+        BANK_BRANCH_NAME = #{bankBranchName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pubBanksUrid != null">
+        PUB_BANKS_URID = #{pubBanksUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="pubStandardareasUrid != null">
+        PUB_STANDARDAREAS_URID = #{pubStandardareasUrid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPayType != null">
+        BANK_PAY_TYPE = #{bankPayType,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeType != null">
+        PAYEE_TYPE = #{payeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        PAY_WAY = #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="cashDeposit != null">
+        CASH_DEPOSIT = #{cashDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="regDate != null">
+        REG_DATE = #{regDate,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineStatus != null">
+        ONLINE_STATUS = #{onlineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mainRatio != null">
+        MAIN_RATIO = #{mainRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="nextRatio != null">
+        NEXT_RATIO = #{nextRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="appAlterMsg != null">
+        APP_ALTER_MSG = #{appAlterMsg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COP_NO = #{copNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PrjCopAcc">
+    update PRJ_COP_ACC
+    set COP_CUS_ID = #{copCusId,jdbcType=VARCHAR},
+      COP_CUS_NAME = #{copCusName,jdbcType=VARCHAR},
+      COP_CERT_TYPE = #{copCertType,jdbcType=VARCHAR},
+      COP_CERT_CODE = #{copCertCode,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=DECIMAL},
+      CREDIT_AMT = #{creditAmt,jdbcType=DECIMAL},
+      MINLOAN_AMT = #{minloanAmt,jdbcType=DECIMAL},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      ACCOUNT_STATUS = #{accountStatus,jdbcType=VARCHAR},
+      COP_CUS_TYPE = #{copCusType,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      MIN_COST_RATE = #{minCostRate,jdbcType=DECIMAL},
+      MAX_COST_RATE = #{maxCostRate,jdbcType=DECIMAL},
+      MIN_RATE_IR = #{minRateIr,jdbcType=DECIMAL},
+      MAX_RATE_IR = #{maxRateIr,jdbcType=DECIMAL},
+      COP_PHONE = #{copPhone,jdbcType=VARCHAR},
+      COP_ADDRESS = #{copAddress,jdbcType=VARCHAR},
+      PRINT_TYPE = #{printType,jdbcType=VARCHAR},
+      PRJ_LEVEL = #{prjLevel,jdbcType=VARCHAR},
+      ADDR_PLE_ID = #{addrPleId,jdbcType=VARCHAR},
+      ADDR_PLE = #{addrPle,jdbcType=VARCHAR},
+      SUP_PRJ_NO = #{supPrjNo,jdbcType=VARCHAR},
+      SUP_PRJ_NAME = #{supPrjName,jdbcType=VARCHAR},
+      LEADER = #{leader,jdbcType=VARCHAR},
+      LEADER_PHONE = #{leaderPhone,jdbcType=VARCHAR},
+      LOCAT_ORGNO = #{locatOrgno,jdbcType=VARCHAR},
+      LOCAT_ORGNAME = #{locatOrgname,jdbcType=VARCHAR},
+      LOCATE = #{locate,jdbcType=VARCHAR},
+      P2P_PLATFORM = #{p2pPlatform,jdbcType=VARCHAR},
+      LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      LAST_UPD_BR_ID = #{lastUpdBrId,jdbcType=VARCHAR},
+      LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      OBL_COM_CERT_NO = #{oblComCertNo,jdbcType=VARCHAR},
+      OBL_IND_CERT_NO = #{oblIndCertNo,jdbcType=VARCHAR},
+      COP_ORGID = #{copOrgid,jdbcType=VARCHAR},
+      COP_ORGNAME = #{copOrgname,jdbcType=VARCHAR},
+      IS_ABUTMENT = #{isAbutment,jdbcType=VARCHAR},
+      COP_ORG_ID = #{copOrgId,jdbcType=VARCHAR},
+      COP_ORG_NAME = #{copOrgName,jdbcType=VARCHAR},
+      BANKSUBBRANCHCODE = #{banksubbranchcode,jdbcType=VARCHAR},
+      BANKSUBBRANCHNAME = #{banksubbranchname,jdbcType=VARCHAR},
+      BANKBRANCHCODE = #{bankbranchcode,jdbcType=VARCHAR},
+      BANKBRANCHNAME = #{bankbranchname,jdbcType=VARCHAR},
+      AUTO_DATA_LINK = #{autoDataLink,jdbcType=VARCHAR},
+      C_FEE_FLAG = #{cFeeFlag,jdbcType=CHAR},
+      IS_PAY_FEE = #{isPayFee,jdbcType=VARCHAR},
+      PRJ_TYPE = #{prjType,jdbcType=VARCHAR},
+      AP_CREDIT_NO = #{apCreditNo,jdbcType=VARCHAR},
+      AE_CREDIT_NO = #{aeCreditNo,jdbcType=VARCHAR},
+      COP_CUS_CLASSES = #{copCusClasses,jdbcType=VARCHAR},
+      FUND_PAY_WAY_NO = #{fundPayWayNo,jdbcType=VARCHAR},
+      PAYEE_BANK_CITY_CODE = #{payeeBankCityCode,jdbcType=VARCHAR},
+      PAYEE_BANK_CITY = #{payeeBankCity,jdbcType=VARCHAR},
+      PAYEE_BANK_CODE = #{payeeBankCode,jdbcType=VARCHAR},
+      PAYEE_BANK_NAME = #{payeeBankName,jdbcType=VARCHAR},
+      BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      BANK_BRANCH_NAME = #{bankBranchName,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      PUB_BANKS_URID = #{pubBanksUrid,jdbcType=VARCHAR},
+      PUB_STANDARDAREAS_URID = #{pubStandardareasUrid,jdbcType=VARCHAR},
+      BANK_PAY_TYPE = #{bankPayType,jdbcType=VARCHAR},
+      PAYEE_TYPE = #{payeeType,jdbcType=VARCHAR},
+      PAY_WAY = #{payWay,jdbcType=VARCHAR},
+      CASH_DEPOSIT = #{cashDeposit,jdbcType=DECIMAL},
+      REG_DATE = #{regDate,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      ONLINE_STATUS = #{onlineStatus,jdbcType=VARCHAR},
+      MAIN_RATIO = #{mainRatio,jdbcType=VARCHAR},
+      NEXT_RATIO = #{nextRatio,jdbcType=VARCHAR},
+      APP_ALTER_MSG = #{appAlterMsg,jdbcType=VARCHAR}
+    where COP_NO = #{copNo,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getByPrdIdAndCopNo" parameterType="map" resultType="map">
+    select
+      t.prd_id as prdId,t2.prd_name as prdName,
+      t.partner_no as partnerNo,t.partner_nm as partnerName,
+      t3.cop_phone as partnerPhone,t3.cop_address as partnerAddress,
+      t3.cop_cert_type as partnerCertType,t3.cop_cert_code as partnerCertCode,
+      t.c_appnt as cAppnt
+      from iqp_me_channel_prd t
+      left join Prd_Basicinfo t2 on t.prd_id=t2.new_prd_code
+      left join PRJ_COP_ACC t3 on t.partner_no=t3.cop_no
+      where t.prd_id=#{prdId,jdbcType=VARCHAR} and t.cop_no=#{copNo,jdbcType=VARCHAR}  and t.status='S'
+  </select>
+
+  <select id="getByPrdIdAndCopNoAndPartnerNo" parameterType="map" resultType="map">
+    select
+      t.prd_id as prdId,t2.prd_name as prdName,
+      t3.cop_no as partnerNo,t3.cop_cus_name as partnerName,
+      t3.cop_phone as partnerPhone,t3.cop_address as partnerAddress,
+      t3.cop_cert_type as partnerCertType,t3.cop_cert_code as partnerCertCode,
+      t.c_appnt as cAppnt
+      from iqp_me_channel_prd t
+      left join Prd_Basicinfo t2 on t.prd_id = t2.new_prd_code
+      left join PRJ_COP_ACC t3 on t3.cop_no =#{partnerNo,jdbcType=VARCHAR}
+      where t.prd_id=#{prdId,jdbcType=VARCHAR} and t.cop_no=#{copNo,jdbcType=VARCHAR}  and t.status='S'
+  </select>
+</mapper>

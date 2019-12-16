@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PspClaimPaphRecodeMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PspClaimPaphRecode">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="CLAIM_BATCH_NO" jdbcType="VARCHAR" property="claimBatchNo" />
+    <result column="CLAIM_COUNT" jdbcType="DECIMAL" property="claimCount" />
+    <result column="LN_ACCT" jdbcType="VARCHAR" property="lnAcct" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="CLAIM_AMT" jdbcType="DECIMAL" property="claimAmt" />
+    <result column="CLAIM_DATE" jdbcType="VARCHAR" property="claimDate" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="NOTICE_RESULT" jdbcType="VARCHAR" property="noticeResult" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, CLAIM_BATCH_NO, CLAIM_COUNT, LN_ACCT, APPL_NO, CLAIM_AMT, CLAIM_DATE, INSU_COMPANY, NOTICE_RESULT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PSP_CLAIM_PAPH_RECODE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PSP_CLAIM_PAPH_RECODE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PspClaimPaphRecode">
+    insert into PSP_CLAIM_PAPH_RECODE (PK_ID,CLAIM_BATCH_NO, CLAIM_COUNT, LN_ACCT, 
+      APPL_NO, CLAIM_AMT, CLAIM_DATE, 
+      INSU_COMPANY, NOTICE_RESULT)
+    values (#{pkId,jdbcType=VARCHAR}, #{claimBatchNo,jdbcType=VARCHAR}, #{claimCount,jdbcType=DECIMAL}, #{lnAcct,jdbcType=VARCHAR}, 
+      #{applNo,jdbcType=VARCHAR}, #{claimAmt,jdbcType=DECIMAL}, #{claimDate,jdbcType=VARCHAR}, 
+      #{insuCompany,jdbcType=VARCHAR}, #{noticeResult,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimPaphRecode">
+    insert into PSP_CLAIM_PAPH_RECODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="claimBatchNo != null">
+        CLAIM_BATCH_NO,
+      </if>
+      <if test="claimCount != null">
+        CLAIM_COUNT,
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="claimAmt != null">
+        CLAIM_AMT,
+      </if>
+      <if test="claimDate != null">
+        CLAIM_DATE,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="noticeResult != null">
+        NOTICE_RESULT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimBatchNo != null">
+        #{claimBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCount != null">
+        #{claimCount,jdbcType=DECIMAL},
+      </if>
+      <if test="lnAcct != null">
+        #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmt != null">
+        #{claimAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="claimDate != null">
+        #{claimDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeResult != null">
+        #{noticeResult,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimPaphRecode">
+    update PSP_CLAIM_PAPH_RECODE
+    <set>
+      <if test="pkId != null">
+        PK_ID = #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCount != null">
+        CLAIM_COUNT = #{claimCount,jdbcType=DECIMAL},
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmt != null">
+        CLAIM_AMT = #{claimAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="claimDate != null">
+        CLAIM_DATE = #{claimDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeResult != null">
+        NOTICE_RESULT = #{noticeResult,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PspClaimPaphRecode">
+    update PSP_CLAIM_PAPH_RECODE
+    set PK_ID = #{pkId,jdbcType=VARCHAR}, CLAIM_COUNT = #{claimCount,jdbcType=DECIMAL},
+      LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      APPL_NO = #{applNo,jdbcType=VARCHAR},
+      CLAIM_AMT = #{claimAmt,jdbcType=DECIMAL},
+      CLAIM_DATE = #{claimDate,jdbcType=VARCHAR},
+      NOTICE_RESULT = #{noticeResult,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectNoticeBatchNo" resultType="String">
+  	select distinct(t.claim_batch_no) as claimBatchNo from PSP_CLAIM_PAPH_RECODE t where t.notice_result = '00'
+  </select>
+  <select id="selectNoticeRecode" resultMap="BaseResultMap">
+ 	select  <include refid="Base_Column_List" /> from PSP_CLAIM_PAPH_RECODE t where t.notice_result = '00'
+  </select>
+  <update id="updateByBatchNo" parameterType="cn.com.sinosafe.domain.entity.PspClaimPaphRecode">
+  	update PSP_CLAIM_PAPH_RECODE
+    <set>
+      <if test="pkId != null">
+        PK_ID = #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCount != null">
+        CLAIM_COUNT = #{claimCount,jdbcType=DECIMAL},
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmt != null">
+        CLAIM_AMT = #{claimAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="claimDate != null">
+        CLAIM_DATE = #{claimDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeResult != null">
+        NOTICE_RESULT = #{noticeResult,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CLAIM_BATCH_NO = #{claimBatchNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

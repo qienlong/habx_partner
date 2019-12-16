@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PubExpenSettlementMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PubExpenSettlement">
+    <result column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="ACCOUNT_MONTH" jdbcType="VARCHAR" property="accountMonth" />
+    <result column="ACCOUNT_TOTAL" jdbcType="DECIMAL" property="accountTotal" />
+    <result column="BASE_PRICE" jdbcType="DECIMAL" property="basePrice" />
+    <result column="ACCOUNT_NUM" jdbcType="VARCHAR" property="accountNum" />
+    <result column="BASE_PRICE_TOTAL" jdbcType="DECIMAL" property="basePriceTotal" />
+    <result column="FLOATING_MONTH" jdbcType="VARCHAR" property="floatingMonth" />
+    <result column="ASSET_POOL_PA" jdbcType="DECIMAL" property="assetPoolPa" />
+    <result column="ASSET_POOL_INSUR" jdbcType="DECIMAL" property="assetPoolInsur" />
+    <result column="ASSET_POOL_ODDS" jdbcType="DECIMAL" property="assetPoolOdds" />
+    <result column="FLOATING_PRICE" jdbcType="DECIMAL" property="floatingPrice" />
+    <result column="FLOATING_AGE" jdbcType="VARCHAR" property="floatingAge" />
+    <result column="FLOATING_TOTAL" jdbcType="DECIMAL" property="floatingTotal" />
+    <result column="SINGLE_FEE_DATE" jdbcType="VARCHAR" property="singleFeeDate" />
+    <result column="SINGLE_FEE_RATE" jdbcType="DECIMAL" property="singleFeeRate" />
+    <result column="COVER_FI_AMT" jdbcType="DECIMAL" property="coverFiAmt" />
+    <result column="SINGLE_FEE_TOTAL" jdbcType="DECIMAL" property="singleFeeTotal" />
+    <result column="ACCOUNT_RESULT" jdbcType="CHAR" property="accountResult" />
+    <result column="SINGLEFEE_RESULT" jdbcType="CHAR" property="singlefeeResult" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="CREATED_DATE" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="MODIFYED_BY" jdbcType="VARCHAR" property="modifyedBy" />
+    <result column="MODIFYED_DATE" jdbcType="TIMESTAMP" property="modifyedDate" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="COP_NAME" jdbcType="VARCHAR" property="copName" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlement">
+    insert into PUB_EXPEN_SETTLEMENT (UUID, INSU_COMPANY, ACCOUNT_MONTH, 
+      ACCOUNT_TOTAL, BASE_PRICE, ACCOUNT_NUM, 
+      BASE_PRICE_TOTAL, FLOATING_MONTH, ASSET_POOL_PA, 
+      ASSET_POOL_INSUR, ASSET_POOL_ODDS, FLOATING_PRICE, 
+      FLOATING_AGE, FLOATING_TOTAL, SINGLE_FEE_DATE, 
+      SINGLE_FEE_RATE, COVER_FI_AMT, SINGLE_FEE_TOTAL, 
+      ACCOUNT_RESULT, SINGLEFEE_RESULT, CREATED_BY, 
+      CREATED_DATE, MODIFYED_BY, MODIFYED_DATE,COP_NO,COP_NAME
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR}, #{accountMonth,jdbcType=VARCHAR}, 
+      #{accountTotal,jdbcType=DECIMAL}, #{basePrice,jdbcType=DECIMAL}, #{accountNum,jdbcType=VARCHAR}, 
+      #{basePriceTotal,jdbcType=DECIMAL}, #{floatingMonth,jdbcType=VARCHAR}, #{assetPoolPa,jdbcType=DECIMAL}, 
+      #{assetPoolInsur,jdbcType=DECIMAL}, #{assetPoolOdds,jdbcType=DECIMAL}, #{floatingPrice,jdbcType=DECIMAL}, 
+      #{floatingAge,jdbcType=VARCHAR}, #{floatingTotal,jdbcType=DECIMAL}, #{singleFeeDate,jdbcType=VARCHAR}, 
+      #{singleFeeRate,jdbcType=DECIMAL}, #{coverFiAmt,jdbcType=DECIMAL}, #{singleFeeTotal,jdbcType=DECIMAL}, 
+      #{accountResult,jdbcType=CHAR}, #{singlefeeResult,jdbcType=CHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{modifyedBy,jdbcType=VARCHAR}, #{modifyedDate,jdbcType=TIMESTAMP},
+      #{copNo,jdbcType=VARCHAR}, #{copName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlement">
+    insert into PUB_EXPEN_SETTLEMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="accountMonth != null">
+        ACCOUNT_MONTH,
+      </if>
+      <if test="accountTotal != null">
+        ACCOUNT_TOTAL,
+      </if>
+      <if test="basePrice != null">
+        BASE_PRICE,
+      </if>
+      <if test="accountNum != null">
+        ACCOUNT_NUM,
+      </if>
+      <if test="basePriceTotal != null">
+        BASE_PRICE_TOTAL,
+      </if>
+      <if test="floatingMonth != null">
+        FLOATING_MONTH,
+      </if>
+      <if test="assetPoolPa != null">
+        ASSET_POOL_PA,
+      </if>
+      <if test="assetPoolInsur != null">
+        ASSET_POOL_INSUR,
+      </if>
+      <if test="assetPoolOdds != null">
+        ASSET_POOL_ODDS,
+      </if>
+      <if test="floatingPrice != null">
+        FLOATING_PRICE,
+      </if>
+      <if test="floatingAge != null">
+        FLOATING_AGE,
+      </if>
+      <if test="floatingTotal != null">
+        FLOATING_TOTAL,
+      </if>
+      <if test="singleFeeDate != null">
+        SINGLE_FEE_DATE,
+      </if>
+      <if test="singleFeeRate != null">
+        SINGLE_FEE_RATE,
+      </if>
+      <if test="coverFiAmt != null">
+        COVER_FI_AMT,
+      </if>
+      <if test="singleFeeTotal != null">
+        SINGLE_FEE_TOTAL,
+      </if>
+      <if test="accountResult != null">
+        ACCOUNT_RESULT,
+      </if>
+      <if test="singlefeeResult != null">
+        SINGLEFEE_RESULT,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="createdDate != null">
+        CREATED_DATE,
+      </if>
+      <if test="modifyedBy != null">
+        MODIFYED_BY,
+      </if>
+      <if test="modifyedDate != null">
+        MODIFYED_DATE,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="copName != null">
+        COP_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="accountMonth != null">
+        #{accountMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTotal != null">
+        #{accountTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="basePrice != null">
+        #{basePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNum != null">
+        #{accountNum,jdbcType=VARCHAR},
+      </if>
+      <if test="basePriceTotal != null">
+        #{basePriceTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="floatingMonth != null">
+        #{floatingMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="assetPoolPa != null">
+        #{assetPoolPa,jdbcType=DECIMAL},
+      </if>
+      <if test="assetPoolInsur != null">
+        #{assetPoolInsur,jdbcType=DECIMAL},
+      </if>
+      <if test="assetPoolOdds != null">
+        #{assetPoolOdds,jdbcType=DECIMAL},
+      </if>
+      <if test="floatingPrice != null">
+        #{floatingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="floatingAge != null">
+        #{floatingAge,jdbcType=VARCHAR},
+      </if>
+      <if test="floatingTotal != null">
+        #{floatingTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="singleFeeDate != null">
+        #{singleFeeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="singleFeeRate != null">
+        #{singleFeeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="coverFiAmt != null">
+        #{coverFiAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="singleFeeTotal != null">
+        #{singleFeeTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="accountResult != null">
+        #{accountResult,jdbcType=CHAR},
+      </if>
+      <if test="singlefeeResult != null">
+        #{singlefeeResult,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyedBy != null">
+        #{modifyedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyedDate != null">
+        #{modifyedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copName != null">
+        #{copName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectCountByMonth" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlement" resultType="java.lang.Integer">
+  	select count(1) from PUB_EXPEN_SETTLEMENT where account_month = #{accountMonth,jdbcType=VARCHAR}
+  </select>
+</mapper>

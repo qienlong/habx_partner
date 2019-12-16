@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeChannelPrdMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeChannelPrd">
+    <id column="JRN_NO" jdbcType="VARCHAR" property="jrnNo" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="COP_NM" jdbcType="VARCHAR" property="copNm" />
+    <result column="PRD_ID" jdbcType="VARCHAR" property="prdId" />
+    <result column="PRD_NM" jdbcType="VARCHAR" property="prdNm" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="BEG_TM" jdbcType="VARCHAR" property="begTm" />
+    <result column="END_TM" jdbcType="VARCHAR" property="endTm" />
+    <result column="CRE_DT" jdbcType="VARCHAR" property="creDt" />
+    <result column="UPT_DT" jdbcType="VARCHAR" property="uptDt" />
+    <result column="TM_SMP" jdbcType="VARCHAR" property="tmSmp" />
+    <result column="PARTNER_NO" jdbcType="VARCHAR" property="partnerNo" />
+    <result column="PARTNER_NM" jdbcType="VARCHAR" property="partnerNm" />
+    <result column="C_APPNT" jdbcType="VARCHAR" property="cAppnt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JRN_NO, COP_NO, COP_NM, PRD_ID, PRD_NM, STATUS, BEG_TM, END_TM, CRE_DT, UPT_DT, TM_SMP, 
+    PARTNER_NO, PARTNER_NM, C_APPNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_CHANNEL_PRD
+    where JRN_NO = #{jrnNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_CHANNEL_PRD
+    where JRN_NO = #{jrnNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMeChannelPrd">
+    insert into IQP_ME_CHANNEL_PRD (JRN_NO, COP_NO, COP_NM, 
+      PRD_ID, PRD_NM, STATUS, 
+      BEG_TM, END_TM, CRE_DT, 
+      UPT_DT, TM_SMP, PARTNER_NO, 
+      PARTNER_NM, C_APPNT)
+    values (#{jrnNo,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, #{copNm,jdbcType=VARCHAR}, 
+      #{prdId,jdbcType=VARCHAR}, #{prdNm,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{begTm,jdbcType=VARCHAR}, #{endTm,jdbcType=VARCHAR}, #{creDt,jdbcType=VARCHAR}, 
+      #{uptDt,jdbcType=VARCHAR}, #{tmSmp,jdbcType=VARCHAR}, #{partnerNo,jdbcType=VARCHAR}, 
+      #{partnerNm,jdbcType=VARCHAR}, #{cAppnt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeChannelPrd">
+    insert into IQP_ME_CHANNEL_PRD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jrnNo != null">
+        JRN_NO,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="copNm != null">
+        COP_NM,
+      </if>
+      <if test="prdId != null">
+        PRD_ID,
+      </if>
+      <if test="prdNm != null">
+        PRD_NM,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="begTm != null">
+        BEG_TM,
+      </if>
+      <if test="endTm != null">
+        END_TM,
+      </if>
+      <if test="creDt != null">
+        CRE_DT,
+      </if>
+      <if test="uptDt != null">
+        UPT_DT,
+      </if>
+      <if test="tmSmp != null">
+        TM_SMP,
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO,
+      </if>
+      <if test="partnerNm != null">
+        PARTNER_NM,
+      </if>
+      <if test="cAppnt != null">
+        C_APPNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jrnNo != null">
+        #{jrnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copNm != null">
+        #{copNm,jdbcType=VARCHAR},
+      </if>
+      <if test="prdId != null">
+        #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdNm != null">
+        #{prdNm,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="begTm != null">
+        #{begTm,jdbcType=VARCHAR},
+      </if>
+      <if test="endTm != null">
+        #{endTm,jdbcType=VARCHAR},
+      </if>
+      <if test="creDt != null">
+        #{creDt,jdbcType=VARCHAR},
+      </if>
+      <if test="uptDt != null">
+        #{uptDt,jdbcType=VARCHAR},
+      </if>
+      <if test="tmSmp != null">
+        #{tmSmp,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNm != null">
+        #{partnerNm,jdbcType=VARCHAR},
+      </if>
+      <if test="cAppnt != null">
+        #{cAppnt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeChannelPrd">
+    update IQP_ME_CHANNEL_PRD
+    <set>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copNm != null">
+        COP_NM = #{copNm,jdbcType=VARCHAR},
+      </if>
+      <if test="prdId != null">
+        PRD_ID = #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdNm != null">
+        PRD_NM = #{prdNm,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="begTm != null">
+        BEG_TM = #{begTm,jdbcType=VARCHAR},
+      </if>
+      <if test="endTm != null">
+        END_TM = #{endTm,jdbcType=VARCHAR},
+      </if>
+      <if test="creDt != null">
+        CRE_DT = #{creDt,jdbcType=VARCHAR},
+      </if>
+      <if test="uptDt != null">
+        UPT_DT = #{uptDt,jdbcType=VARCHAR},
+      </if>
+      <if test="tmSmp != null">
+        TM_SMP = #{tmSmp,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO = #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNm != null">
+        PARTNER_NM = #{partnerNm,jdbcType=VARCHAR},
+      </if>
+      <if test="cAppnt != null">
+        C_APPNT = #{cAppnt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where JRN_NO = #{jrnNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeChannelPrd">
+    update IQP_ME_CHANNEL_PRD
+    set COP_NO = #{copNo,jdbcType=VARCHAR},
+      COP_NM = #{copNm,jdbcType=VARCHAR},
+      PRD_ID = #{prdId,jdbcType=VARCHAR},
+      PRD_NM = #{prdNm,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      BEG_TM = #{begTm,jdbcType=VARCHAR},
+      END_TM = #{endTm,jdbcType=VARCHAR},
+      CRE_DT = #{creDt,jdbcType=VARCHAR},
+      UPT_DT = #{uptDt,jdbcType=VARCHAR},
+      TM_SMP = #{tmSmp,jdbcType=VARCHAR},
+      PARTNER_NO = #{partnerNo,jdbcType=VARCHAR},
+      PARTNER_NM = #{partnerNm,jdbcType=VARCHAR},
+      C_APPNT = #{cAppnt,jdbcType=VARCHAR}
+    where JRN_NO = #{jrnNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByCopNoAndPrd" parameterType="java.lang.String" resultMap="BaseResultMap" >
+  	select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_CHANNEL_PRD
+    where COP_NO = #{copNo,jdbcType=VARCHAR} and PRD_ID = #{prdId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByFields" parameterType="Map" resultMap="BaseResultMap" >
+  	select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_CHANNEL_PRD
+    where COP_NO = #{copNo,jdbcType=VARCHAR} and PRD_ID = #{prdId,jdbcType=VARCHAR} and PARTNER_NO = #{partnerNm,jdbcType=VARCHAR}
+  </select>
+</mapper>

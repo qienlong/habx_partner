@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.HaPaymentRecordMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.HaPaymentRecord">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
+    <result column="BUSINESS_TYPE" jdbcType="VARCHAR" property="businessType" />
+    <result column="APPLY_PERSON" jdbcType="VARCHAR" property="applyPerson" />
+    <result column="APPLY_ORG" jdbcType="VARCHAR" property="applyOrg" />
+    <result column="APPLY_TIME" jdbcType="VARCHAR" property="applyTime" />
+    <result column="TRANSACTION_NUMBER" jdbcType="VARCHAR" property="transactionNumber" />
+    <result column="PAYMENT_ACCOUNT" jdbcType="VARCHAR" property="paymentAccount" />
+    <result column="PAYMENT_BANK_NAME" jdbcType="VARCHAR" property="paymentBankName" />
+    <result column="PAYMENT_AMOUNT" jdbcType="DECIMAL" property="paymentAmount" />
+    <result column="PAYMENT_CURRENCY" jdbcType="VARCHAR" property="paymentCurrency" />
+    <result column="RECEIVABLES_ACCOUNT" jdbcType="VARCHAR" property="receivablesAccount" />
+    <result column="RECEIVABLES_BANK" jdbcType="VARCHAR" property="receivablesBank" />
+    <result column="RECEIVABLES_OPENINGBANKNAME" jdbcType="VARCHAR" property="receivablesOpeningbankname" />
+    <result column="RECEIVABLES_ADDR" jdbcType="VARCHAR" property="receivablesAddr" />
+    <result column="TRANSACTION_TIME" jdbcType="VARCHAR" property="transactionTime" />
+    <result column="PAYMENT_STATUS" jdbcType="VARCHAR" property="paymentStatus" />
+    <result column="PAYMENT_STATUS_UPDATE_TIME" jdbcType="VARCHAR" property="paymentStatusUpdateTime" />
+    <result column="PAYMENT_FAIL_REASON" jdbcType="VARCHAR" property="paymentFailReason" />
+    <result column="RETURN_TICKET_STATUS" jdbcType="VARCHAR" property="returnTicketStatus" />
+    <result column="RECONCILIATIONCODE" jdbcType="VARCHAR" property="reconciliationcode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, BUSINESS_ID, BUSINESS_TYPE, APPLY_PERSON, APPLY_ORG, APPLY_TIME, TRANSACTION_NUMBER, 
+    PAYMENT_ACCOUNT, PAYMENT_BANK_NAME, PAYMENT_AMOUNT, PAYMENT_CURRENCY, RECEIVABLES_ACCOUNT, 
+    RECEIVABLES_BANK, RECEIVABLES_OPENINGBANKNAME, RECEIVABLES_ADDR, TRANSACTION_TIME, 
+    PAYMENT_STATUS, PAYMENT_STATUS_UPDATE_TIME, PAYMENT_FAIL_REASON, RETURN_TICKET_STATUS, 
+    RECONCILIATIONCODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HA_PAYMENT_RECORD
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from HA_PAYMENT_RECORD
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.HaPaymentRecord">
+    insert into HA_PAYMENT_RECORD (ID, BUSINESS_ID, BUSINESS_TYPE, 
+      APPLY_PERSON, APPLY_ORG, APPLY_TIME, 
+      TRANSACTION_NUMBER, PAYMENT_ACCOUNT, PAYMENT_BANK_NAME, 
+      PAYMENT_AMOUNT, PAYMENT_CURRENCY, RECEIVABLES_ACCOUNT, 
+      RECEIVABLES_BANK, RECEIVABLES_OPENINGBANKNAME, 
+      RECEIVABLES_ADDR, TRANSACTION_TIME, PAYMENT_STATUS, 
+      PAYMENT_STATUS_UPDATE_TIME, PAYMENT_FAIL_REASON, 
+      RETURN_TICKET_STATUS, RECONCILIATIONCODE)
+    values (#{id,jdbcType=VARCHAR}, #{businessId,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, 
+      #{applyPerson,jdbcType=VARCHAR}, #{applyOrg,jdbcType=VARCHAR}, #{applyTime,jdbcType=VARCHAR}, 
+      #{transactionNumber,jdbcType=VARCHAR}, #{paymentAccount,jdbcType=VARCHAR}, #{paymentBankName,jdbcType=VARCHAR}, 
+      #{paymentAmount,jdbcType=DECIMAL}, #{paymentCurrency,jdbcType=VARCHAR}, #{receivablesAccount,jdbcType=VARCHAR}, 
+      #{receivablesBank,jdbcType=VARCHAR}, #{receivablesOpeningbankname,jdbcType=VARCHAR}, 
+      #{receivablesAddr,jdbcType=VARCHAR}, #{transactionTime,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=VARCHAR}, 
+      #{paymentStatusUpdateTime,jdbcType=VARCHAR}, #{paymentFailReason,jdbcType=VARCHAR}, 
+      #{returnTicketStatus,jdbcType=VARCHAR}, #{reconciliationcode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.HaPaymentRecord">
+    insert into HA_PAYMENT_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="businessId != null">
+        BUSINESS_ID,
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE,
+      </if>
+      <if test="applyPerson != null">
+        APPLY_PERSON,
+      </if>
+      <if test="applyOrg != null">
+        APPLY_ORG,
+      </if>
+      <if test="applyTime != null">
+        APPLY_TIME,
+      </if>
+      <if test="transactionNumber != null">
+        TRANSACTION_NUMBER,
+      </if>
+      <if test="paymentAccount != null">
+        PAYMENT_ACCOUNT,
+      </if>
+      <if test="paymentBankName != null">
+        PAYMENT_BANK_NAME,
+      </if>
+      <if test="paymentAmount != null">
+        PAYMENT_AMOUNT,
+      </if>
+      <if test="paymentCurrency != null">
+        PAYMENT_CURRENCY,
+      </if>
+      <if test="receivablesAccount != null">
+        RECEIVABLES_ACCOUNT,
+      </if>
+      <if test="receivablesBank != null">
+        RECEIVABLES_BANK,
+      </if>
+      <if test="receivablesOpeningbankname != null">
+        RECEIVABLES_OPENINGBANKNAME,
+      </if>
+      <if test="receivablesAddr != null">
+        RECEIVABLES_ADDR,
+      </if>
+      <if test="transactionTime != null">
+        TRANSACTION_TIME,
+      </if>
+      <if test="paymentStatus != null">
+        PAYMENT_STATUS,
+      </if>
+      <if test="paymentStatusUpdateTime != null">
+        PAYMENT_STATUS_UPDATE_TIME,
+      </if>
+      <if test="paymentFailReason != null">
+        PAYMENT_FAIL_REASON,
+      </if>
+      <if test="returnTicketStatus != null">
+        RETURN_TICKET_STATUS,
+      </if>
+      <if test="reconciliationcode != null">
+        RECONCILIATIONCODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null">
+        #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPerson != null">
+        #{applyPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="applyOrg != null">
+        #{applyOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionNumber != null">
+        #{transactionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null">
+        #{paymentAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentBankName != null">
+        #{paymentBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAmount != null">
+        #{paymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentCurrency != null">
+        #{paymentCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesAccount != null">
+        #{receivablesAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesBank != null">
+        #{receivablesBank,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesOpeningbankname != null">
+        #{receivablesOpeningbankname,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesAddr != null">
+        #{receivablesAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionTime != null">
+        #{transactionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null">
+        #{paymentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatusUpdateTime != null">
+        #{paymentStatusUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentFailReason != null">
+        #{paymentFailReason,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTicketStatus != null">
+        #{returnTicketStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reconciliationcode != null">
+        #{reconciliationcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.HaPaymentRecord">
+    update HA_PAYMENT_RECORD
+    <set>
+      <if test="businessId != null">
+        BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPerson != null">
+        APPLY_PERSON = #{applyPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="applyOrg != null">
+        APPLY_ORG = #{applyOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        APPLY_TIME = #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionNumber != null">
+        TRANSACTION_NUMBER = #{transactionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null">
+        PAYMENT_ACCOUNT = #{paymentAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentBankName != null">
+        PAYMENT_BANK_NAME = #{paymentBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAmount != null">
+        PAYMENT_AMOUNT = #{paymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentCurrency != null">
+        PAYMENT_CURRENCY = #{paymentCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesAccount != null">
+        RECEIVABLES_ACCOUNT = #{receivablesAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesBank != null">
+        RECEIVABLES_BANK = #{receivablesBank,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesOpeningbankname != null">
+        RECEIVABLES_OPENINGBANKNAME = #{receivablesOpeningbankname,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesAddr != null">
+        RECEIVABLES_ADDR = #{receivablesAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionTime != null">
+        TRANSACTION_TIME = #{transactionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null">
+        PAYMENT_STATUS = #{paymentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatusUpdateTime != null">
+        PAYMENT_STATUS_UPDATE_TIME = #{paymentStatusUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentFailReason != null">
+        PAYMENT_FAIL_REASON = #{paymentFailReason,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTicketStatus != null">
+        RETURN_TICKET_STATUS = #{returnTicketStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reconciliationcode != null">
+        RECONCILIATIONCODE = #{reconciliationcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.HaPaymentRecord">
+    update HA_PAYMENT_RECORD
+    set BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      APPLY_PERSON = #{applyPerson,jdbcType=VARCHAR},
+      APPLY_ORG = #{applyOrg,jdbcType=VARCHAR},
+      APPLY_TIME = #{applyTime,jdbcType=VARCHAR},
+      TRANSACTION_NUMBER = #{transactionNumber,jdbcType=VARCHAR},
+      PAYMENT_ACCOUNT = #{paymentAccount,jdbcType=VARCHAR},
+      PAYMENT_BANK_NAME = #{paymentBankName,jdbcType=VARCHAR},
+      PAYMENT_AMOUNT = #{paymentAmount,jdbcType=DECIMAL},
+      PAYMENT_CURRENCY = #{paymentCurrency,jdbcType=VARCHAR},
+      RECEIVABLES_ACCOUNT = #{receivablesAccount,jdbcType=VARCHAR},
+      RECEIVABLES_BANK = #{receivablesBank,jdbcType=VARCHAR},
+      RECEIVABLES_OPENINGBANKNAME = #{receivablesOpeningbankname,jdbcType=VARCHAR},
+      RECEIVABLES_ADDR = #{receivablesAddr,jdbcType=VARCHAR},
+      TRANSACTION_TIME = #{transactionTime,jdbcType=VARCHAR},
+      PAYMENT_STATUS = #{paymentStatus,jdbcType=VARCHAR},
+      PAYMENT_STATUS_UPDATE_TIME = #{paymentStatusUpdateTime,jdbcType=VARCHAR},
+      PAYMENT_FAIL_REASON = #{paymentFailReason,jdbcType=VARCHAR},
+      RETURN_TICKET_STATUS = #{returnTicketStatus,jdbcType=VARCHAR},
+      RECONCILIATIONCODE = #{reconciliationcode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectPaySucRecode" parameterType="String" resultType="cn.com.sinosafe.domain.entity.HaPaymentRecord">
+	select 
+    t.ID, t.BUSINESS_ID as id, t.BUSINESS_TYPE as businessId, t.APPLY_PERSON as applyPerson, t.APPLY_ORG as applyOrg, t.APPLY_TIME as applyTime, t.TRANSACTION_NUMBER as transactionNumber, 
+    t.PAYMENT_ACCOUNT as paymentAccount, t.PAYMENT_BANK_NAME as paymentBankName, 
+    t.payment_amount as paymentAmount, t.PAYMENT_CURRENCY as paymentCurrency, t.RECEIVABLES_ACCOUNT as receivablesAccount, 
+    t.RECEIVABLES_BANK as receivablesBank, t.RECEIVABLES_OPENINGBANKNAME as receivablesOpeningbankname, t.RECEIVABLES_ADDR as receivablesAddr, t.TRANSACTION_TIME as transactionTime, 
+    t.PAYMENT_STATUS as paymentStatus, t.PAYMENT_STATUS_UPDATE_TIME as paymentStatusUpdateTime, t.PAYMENT_FAIL_REASON as paymentFailReason, t.RETURN_TICKET_STATUS as returnTicketStatus, 
+    t.RECONCILIATIONCODE as reconciliationcode
+    from HA_PAYMENT_RECORD t, psp_claim_loan a
+    where t.payment_status = '7'
+		   and t.business_id = a.claim_serno
+		   and a.bill_no = #{billNo,jdbcType=VARCHAR}
+		   and a.claim_status = '05'
+       and t.payment_amount = #{paymentAmount,jdbcType=VARCHAR}
+		   and rownum = 1 
+  </select>
+  <select id="getPaphClaimFail" resultType="Map">
+  	select c.iqp_loan_serno,t.payment_fail_reason
+	  from HA_PAYMENT_RECORD t
+	  left join psp_claim_loan a
+	    on t.business_id = a.claim_serno
+	  left join acc_loan b
+	    on a.bill_no = b.bill_no
+	  left join lst_iqp_info c
+	    on c.list_serno = b.list_serno
+	 where
+	   	   t.payment_status in ('2','5','8','9')
+	   and c.business_source = 'PAPH'
+	   and c.iqp_loan_serno not in (select d.sent_serno from sent_status d where d.sent_type = 'PAPH_CLAIM_FAIL')
+  </select>
+</mapper>

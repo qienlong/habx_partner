@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PrjChnPrdInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PrjChnPrdInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="PRD_PK" jdbcType="VARCHAR" property="prdPk" />
+    <result column="PRD_CODE" jdbcType="VARCHAR" property="prdCode" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="REL_NO" jdbcType="VARCHAR" property="relNo" />
+    <result column="REL_TYPE" jdbcType="CHAR" property="relType" />
+    <result column="RATE_MIN" jdbcType="DECIMAL" property="rateMin" />
+    <result column="RATE_MAX" jdbcType="DECIMAL" property="rateMax" />
+    <result column="MIN_COST_RATE" jdbcType="DECIMAL" property="minCostRate" />
+    <result column="MAX_COST_RATE" jdbcType="DECIMAL" property="maxCostRate" />
+    <result column="INS_RATIO" jdbcType="DECIMAL" property="insRatio" />
+    <result column="CONT_START_DATE" jdbcType="VARCHAR" property="contStartDate" />
+    <result column="CONT_END_DATE" jdbcType="VARCHAR" property="contEndDate" />
+    <result column="PREVENT_RATE" jdbcType="DECIMAL" property="preventRate" />
+    <result column="SETTLE_SCOPE" jdbcType="VARCHAR" property="settleScope" />
+    <result column="SETTLE_TYPE" jdbcType="VARCHAR" property="settleType" />
+    <result column="SETTLE_RULE" jdbcType="VARCHAR" property="settleRule" />
+    <result column="AMOUNT_MAX" jdbcType="DECIMAL" property="amountMax" />
+    <result column="TERM" jdbcType="DECIMAL" property="term" />
+    <result column="REPAYMENT_MODE" jdbcType="VARCHAR" property="repaymentMode" />
+    <result column="LMT_TOTAL_AMT" jdbcType="DECIMAL" property="lmtTotalAmt" />
+    <result column="IS_USERD" jdbcType="VARCHAR" property="isUserd" />
+    <result column="APPLY_BR_ID" jdbcType="VARCHAR" property="applyBrId" />
+    <result column="APPLY_BR_NAME" jdbcType="VARCHAR" property="applyBrName" />
+    <result column="VALUE_CTR" jdbcType="VARCHAR" property="valueCtr" />
+    <result column="IS_UPDATE" jdbcType="VARCHAR" property="isUpdate" />
+    <result column="FIX_COST_RATE" jdbcType="DECIMAL" property="fixCostRate" />
+    <result column="FIX_RATE" jdbcType="DECIMAL" property="fixRate" />
+    <result column="MIN_TERM" jdbcType="DECIMAL" property="minTerm" />
+    <result column="MAX_TERM" jdbcType="DECIMAL" property="maxTerm" />
+    <result column="REPAY_PERCENT" jdbcType="DECIMAL" property="repayPercent" />
+    <result column="CUS_TYPE" jdbcType="VARCHAR" property="cusType" />
+    <result column="DEPART_TYPE" jdbcType="VARCHAR" property="departType" />
+    <result column="OVERDUE_TYPE" jdbcType="VARCHAR" property="overdueType" />
+    <result column="IS_SETTLE" jdbcType="VARCHAR" property="isSettle" />
+    <result column="THRESHOLD_A" jdbcType="DECIMAL" property="thresholdA" />
+    <result column="THRESHOLD_B" jdbcType="DECIMAL" property="thresholdB" />
+    <result column="COST_START_POINT" jdbcType="DECIMAL" property="costStartPoint" />
+    <result column="COST_RATE" jdbcType="DECIMAL" property="costRate" />
+    <result column="FLOAT_COST_RATE" jdbcType="DECIMAL" property="floatCostRate" />
+    <result column="SIGN_NO" jdbcType="VARCHAR" property="signNo" />
+    <result column="SPE_AGREE_STAR_DATE" jdbcType="VARCHAR" property="speAgreeStarDate" />
+    <result column="SPE_AGREE_END_DATE" jdbcType="VARCHAR" property="speAgreeEndDate" />
+    <result column="SPE_AGREE" jdbcType="VARCHAR" property="speAgree" />
+    <result column="LAST_UPD_ID" jdbcType="VARCHAR" property="lastUpdId" />
+    <result column="LAST_UPD_BR_ID" jdbcType="VARCHAR" property="lastUpdBrId" />
+    <result column="LAST_UPD_DATE" jdbcType="VARCHAR" property="lastUpdDate" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="CLAIM_COND" jdbcType="VARCHAR" property="claimCond" />
+    <result column="CLAIM_COND_DAY" jdbcType="DECIMAL" property="claimCondDay" />
+    <result column="SETTLE_PERIOD" jdbcType="DECIMAL" property="settlePeriod" />
+    <result column="BANK_NAME" jdbcType="VARCHAR" property="bankName" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="TOTAL_OVERDUE_AMT" jdbcType="DECIMAL" property="totalOverdueAmt" />
+    <result column="DIS_LOANEND_MONTH" jdbcType="DECIMAL" property="disLoanendMonth" />
+    <result column="COMPENSATE_TIMES" jdbcType="DECIMAL" property="compensateTimes" />
+    <result column="OVERDUE_TIMES" jdbcType="DECIMAL" property="overdueTimes" />
+    <result column="DUE_DAY" jdbcType="DECIMAL" property="dueDay" />
+    <result column="NEW_PRD_CODE" jdbcType="VARCHAR" property="newPrdCode" />
+    <result column="IS_CREDIT" jdbcType="VARCHAR" property="isCredit" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, PRD_PK, PRD_CODE, PRD_NAME, REL_NO, REL_TYPE, RATE_MIN, RATE_MAX, MIN_COST_RATE, 
+    MAX_COST_RATE, INS_RATIO, CONT_START_DATE, CONT_END_DATE, PREVENT_RATE, SETTLE_SCOPE, 
+    SETTLE_TYPE, SETTLE_RULE, AMOUNT_MAX, TERM, REPAYMENT_MODE, LMT_TOTAL_AMT, IS_USERD, 
+    APPLY_BR_ID, APPLY_BR_NAME, VALUE_CTR, IS_UPDATE, FIX_COST_RATE, FIX_RATE, MIN_TERM, 
+    MAX_TERM, REPAY_PERCENT, CUS_TYPE, DEPART_TYPE, OVERDUE_TYPE, IS_SETTLE, THRESHOLD_A, 
+    THRESHOLD_B, COST_START_POINT, COST_RATE, FLOAT_COST_RATE, SIGN_NO, SPE_AGREE_STAR_DATE, 
+    SPE_AGREE_END_DATE, SPE_AGREE, LAST_UPD_ID, LAST_UPD_BR_ID, LAST_UPD_DATE, INPUT_ID, 
+    INPUT_BR_ID, INPUT_DATE, CLAIM_COND, CLAIM_COND_DAY, SETTLE_PERIOD, BANK_NAME, ACCOUNT_NAME, 
+    ACCOUNT_NO, TOTAL_OVERDUE_AMT, DIS_LOANEND_MONTH, COMPENSATE_TIMES, OVERDUE_TIMES, 
+    DUE_DAY, NEW_PRD_CODE, IS_CREDIT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRJ_CHN_PRD_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRJ_CHN_PRD_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PrjChnPrdInfo">
+    insert into PRJ_CHN_PRD_INFO (PK_ID, PRD_PK, PRD_CODE, 
+      PRD_NAME, REL_NO, REL_TYPE, 
+      RATE_MIN, RATE_MAX, MIN_COST_RATE, 
+      MAX_COST_RATE, INS_RATIO, CONT_START_DATE, 
+      CONT_END_DATE, PREVENT_RATE, SETTLE_SCOPE, 
+      SETTLE_TYPE, SETTLE_RULE, AMOUNT_MAX, 
+      TERM, REPAYMENT_MODE, LMT_TOTAL_AMT, 
+      IS_USERD, APPLY_BR_ID, APPLY_BR_NAME, 
+      VALUE_CTR, IS_UPDATE, FIX_COST_RATE, 
+      FIX_RATE, MIN_TERM, MAX_TERM, 
+      REPAY_PERCENT, CUS_TYPE, DEPART_TYPE, 
+      OVERDUE_TYPE, IS_SETTLE, THRESHOLD_A, 
+      THRESHOLD_B, COST_START_POINT, COST_RATE, 
+      FLOAT_COST_RATE, SIGN_NO, SPE_AGREE_STAR_DATE, 
+      SPE_AGREE_END_DATE, SPE_AGREE, LAST_UPD_ID, 
+      LAST_UPD_BR_ID, LAST_UPD_DATE, INPUT_ID, 
+      INPUT_BR_ID, INPUT_DATE, CLAIM_COND, 
+      CLAIM_COND_DAY, SETTLE_PERIOD, BANK_NAME, 
+      ACCOUNT_NAME, ACCOUNT_NO, TOTAL_OVERDUE_AMT, 
+      DIS_LOANEND_MONTH, COMPENSATE_TIMES, OVERDUE_TIMES, 
+      DUE_DAY, NEW_PRD_CODE, IS_CREDIT
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{prdPk,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, 
+      #{prdName,jdbcType=VARCHAR}, #{relNo,jdbcType=VARCHAR}, #{relType,jdbcType=CHAR}, 
+      #{rateMin,jdbcType=DECIMAL}, #{rateMax,jdbcType=DECIMAL}, #{minCostRate,jdbcType=DECIMAL}, 
+      #{maxCostRate,jdbcType=DECIMAL}, #{insRatio,jdbcType=DECIMAL}, #{contStartDate,jdbcType=VARCHAR}, 
+      #{contEndDate,jdbcType=VARCHAR}, #{preventRate,jdbcType=DECIMAL}, #{settleScope,jdbcType=VARCHAR}, 
+      #{settleType,jdbcType=VARCHAR}, #{settleRule,jdbcType=VARCHAR}, #{amountMax,jdbcType=DECIMAL}, 
+      #{term,jdbcType=DECIMAL}, #{repaymentMode,jdbcType=VARCHAR}, #{lmtTotalAmt,jdbcType=DECIMAL}, 
+      #{isUserd,jdbcType=VARCHAR}, #{applyBrId,jdbcType=VARCHAR}, #{applyBrName,jdbcType=VARCHAR}, 
+      #{valueCtr,jdbcType=VARCHAR}, #{isUpdate,jdbcType=VARCHAR}, #{fixCostRate,jdbcType=DECIMAL}, 
+      #{fixRate,jdbcType=DECIMAL}, #{minTerm,jdbcType=DECIMAL}, #{maxTerm,jdbcType=DECIMAL}, 
+      #{repayPercent,jdbcType=DECIMAL}, #{cusType,jdbcType=VARCHAR}, #{departType,jdbcType=VARCHAR}, 
+      #{overdueType,jdbcType=VARCHAR}, #{isSettle,jdbcType=VARCHAR}, #{thresholdA,jdbcType=DECIMAL}, 
+      #{thresholdB,jdbcType=DECIMAL}, #{costStartPoint,jdbcType=DECIMAL}, #{costRate,jdbcType=DECIMAL}, 
+      #{floatCostRate,jdbcType=DECIMAL}, #{signNo,jdbcType=VARCHAR}, #{speAgreeStarDate,jdbcType=VARCHAR}, 
+      #{speAgreeEndDate,jdbcType=VARCHAR}, #{speAgree,jdbcType=VARCHAR}, #{lastUpdId,jdbcType=VARCHAR}, 
+      #{lastUpdBrId,jdbcType=VARCHAR}, #{lastUpdDate,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{claimCond,jdbcType=VARCHAR}, 
+      #{claimCondDay,jdbcType=DECIMAL}, #{settlePeriod,jdbcType=DECIMAL}, #{bankName,jdbcType=VARCHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{totalOverdueAmt,jdbcType=DECIMAL}, 
+      #{disLoanendMonth,jdbcType=DECIMAL}, #{compensateTimes,jdbcType=DECIMAL}, #{overdueTimes,jdbcType=DECIMAL}, 
+      #{dueDay,jdbcType=DECIMAL}, #{newPrdCode,jdbcType=VARCHAR}, #{isCredit,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PrjChnPrdInfo">
+    insert into PRJ_CHN_PRD_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="prdPk != null">
+        PRD_PK,
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="relNo != null">
+        REL_NO,
+      </if>
+      <if test="relType != null">
+        REL_TYPE,
+      </if>
+      <if test="rateMin != null">
+        RATE_MIN,
+      </if>
+      <if test="rateMax != null">
+        RATE_MAX,
+      </if>
+      <if test="minCostRate != null">
+        MIN_COST_RATE,
+      </if>
+      <if test="maxCostRate != null">
+        MAX_COST_RATE,
+      </if>
+      <if test="insRatio != null">
+        INS_RATIO,
+      </if>
+      <if test="contStartDate != null">
+        CONT_START_DATE,
+      </if>
+      <if test="contEndDate != null">
+        CONT_END_DATE,
+      </if>
+      <if test="preventRate != null">
+        PREVENT_RATE,
+      </if>
+      <if test="settleScope != null">
+        SETTLE_SCOPE,
+      </if>
+      <if test="settleType != null">
+        SETTLE_TYPE,
+      </if>
+      <if test="settleRule != null">
+        SETTLE_RULE,
+      </if>
+      <if test="amountMax != null">
+        AMOUNT_MAX,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE,
+      </if>
+      <if test="lmtTotalAmt != null">
+        LMT_TOTAL_AMT,
+      </if>
+      <if test="isUserd != null">
+        IS_USERD,
+      </if>
+      <if test="applyBrId != null">
+        APPLY_BR_ID,
+      </if>
+      <if test="applyBrName != null">
+        APPLY_BR_NAME,
+      </if>
+      <if test="valueCtr != null">
+        VALUE_CTR,
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE,
+      </if>
+      <if test="fixCostRate != null">
+        FIX_COST_RATE,
+      </if>
+      <if test="fixRate != null">
+        FIX_RATE,
+      </if>
+      <if test="minTerm != null">
+        MIN_TERM,
+      </if>
+      <if test="maxTerm != null">
+        MAX_TERM,
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="departType != null">
+        DEPART_TYPE,
+      </if>
+      <if test="overdueType != null">
+        OVERDUE_TYPE,
+      </if>
+      <if test="isSettle != null">
+        IS_SETTLE,
+      </if>
+      <if test="thresholdA != null">
+        THRESHOLD_A,
+      </if>
+      <if test="thresholdB != null">
+        THRESHOLD_B,
+      </if>
+      <if test="costStartPoint != null">
+        COST_START_POINT,
+      </if>
+      <if test="costRate != null">
+        COST_RATE,
+      </if>
+      <if test="floatCostRate != null">
+        FLOAT_COST_RATE,
+      </if>
+      <if test="signNo != null">
+        SIGN_NO,
+      </if>
+      <if test="speAgreeStarDate != null">
+        SPE_AGREE_STAR_DATE,
+      </if>
+      <if test="speAgreeEndDate != null">
+        SPE_AGREE_END_DATE,
+      </if>
+      <if test="speAgree != null">
+        SPE_AGREE,
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID,
+      </if>
+      <if test="lastUpdBrId != null">
+        LAST_UPD_BR_ID,
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="claimCond != null">
+        CLAIM_COND,
+      </if>
+      <if test="claimCondDay != null">
+        CLAIM_COND_DAY,
+      </if>
+      <if test="settlePeriod != null">
+        SETTLE_PERIOD,
+      </if>
+      <if test="bankName != null">
+        BANK_NAME,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO,
+      </if>
+      <if test="totalOverdueAmt != null">
+        TOTAL_OVERDUE_AMT,
+      </if>
+      <if test="disLoanendMonth != null">
+        DIS_LOANEND_MONTH,
+      </if>
+      <if test="compensateTimes != null">
+        COMPENSATE_TIMES,
+      </if>
+      <if test="overdueTimes != null">
+        OVERDUE_TIMES,
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY,
+      </if>
+      <if test="newPrdCode != null">
+        NEW_PRD_CODE,
+      </if>
+      <if test="isCredit != null">
+        IS_CREDIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="relNo != null">
+        #{relNo,jdbcType=VARCHAR},
+      </if>
+      <if test="relType != null">
+        #{relType,jdbcType=CHAR},
+      </if>
+      <if test="rateMin != null">
+        #{rateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMax != null">
+        #{rateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="minCostRate != null">
+        #{minCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxCostRate != null">
+        #{maxCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insRatio != null">
+        #{insRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="contStartDate != null">
+        #{contStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contEndDate != null">
+        #{contEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="preventRate != null">
+        #{preventRate,jdbcType=DECIMAL},
+      </if>
+      <if test="settleScope != null">
+        #{settleScope,jdbcType=VARCHAR},
+      </if>
+      <if test="settleType != null">
+        #{settleType,jdbcType=VARCHAR},
+      </if>
+      <if test="settleRule != null">
+        #{settleRule,jdbcType=VARCHAR},
+      </if>
+      <if test="amountMax != null">
+        #{amountMax,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentMode != null">
+        #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="lmtTotalAmt != null">
+        #{lmtTotalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="isUserd != null">
+        #{isUserd,jdbcType=VARCHAR},
+      </if>
+      <if test="applyBrId != null">
+        #{applyBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyBrName != null">
+        #{applyBrName,jdbcType=VARCHAR},
+      </if>
+      <if test="valueCtr != null">
+        #{valueCtr,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpdate != null">
+        #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="fixCostRate != null">
+        #{fixCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fixRate != null">
+        #{fixRate,jdbcType=DECIMAL},
+      </if>
+      <if test="minTerm != null">
+        #{minTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="maxTerm != null">
+        #{maxTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="repayPercent != null">
+        #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="departType != null">
+        #{departType,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueType != null">
+        #{overdueType,jdbcType=VARCHAR},
+      </if>
+      <if test="isSettle != null">
+        #{isSettle,jdbcType=VARCHAR},
+      </if>
+      <if test="thresholdA != null">
+        #{thresholdA,jdbcType=DECIMAL},
+      </if>
+      <if test="thresholdB != null">
+        #{thresholdB,jdbcType=DECIMAL},
+      </if>
+      <if test="costStartPoint != null">
+        #{costStartPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="costRate != null">
+        #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="floatCostRate != null">
+        #{floatCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="signNo != null">
+        #{signNo,jdbcType=VARCHAR},
+      </if>
+      <if test="speAgreeStarDate != null">
+        #{speAgreeStarDate,jdbcType=VARCHAR},
+      </if>
+      <if test="speAgreeEndDate != null">
+        #{speAgreeEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="speAgree != null">
+        #{speAgree,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdBrId != null">
+        #{lastUpdBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCond != null">
+        #{claimCond,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCondDay != null">
+        #{claimCondDay,jdbcType=DECIMAL},
+      </if>
+      <if test="settlePeriod != null">
+        #{settlePeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalOverdueAmt != null">
+        #{totalOverdueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="disLoanendMonth != null">
+        #{disLoanendMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="compensateTimes != null">
+        #{compensateTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueTimes != null">
+        #{overdueTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="dueDay != null">
+        #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="newPrdCode != null">
+        #{newPrdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isCredit != null">
+        #{isCredit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PrjChnPrdInfo">
+    update PRJ_CHN_PRD_INFO
+    <set>
+      <if test="prdPk != null">
+        PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null">
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="relNo != null">
+        REL_NO = #{relNo,jdbcType=VARCHAR},
+      </if>
+      <if test="relType != null">
+        REL_TYPE = #{relType,jdbcType=CHAR},
+      </if>
+      <if test="rateMin != null">
+        RATE_MIN = #{rateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMax != null">
+        RATE_MAX = #{rateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="minCostRate != null">
+        MIN_COST_RATE = #{minCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="maxCostRate != null">
+        MAX_COST_RATE = #{maxCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="insRatio != null">
+        INS_RATIO = #{insRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="contStartDate != null">
+        CONT_START_DATE = #{contStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contEndDate != null">
+        CONT_END_DATE = #{contEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="preventRate != null">
+        PREVENT_RATE = #{preventRate,jdbcType=DECIMAL},
+      </if>
+      <if test="settleScope != null">
+        SETTLE_SCOPE = #{settleScope,jdbcType=VARCHAR},
+      </if>
+      <if test="settleType != null">
+        SETTLE_TYPE = #{settleType,jdbcType=VARCHAR},
+      </if>
+      <if test="settleRule != null">
+        SETTLE_RULE = #{settleRule,jdbcType=VARCHAR},
+      </if>
+      <if test="amountMax != null">
+        AMOUNT_MAX = #{amountMax,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE = #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="lmtTotalAmt != null">
+        LMT_TOTAL_AMT = #{lmtTotalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="isUserd != null">
+        IS_USERD = #{isUserd,jdbcType=VARCHAR},
+      </if>
+      <if test="applyBrId != null">
+        APPLY_BR_ID = #{applyBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyBrName != null">
+        APPLY_BR_NAME = #{applyBrName,jdbcType=VARCHAR},
+      </if>
+      <if test="valueCtr != null">
+        VALUE_CTR = #{valueCtr,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="fixCostRate != null">
+        FIX_COST_RATE = #{fixCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fixRate != null">
+        FIX_RATE = #{fixRate,jdbcType=DECIMAL},
+      </if>
+      <if test="minTerm != null">
+        MIN_TERM = #{minTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="maxTerm != null">
+        MAX_TERM = #{maxTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT = #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="departType != null">
+        DEPART_TYPE = #{departType,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueType != null">
+        OVERDUE_TYPE = #{overdueType,jdbcType=VARCHAR},
+      </if>
+      <if test="isSettle != null">
+        IS_SETTLE = #{isSettle,jdbcType=VARCHAR},
+      </if>
+      <if test="thresholdA != null">
+        THRESHOLD_A = #{thresholdA,jdbcType=DECIMAL},
+      </if>
+      <if test="thresholdB != null">
+        THRESHOLD_B = #{thresholdB,jdbcType=DECIMAL},
+      </if>
+      <if test="costStartPoint != null">
+        COST_START_POINT = #{costStartPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="costRate != null">
+        COST_RATE = #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="floatCostRate != null">
+        FLOAT_COST_RATE = #{floatCostRate,jdbcType=DECIMAL},
+      </if>
+      <if test="signNo != null">
+        SIGN_NO = #{signNo,jdbcType=VARCHAR},
+      </if>
+      <if test="speAgreeStarDate != null">
+        SPE_AGREE_STAR_DATE = #{speAgreeStarDate,jdbcType=VARCHAR},
+      </if>
+      <if test="speAgreeEndDate != null">
+        SPE_AGREE_END_DATE = #{speAgreeEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="speAgree != null">
+        SPE_AGREE = #{speAgree,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdBrId != null">
+        LAST_UPD_BR_ID = #{lastUpdBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCond != null">
+        CLAIM_COND = #{claimCond,jdbcType=VARCHAR},
+      </if>
+      <if test="claimCondDay != null">
+        CLAIM_COND_DAY = #{claimCondDay,jdbcType=DECIMAL},
+      </if>
+      <if test="settlePeriod != null">
+        SETTLE_PERIOD = #{settlePeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="bankName != null">
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalOverdueAmt != null">
+        TOTAL_OVERDUE_AMT = #{totalOverdueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="disLoanendMonth != null">
+        DIS_LOANEND_MONTH = #{disLoanendMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="compensateTimes != null">
+        COMPENSATE_TIMES = #{compensateTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueTimes != null">
+        OVERDUE_TIMES = #{overdueTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY = #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="newPrdCode != null">
+        NEW_PRD_CODE = #{newPrdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isCredit != null">
+        IS_CREDIT = #{isCredit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PrjChnPrdInfo">
+    update PRJ_CHN_PRD_INFO
+    set PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      PRD_NAME = #{prdName,jdbcType=VARCHAR},
+      REL_NO = #{relNo,jdbcType=VARCHAR},
+      REL_TYPE = #{relType,jdbcType=CHAR},
+      RATE_MIN = #{rateMin,jdbcType=DECIMAL},
+      RATE_MAX = #{rateMax,jdbcType=DECIMAL},
+      MIN_COST_RATE = #{minCostRate,jdbcType=DECIMAL},
+      MAX_COST_RATE = #{maxCostRate,jdbcType=DECIMAL},
+      INS_RATIO = #{insRatio,jdbcType=DECIMAL},
+      CONT_START_DATE = #{contStartDate,jdbcType=VARCHAR},
+      CONT_END_DATE = #{contEndDate,jdbcType=VARCHAR},
+      PREVENT_RATE = #{preventRate,jdbcType=DECIMAL},
+      SETTLE_SCOPE = #{settleScope,jdbcType=VARCHAR},
+      SETTLE_TYPE = #{settleType,jdbcType=VARCHAR},
+      SETTLE_RULE = #{settleRule,jdbcType=VARCHAR},
+      AMOUNT_MAX = #{amountMax,jdbcType=DECIMAL},
+      TERM = #{term,jdbcType=DECIMAL},
+      REPAYMENT_MODE = #{repaymentMode,jdbcType=VARCHAR},
+      LMT_TOTAL_AMT = #{lmtTotalAmt,jdbcType=DECIMAL},
+      IS_USERD = #{isUserd,jdbcType=VARCHAR},
+      APPLY_BR_ID = #{applyBrId,jdbcType=VARCHAR},
+      APPLY_BR_NAME = #{applyBrName,jdbcType=VARCHAR},
+      VALUE_CTR = #{valueCtr,jdbcType=VARCHAR},
+      IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      FIX_COST_RATE = #{fixCostRate,jdbcType=DECIMAL},
+      FIX_RATE = #{fixRate,jdbcType=DECIMAL},
+      MIN_TERM = #{minTerm,jdbcType=DECIMAL},
+      MAX_TERM = #{maxTerm,jdbcType=DECIMAL},
+      REPAY_PERCENT = #{repayPercent,jdbcType=DECIMAL},
+      CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      DEPART_TYPE = #{departType,jdbcType=VARCHAR},
+      OVERDUE_TYPE = #{overdueType,jdbcType=VARCHAR},
+      IS_SETTLE = #{isSettle,jdbcType=VARCHAR},
+      THRESHOLD_A = #{thresholdA,jdbcType=DECIMAL},
+      THRESHOLD_B = #{thresholdB,jdbcType=DECIMAL},
+      COST_START_POINT = #{costStartPoint,jdbcType=DECIMAL},
+      COST_RATE = #{costRate,jdbcType=DECIMAL},
+      FLOAT_COST_RATE = #{floatCostRate,jdbcType=DECIMAL},
+      SIGN_NO = #{signNo,jdbcType=VARCHAR},
+      SPE_AGREE_STAR_DATE = #{speAgreeStarDate,jdbcType=VARCHAR},
+      SPE_AGREE_END_DATE = #{speAgreeEndDate,jdbcType=VARCHAR},
+      SPE_AGREE = #{speAgree,jdbcType=VARCHAR},
+      LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      LAST_UPD_BR_ID = #{lastUpdBrId,jdbcType=VARCHAR},
+      LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      CLAIM_COND = #{claimCond,jdbcType=VARCHAR},
+      CLAIM_COND_DAY = #{claimCondDay,jdbcType=DECIMAL},
+      SETTLE_PERIOD = #{settlePeriod,jdbcType=DECIMAL},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      TOTAL_OVERDUE_AMT = #{totalOverdueAmt,jdbcType=DECIMAL},
+      DIS_LOANEND_MONTH = #{disLoanendMonth,jdbcType=DECIMAL},
+      COMPENSATE_TIMES = #{compensateTimes,jdbcType=DECIMAL},
+      OVERDUE_TIMES = #{overdueTimes,jdbcType=DECIMAL},
+      DUE_DAY = #{dueDay,jdbcType=DECIMAL},
+      NEW_PRD_CODE = #{newPrdCode,jdbcType=VARCHAR},
+      IS_CREDIT = #{isCredit,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrjAndPrd" parameterType="String" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+  	from PRJ_CHN_PRD_INFO
+    where REL_NO = #{copNo,jdbcType=VARCHAR} and PRD_CODE = #{prdCode,jdbcType=VARCHAR}
+  </select>
+</mapper>

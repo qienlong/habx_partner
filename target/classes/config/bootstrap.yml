@@ -1,0 +1,14 @@
+spring:
+  application:
+    # 应用名称，必须唯一
+    name: 'haxb-partner'
+  profiles:
+    # 默认激活profile
+    active: uat
+
+# MyBatis
+mybatis:
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath*:mapper/**/*Mapper.xml
+
+

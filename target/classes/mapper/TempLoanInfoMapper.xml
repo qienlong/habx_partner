@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.TempLoanInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.TempLoanInfo">
+    <id column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="POLICY_NO" jdbcType="VARCHAR" property="policyNo" />
+    <result column="LN_ACCT" jdbcType="VARCHAR" property="lnAcct" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="RECOVERY_DATE" jdbcType="VARCHAR" property="recoveryDate" />
+    <result column="LN_STATE" jdbcType="VARCHAR" property="lnState" />
+    <result column="LN_OV_DATE" jdbcType="VARCHAR" property="lnOvDate" />
+    <result column="DUE_OV_DATE" jdbcType="VARCHAR" property="dueOvDate" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="BUSINESS_TYPE" jdbcType="VARCHAR" property="businessType" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="DATETIME_CREATED" jdbcType="VARCHAR" property="datetimeCreated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    UUID, POLICY_NO, LN_ACCT, APPL_NO, RECOVERY_DATE, LN_STATE, LN_OV_DATE, DUE_OV_DATE, 
+    SOURCE, BUSINESS_TYPE, CREATED_BY, DATETIME_CREATED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TEMP_LOAN_INFO
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TEMP_LOAN_INFO
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.TempLoanInfo">
+    insert into TEMP_LOAN_INFO (UUID, POLICY_NO, LN_ACCT, 
+      APPL_NO, RECOVERY_DATE, LN_STATE, 
+      LN_OV_DATE, DUE_OV_DATE, SOURCE, 
+      BUSINESS_TYPE, CREATED_BY, DATETIME_CREATED
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{lnAcct,jdbcType=VARCHAR}, 
+      #{applNo,jdbcType=VARCHAR}, #{recoveryDate,jdbcType=VARCHAR}, #{lnState,jdbcType=VARCHAR}, 
+      #{lnOvDate,jdbcType=VARCHAR}, #{dueOvDate,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{datetimeCreated,jdbcType=VARCHAR}
+      )
+  </insert>
+ <!-- <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.TempLoanInfo">
+    insert into TEMP_LOAN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="policyNo != null">
+        POLICY_NO,
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="recoveryDate != null">
+        RECOVERY_DATE,
+      </if>
+      <if test="lnState != null">
+        LN_STATE,
+      </if>
+      <if test="lnOvDate != null">
+        LN_OV_DATE,
+      </if>
+      <if test="dueOvDate != null">
+        DUE_OV_DATE,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="datetimeCreated != null">
+        DATETIME_CREATED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recoveryDate != null">
+        #{recoveryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lnState != null">
+        #{lnState,jdbcType=VARCHAR},
+      </if>
+      <if test="lnOvDate != null">
+        #{lnOvDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueOvDate != null">
+        #{dueOvDate,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="datetimeCreated != null">
+        #{datetimeCreated,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>-->
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.TempLoanInfo">
+    update TEMP_LOAN_INFO
+    <set>
+      <if test="policyNo != null">
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recoveryDate != null">
+        RECOVERY_DATE = #{recoveryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lnState != null">
+        LN_STATE = #{lnState,jdbcType=VARCHAR},
+      </if>
+      <if test="lnOvDate != null">
+        LN_OV_DATE = #{lnOvDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueOvDate != null">
+        DUE_OV_DATE = #{dueOvDate,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="datetimeCreated != null">
+        DATETIME_CREATED = #{datetimeCreated,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.TempLoanInfo">
+    update TEMP_LOAN_INFO
+    set POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      APPL_NO = #{applNo,jdbcType=VARCHAR},
+      RECOVERY_DATE = #{recoveryDate,jdbcType=VARCHAR},
+      LN_STATE = #{lnState,jdbcType=VARCHAR},
+      LN_OV_DATE = #{lnOvDate,jdbcType=VARCHAR},
+      DUE_OV_DATE = #{dueOvDate,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      DATETIME_CREATED = #{datetimeCreated,jdbcType=VARCHAR}
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+
+
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.TempLoanInfo">
+    MERGE INTO TEMP_LOAN_INFO tli
+    USING (
+    select
+    #{uuid,jdbcType=VARCHAR} 			  as UUID,
+    #{policyNo,jdbcType=VARCHAR} 		  as POLICY_NO,
+    #{lnAcct,jdbcType=VARCHAR} 			  as LN_ACCT,
+    #{applNo,jdbcType=VARCHAR} 		      as APPL_NO,
+    #{recoveryDate,jdbcType=VARCHAR} 	  as RECOVERY_DATE,
+    #{lnState,jdbcType=VARCHAR} 	      as LN_STATE,
+    #{lnOvDate,jdbcType=VARCHAR} 		  as LN_OV_DATE,
+    #{dueOvDate,jdbcType=VARCHAR} 		  as DUE_OV_DATE,
+    #{source,jdbcType=VARCHAR} 			  as SOURCE,
+    #{businessType,jdbcType=VARCHAR}      as BUSINESS_TYPE,
+    #{createdBy,jdbcType=VARCHAR} 		  as CREATED_BY,
+    #{datetimeCreated,jdbcType=VARCHAR}   as DATETIME_CREATED
+    from dual
+    ) datas
+    ON (tli.LN_ACCT = datas.LN_ACCT)
+    WHEN MATCHED THEN
+    UPDATE
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="recoveryDate != null  ">tli.RECOVERY_DATE = datas.RECOVERY_DATE,</if>
+      <if test="lnState != null  ">tli.LN_STATE = datas.LN_STATE,</if>
+      <if test="lnOvDate != null  ">tli.LN_OV_DATE = datas.LN_OV_DATE,</if>
+      <if test="dueOvDate != null  ">tli.DUE_OV_DATE = datas.DUE_OV_DATE,</if>
+      <if test="datetimeCreated != null  ">tli.DATETIME_CREATED = datas.DATETIME_CREATED</if>
+    </trim>
+    WHEN NOT MATCHED THEN
+    INSERT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null  ">UUID,</if>
+      <if test="policyNo != null  ">POLICY_NO,</if>
+      <if test="lnAcct != null  ">LN_ACCT,</if>
+      <if test="applNo != null  ">APPL_NO,</if>
+      <if test="recoveryDate != null  ">RECOVERY_DATE,</if>
+      <if test="lnState != null  ">LN_STATE,</if>
+      <if test="lnOvDate != null  ">LN_OV_DATE,</if>
+      <if test="dueOvDate != null  ">DUE_OV_DATE,</if>
+      <if test="source != null  ">SOURCE,</if>
+      <if test="businessType != null  ">BUSINESS_TYPE,</if>
+      <if test="createdBy != null  ">CREATED_BY,</if>
+      <if test="datetimeCreated != null  ">DATETIME_CREATED</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null  ">datas.UUID,</if>
+      <if test="policyNo != null  ">datas.POLICY_NO,</if>
+      <if test="lnAcct != null  ">datas.LN_ACCT,</if>
+      <if test="applNo != null  ">datas.APPL_NO,</if>
+      <if test="recoveryDate != null  ">datas.RECOVERY_DATE,</if>
+      <if test="lnState != null  ">datas.LN_STATE,</if>
+      <if test="lnOvDate != null  ">datas.LN_OV_DATE,</if>
+      <if test="dueOvDate != null  ">datas.DUE_OV_DATE,</if>
+      <if test="source != null  ">datas.SOURCE,</if>
+      <if test="businessType != null  ">datas.BUSINESS_TYPE,</if>
+      <if test="createdBy != null  ">datas.CREATED_BY,</if>
+      <if test="datetimeCreated != null  ">datas.DATETIME_CREATED</if>
+    </trim>
+  </insert>
+</mapper>

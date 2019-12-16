@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeProjectInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeProjectInfo">
+    <id column="PROJECT_ID" jdbcType="VARCHAR" property="projectId" />
+    <result column="IQP_SERNO" jdbcType="VARCHAR" property="iqpSerno" />
+    <result column="OWNER_DETAILS" jdbcType="VARCHAR" property="ownerDetails" />
+    <result column="PROJECT_SUBJECT" jdbcType="VARCHAR" property="projectSubject" />
+    <result column="PROJECT_PROPERTY" jdbcType="VARCHAR" property="projectProperty" />
+    <result column="CAPITAL_SOURCE" jdbcType="VARCHAR" property="capitalSource" />
+    <result column="TIME_LIMIT" jdbcType="VARCHAR" property="timeLimit" />
+    <result column="PROJECT_ADDRESS" jdbcType="VARCHAR" property="projectAddress" />
+    <result column="PROJECT_TYPE" jdbcType="VARCHAR" property="projectType" />
+    <result column="BID_EVALUATION" jdbcType="VARCHAR" property="bidEvaluation" />
+    <result column="BID_MODE" jdbcType="VARCHAR" property="bidMode" />
+    <result column="UPPER_LIMIT_PRICE" jdbcType="DECIMAL" property="upperLimitPrice" />
+    <result column="GET_BID_PRICE" jdbcType="DECIMAL" property="getBidPrice" />
+    <result column="GET_BID_MODE" jdbcType="VARCHAR" property="getBidMode" />
+    <result column="GET_BID_DATE" jdbcType="VARCHAR" property="getBidDate" />
+    <result column="BID_NOTICE_NUMBER" jdbcType="VARCHAR" property="bidNoticeNumber" />
+    <result column="CONTRACT_NUMBER" jdbcType="VARCHAR" property="contractNumber" />
+    <result column="GUARANTEE_NUMBER" jdbcType="VARCHAR" property="guaranteeNumber" />
+    <result column="CONTRACT_SIGN_DATE" jdbcType="VARCHAR" property="contractSignDate" />
+    <result column="CONTRACE_TAG_PRICE" jdbcType="DECIMAL" property="contraceTagPrice" />
+    <result column="P_APPROVE_NAME" jdbcType="VARCHAR" property="pApproveName" />
+    <result column="P_BID_NAME" jdbcType="VARCHAR" property="pBidName" />
+    <result column="P_BID_VALID_DATE" jdbcType="VARCHAR" property="pBidValidDate" />
+    <result column="P_BID_ASSURE_AMOUNT" jdbcType="DECIMAL" property="pBidAssureAmount" />
+    <result column="PROJECT_OPEN_DATE" jdbcType="VARCHAR" property="projectOpenDate" />
+    <result column="PROJECT_PROFILE" jdbcType="VARCHAR" property="projectProfile" />
+    <result column="FLOATED_RATE" jdbcType="DECIMAL" property="floatedRate" />
+    <result column="P_URL" jdbcType="VARCHAR" property="pUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROJECT_ID, IQP_SERNO, OWNER_DETAILS, PROJECT_SUBJECT, PROJECT_PROPERTY, CAPITAL_SOURCE, 
+    TIME_LIMIT, PROJECT_ADDRESS, PROJECT_TYPE, BID_EVALUATION, BID_MODE, UPPER_LIMIT_PRICE, 
+    GET_BID_PRICE, GET_BID_MODE, GET_BID_DATE, BID_NOTICE_NUMBER, CONTRACT_NUMBER, GUARANTEE_NUMBER, 
+    CONTRACT_SIGN_DATE, CONTRACE_TAG_PRICE, P_APPROVE_NAME, P_BID_NAME, P_BID_VALID_DATE, 
+    P_BID_ASSURE_AMOUNT, PROJECT_OPEN_DATE, PROJECT_PROFILE, FLOATED_RATE, P_URL
+  </sql>
+  <select id="selectByIqpSerno" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from IQP_ME_PROJECT_INFO
+    where IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_PROJECT_INFO
+    where PROJECT_ID = #{projectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_PROJECT_INFO
+    where PROJECT_ID = #{projectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeProjectInfo">
+    insert into IQP_ME_PROJECT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="projectId != null">
+        PROJECT_ID,
+      </if>
+      <if test="iqpSerno != null">
+        IQP_SERNO,
+      </if>
+      <if test="ownerDetails != null">
+        OWNER_DETAILS,
+      </if>
+      <if test="projectSubject != null">
+        PROJECT_SUBJECT,
+      </if>
+      <if test="projectProperty != null">
+        PROJECT_PROPERTY,
+      </if>
+      <if test="capitalSource != null">
+        CAPITAL_SOURCE,
+      </if>
+      <if test="timeLimit != null">
+        TIME_LIMIT,
+      </if>
+      <if test="projectAddress != null">
+        PROJECT_ADDRESS,
+      </if>
+      <if test="projectType != null">
+        PROJECT_TYPE,
+      </if>
+      <if test="bidEvaluation != null">
+        BID_EVALUATION,
+      </if>
+      <if test="bidMode != null">
+        BID_MODE,
+      </if>
+      <if test="upperLimitPrice != null">
+        UPPER_LIMIT_PRICE,
+      </if>
+      <if test="getBidPrice != null">
+        GET_BID_PRICE,
+      </if>
+      <if test="getBidMode != null">
+        GET_BID_MODE,
+      </if>
+      <if test="getBidDate != null">
+        GET_BID_DATE,
+      </if>
+      <if test="bidNoticeNumber != null">
+        BID_NOTICE_NUMBER,
+      </if>
+      <if test="contractNumber != null">
+        CONTRACT_NUMBER,
+      </if>
+      <if test="guaranteeNumber != null">
+        GUARANTEE_NUMBER,
+      </if>
+      <if test="contractSignDate != null">
+        CONTRACT_SIGN_DATE,
+      </if>
+      <if test="contraceTagPrice != null">
+        CONTRACE_TAG_PRICE,
+      </if>
+      <if test="pApproveName != null">
+        P_APPROVE_NAME,
+      </if>
+      <if test="pBidName != null">
+        P_BID_NAME,
+      </if>
+      <if test="pBidValidDate != null">
+        P_BID_VALID_DATE,
+      </if>
+      <if test="pBidAssureAmount != null">
+        P_BID_ASSURE_AMOUNT,
+      </if>
+      <if test="projectOpenDate != null">
+        PROJECT_OPEN_DATE,
+      </if>
+      <if test="projectProfile != null">
+        PROJECT_PROFILE,
+      </if>
+      <if test="floatedRate != null">
+        FLOATED_RATE,
+      </if>
+      <if test="pUrl != null">
+        P_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="projectId != null">
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpSerno != null">
+        #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerDetails != null">
+        #{ownerDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSubject != null">
+        #{projectSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProperty != null">
+        #{projectProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="capitalSource != null">
+        #{capitalSource,jdbcType=VARCHAR},
+      </if>
+      <if test="timeLimit != null">
+        #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAddress != null">
+        #{projectAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null">
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="bidEvaluation != null">
+        #{bidEvaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="bidMode != null">
+        #{bidMode,jdbcType=VARCHAR},
+      </if>
+      <if test="upperLimitPrice != null">
+        #{upperLimitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="getBidPrice != null">
+        #{getBidPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="getBidMode != null">
+        #{getBidMode,jdbcType=VARCHAR},
+      </if>
+      <if test="getBidDate != null">
+        #{getBidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="bidNoticeNumber != null">
+        #{bidNoticeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNumber != null">
+        #{contractNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeNumber != null">
+        #{guaranteeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contractSignDate != null">
+        #{contractSignDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contraceTagPrice != null">
+        #{contraceTagPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pApproveName != null">
+        #{pApproveName,jdbcType=VARCHAR},
+      </if>
+      <if test="pBidName != null">
+        #{pBidName,jdbcType=VARCHAR},
+      </if>
+      <if test="pBidValidDate != null">
+        #{pBidValidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="pBidAssureAmount != null">
+        #{pBidAssureAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="projectOpenDate != null">
+        #{projectOpenDate,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProfile != null">
+        #{projectProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="floatedRate != null">
+        #{floatedRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pUrl != null">
+        #{pUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeProjectInfo">
+    update IQP_ME_PROJECT_INFO
+    <set>
+      <if test="iqpSerno != null">
+        IQP_SERNO = #{iqpSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerDetails != null">
+        OWNER_DETAILS = #{ownerDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSubject != null">
+        PROJECT_SUBJECT = #{projectSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProperty != null">
+        PROJECT_PROPERTY = #{projectProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="capitalSource != null">
+        CAPITAL_SOURCE = #{capitalSource,jdbcType=VARCHAR},
+      </if>
+      <if test="timeLimit != null">
+        TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAddress != null">
+        PROJECT_ADDRESS = #{projectAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null">
+        PROJECT_TYPE = #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="bidEvaluation != null">
+        BID_EVALUATION = #{bidEvaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="bidMode != null">
+        BID_MODE = #{bidMode,jdbcType=VARCHAR},
+      </if>
+      <if test="upperLimitPrice != null">
+        UPPER_LIMIT_PRICE = #{upperLimitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="getBidPrice != null">
+        GET_BID_PRICE = #{getBidPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="getBidMode != null">
+        GET_BID_MODE = #{getBidMode,jdbcType=VARCHAR},
+      </if>
+      <if test="getBidDate != null">
+        GET_BID_DATE = #{getBidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="bidNoticeNumber != null">
+        BID_NOTICE_NUMBER = #{bidNoticeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNumber != null">
+        CONTRACT_NUMBER = #{contractNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeNumber != null">
+        GUARANTEE_NUMBER = #{guaranteeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contractSignDate != null">
+        CONTRACT_SIGN_DATE = #{contractSignDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contraceTagPrice != null">
+        CONTRACE_TAG_PRICE = #{contraceTagPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pApproveName != null">
+        P_APPROVE_NAME = #{pApproveName,jdbcType=VARCHAR},
+      </if>
+      <if test="pBidName != null">
+        P_BID_NAME = #{pBidName,jdbcType=VARCHAR},
+      </if>
+      <if test="pBidValidDate != null">
+        P_BID_VALID_DATE = #{pBidValidDate,jdbcType=VARCHAR},
+      </if>
+      <if test="pBidAssureAmount != null">
+        P_BID_ASSURE_AMOUNT = #{pBidAssureAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="projectOpenDate != null">
+        PROJECT_OPEN_DATE = #{projectOpenDate,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProfile != null">
+        PROJECT_PROFILE = #{projectProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="floatedRate != null">
+        FLOATED_RATE = #{floatedRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pUrl != null">
+        P_URL = #{pUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROJECT_ID = #{projectId,jdbcType=VARCHAR}
+  </update>
+</mapper>

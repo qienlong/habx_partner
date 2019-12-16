@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.AccMtdPlanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.AccMtdPlan">
+    <id column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <id column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="PS_DUE_DT" jdbcType="VARCHAR" property="psDueDt" />
+    <result column="PS_PRCP_AMT" jdbcType="DECIMAL" property="psPrcpAmt" />
+    <result column="PS_NORM_INT_AMT" jdbcType="DECIMAL" property="psNormIntAmt" />
+    <result column="PS_INSTM_AMT" jdbcType="DECIMAL" property="psInstmAmt" />
+    <result column="PS_INT_RATE" jdbcType="DECIMAL" property="psIntRate" />
+    <result column="FX_TYP" jdbcType="VARCHAR" property="fxTyp" />
+    <result column="PS_REAL_DT" jdbcType="VARCHAR" property="psRealDt" />
+    <result column="PS_REAL_PRCP_AMT" jdbcType="DECIMAL" property="psRealPrcpAmt" />
+    <result column="PS_REAL_INT_AMT" jdbcType="DECIMAL" property="psRealIntAmt" />
+    <result column="REPAY_FLAG" jdbcType="CHAR" property="repayFlag" />
+    <result column="PS_OD_INT_AMT" jdbcType="DECIMAL" property="psOdIntAmt" />
+    <result column="PS_COMM_OD_INT" jdbcType="DECIMAL" property="psCommOdInt" />
+    <result column="SETL_OD_INC_TAKEN" jdbcType="DECIMAL" property="setlOdIncTaken" />
+    <result column="SETL_COMM_OD_INT" jdbcType="DECIMAL" property="setlCommOdInt" />
+    <result column="OVERDUE_DATE" jdbcType="VARCHAR" property="overdueDate" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="CLAIM_INPUT_DATE" jdbcType="VARCHAR" property="claimInputDate" />
+    <result column="CLAIMED_AMOUNT" jdbcType="DECIMAL" property="claimedAmount" />
+    <result column="UPDATE_WAY" jdbcType="VARCHAR" property="updateWay" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="UPDATE_DATE" jdbcType="VARCHAR" property="updateDate" />
+    <result column="UPDATE_ID" jdbcType="VARCHAR" property="updateId" />
+    <result column="UPDATE_BR_ID" jdbcType="VARCHAR" property="updateBrId" />
+    <result column="STRIKE_SUC_DATE" jdbcType="VARCHAR" property="strikeSucDate" />
+    <result column="STRIKE_OPER" jdbcType="VARCHAR" property="strikeOper" />
+    <result column="ABSTRACT" jdbcType="VARCHAR" property="abstract_" />
+    <result column="PAID_CAPITAL" jdbcType="DECIMAL" property="paidCapital" />
+    <result column="PAID_INT_AMT" jdbcType="DECIMAL" property="paidIntAmt" />
+    <result column="PAID_INC_TAKEN" jdbcType="DECIMAL" property="paidIncTaken" />
+    <result column="PAID_COMM_OD_INT" jdbcType="DECIMAL" property="paidCommOdInt" />
+    <result column="PAID_ESTIM_INC_TAKEN" jdbcType="DECIMAL" property="paidEstimIncTaken" />
+    <result column="CALCU_LATEFEE_DATE" jdbcType="VARCHAR" property="calcuLatefeeDate" />
+    <result column="LATE_FEE" jdbcType="DECIMAL" property="lateFee" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="OVER_DAYS" jdbcType="DECIMAL" property="overDays" />
+    <result column="OVER_AMOUNT" jdbcType="DECIMAL" property="overAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BILL_NO, PS_PERD_NO, PS_DUE_DT, PS_PRCP_AMT, PS_NORM_INT_AMT, PS_INSTM_AMT, PS_INT_RATE, 
+    FX_TYP, PS_REAL_DT, PS_REAL_PRCP_AMT, PS_REAL_INT_AMT, REPAY_FLAG, PS_OD_INT_AMT, 
+    PS_COMM_OD_INT, SETL_OD_INC_TAKEN, SETL_COMM_OD_INT, OVERDUE_DATE, INPUT_TIME, CLAIM_INPUT_DATE, 
+    CLAIMED_AMOUNT, UPDATE_WAY, INPUT_DATE, INPUT_ID, INPUT_BR_ID, UPDATE_DATE, UPDATE_ID, 
+    UPDATE_BR_ID, STRIKE_SUC_DATE, STRIKE_OPER, ABSTRACT, PAID_CAPITAL, PAID_INT_AMT, 
+    PAID_INC_TAKEN, PAID_COMM_OD_INT, PAID_ESTIM_INC_TAKEN, CALCU_LATEFEE_DATE, LATE_FEE, 
+    REMARK, OVER_DAYS, OVER_AMOUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlanKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ACC_MTD_PLAN
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlanKey">
+    delete from ACC_MTD_PLAN
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+    <if test="psPerdNo != null">
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlan">
+    insert into ACC_MTD_PLAN (BILL_NO, PS_PERD_NO, PS_DUE_DT, 
+      PS_PRCP_AMT, PS_NORM_INT_AMT, PS_INSTM_AMT, 
+      PS_INT_RATE, FX_TYP, PS_REAL_DT, 
+      PS_REAL_PRCP_AMT, PS_REAL_INT_AMT, REPAY_FLAG, 
+      PS_OD_INT_AMT, PS_COMM_OD_INT, SETL_OD_INC_TAKEN, 
+      SETL_COMM_OD_INT, OVERDUE_DATE, INPUT_TIME, 
+      CLAIM_INPUT_DATE, CLAIMED_AMOUNT, UPDATE_WAY, 
+      INPUT_DATE, INPUT_ID, INPUT_BR_ID, 
+      UPDATE_DATE, UPDATE_ID, UPDATE_BR_ID, 
+      STRIKE_SUC_DATE, STRIKE_OPER, ABSTRACT, 
+      PAID_CAPITAL, PAID_INT_AMT, PAID_INC_TAKEN, 
+      PAID_COMM_OD_INT, PAID_ESTIM_INC_TAKEN, CALCU_LATEFEE_DATE, 
+      LATE_FEE, REMARK, OVER_DAYS, 
+      OVER_AMOUNT)
+    values (#{billNo,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=DECIMAL}, #{psDueDt,jdbcType=VARCHAR}, 
+      #{psPrcpAmt,jdbcType=DECIMAL}, #{psNormIntAmt,jdbcType=DECIMAL}, #{psInstmAmt,jdbcType=DECIMAL}, 
+      #{psIntRate,jdbcType=DECIMAL}, #{fxTyp,jdbcType=VARCHAR}, #{psRealDt,jdbcType=VARCHAR}, 
+      #{psRealPrcpAmt,jdbcType=DECIMAL}, #{psRealIntAmt,jdbcType=DECIMAL}, #{repayFlag,jdbcType=CHAR}, 
+      #{psOdIntAmt,jdbcType=DECIMAL}, #{psCommOdInt,jdbcType=DECIMAL}, #{setlOdIncTaken,jdbcType=DECIMAL}, 
+      #{setlCommOdInt,jdbcType=DECIMAL}, #{overdueDate,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, 
+      #{claimInputDate,jdbcType=VARCHAR}, #{claimedAmount,jdbcType=DECIMAL}, #{updateWay,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR}, #{updateBrId,jdbcType=VARCHAR}, 
+      #{strikeSucDate,jdbcType=VARCHAR}, #{strikeOper,jdbcType=VARCHAR}, #{abstract_,jdbcType=VARCHAR}, 
+      #{paidCapital,jdbcType=DECIMAL}, #{paidIntAmt,jdbcType=DECIMAL}, #{paidIncTaken,jdbcType=DECIMAL}, 
+      #{paidCommOdInt,jdbcType=DECIMAL}, #{paidEstimIncTaken,jdbcType=DECIMAL}, #{calcuLatefeeDate,jdbcType=VARCHAR}, 
+      #{lateFee,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{overDays,jdbcType=DECIMAL}, 
+      #{overAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlan">
+    insert into ACC_MTD_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="psDueDt != null">
+        PS_DUE_DT,
+      </if>
+      <if test="psPrcpAmt != null">
+        PS_PRCP_AMT,
+      </if>
+      <if test="psNormIntAmt != null">
+        PS_NORM_INT_AMT,
+      </if>
+      <if test="psInstmAmt != null">
+        PS_INSTM_AMT,
+      </if>
+      <if test="psIntRate != null">
+        PS_INT_RATE,
+      </if>
+      <if test="fxTyp != null">
+        FX_TYP,
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT,
+      </if>
+      <if test="psRealPrcpAmt != null">
+        PS_REAL_PRCP_AMT,
+      </if>
+      <if test="psRealIntAmt != null">
+        PS_REAL_INT_AMT,
+      </if>
+      <if test="repayFlag != null">
+        REPAY_FLAG,
+      </if>
+      <if test="psOdIntAmt != null">
+        PS_OD_INT_AMT,
+      </if>
+      <if test="psCommOdInt != null">
+        PS_COMM_OD_INT,
+      </if>
+      <if test="setlOdIncTaken != null">
+        SETL_OD_INC_TAKEN,
+      </if>
+      <if test="setlCommOdInt != null">
+        SETL_COMM_OD_INT,
+      </if>
+      <if test="overdueDate != null">
+        OVERDUE_DATE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="claimInputDate != null">
+        CLAIM_INPUT_DATE,
+      </if>
+      <if test="claimedAmount != null">
+        CLAIMED_AMOUNT,
+      </if>
+      <if test="updateWay != null">
+        UPDATE_WAY,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateId != null">
+        UPDATE_ID,
+      </if>
+      <if test="updateBrId != null">
+        UPDATE_BR_ID,
+      </if>
+      <if test="strikeSucDate != null">
+        STRIKE_SUC_DATE,
+      </if>
+      <if test="strikeOper != null">
+        STRIKE_OPER,
+      </if>
+      <if test="abstract_ != null">
+        ABSTRACT,
+      </if>
+      <if test="paidCapital != null">
+        PAID_CAPITAL,
+      </if>
+      <if test="paidIntAmt != null">
+        PAID_INT_AMT,
+      </if>
+      <if test="paidIncTaken != null">
+        PAID_INC_TAKEN,
+      </if>
+      <if test="paidCommOdInt != null">
+        PAID_COMM_OD_INT,
+      </if>
+      <if test="paidEstimIncTaken != null">
+        PAID_ESTIM_INC_TAKEN,
+      </if>
+      <if test="calcuLatefeeDate != null">
+        CALCU_LATEFEE_DATE,
+      </if>
+      <if test="lateFee != null">
+        LATE_FEE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="overDays != null">
+        OVER_DAYS,
+      </if>
+      <if test="overAmount != null">
+        OVER_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="psDueDt != null">
+        #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psPrcpAmt != null">
+        #{psPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psNormIntAmt != null">
+        #{psNormIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psInstmAmt != null">
+        #{psInstmAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psIntRate != null">
+        #{psIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fxTyp != null">
+        #{fxTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealDt != null">
+        #{psRealDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealPrcpAmt != null">
+        #{psRealPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealIntAmt != null">
+        #{psRealIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayFlag != null">
+        #{repayFlag,jdbcType=CHAR},
+      </if>
+      <if test="psOdIntAmt != null">
+        #{psOdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psCommOdInt != null">
+        #{psCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlOdIncTaken != null">
+        #{setlOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="setlCommOdInt != null">
+        #{setlCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueDate != null">
+        #{overdueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInputDate != null">
+        #{claimInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimedAmount != null">
+        #{claimedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="updateWay != null">
+        #{updateWay,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateId != null">
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBrId != null">
+        #{updateBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="strikeSucDate != null">
+        #{strikeSucDate,jdbcType=VARCHAR},
+      </if>
+      <if test="strikeOper != null">
+        #{strikeOper,jdbcType=VARCHAR},
+      </if>
+      <if test="abstract_ != null">
+        #{abstract_,jdbcType=VARCHAR},
+      </if>
+      <if test="paidCapital != null">
+        #{paidCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="paidIntAmt != null">
+        #{paidIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidIncTaken != null">
+        #{paidIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="paidCommOdInt != null">
+        #{paidCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidEstimIncTaken != null">
+        #{paidEstimIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="calcuLatefeeDate != null">
+        #{calcuLatefeeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lateFee != null">
+        #{lateFee,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="overDays != null">
+        #{overDays,jdbcType=DECIMAL},
+      </if>
+      <if test="overAmount != null">
+        #{overAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlan">
+    update ACC_MTD_PLAN
+    <set>
+      <if test="psDueDt != null">
+        PS_DUE_DT = #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psPrcpAmt != null">
+        PS_PRCP_AMT = #{psPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psNormIntAmt != null">
+        PS_NORM_INT_AMT = #{psNormIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psInstmAmt != null">
+        PS_INSTM_AMT = #{psInstmAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psIntRate != null">
+        PS_INT_RATE = #{psIntRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fxTyp != null">
+        FX_TYP = #{fxTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT = #{psRealDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealPrcpAmt != null">
+        PS_REAL_PRCP_AMT = #{psRealPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealIntAmt != null">
+        PS_REAL_INT_AMT = #{psRealIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayFlag != null">
+        REPAY_FLAG = #{repayFlag,jdbcType=CHAR},
+      </if>
+      <if test="psOdIntAmt != null">
+        PS_OD_INT_AMT = #{psOdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psCommOdInt != null">
+        PS_COMM_OD_INT = #{psCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlOdIncTaken != null">
+        SETL_OD_INC_TAKEN = #{setlOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="setlCommOdInt != null">
+        SETL_COMM_OD_INT = #{setlCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueDate != null">
+        OVERDUE_DATE = #{overdueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInputDate != null">
+        CLAIM_INPUT_DATE = #{claimInputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimedAmount != null">
+        CLAIMED_AMOUNT = #{claimedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="updateWay != null">
+        UPDATE_WAY = #{updateWay,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateId != null">
+        UPDATE_ID = #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBrId != null">
+        UPDATE_BR_ID = #{updateBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="strikeSucDate != null">
+        STRIKE_SUC_DATE = #{strikeSucDate,jdbcType=VARCHAR},
+      </if>
+      <if test="strikeOper != null">
+        STRIKE_OPER = #{strikeOper,jdbcType=VARCHAR},
+      </if>
+      <if test="abstract_ != null">
+        ABSTRACT = #{abstract_,jdbcType=VARCHAR},
+      </if>
+      <if test="paidCapital != null">
+        PAID_CAPITAL = #{paidCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="paidIntAmt != null">
+        PAID_INT_AMT = #{paidIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidIncTaken != null">
+        PAID_INC_TAKEN = #{paidIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="paidCommOdInt != null">
+        PAID_COMM_OD_INT = #{paidCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="paidEstimIncTaken != null">
+        PAID_ESTIM_INC_TAKEN = #{paidEstimIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="calcuLatefeeDate != null">
+        CALCU_LATEFEE_DATE = #{calcuLatefeeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lateFee != null">
+        LATE_FEE = #{lateFee,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="overDays != null">
+        OVER_DAYS = #{overDays,jdbcType=DECIMAL},
+      </if>
+      <if test="overAmount != null">
+        OVER_AMOUNT = #{overAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlan">
+    update ACC_MTD_PLAN
+    set PS_DUE_DT = #{psDueDt,jdbcType=VARCHAR},
+      PS_PRCP_AMT = #{psPrcpAmt,jdbcType=DECIMAL},
+      PS_NORM_INT_AMT = #{psNormIntAmt,jdbcType=DECIMAL},
+      PS_INSTM_AMT = #{psInstmAmt,jdbcType=DECIMAL},
+      PS_INT_RATE = #{psIntRate,jdbcType=DECIMAL},
+      FX_TYP = #{fxTyp,jdbcType=VARCHAR},
+      PS_REAL_DT = #{psRealDt,jdbcType=VARCHAR},
+      PS_REAL_PRCP_AMT = #{psRealPrcpAmt,jdbcType=DECIMAL},
+      PS_REAL_INT_AMT = #{psRealIntAmt,jdbcType=DECIMAL},
+      REPAY_FLAG = #{repayFlag,jdbcType=CHAR},
+      PS_OD_INT_AMT = #{psOdIntAmt,jdbcType=DECIMAL},
+      PS_COMM_OD_INT = #{psCommOdInt,jdbcType=DECIMAL},
+      SETL_OD_INC_TAKEN = #{setlOdIncTaken,jdbcType=DECIMAL},
+      SETL_COMM_OD_INT = #{setlCommOdInt,jdbcType=DECIMAL},
+      OVERDUE_DATE = #{overdueDate,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      CLAIM_INPUT_DATE = #{claimInputDate,jdbcType=VARCHAR},
+      CLAIMED_AMOUNT = #{claimedAmount,jdbcType=DECIMAL},
+      UPDATE_WAY = #{updateWay,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      UPDATE_ID = #{updateId,jdbcType=VARCHAR},
+      UPDATE_BR_ID = #{updateBrId,jdbcType=VARCHAR},
+      STRIKE_SUC_DATE = #{strikeSucDate,jdbcType=VARCHAR},
+      STRIKE_OPER = #{strikeOper,jdbcType=VARCHAR},
+      ABSTRACT = #{abstract_,jdbcType=VARCHAR},
+      PAID_CAPITAL = #{paidCapital,jdbcType=DECIMAL},
+      PAID_INT_AMT = #{paidIntAmt,jdbcType=DECIMAL},
+      PAID_INC_TAKEN = #{paidIncTaken,jdbcType=DECIMAL},
+      PAID_COMM_OD_INT = #{paidCommOdInt,jdbcType=DECIMAL},
+      PAID_ESTIM_INC_TAKEN = #{paidEstimIncTaken,jdbcType=DECIMAL},
+      CALCU_LATEFEE_DATE = #{calcuLatefeeDate,jdbcType=VARCHAR},
+      LATE_FEE = #{lateFee,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      OVER_DAYS = #{overDays,jdbcType=DECIMAL},
+      OVER_AMOUNT = #{overAmount,jdbcType=DECIMAL}
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </update>
+    <delete id="deleteAllByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccMtdPlan">
+    delete from ACC_MTD_PLAN
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+      and PS_PERD_NO > #{psPerdNo,jdbcType=DECIMAL}
+  </delete>
+  	<update id="updateAccMtdPlanByPrimaryKey" parameterType="Map">
+		update ACC_MTD_PLAN acc
+		   set (ps_real_dt,
+		        ps_od_int_amt,
+		        ps_comm_od_int,
+		        ps_real_prcp_amt,
+		        ps_real_int_amt,
+		        ps_instm_amt,
+		        setl_od_inc_taken,
+		        setl_comm_od_int) =
+		       (select max(ps_real_dt),
+		               max(ps_od_int_amt),
+		               max(ps_comm_od_int),
+		               sum(ps_real_prcp_amt),
+		               sum(ps_real_int_amt),
+		               acc.ps_norm_int_amt + acc.ps_prcp_amt,
+		               sum(setl_od_inc_taken),
+		               sum(setl_comm_od_int)
+		          from acc_mtd_ps_note aa
+		         where acc.bill_no = aa.bill_no
+		           and acc.ps_perd_no = aa.ps_perd_no)
+		 where exists (select 1
+		          from acc_mtd_ps_note amp
+		         where acc.bill_no = amp.bill_no
+		           and acc.ps_perd_no = amp.ps_perd_no)
+		   and acc.bill_no = #{billNo,jdbcType=VARCHAR} and acc.ps_perd_no=#{psPerdNo,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateAccMtdPlanStateByPrimaryKey" parameterType="Map">
+	<![CDATA[			
+		update acc_mtd_plan accp
+		   set accp.repay_flag =
+		       (select case
+		                 when (acc.ps_real_prcp_amt + acc.ps_real_int_amt) >= (acc.ps_prcp_amt + acc.ps_norm_int_amt) then
+		                  case
+		                    when hasClaimRepay(bill_no, ps_perd_no) = 'yes' then '21'
+		                    when acc.ps_real_dt <= nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) then '10'
+		                    when acc.ps_real_dt > nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) then '21'
+		                  end
+		                 else
+		                  case
+		                    when ps_real_dt is null and nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) >= to_char(sysdate, 'yyyy-mm-dd') then  '00'
+		                    when ps_real_dt is not null and  nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) >=  to_char(sysdate, 'yyyy-mm-dd') then  '10'
+		                    when nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) < to_char(sysdate, 'yyyy-mm-dd') then  '20'
+		                  end
+		               end as repay_flag
+		          from acc_mtd_plan acc
+		         where acc.bill_no = accp.bill_no
+		           and acc.ps_perd_no = accp.ps_perd_no)
+		 where accp.bill_no = #{billNo,jdbcType=VARCHAR} and accp.ps_perd_no=#{psPerdNo,jdbcType=VARCHAR}
+	    ]]> 	
+	</update>
+	
+	<insert id="insertBatch" parameterType="Map">
+		insert into ACC_MTD_PLAN (BILL_NO, PS_PERD_NO, PS_DUE_DT,
+		PS_PRCP_AMT, PS_NORM_INT_AMT, PS_INSTM_AMT,
+		PS_INT_RATE, FX_TYP, PS_REAL_DT,
+		PS_REAL_PRCP_AMT, PS_REAL_INT_AMT, REPAY_FLAG,
+		PS_OD_INT_AMT, PS_COMM_OD_INT, SETL_OD_INC_TAKEN,
+		SETL_COMM_OD_INT, OVERDUE_DATE, INPUT_TIME,
+		CLAIM_INPUT_DATE, CLAIMED_AMOUNT, UPDATE_WAY,
+		INPUT_DATE, INPUT_ID, INPUT_BR_ID,
+		UPDATE_DATE, UPDATE_ID, UPDATE_BR_ID,
+		STRIKE_SUC_DATE, STRIKE_OPER, ABSTRACT,
+		PAID_CAPITAL, PAID_INT_AMT, PAID_INC_TAKEN,
+		PAID_COMM_OD_INT, PAID_ESTIM_INC_TAKEN, CALCU_LATEFEE_DATE,
+		LATE_FEE, REMARK, OVER_DAYS,
+		OVER_AMOUNT)
+		
+		<foreach collection="accMtdPlans" item="a" separator="union all">
+			SELECT
+			#{a.billNo,jdbcType=VARCHAR}, #{a.psPerdNo,jdbcType=DECIMAL},
+			#{a.psDueDt,jdbcType=VARCHAR},
+			#{a.psPrcpAmt,jdbcType=DECIMAL}, #{a.psNormIntAmt,jdbcType=DECIMAL}, #{a.psInstmAmt,jdbcType=DECIMAL},
+			#{a.psIntRate,jdbcType=DECIMAL}, #{a.fxTyp,jdbcType=VARCHAR},
+			#{a.psRealDt,jdbcType=VARCHAR},
+			#{a.psRealPrcpAmt,jdbcType=DECIMAL}, #{a.psRealIntAmt,jdbcType=DECIMAL}, #{a.repayFlag,jdbcType=CHAR},
+			#{a.psOdIntAmt,jdbcType=DECIMAL}, #{a.psCommOdInt,jdbcType=DECIMAL},
+			#{a.setlOdIncTaken,jdbcType=DECIMAL},
+			#{a.setlCommOdInt,jdbcType=DECIMAL}, #{a.overdueDate,jdbcType=VARCHAR}, #{a.inputTime,jdbcType=VARCHAR},
+			#{a.claimInputDate,jdbcType=VARCHAR}, #{a.claimedAmount,jdbcType=DECIMAL},
+			#{a.updateWay,jdbcType=VARCHAR},
+			#{a.inputDate,jdbcType=VARCHAR}, #{a.inputId,jdbcType=VARCHAR}, #{a.inputBrId,jdbcType=VARCHAR},
+			#{a.updateDate,jdbcType=VARCHAR}, #{a.updateId,jdbcType=VARCHAR},
+			#{a.updateBrId,jdbcType=VARCHAR},
+			#{a.strikeSucDate,jdbcType=VARCHAR}, #{a.strikeOper,jdbcType=VARCHAR}, #{a.abstract_,jdbcType=VARCHAR},
+			#{a.paidCapital,jdbcType=DECIMAL}, #{a.paidIntAmt,jdbcType=DECIMAL},
+			#{a.paidIncTaken,jdbcType=DECIMAL},
+			#{a.paidCommOdInt,jdbcType=DECIMAL}, #{a.paidEstimIncTaken,jdbcType=DECIMAL},
+			#{a.calcuLatefeeDate,jdbcType=VARCHAR},
+			#{a.lateFee,jdbcType=DECIMAL}, #{a.remark,jdbcType=VARCHAR}, #{a.overDays,jdbcType=DECIMAL},
+			#{a.overAmount,jdbcType=DECIMAL}
+			FROM
+			DUAL
+		</foreach>
+		
+	</insert>
+</mapper>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.RuleResultInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.RuleResultInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="RTN_CODE" jdbcType="VARCHAR" property="rtnCode" />
+    <result column="LOAN_AMT" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="OPER_TIME" jdbcType="VARCHAR" property="operTime" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="IS_BLACK_CUS" jdbcType="VARCHAR" property="isBlackCus" />
+    <result column="RULE_RTN_CODE" jdbcType="VARCHAR" property="ruleRtnCode" />
+    <result column="TERM" jdbcType="DECIMAL" property="term" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="IS_PAY_FEE" jdbcType="VARCHAR" property="isPayFee" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="APPROVE_REPAYMODE" jdbcType="VARCHAR" property="approveRepaymode" />
+    <result column="APPROVE_TERM_TIME_TYPE" jdbcType="VARCHAR" property="approveTermTimeType" />
+    <result column="COST_RATE" jdbcType="DECIMAL" property="costRate" />
+    <result column="GROSS_RATE" jdbcType="DECIMAL" property="grossRate" />
+    <result column="CUS_LEVEL" jdbcType="VARCHAR" property="cusLevel" />
+    <result column="FLOW_LEVEL" jdbcType="VARCHAR" property="flowLevel" />
+    <result column="ERR_MSG" jdbcType="CLOB" property="errMsg" />
+    <result column="DETAIL_MSG" jdbcType="CLOB" property="detailMsg" />
+    <result column="PERSON_MSG" jdbcType="CLOB" property="personMsg" />
+    <result column="BLACK_REASON" jdbcType="CLOB" property="blackReason" />
+    <result column="PASS_MSG" jdbcType="CLOB" property="passMsg" />
+    <result column="COP_NAME_LIST" jdbcType="CLOB" property="copNameList" />
+    <result column="REPAYMENT_MODE_LIST" jdbcType="CLOB" property="repaymentModeList" />
+    <result column="RULE_JSON" jdbcType="CLOB" property="ruleJson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, SERNO, RTN_CODE, LOAN_AMT, OPER_TIME, FLAG, IS_BLACK_CUS, RULE_RTN_CODE, TERM, 
+    RATE, IS_PAY_FEE, COP_NO, APPROVE_REPAYMODE, APPROVE_TERM_TIME_TYPE, COST_RATE, GROSS_RATE, 
+    CUS_LEVEL, FLOW_LEVEL,
+    ERR_MSG, DETAIL_MSG, PERSON_MSG, BLACK_REASON, PASS_MSG, COP_NAME_LIST, REPAYMENT_MODE_LIST, 
+    RULE_JSON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RULE_RESULT_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RULE_RESULT_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.RuleResultInfo">
+    insert into RULE_RESULT_INFO (PK_ID, SERNO, RTN_CODE, 
+      LOAN_AMT, OPER_TIME, FLAG, 
+      IS_BLACK_CUS, RULE_RTN_CODE, TERM, 
+      RATE, IS_PAY_FEE, COP_NO, 
+      APPROVE_REPAYMODE, APPROVE_TERM_TIME_TYPE, 
+      COST_RATE, GROSS_RATE, CUS_LEVEL, 
+      FLOW_LEVEL, ERR_MSG, DETAIL_MSG, 
+      PERSON_MSG, BLACK_REASON, PASS_MSG, 
+      COP_NAME_LIST, REPAYMENT_MODE_LIST, RULE_JSON
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{rtnCode,jdbcType=VARCHAR}, 
+      #{loanAmt,jdbcType=DECIMAL}, #{operTime,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
+      #{isBlackCus,jdbcType=VARCHAR}, #{ruleRtnCode,jdbcType=VARCHAR}, #{term,jdbcType=DECIMAL}, 
+      #{rate,jdbcType=DECIMAL}, #{isPayFee,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, 
+      #{approveRepaymode,jdbcType=VARCHAR}, #{approveTermTimeType,jdbcType=VARCHAR}, 
+      #{costRate,jdbcType=DECIMAL}, #{grossRate,jdbcType=DECIMAL}, #{cusLevel,jdbcType=VARCHAR}, 
+      #{flowLevel,jdbcType=VARCHAR}, #{errMsg,jdbcType=CLOB}, #{detailMsg,jdbcType=CLOB}, 
+      #{personMsg,jdbcType=CLOB}, #{blackReason,jdbcType=CLOB}, #{passMsg,jdbcType=CLOB}, 
+      #{copNameList,jdbcType=CLOB}, #{repaymentModeList,jdbcType=CLOB}, #{ruleJson,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.RuleResultInfo">
+    insert into RULE_RESULT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="rtnCode != null">
+        RTN_CODE,
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT,
+      </if>
+      <if test="operTime != null">
+        OPER_TIME,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="isBlackCus != null">
+        IS_BLACK_CUS,
+      </if>
+      <if test="ruleRtnCode != null">
+        RULE_RTN_CODE,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="isPayFee != null">
+        IS_PAY_FEE,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="approveRepaymode != null">
+        APPROVE_REPAYMODE,
+      </if>
+      <if test="approveTermTimeType != null">
+        APPROVE_TERM_TIME_TYPE,
+      </if>
+      <if test="costRate != null">
+        COST_RATE,
+      </if>
+      <if test="grossRate != null">
+        GROSS_RATE,
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL,
+      </if>
+      <if test="flowLevel != null">
+        FLOW_LEVEL,
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG,
+      </if>
+      <if test="detailMsg != null">
+        DETAIL_MSG,
+      </if>
+      <if test="personMsg != null">
+        PERSON_MSG,
+      </if>
+      <if test="blackReason != null">
+        BLACK_REASON,
+      </if>
+      <if test="passMsg != null">
+        PASS_MSG,
+      </if>
+      <if test="copNameList != null">
+        COP_NAME_LIST,
+      </if>
+      <if test="repaymentModeList != null">
+        REPAYMENT_MODE_LIST,
+      </if>
+      <if test="ruleJson != null">
+        RULE_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="rtnCode != null">
+        #{rtnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="operTime != null">
+        #{operTime,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="isBlackCus != null">
+        #{isBlackCus,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleRtnCode != null">
+        #{ruleRtnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="isPayFee != null">
+        #{isPayFee,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepaymode != null">
+        #{approveRepaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermTimeType != null">
+        #{approveTermTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="grossRate != null">
+        #{grossRate,jdbcType=DECIMAL},
+      </if>
+      <if test="cusLevel != null">
+        #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="flowLevel != null">
+        #{flowLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        #{errMsg,jdbcType=CLOB},
+      </if>
+      <if test="detailMsg != null">
+        #{detailMsg,jdbcType=CLOB},
+      </if>
+      <if test="personMsg != null">
+        #{personMsg,jdbcType=CLOB},
+      </if>
+      <if test="blackReason != null">
+        #{blackReason,jdbcType=CLOB},
+      </if>
+      <if test="passMsg != null">
+        #{passMsg,jdbcType=CLOB},
+      </if>
+      <if test="copNameList != null">
+        #{copNameList,jdbcType=CLOB},
+      </if>
+      <if test="repaymentModeList != null">
+        #{repaymentModeList,jdbcType=CLOB},
+      </if>
+      <if test="ruleJson != null">
+        #{ruleJson,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.RuleResultInfo">
+    update RULE_RESULT_INFO
+    <set>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="rtnCode != null">
+        RTN_CODE = #{rtnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        LOAN_AMT = #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="operTime != null">
+        OPER_TIME = #{operTime,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="isBlackCus != null">
+        IS_BLACK_CUS = #{isBlackCus,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleRtnCode != null">
+        RULE_RTN_CODE = #{ruleRtnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="isPayFee != null">
+        IS_PAY_FEE = #{isPayFee,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepaymode != null">
+        APPROVE_REPAYMODE = #{approveRepaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermTimeType != null">
+        APPROVE_TERM_TIME_TYPE = #{approveTermTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        COST_RATE = #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="grossRate != null">
+        GROSS_RATE = #{grossRate,jdbcType=DECIMAL},
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="flowLevel != null">
+        FLOW_LEVEL = #{flowLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG = #{errMsg,jdbcType=CLOB},
+      </if>
+      <if test="detailMsg != null">
+        DETAIL_MSG = #{detailMsg,jdbcType=CLOB},
+      </if>
+      <if test="personMsg != null">
+        PERSON_MSG = #{personMsg,jdbcType=CLOB},
+      </if>
+      <if test="blackReason != null">
+        BLACK_REASON = #{blackReason,jdbcType=CLOB},
+      </if>
+      <if test="passMsg != null">
+        PASS_MSG = #{passMsg,jdbcType=CLOB},
+      </if>
+      <if test="copNameList != null">
+        COP_NAME_LIST = #{copNameList,jdbcType=CLOB},
+      </if>
+      <if test="repaymentModeList != null">
+        REPAYMENT_MODE_LIST = #{repaymentModeList,jdbcType=CLOB},
+      </if>
+      <if test="ruleJson != null">
+        RULE_JSON = #{ruleJson,jdbcType=CLOB},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.RuleResultInfo">
+    update RULE_RESULT_INFO
+    set SERNO = #{serno,jdbcType=VARCHAR},
+      RTN_CODE = #{rtnCode,jdbcType=VARCHAR},
+      LOAN_AMT = #{loanAmt,jdbcType=DECIMAL},
+      OPER_TIME = #{operTime,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      IS_BLACK_CUS = #{isBlackCus,jdbcType=VARCHAR},
+      RULE_RTN_CODE = #{ruleRtnCode,jdbcType=VARCHAR},
+      TERM = #{term,jdbcType=DECIMAL},
+      RATE = #{rate,jdbcType=DECIMAL},
+      IS_PAY_FEE = #{isPayFee,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      APPROVE_REPAYMODE = #{approveRepaymode,jdbcType=VARCHAR},
+      APPROVE_TERM_TIME_TYPE = #{approveTermTimeType,jdbcType=VARCHAR},
+      COST_RATE = #{costRate,jdbcType=DECIMAL},
+      GROSS_RATE = #{grossRate,jdbcType=DECIMAL},
+      CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      FLOW_LEVEL = #{flowLevel,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=CLOB},
+      DETAIL_MSG = #{detailMsg,jdbcType=CLOB},
+      PERSON_MSG = #{personMsg,jdbcType=CLOB},
+      BLACK_REASON = #{blackReason,jdbcType=CLOB},
+      PASS_MSG = #{passMsg,jdbcType=CLOB},
+      COP_NAME_LIST = #{copNameList,jdbcType=CLOB},
+      REPAYMENT_MODE_LIST = #{repaymentModeList,jdbcType=CLOB},
+      RULE_JSON = #{ruleJson,jdbcType=CLOB}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <delete id="deleteBySernoAndFlag" parameterType="Map">
+  	delete from rule_result_info
+  	where serno = #{serno,jdbcType=VARCHAR}
+  	and 
+  	<choose>
+  		<when test="flag != null">
+  			FLAG = #{flag,jdbcType=VARCHAR}
+  		</when>
+  		<otherwise>
+  			FLAG is null
+  		</otherwise>
+  	</choose>
+  </delete>
+</mapper>

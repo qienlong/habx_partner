@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IapsMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IapsEntity">
+    <id column="MERCHANT_SEQNO" jdbcType="VARCHAR" property="merchantSeqNo" />
+    <result column="VERSION" jdbcType="VARCHAR" property="version" />
+    <result column="CHARSET" jdbcType="VARCHAR" property="charset" />
+    <result column="TRANS_TYPE" jdbcType="VARCHAR" property="transType" />
+    <result column="SIGN_METHOD" jdbcType="VARCHAR" property="signMethod" />
+    <result column="RESP_CODE" jdbcType="VARCHAR" property="respCode" />
+    <result column="RESP_MSG" jdbcType="VARCHAR" property="respMsg" />
+    <result column="SIGNATURE" jdbcType="VARCHAR" property="signature" />
+  </resultMap>
+  <insert id="insertIapsEntity">
+    insert into IAPS_RESULT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merchantSeqNo != null  and merchantSeqNo != '' ">MERCHANT_SEQNO,</if>
+      <if test="version != null  and version != '' ">VERSION,</if>
+      <if test="charset != null  and charset != '' ">CHARSET,</if>
+      <if test="transType != null  and transType != '' ">TRANS_TYPE,</if>
+      <if test="signMethod != null  and signMethod != '' ">SIGN_METHOD,</if>
+      <if test="respCode != null  and respCode != '' ">RESP_CODE,</if>
+      <if test="respMsg != null  and respMsg != '' ">RESP_MSG,</if>
+      <if test="signature != null ">SIGNATURE</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merchantSeqNo != null  and merchantSeqNo != '' ">#{merchantSeqNo},</if>
+      <if test="version != null  and version != '' ">#{version},</if>
+      <if test="charset != null  and charset != '' ">#{charset},</if>
+      <if test="transType != null  and transType != '' ">#{transType},</if>
+      <if test="signMethod != null  and signMethod != '' ">#{signMethod},</if>
+      <if test="respCode != null  and respCode != '' ">#{respCode},</if>
+      <if test="respMsg != null  and respMsg != '' ">#{respMsg},</if>
+      <if test="signature != null ">#{signature}</if>
+    </trim>
+  </insert>
+</mapper>

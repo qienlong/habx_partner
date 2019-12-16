@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.AccLoanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.AccLoan">
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="CONT_NO" jdbcType="VARCHAR" property="contNo" />
+    <result column="CN_CONT_NO" jdbcType="VARCHAR" property="cnContNo" />
+    <result column="PRD_PK" jdbcType="VARCHAR" property="prdPk" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="PRD_TYPE" jdbcType="VARCHAR" property="prdType" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="BIZ_TYPE_SUB" jdbcType="VARCHAR" property="bizTypeSub" />
+    <result column="ACCOUNT_CLASS" jdbcType="VARCHAR" property="accountClass" />
+    <result column="LOAN_ACCOUNT" jdbcType="VARCHAR" property="loanAccount" />
+    <result column="LOAN_FORM" jdbcType="CHAR" property="loanForm" />
+    <result column="LOAN_NATURE" jdbcType="CHAR" property="loanNature" />
+    <result column="LOAN_TYPE_EXT" jdbcType="VARCHAR" property="loanTypeExt" />
+    <result column="ASSURE_MEANS_MAIN" jdbcType="CHAR" property="assureMeansMain" />
+    <result column="ASSURE_MEANS1" jdbcType="CHAR" property="assureMeans1" />
+    <result column="ASSURE_MEANS2" jdbcType="CHAR" property="assureMeans2" />
+    <result column="CUR_TYPE" jdbcType="VARCHAR" property="curType" />
+    <result column="LOAN_AMOUNT" jdbcType="DECIMAL" property="loanAmount" />
+    <result column="LOAN_BALANCE" jdbcType="DECIMAL" property="loanBalance" />
+    <result column="LOAN_START_DATE" jdbcType="CHAR" property="loanStartDate" />
+    <result column="LOAN_END_DATE" jdbcType="CHAR" property="loanEndDate" />
+    <result column="TERM_TYPE" jdbcType="VARCHAR" property="termType" />
+    <result column="ORIG_EXPI_DATE" jdbcType="VARCHAR" property="origExpiDate" />
+    <result column="RULING_IR" jdbcType="DECIMAL" property="rulingIr" />
+    <result column="FLOATING_RATE" jdbcType="DECIMAL" property="floatingRate" />
+    <result column="REALITY_IR_Y" jdbcType="DECIMAL" property="realityIrY" />
+    <result column="OVERDUE_RATE" jdbcType="DECIMAL" property="overdueRate" />
+    <result column="OVERDUE_IR" jdbcType="DECIMAL" property="overdueIr" />
+    <result column="DEFAULT_RATE" jdbcType="DECIMAL" property="defaultRate" />
+    <result column="DEFAULT_IR" jdbcType="DECIMAL" property="defaultIr" />
+    <result column="CI_RATE" jdbcType="DECIMAL" property="ciRate" />
+    <result column="CI_IR" jdbcType="DECIMAL" property="ciIr" />
+    <result column="RECE_INT_CUMU" jdbcType="DECIMAL" property="receIntCumu" />
+    <result column="ACTUAL_INT_CUMU" jdbcType="DECIMAL" property="actualIntCumu" />
+    <result column="DELAY_INT_CUMU" jdbcType="DECIMAL" property="delayIntCumu" />
+    <result column="INNER_INT_CUMU" jdbcType="DECIMAL" property="innerIntCumu" />
+    <result column="OFF_INT_CUMU" jdbcType="DECIMAL" property="offIntCumu" />
+    <result column="INNER_RECE_INT" jdbcType="DECIMAL" property="innerReceInt" />
+    <result column="OVERDUE_RECE_INT" jdbcType="DECIMAL" property="overdueReceInt" />
+    <result column="OFF_RECE_INT" jdbcType="DECIMAL" property="offReceInt" />
+    <result column="COMPOUND_RECE_INT" jdbcType="DECIMAL" property="compoundReceInt" />
+    <result column="INNER_OFF_RECE_INT" jdbcType="DECIMAL" property="innerOffReceInt" />
+    <result column="INNER_ACTL_INT" jdbcType="DECIMAL" property="innerActlInt" />
+    <result column="OVERDUE_ACTL_INT" jdbcType="DECIMAL" property="overdueActlInt" />
+    <result column="OFF_ACTL_INT" jdbcType="DECIMAL" property="offActlInt" />
+    <result column="COMPOUND_ACTL_INT" jdbcType="DECIMAL" property="compoundActlInt" />
+    <result column="INNER_OFF_ACTL_INT" jdbcType="DECIMAL" property="innerOffActlInt" />
+    <result column="NORMAL_BALANCE" jdbcType="DECIMAL" property="normalBalance" />
+    <result column="OVERDUE_BALANCE" jdbcType="DECIMAL" property="overdueBalance" />
+    <result column="SLUGGISH_BALANCE" jdbcType="DECIMAL" property="sluggishBalance" />
+    <result column="DOUBTFUL_BALANCE" jdbcType="DECIMAL" property="doubtfulBalance" />
+    <result column="INTEGRAL_Y" jdbcType="DECIMAL" property="integralY" />
+    <result column="INTEGRAL_Q" jdbcType="DECIMAL" property="integralQ" />
+    <result column="INTEGRAL_M" jdbcType="DECIMAL" property="integralM" />
+    <result column="NOR_REC_ACCU" jdbcType="DECIMAL" property="norRecAccu" />
+    <result column="REO_REC_ACCU" jdbcType="DECIMAL" property="reoRecAccu" />
+    <result column="PEEL_REC_ACCU" jdbcType="DECIMAL" property="peelRecAccu" />
+    <result column="ASSET_REC_ACCU" jdbcType="DECIMAL" property="assetRecAccu" />
+    <result column="ASSURE_REC_ACCU" jdbcType="DECIMAL" property="assureRecAccu" />
+    <result column="CANCEL_REC_ACCU" jdbcType="DECIMAL" property="cancelRecAccu" />
+    <result column="POLICY_REC_ACCU" jdbcType="DECIMAL" property="policyRecAccu" />
+    <result column="DTE_REC_ACCU" jdbcType="DECIMAL" property="dteRecAccu" />
+    <result column="ROLL_REC_ACCU" jdbcType="DECIMAL" property="rollRecAccu" />
+    <result column="MAX_BALANCE_Y" jdbcType="DECIMAL" property="maxBalanceY" />
+    <result column="MAX_BALANCE_Q" jdbcType="DECIMAL" property="maxBalanceQ" />
+    <result column="MAX_BALANCE_M" jdbcType="DECIMAL" property="maxBalanceM" />
+    <result column="MORTGAGE_FLG" jdbcType="CHAR" property="mortgageFlg" />
+    <result column="REPAYMENT_MODE" jdbcType="VARCHAR" property="repaymentMode" />
+    <result column="FIRST_DISB_DATE" jdbcType="VARCHAR" property="firstDisbDate" />
+    <result column="LOAN_DIRECTION" jdbcType="CHAR" property="loanDirection" />
+    <result column="REVOLVING_TIMES" jdbcType="DECIMAL" property="revolvingTimes" />
+    <result column="EXTENSION_TIMES" jdbcType="DECIMAL" property="extensionTimes" />
+    <result column="CAP_OVERDUE_DATE" jdbcType="VARCHAR" property="capOverdueDate" />
+    <result column="INT_OVERDUE_DATE" jdbcType="VARCHAR" property="intOverdueDate" />
+    <result column="OVER_TIMES_CURRENT" jdbcType="DECIMAL" property="overTimesCurrent" />
+    <result column="OVER_TIMES_TOTAL" jdbcType="DECIMAL" property="overTimesTotal" />
+    <result column="MAX_TIMES_TOTAL" jdbcType="DECIMAL" property="maxTimesTotal" />
+    <result column="BAD_LOAN_FLAG" jdbcType="CHAR" property="badLoanFlag" />
+    <result column="DEFAULT_FLAG" jdbcType="CHAR" property="defaultFlag" />
+    <result column="LIMIT_IND" jdbcType="CHAR" property="limitInd" />
+    <result column="LOAN_FORM4" jdbcType="CHAR" property="loanForm4" />
+    <result column="CLA" jdbcType="CHAR" property="cla" />
+    <result column="CLA_DATE" jdbcType="VARCHAR" property="claDate" />
+    <result column="CLA_PRE" jdbcType="CHAR" property="claPre" />
+    <result column="CLA_DATE_PRE" jdbcType="VARCHAR" property="claDatePre" />
+    <result column="LATEST_REPAY_DATE" jdbcType="VARCHAR" property="latestRepayDate" />
+    <result column="CUS_MANAGER" jdbcType="VARCHAR" property="cusManager" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="FINA_BR_ID" jdbcType="VARCHAR" property="finaBrId" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="SETTL_DATE" jdbcType="VARCHAR" property="settlDate" />
+    <result column="LATEST_DATE" jdbcType="VARCHAR" property="latestDate" />
+    <result column="ACCOUNT_STATUS" jdbcType="VARCHAR" property="accountStatus" />
+    <result column="BIZ_TYPE_DETAIL" jdbcType="VARCHAR" property="bizTypeDetail" />
+    <result column="DEV_AMT" jdbcType="DECIMAL" property="devAmt" />
+    <result column="DEV_AMT_PRE" jdbcType="DECIMAL" property="devAmtPre" />
+    <result column="DEV_FLAG" jdbcType="CHAR" property="devFlag" />
+    <result column="IR_TYPE" jdbcType="VARCHAR" property="irType" />
+    <result column="SPRD_RATE" jdbcType="DECIMAL" property="sprdRate" />
+    <result column="FREQUENCY" jdbcType="VARCHAR" property="frequency" />
+    <result column="PAY_DISTANCE" jdbcType="DECIMAL" property="payDistance" />
+    <result column="DUE_DAY" jdbcType="DECIMAL" property="dueDay" />
+    <result column="IR_ADJUST_MODE" jdbcType="VARCHAR" property="irAdjustMode" />
+    <result column="PAY_TYPE" jdbcType="CHAR" property="payType" />
+    <result column="FINE_INT" jdbcType="DECIMAL" property="fineInt" />
+    <result column="COMD_INT" jdbcType="DECIMAL" property="comdInt" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="TERM_EXT" jdbcType="VARCHAR" property="termExt" />
+    <result column="PRJ_COP_NO" jdbcType="VARCHAR" property="prjCopNo" />
+    <result column="NEW_ACCOUNT_CLASS" jdbcType="VARCHAR" property="newAccountClass" />
+    <result column="LOAN_TYPE_NO" jdbcType="VARCHAR" property="loanTypeNo" />
+    <result column="LOAN_TYPE_NAME" jdbcType="VARCHAR" property="loanTypeName" />
+    <result column="OGR_TERM" jdbcType="VARCHAR" property="ogrTerm" />
+    <result column="INTEREST_ACC_MODE" jdbcType="VARCHAR" property="interestAccMode" />
+    <result column="CANCEL_SUM" jdbcType="DECIMAL" property="cancelSum" />
+    <result column="CANCEL_INTEREST" jdbcType="DECIMAL" property="cancelInterest" />
+    <result column="CLA_NOW" jdbcType="CHAR" property="claNow" />
+    <result column="CLA_NOW_DATE" jdbcType="VARCHAR" property="claNowDate" />
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="IQP_LOAN_SERNO" jdbcType="VARCHAR" property="iqpLoanSerno" />
+    <result column="PARTNER_NO" jdbcType="VARCHAR" property="partnerNo" />
+    <result column="CHANNEL_NO" jdbcType="VARCHAR" property="channelNo" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="DIRECTION_NAME" jdbcType="VARCHAR" property="directionName" />
+    <result column="LOAN_USE_TYPE" jdbcType="VARCHAR" property="loanUseType" />
+    <result column="USE_DEC" jdbcType="VARCHAR" property="useDec" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="EFFECT_STATUS" jdbcType="VARCHAR" property="effectStatus" />
+    <result column="PARTNER_NAME" jdbcType="VARCHAR" property="partnerName" />
+    <result column="CHANNEL_NAME" jdbcType="VARCHAR" property="channelName" />
+    <result column="RE_EXPLORE_DATE" jdbcType="VARCHAR" property="reExploreDate" />
+    <result column="REPAYMENT_MODE_DESC" jdbcType="VARCHAR" property="repaymentModeDesc" />
+    <result column="REPAY_PERCENT" jdbcType="DECIMAL" property="repayPercent" />
+    <result column="CLAIM_SETTLING_FREQUENCY" jdbcType="VARCHAR" property="claimSettlingFrequency" />
+    <result column="CURRENT_CLAIM_TERM" jdbcType="VARCHAR" property="currentClaimTerm" />
+    <result column="TREATY_PK" jdbcType="VARCHAR" property="treatyPk" />
+    <result column="PREVENT_RATE" jdbcType="DECIMAL" property="preventRate" />
+    <result column="PAY_ACCOUNT" jdbcType="VARCHAR" property="payAccount" />
+    <result column="PAY_ACCOUNT_NAME" jdbcType="VARCHAR" property="payAccountName" />
+    <result column="INTEREST_SUBSIDY" jdbcType="VARCHAR" property="interestSubsidy" />
+    <result column="OVER_TIMES_DAYS" jdbcType="DECIMAL" property="overTimesDays" />
+    <result column="OVERDUE_INT" jdbcType="DECIMAL" property="overdueInt" />
+    <result column="OVERDUE_FINE_INT" jdbcType="DECIMAL" property="overdueFineInt" />
+    <result column="CHECK_DATE" jdbcType="VARCHAR" property="checkDate" />
+    <result column="DATA_SOURCE" jdbcType="VARCHAR" property="dataSource" />
+    <result column="EFFECT_DATE" jdbcType="CHAR" property="effectDate" />
+    <result column="PAID_AMT_TOTAL" jdbcType="DECIMAL" property="paidAmtTotal" />
+    <result column="RECOVERED_AMT_TOTAL" jdbcType="DECIMAL" property="recoveredAmtTotal" />
+    <result column="PAID_AMT_SUM" jdbcType="DECIMAL" property="paidAmtSum" />
+    <result column="OVERDUE_START_DATE" jdbcType="VARCHAR" property="overdueStartDate" />
+    <result column="PRE_ACCOUNT_STATUS" jdbcType="VARCHAR" property="preAccountStatus" />
+    <result column="NET_PHONE" jdbcType="VARCHAR" property="netPhone" />
+    <result column="PRD_INSTANCE" jdbcType="VARCHAR" property="prdInstance" />
+    <result column="LST_FOREIGN_KEY" jdbcType="VARCHAR" property="lstForeignKey" />
+    <result column="LST_INNET_KEY" jdbcType="VARCHAR" property="lstInnetKey" />
+    <result column="RISK_GRADE" jdbcType="VARCHAR" property="riskGrade" />
+    <result column="SXYH_PREPAY_FLAG" jdbcType="VARCHAR" property="sxyhPrepayFlag" />
+    <result column="SECOND_ACCOUNTS" jdbcType="VARCHAR" property="secondAccounts" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.AccLoan">
+    insert into ACC_LOAN (BILL_NO, CONT_NO, CN_CONT_NO, 
+      PRD_PK, BIZ_TYPE, PRD_NAME, 
+      PRD_TYPE, CUS_ID, CUS_NAME, 
+      BIZ_TYPE_SUB, ACCOUNT_CLASS, LOAN_ACCOUNT, 
+      LOAN_FORM, LOAN_NATURE, LOAN_TYPE_EXT, 
+      ASSURE_MEANS_MAIN, ASSURE_MEANS1, ASSURE_MEANS2, 
+      CUR_TYPE, LOAN_AMOUNT, LOAN_BALANCE, 
+      LOAN_START_DATE, LOAN_END_DATE, TERM_TYPE, 
+      ORIG_EXPI_DATE, RULING_IR, FLOATING_RATE, 
+      REALITY_IR_Y, OVERDUE_RATE, OVERDUE_IR, 
+      DEFAULT_RATE, DEFAULT_IR, CI_RATE, 
+      CI_IR, RECE_INT_CUMU, ACTUAL_INT_CUMU, 
+      DELAY_INT_CUMU, INNER_INT_CUMU, OFF_INT_CUMU, 
+      INNER_RECE_INT, OVERDUE_RECE_INT, OFF_RECE_INT, 
+      COMPOUND_RECE_INT, INNER_OFF_RECE_INT, INNER_ACTL_INT, 
+      OVERDUE_ACTL_INT, OFF_ACTL_INT, COMPOUND_ACTL_INT, 
+      INNER_OFF_ACTL_INT, NORMAL_BALANCE, OVERDUE_BALANCE, 
+      SLUGGISH_BALANCE, DOUBTFUL_BALANCE, INTEGRAL_Y, 
+      INTEGRAL_Q, INTEGRAL_M, NOR_REC_ACCU, 
+      REO_REC_ACCU, PEEL_REC_ACCU, ASSET_REC_ACCU, 
+      ASSURE_REC_ACCU, CANCEL_REC_ACCU, POLICY_REC_ACCU, 
+      DTE_REC_ACCU, ROLL_REC_ACCU, MAX_BALANCE_Y, 
+      MAX_BALANCE_Q, MAX_BALANCE_M, MORTGAGE_FLG, 
+      REPAYMENT_MODE, FIRST_DISB_DATE, LOAN_DIRECTION, 
+      REVOLVING_TIMES, EXTENSION_TIMES, CAP_OVERDUE_DATE, 
+      INT_OVERDUE_DATE, OVER_TIMES_CURRENT, OVER_TIMES_TOTAL, 
+      MAX_TIMES_TOTAL, BAD_LOAN_FLAG, DEFAULT_FLAG, 
+      LIMIT_IND, LOAN_FORM4, CLA, CLA_DATE, 
+      CLA_PRE, CLA_DATE_PRE, LATEST_REPAY_DATE, 
+      CUS_MANAGER, INPUT_BR_ID, FINA_BR_ID, 
+      MAIN_BR_ID, SETTL_DATE, LATEST_DATE, 
+      ACCOUNT_STATUS, BIZ_TYPE_DETAIL, DEV_AMT, 
+      DEV_AMT_PRE, DEV_FLAG, IR_TYPE, 
+      SPRD_RATE, FREQUENCY, PAY_DISTANCE, 
+      DUE_DAY, IR_ADJUST_MODE, PAY_TYPE, 
+      FINE_INT, COMD_INT, TERM, 
+      TERM_EXT, PRJ_COP_NO, NEW_ACCOUNT_CLASS, 
+      LOAN_TYPE_NO, LOAN_TYPE_NAME, OGR_TERM, 
+      INTEREST_ACC_MODE, CANCEL_SUM, CANCEL_INTEREST, 
+      CLA_NOW, CLA_NOW_DATE, LIST_SERNO, 
+      IQP_LOAN_SERNO, PARTNER_NO, CHANNEL_NO, 
+      CERT_TYPE, CERT_CODE, DIRECTION_NAME, 
+      LOAN_USE_TYPE, USE_DEC, INPUT_ID, 
+      INPUT_TIME, UPDATE_TIME, EFFECT_STATUS, 
+      PARTNER_NAME, CHANNEL_NAME, RE_EXPLORE_DATE, 
+      REPAYMENT_MODE_DESC, REPAY_PERCENT, CLAIM_SETTLING_FREQUENCY, 
+      CURRENT_CLAIM_TERM, TREATY_PK, PREVENT_RATE, 
+      PAY_ACCOUNT, PAY_ACCOUNT_NAME, INTEREST_SUBSIDY, 
+      OVER_TIMES_DAYS, OVERDUE_INT, OVERDUE_FINE_INT, 
+      CHECK_DATE, DATA_SOURCE, EFFECT_DATE, 
+      PAID_AMT_TOTAL, RECOVERED_AMT_TOTAL, PAID_AMT_SUM, 
+      OVERDUE_START_DATE, PRE_ACCOUNT_STATUS, NET_PHONE, 
+      PRD_INSTANCE, LST_FOREIGN_KEY, LST_INNET_KEY, 
+      RISK_GRADE, SXYH_PREPAY_FLAG, SECOND_ACCOUNTS
+      )
+    values (#{billNo,jdbcType=VARCHAR}, #{contNo,jdbcType=VARCHAR}, #{cnContNo,jdbcType=VARCHAR}, 
+      #{prdPk,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, #{prdName,jdbcType=VARCHAR}, 
+      #{prdType,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, 
+      #{bizTypeSub,jdbcType=VARCHAR}, #{accountClass,jdbcType=VARCHAR}, #{loanAccount,jdbcType=VARCHAR}, 
+      #{loanForm,jdbcType=CHAR}, #{loanNature,jdbcType=CHAR}, #{loanTypeExt,jdbcType=VARCHAR}, 
+      #{assureMeansMain,jdbcType=CHAR}, #{assureMeans1,jdbcType=CHAR}, #{assureMeans2,jdbcType=CHAR}, 
+      #{curType,jdbcType=VARCHAR}, #{loanAmount,jdbcType=DECIMAL}, #{loanBalance,jdbcType=DECIMAL}, 
+      #{loanStartDate,jdbcType=CHAR}, #{loanEndDate,jdbcType=CHAR}, #{termType,jdbcType=VARCHAR}, 
+      #{origExpiDate,jdbcType=VARCHAR}, #{rulingIr,jdbcType=DECIMAL}, #{floatingRate,jdbcType=DECIMAL}, 
+      #{realityIrY,jdbcType=DECIMAL}, #{overdueRate,jdbcType=DECIMAL}, #{overdueIr,jdbcType=DECIMAL}, 
+      #{defaultRate,jdbcType=DECIMAL}, #{defaultIr,jdbcType=DECIMAL}, #{ciRate,jdbcType=DECIMAL}, 
+      #{ciIr,jdbcType=DECIMAL}, #{receIntCumu,jdbcType=DECIMAL}, #{actualIntCumu,jdbcType=DECIMAL}, 
+      #{delayIntCumu,jdbcType=DECIMAL}, #{innerIntCumu,jdbcType=DECIMAL}, #{offIntCumu,jdbcType=DECIMAL}, 
+      #{innerReceInt,jdbcType=DECIMAL}, #{overdueReceInt,jdbcType=DECIMAL}, #{offReceInt,jdbcType=DECIMAL}, 
+      #{compoundReceInt,jdbcType=DECIMAL}, #{innerOffReceInt,jdbcType=DECIMAL}, #{innerActlInt,jdbcType=DECIMAL}, 
+      #{overdueActlInt,jdbcType=DECIMAL}, #{offActlInt,jdbcType=DECIMAL}, #{compoundActlInt,jdbcType=DECIMAL}, 
+      #{innerOffActlInt,jdbcType=DECIMAL}, #{normalBalance,jdbcType=DECIMAL}, #{overdueBalance,jdbcType=DECIMAL}, 
+      #{sluggishBalance,jdbcType=DECIMAL}, #{doubtfulBalance,jdbcType=DECIMAL}, #{integralY,jdbcType=DECIMAL}, 
+      #{integralQ,jdbcType=DECIMAL}, #{integralM,jdbcType=DECIMAL}, #{norRecAccu,jdbcType=DECIMAL}, 
+      #{reoRecAccu,jdbcType=DECIMAL}, #{peelRecAccu,jdbcType=DECIMAL}, #{assetRecAccu,jdbcType=DECIMAL}, 
+      #{assureRecAccu,jdbcType=DECIMAL}, #{cancelRecAccu,jdbcType=DECIMAL}, #{policyRecAccu,jdbcType=DECIMAL}, 
+      #{dteRecAccu,jdbcType=DECIMAL}, #{rollRecAccu,jdbcType=DECIMAL}, #{maxBalanceY,jdbcType=DECIMAL}, 
+      #{maxBalanceQ,jdbcType=DECIMAL}, #{maxBalanceM,jdbcType=DECIMAL}, #{mortgageFlg,jdbcType=CHAR}, 
+      #{repaymentMode,jdbcType=VARCHAR}, #{firstDisbDate,jdbcType=VARCHAR}, #{loanDirection,jdbcType=CHAR}, 
+      #{revolvingTimes,jdbcType=DECIMAL}, #{extensionTimes,jdbcType=DECIMAL}, #{capOverdueDate,jdbcType=VARCHAR}, 
+      #{intOverdueDate,jdbcType=VARCHAR}, #{overTimesCurrent,jdbcType=DECIMAL}, #{overTimesTotal,jdbcType=DECIMAL}, 
+      #{maxTimesTotal,jdbcType=DECIMAL}, #{badLoanFlag,jdbcType=CHAR}, #{defaultFlag,jdbcType=CHAR}, 
+      #{limitInd,jdbcType=CHAR}, #{loanForm4,jdbcType=CHAR}, #{cla,jdbcType=CHAR}, #{claDate,jdbcType=VARCHAR}, 
+      #{claPre,jdbcType=CHAR}, #{claDatePre,jdbcType=VARCHAR}, #{latestRepayDate,jdbcType=VARCHAR}, 
+      #{cusManager,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{finaBrId,jdbcType=VARCHAR}, 
+      #{mainBrId,jdbcType=VARCHAR}, #{settlDate,jdbcType=VARCHAR}, #{latestDate,jdbcType=VARCHAR}, 
+      #{accountStatus,jdbcType=VARCHAR}, #{bizTypeDetail,jdbcType=VARCHAR}, #{devAmt,jdbcType=DECIMAL}, 
+      #{devAmtPre,jdbcType=DECIMAL}, #{devFlag,jdbcType=CHAR}, #{irType,jdbcType=VARCHAR}, 
+      #{sprdRate,jdbcType=DECIMAL}, #{frequency,jdbcType=VARCHAR}, #{payDistance,jdbcType=DECIMAL}, 
+      #{dueDay,jdbcType=DECIMAL}, #{irAdjustMode,jdbcType=VARCHAR}, #{payType,jdbcType=CHAR}, 
+      #{fineInt,jdbcType=DECIMAL}, #{comdInt,jdbcType=DECIMAL}, #{term,jdbcType=VARCHAR}, 
+      #{termExt,jdbcType=VARCHAR}, #{prjCopNo,jdbcType=VARCHAR}, #{newAccountClass,jdbcType=VARCHAR}, 
+      #{loanTypeNo,jdbcType=VARCHAR}, #{loanTypeName,jdbcType=VARCHAR}, #{ogrTerm,jdbcType=VARCHAR}, 
+      #{interestAccMode,jdbcType=VARCHAR}, #{cancelSum,jdbcType=DECIMAL}, #{cancelInterest,jdbcType=DECIMAL}, 
+      #{claNow,jdbcType=CHAR}, #{claNowDate,jdbcType=VARCHAR}, #{listSerno,jdbcType=VARCHAR}, 
+      #{iqpLoanSerno,jdbcType=VARCHAR}, #{partnerNo,jdbcType=VARCHAR}, #{channelNo,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{directionName,jdbcType=VARCHAR}, 
+      #{loanUseType,jdbcType=VARCHAR}, #{useDec,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{effectStatus,jdbcType=VARCHAR}, 
+      #{partnerName,jdbcType=VARCHAR}, #{channelName,jdbcType=VARCHAR}, #{reExploreDate,jdbcType=VARCHAR}, 
+      #{repaymentModeDesc,jdbcType=VARCHAR}, #{repayPercent,jdbcType=DECIMAL}, #{claimSettlingFrequency,jdbcType=VARCHAR}, 
+      #{currentClaimTerm,jdbcType=VARCHAR}, #{treatyPk,jdbcType=VARCHAR}, #{preventRate,jdbcType=DECIMAL}, 
+      #{payAccount,jdbcType=VARCHAR}, #{payAccountName,jdbcType=VARCHAR}, #{interestSubsidy,jdbcType=VARCHAR}, 
+      #{overTimesDays,jdbcType=DECIMAL}, #{overdueInt,jdbcType=DECIMAL}, #{overdueFineInt,jdbcType=DECIMAL}, 
+      #{checkDate,jdbcType=VARCHAR}, #{dataSource,jdbcType=VARCHAR}, #{effectDate,jdbcType=CHAR}, 
+      #{paidAmtTotal,jdbcType=DECIMAL}, #{recoveredAmtTotal,jdbcType=DECIMAL}, #{paidAmtSum,jdbcType=DECIMAL}, 
+      #{overdueStartDate,jdbcType=VARCHAR}, #{preAccountStatus,jdbcType=VARCHAR}, #{netPhone,jdbcType=VARCHAR}, 
+      #{prdInstance,jdbcType=VARCHAR}, #{lstForeignKey,jdbcType=VARCHAR}, #{lstInnetKey,jdbcType=VARCHAR}, 
+      #{riskGrade,jdbcType=VARCHAR}, #{sxyhPrepayFlag,jdbcType=VARCHAR}, #{secondAccounts,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.AccLoan">
+    insert into ACC_LOAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="contNo != null">
+        CONT_NO,
+      </if>
+      <if test="cnContNo != null">
+        CN_CONT_NO,
+      </if>
+      <if test="prdPk != null">
+        PRD_PK,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="prdType != null">
+        PRD_TYPE,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="bizTypeSub != null">
+        BIZ_TYPE_SUB,
+      </if>
+      <if test="accountClass != null">
+        ACCOUNT_CLASS,
+      </if>
+      <if test="loanAccount != null">
+        LOAN_ACCOUNT,
+      </if>
+      <if test="loanForm != null">
+        LOAN_FORM,
+      </if>
+      <if test="loanNature != null">
+        LOAN_NATURE,
+      </if>
+      <if test="loanTypeExt != null">
+        LOAN_TYPE_EXT,
+      </if>
+      <if test="assureMeansMain != null">
+        ASSURE_MEANS_MAIN,
+      </if>
+      <if test="assureMeans1 != null">
+        ASSURE_MEANS1,
+      </if>
+      <if test="assureMeans2 != null">
+        ASSURE_MEANS2,
+      </if>
+      <if test="curType != null">
+        CUR_TYPE,
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT,
+      </if>
+      <if test="loanBalance != null">
+        LOAN_BALANCE,
+      </if>
+      <if test="loanStartDate != null">
+        LOAN_START_DATE,
+      </if>
+      <if test="loanEndDate != null">
+        LOAN_END_DATE,
+      </if>
+      <if test="termType != null">
+        TERM_TYPE,
+      </if>
+      <if test="origExpiDate != null">
+        ORIG_EXPI_DATE,
+      </if>
+      <if test="rulingIr != null">
+        RULING_IR,
+      </if>
+      <if test="floatingRate != null">
+        FLOATING_RATE,
+      </if>
+      <if test="realityIrY != null">
+        REALITY_IR_Y,
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE,
+      </if>
+      <if test="overdueIr != null">
+        OVERDUE_IR,
+      </if>
+      <if test="defaultRate != null">
+        DEFAULT_RATE,
+      </if>
+      <if test="defaultIr != null">
+        DEFAULT_IR,
+      </if>
+      <if test="ciRate != null">
+        CI_RATE,
+      </if>
+      <if test="ciIr != null">
+        CI_IR,
+      </if>
+      <if test="receIntCumu != null">
+        RECE_INT_CUMU,
+      </if>
+      <if test="actualIntCumu != null">
+        ACTUAL_INT_CUMU,
+      </if>
+      <if test="delayIntCumu != null">
+        DELAY_INT_CUMU,
+      </if>
+      <if test="innerIntCumu != null">
+        INNER_INT_CUMU,
+      </if>
+      <if test="offIntCumu != null">
+        OFF_INT_CUMU,
+      </if>
+      <if test="innerReceInt != null">
+        INNER_RECE_INT,
+      </if>
+      <if test="overdueReceInt != null">
+        OVERDUE_RECE_INT,
+      </if>
+      <if test="offReceInt != null">
+        OFF_RECE_INT,
+      </if>
+      <if test="compoundReceInt != null">
+        COMPOUND_RECE_INT,
+      </if>
+      <if test="innerOffReceInt != null">
+        INNER_OFF_RECE_INT,
+      </if>
+      <if test="innerActlInt != null">
+        INNER_ACTL_INT,
+      </if>
+      <if test="overdueActlInt != null">
+        OVERDUE_ACTL_INT,
+      </if>
+      <if test="offActlInt != null">
+        OFF_ACTL_INT,
+      </if>
+      <if test="compoundActlInt != null">
+        COMPOUND_ACTL_INT,
+      </if>
+      <if test="innerOffActlInt != null">
+        INNER_OFF_ACTL_INT,
+      </if>
+      <if test="normalBalance != null">
+        NORMAL_BALANCE,
+      </if>
+      <if test="overdueBalance != null">
+        OVERDUE_BALANCE,
+      </if>
+      <if test="sluggishBalance != null">
+        SLUGGISH_BALANCE,
+      </if>
+      <if test="doubtfulBalance != null">
+        DOUBTFUL_BALANCE,
+      </if>
+      <if test="integralY != null">
+        INTEGRAL_Y,
+      </if>
+      <if test="integralQ != null">
+        INTEGRAL_Q,
+      </if>
+      <if test="integralM != null">
+        INTEGRAL_M,
+      </if>
+      <if test="norRecAccu != null">
+        NOR_REC_ACCU,
+      </if>
+      <if test="reoRecAccu != null">
+        REO_REC_ACCU,
+      </if>
+      <if test="peelRecAccu != null">
+        PEEL_REC_ACCU,
+      </if>
+      <if test="assetRecAccu != null">
+        ASSET_REC_ACCU,
+      </if>
+      <if test="assureRecAccu != null">
+        ASSURE_REC_ACCU,
+      </if>
+      <if test="cancelRecAccu != null">
+        CANCEL_REC_ACCU,
+      </if>
+      <if test="policyRecAccu != null">
+        POLICY_REC_ACCU,
+      </if>
+      <if test="dteRecAccu != null">
+        DTE_REC_ACCU,
+      </if>
+      <if test="rollRecAccu != null">
+        ROLL_REC_ACCU,
+      </if>
+      <if test="maxBalanceY != null">
+        MAX_BALANCE_Y,
+      </if>
+      <if test="maxBalanceQ != null">
+        MAX_BALANCE_Q,
+      </if>
+      <if test="maxBalanceM != null">
+        MAX_BALANCE_M,
+      </if>
+      <if test="mortgageFlg != null">
+        MORTGAGE_FLG,
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE,
+      </if>
+      <if test="firstDisbDate != null">
+        FIRST_DISB_DATE,
+      </if>
+      <if test="loanDirection != null">
+        LOAN_DIRECTION,
+      </if>
+      <if test="revolvingTimes != null">
+        REVOLVING_TIMES,
+      </if>
+      <if test="extensionTimes != null">
+        EXTENSION_TIMES,
+      </if>
+      <if test="capOverdueDate != null">
+        CAP_OVERDUE_DATE,
+      </if>
+      <if test="intOverdueDate != null">
+        INT_OVERDUE_DATE,
+      </if>
+      <if test="overTimesCurrent != null">
+        OVER_TIMES_CURRENT,
+      </if>
+      <if test="overTimesTotal != null">
+        OVER_TIMES_TOTAL,
+      </if>
+      <if test="maxTimesTotal != null">
+        MAX_TIMES_TOTAL,
+      </if>
+      <if test="badLoanFlag != null">
+        BAD_LOAN_FLAG,
+      </if>
+      <if test="defaultFlag != null">
+        DEFAULT_FLAG,
+      </if>
+      <if test="limitInd != null">
+        LIMIT_IND,
+      </if>
+      <if test="loanForm4 != null">
+        LOAN_FORM4,
+      </if>
+      <if test="cla != null">
+        CLA,
+      </if>
+      <if test="claDate != null">
+        CLA_DATE,
+      </if>
+      <if test="claPre != null">
+        CLA_PRE,
+      </if>
+      <if test="claDatePre != null">
+        CLA_DATE_PRE,
+      </if>
+      <if test="latestRepayDate != null">
+        LATEST_REPAY_DATE,
+      </if>
+      <if test="cusManager != null">
+        CUS_MANAGER,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="finaBrId != null">
+        FINA_BR_ID,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="settlDate != null">
+        SETTL_DATE,
+      </if>
+      <if test="latestDate != null">
+        LATEST_DATE,
+      </if>
+      <if test="accountStatus != null">
+        ACCOUNT_STATUS,
+      </if>
+      <if test="bizTypeDetail != null">
+        BIZ_TYPE_DETAIL,
+      </if>
+      <if test="devAmt != null">
+        DEV_AMT,
+      </if>
+      <if test="devAmtPre != null">
+        DEV_AMT_PRE,
+      </if>
+      <if test="devFlag != null">
+        DEV_FLAG,
+      </if>
+      <if test="irType != null">
+        IR_TYPE,
+      </if>
+      <if test="sprdRate != null">
+        SPRD_RATE,
+      </if>
+      <if test="frequency != null">
+        FREQUENCY,
+      </if>
+      <if test="payDistance != null">
+        PAY_DISTANCE,
+      </if>
+      <if test="dueDay != null">
+        DUE_DAY,
+      </if>
+      <if test="irAdjustMode != null">
+        IR_ADJUST_MODE,
+      </if>
+      <if test="payType != null">
+        PAY_TYPE,
+      </if>
+      <if test="fineInt != null">
+        FINE_INT,
+      </if>
+      <if test="comdInt != null">
+        COMD_INT,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="termExt != null">
+        TERM_EXT,
+      </if>
+      <if test="prjCopNo != null">
+        PRJ_COP_NO,
+      </if>
+      <if test="newAccountClass != null">
+        NEW_ACCOUNT_CLASS,
+      </if>
+      <if test="loanTypeNo != null">
+        LOAN_TYPE_NO,
+      </if>
+      <if test="loanTypeName != null">
+        LOAN_TYPE_NAME,
+      </if>
+      <if test="ogrTerm != null">
+        OGR_TERM,
+      </if>
+      <if test="interestAccMode != null">
+        INTEREST_ACC_MODE,
+      </if>
+      <if test="cancelSum != null">
+        CANCEL_SUM,
+      </if>
+      <if test="cancelInterest != null">
+        CANCEL_INTEREST,
+      </if>
+      <if test="claNow != null">
+        CLA_NOW,
+      </if>
+      <if test="claNowDate != null">
+        CLA_NOW_DATE,
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="iqpLoanSerno != null">
+        IQP_LOAN_SERNO,
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO,
+      </if>
+      <if test="channelNo != null">
+        CHANNEL_NO,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="directionName != null">
+        DIRECTION_NAME,
+      </if>
+      <if test="loanUseType != null">
+        LOAN_USE_TYPE,
+      </if>
+      <if test="useDec != null">
+        USE_DEC,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="effectStatus != null">
+        EFFECT_STATUS,
+      </if>
+      <if test="partnerName != null">
+        PARTNER_NAME,
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME,
+      </if>
+      <if test="reExploreDate != null">
+        RE_EXPLORE_DATE,
+      </if>
+      <if test="repaymentModeDesc != null">
+        REPAYMENT_MODE_DESC,
+      </if>
+      <if test="repayPercent != null">
+        REPAY_PERCENT,
+      </if>
+      <if test="claimSettlingFrequency != null">
+        CLAIM_SETTLING_FREQUENCY,
+      </if>
+      <if test="currentClaimTerm != null">
+        CURRENT_CLAIM_TERM,
+      </if>
+      <if test="treatyPk != null">
+        TREATY_PK,
+      </if>
+      <if test="preventRate != null">
+        PREVENT_RATE,
+      </if>
+      <if test="payAccount != null">
+        PAY_ACCOUNT,
+      </if>
+      <if test="payAccountName != null">
+        PAY_ACCOUNT_NAME,
+      </if>
+      <if test="interestSubsidy != null">
+        INTEREST_SUBSIDY,
+      </if>
+      <if test="overTimesDays != null">
+        OVER_TIMES_DAYS,
+      </if>
+      <if test="overdueInt != null">
+        OVERDUE_INT,
+      </if>
+      <if test="overdueFineInt != null">
+        OVERDUE_FINE_INT,
+      </if>
+      <if test="checkDate != null">
+        CHECK_DATE,
+      </if>
+      <if test="dataSource != null">
+        DATA_SOURCE,
+      </if>
+      <if test="effectDate != null">
+        EFFECT_DATE,
+      </if>
+      <if test="paidAmtTotal != null">
+        PAID_AMT_TOTAL,
+      </if>
+      <if test="recoveredAmtTotal != null">
+        RECOVERED_AMT_TOTAL,
+      </if>
+      <if test="paidAmtSum != null">
+        PAID_AMT_SUM,
+      </if>
+      <if test="overdueStartDate != null">
+        OVERDUE_START_DATE,
+      </if>
+      <if test="preAccountStatus != null">
+        PRE_ACCOUNT_STATUS,
+      </if>
+      <if test="netPhone != null">
+        NET_PHONE,
+      </if>
+      <if test="prdInstance != null">
+        PRD_INSTANCE,
+      </if>
+      <if test="lstForeignKey != null">
+        LST_FOREIGN_KEY,
+      </if>
+      <if test="lstInnetKey != null">
+        LST_INNET_KEY,
+      </if>
+      <if test="riskGrade != null">
+        RISK_GRADE,
+      </if>
+      <if test="sxyhPrepayFlag != null">
+        SXYH_PREPAY_FLAG,
+      </if>
+      <if test="secondAccounts != null">
+        SECOND_ACCOUNTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contNo != null">
+        #{contNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cnContNo != null">
+        #{cnContNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeSub != null">
+        #{bizTypeSub,jdbcType=VARCHAR},
+      </if>
+      <if test="accountClass != null">
+        #{accountClass,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAccount != null">
+        #{loanAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="loanForm != null">
+        #{loanForm,jdbcType=CHAR},
+      </if>
+      <if test="loanNature != null">
+        #{loanNature,jdbcType=CHAR},
+      </if>
+      <if test="loanTypeExt != null">
+        #{loanTypeExt,jdbcType=VARCHAR},
+      </if>
+      <if test="assureMeansMain != null">
+        #{assureMeansMain,jdbcType=CHAR},
+      </if>
+      <if test="assureMeans1 != null">
+        #{assureMeans1,jdbcType=CHAR},
+      </if>
+      <if test="assureMeans2 != null">
+        #{assureMeans2,jdbcType=CHAR},
+      </if>
+      <if test="curType != null">
+        #{curType,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmount != null">
+        #{loanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanBalance != null">
+        #{loanBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="loanStartDate != null">
+        #{loanStartDate,jdbcType=CHAR},
+      </if>
+      <if test="loanEndDate != null">
+        #{loanEndDate,jdbcType=CHAR},
+      </if>
+      <if test="termType != null">
+        #{termType,jdbcType=VARCHAR},
+      </if>
+      <if test="origExpiDate != null">
+        #{origExpiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rulingIr != null">
+        #{rulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="floatingRate != null">
+        #{floatingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="realityIrY != null">
+        #{realityIrY,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRate != null">
+        #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueIr != null">
+        #{overdueIr,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultRate != null">
+        #{defaultRate,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultIr != null">
+        #{defaultIr,jdbcType=DECIMAL},
+      </if>
+      <if test="ciRate != null">
+        #{ciRate,jdbcType=DECIMAL},
+      </if>
+      <if test="ciIr != null">
+        #{ciIr,jdbcType=DECIMAL},
+      </if>
+      <if test="receIntCumu != null">
+        #{receIntCumu,jdbcType=DECIMAL},
+      </if>
+      <if test="actualIntCumu != null">
+        #{actualIntCumu,jdbcType=DECIMAL},
+      </if>
+      <if test="delayIntCumu != null">
+        #{delayIntCumu,jdbcType=DECIMAL},
+      </if>
+      <if test="innerIntCumu != null">
+        #{innerIntCumu,jdbcType=DECIMAL},
+      </if>
+      <if test="offIntCumu != null">
+        #{offIntCumu,jdbcType=DECIMAL},
+      </if>
+      <if test="innerReceInt != null">
+        #{innerReceInt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueReceInt != null">
+        #{overdueReceInt,jdbcType=DECIMAL},
+      </if>
+      <if test="offReceInt != null">
+        #{offReceInt,jdbcType=DECIMAL},
+      </if>
+      <if test="compoundReceInt != null">
+        #{compoundReceInt,jdbcType=DECIMAL},
+      </if>
+      <if test="innerOffReceInt != null">
+        #{innerOffReceInt,jdbcType=DECIMAL},
+      </if>
+      <if test="innerActlInt != null">
+        #{innerActlInt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueActlInt != null">
+        #{overdueActlInt,jdbcType=DECIMAL},
+      </if>
+      <if test="offActlInt != null">
+        #{offActlInt,jdbcType=DECIMAL},
+      </if>
+      <if test="compoundActlInt != null">
+        #{compoundActlInt,jdbcType=DECIMAL},
+      </if>
+      <if test="innerOffActlInt != null">
+        #{innerOffActlInt,jdbcType=DECIMAL},
+      </if>
+      <if test="normalBalance != null">
+        #{normalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueBalance != null">
+        #{overdueBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="sluggishBalance != null">
+        #{sluggishBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="doubtfulBalance != null">
+        #{doubtfulBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="integralY != null">
+        #{integralY,jdbcType=DECIMAL},
+      </if>
+      <if test="integralQ != null">
+        #{integralQ,jdbcType=DECIMAL},
+      </if>
+      <if test="integralM != null">
+        #{integralM,jdbcType=DECIMAL},
+      </if>
+      <if test="norRecAccu != null">
+        #{norRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="reoRecAccu != null">
+        #{reoRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="peelRecAccu != null">
+        #{peelRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="assetRecAccu != null">
+        #{assetRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="assureRecAccu != null">
+        #{assureRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelRecAccu != null">
+        #{cancelRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="policyRecAccu != null">
+        #{policyRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="dteRecAccu != null">
+        #{dteRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="rollRecAccu != null">
+        #{rollRecAccu,jdbcType=DECIMAL},
+      </if>
+      <if test="maxBalanceY != null">
+        #{maxBalanceY,jdbcType=DECIMAL},
+      </if>
+      <if test="maxBalanceQ != null">
+        #{maxBalanceQ,jdbcType=DECIMAL},
+      </if>
+      <if test="maxBalanceM != null">
+        #{maxBalanceM,jdbcType=DECIMAL},
+      </if>
+      <if test="mortgageFlg != null">
+        #{mortgageFlg,jdbcType=CHAR},
+      </if>
+      <if test="repaymentMode != null">
+        #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstDisbDate != null">
+        #{firstDisbDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loanDirection != null">
+        #{loanDirection,jdbcType=CHAR},
+      </if>
+      <if test="revolvingTimes != null">
+        #{revolvingTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="extensionTimes != null">
+        #{extensionTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="capOverdueDate != null">
+        #{capOverdueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="intOverdueDate != null">
+        #{intOverdueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="overTimesCurrent != null">
+        #{overTimesCurrent,jdbcType=DECIMAL},
+      </if>
+      <if test="overTimesTotal != null">
+        #{overTimesTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="maxTimesTotal != null">
+        #{maxTimesTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="badLoanFlag != null">
+        #{badLoanFlag,jdbcType=CHAR},
+      </if>
+      <if test="defaultFlag != null">
+        #{defaultFlag,jdbcType=CHAR},
+      </if>
+      <if test="limitInd != null">
+        #{limitInd,jdbcType=CHAR},
+      </if>
+      <if test="loanForm4 != null">
+        #{loanForm4,jdbcType=CHAR},
+      </if>
+      <if test="cla != null">
+        #{cla,jdbcType=CHAR},
+      </if>
+      <if test="claDate != null">
+        #{claDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claPre != null">
+        #{claPre,jdbcType=CHAR},
+      </if>
+      <if test="claDatePre != null">
+        #{claDatePre,jdbcType=VARCHAR},
+      </if>
+      <if test="latestRepayDate != null">
+        #{latestRepayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="cusManager != null">
+        #{cusManager,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="finaBrId != null">
+        #{finaBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="settlDate != null">
+        #{settlDate,jdbcType=VARCHAR},
+      </if>
+      <if test="latestDate != null">
+        #{latestDate,jdbcType=VARCHAR},
+      </if>
+      <if test="accountStatus != null">
+        #{accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="bizTypeDetail != null">
+        #{bizTypeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="devAmt != null">
+        #{devAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="devAmtPre != null">
+        #{devAmtPre,jdbcType=DECIMAL},
+      </if>
+      <if test="devFlag != null">
+        #{devFlag,jdbcType=CHAR},
+      </if>
+      <if test="irType != null">
+        #{irType,jdbcType=VARCHAR},
+      </if>
+      <if test="sprdRate != null">
+        #{sprdRate,jdbcType=DECIMAL},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="payDistance != null">
+        #{payDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="dueDay != null">
+        #{dueDay,jdbcType=DECIMAL},
+      </if>
+      <if test="irAdjustMode != null">
+        #{irAdjustMode,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=CHAR},
+      </if>
+      <if test="fineInt != null">
+        #{fineInt,jdbcType=DECIMAL},
+      </if>
+      <if test="comdInt != null">
+        #{comdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="termExt != null">
+        #{termExt,jdbcType=VARCHAR},
+      </if>
+      <if test="prjCopNo != null">
+        #{prjCopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="newAccountClass != null">
+        #{newAccountClass,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTypeNo != null">
+        #{loanTypeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTypeName != null">
+        #{loanTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="ogrTerm != null">
+        #{ogrTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="interestAccMode != null">
+        #{interestAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelSum != null">
+        #{cancelSum,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelInterest != null">
+        #{cancelInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="claNow != null">
+        #{claNow,jdbcType=CHAR},
+      </if>
+      <if test="claNowDate != null">
+        #{claNowDate,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpLoanSerno != null">
+        #{iqpLoanSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="directionName != null">
+        #{directionName,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseType != null">
+        #{loanUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="useDec != null">
+        #{useDec,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="effectStatus != null">
+        #{effectStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerName != null">
+        #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="reExploreDate != null">
+        #{reExploreDate,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentModeDesc != null">
+        #{repaymentModeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="repayPercent != null">
+        #{repayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="claimSettlingFrequency != null">
+        #{claimSettlingFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="currentClaimTerm != null">
+        #{currentClaimTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="treatyPk != null">
+        #{treatyPk,jdbcType=VARCHAR},
+      </if>
+      <if test="preventRate != null">
+        #{preventRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payAccount != null">
+        #{payAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payAccountName != null">
+        #{payAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="interestSubsidy != null">
+        #{interestSubsidy,jdbcType=VARCHAR},
+      </if>
+      <if test="overTimesDays != null">
+        #{overTimesDays,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueInt != null">
+        #{overdueInt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueFineInt != null">
+        #{overdueFineInt,jdbcType=DECIMAL},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null">
+        #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="effectDate != null">
+        #{effectDate,jdbcType=CHAR},
+      </if>
+      <if test="paidAmtTotal != null">
+        #{paidAmtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="recoveredAmtTotal != null">
+        #{recoveredAmtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="paidAmtSum != null">
+        #{paidAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueStartDate != null">
+        #{overdueStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="preAccountStatus != null">
+        #{preAccountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="netPhone != null">
+        #{netPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="prdInstance != null">
+        #{prdInstance,jdbcType=VARCHAR},
+      </if>
+      <if test="lstForeignKey != null">
+        #{lstForeignKey,jdbcType=VARCHAR},
+      </if>
+      <if test="lstInnetKey != null">
+        #{lstInnetKey,jdbcType=VARCHAR},
+      </if>
+      <if test="riskGrade != null">
+        #{riskGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="sxyhPrepayFlag != null">
+        #{sxyhPrepayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAccounts != null">
+        #{secondAccounts,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="getCountByCertCode" parameterType="java.lang.String" resultType="java.lang.Integer">
+	<![CDATA[
+	     select count(1)
+			  from ACC_LOAN a,lst_iqp_info t
+			 where a.cert_code = #{certCode,jdbcType = VARCHAR}
+			   and a.account_status in ('4', '5', '0', '1')
+			   and t.list_serno = a.list_serno
+			   and t.cover_create_status = '04'
+			   and substr(t.prd_id,5,2) = '02'
+	]]> 
+  </select>
+  <select id="getAccLoanCountByCertCode" parameterType="java.lang.String" resultType="java.lang.Integer">
+	<![CDATA[
+	     select count(1)
+			  from lst_iqp_info t, acc_loan a
+			 where t.list_serno = a.list_serno
+			   and a.cert_code = #{certCode,jdbcType = VARCHAR}
+			   and t.prd_id = '05210306'
+			   and t.cover_create_status = '04'
+			   and a.account_status in ('4', '5', '0', '1')
+	]]> 
+  </select>
+  <select id="getBalanceByCertCode" parameterType="java.lang.String" resultType="java.lang.String">
+	<![CDATA[
+	     select sum(a.loan_balance) as loanBalance
+		  from lst_iqp_info t, acc_loan a
+		 where t.list_serno = a.list_serno
+		   and t.cover_create_status = '04'
+		   and a.cert_code = #{certCode,jdbcType=VARCHAR}
+		   and a.account_status in ('4', '5', '0', '1')
+		   and t.prd_id = '05210306'	
+   ]]> 
+  </select>
+  <select id="checkIsLoan" parameterType="java.lang.String" resultType="java.lang.Integer">
+	<![CDATA[
+	     select count(1)  from ACC_LOAN a where a.iqp_loan_serno=#{serno,jdbcType=VARCHAR}
+	]]> 
+  </select>
+  
+  <update id="updateStatusByPrimaryKey" parameterType="java.lang.String">
+  		update ACC_LOAN set EFFECT_STATUS = '3',ACCOUNT_STATUS = '3' where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    BILL_NO, CONT_NO, CN_CONT_NO, 
+      PRD_PK, BIZ_TYPE, PRD_NAME, 
+      PRD_TYPE, CUS_ID, CUS_NAME, 
+      BIZ_TYPE_SUB, ACCOUNT_CLASS, LOAN_ACCOUNT, 
+      LOAN_FORM, LOAN_NATURE, LOAN_TYPE_EXT, 
+      ASSURE_MEANS_MAIN, ASSURE_MEANS1, ASSURE_MEANS2, 
+      CUR_TYPE, LOAN_AMOUNT, LOAN_BALANCE, 
+      LOAN_START_DATE, LOAN_END_DATE, TERM_TYPE, 
+      ORIG_EXPI_DATE, RULING_IR, FLOATING_RATE, 
+      REALITY_IR_Y, OVERDUE_RATE, OVERDUE_IR, 
+      DEFAULT_RATE, DEFAULT_IR, CI_RATE, 
+      CI_IR, RECE_INT_CUMU, ACTUAL_INT_CUMU, 
+      DELAY_INT_CUMU, INNER_INT_CUMU, OFF_INT_CUMU, 
+      INNER_RECE_INT, OVERDUE_RECE_INT, OFF_RECE_INT, 
+      COMPOUND_RECE_INT, INNER_OFF_RECE_INT, INNER_ACTL_INT, 
+      OVERDUE_ACTL_INT, OFF_ACTL_INT, COMPOUND_ACTL_INT, 
+      INNER_OFF_ACTL_INT, NORMAL_BALANCE, OVERDUE_BALANCE, 
+      SLUGGISH_BALANCE, DOUBTFUL_BALANCE, INTEGRAL_Y, 
+      INTEGRAL_Q, INTEGRAL_M, NOR_REC_ACCU, 
+      REO_REC_ACCU, PEEL_REC_ACCU, ASSET_REC_ACCU, 
+      ASSURE_REC_ACCU, CANCEL_REC_ACCU, POLICY_REC_ACCU, 
+      DTE_REC_ACCU, ROLL_REC_ACCU, MAX_BALANCE_Y, 
+      MAX_BALANCE_Q, MAX_BALANCE_M, MORTGAGE_FLG, 
+      REPAYMENT_MODE, FIRST_DISB_DATE, LOAN_DIRECTION, 
+      REVOLVING_TIMES, EXTENSION_TIMES, CAP_OVERDUE_DATE, 
+      INT_OVERDUE_DATE, OVER_TIMES_CURRENT, OVER_TIMES_TOTAL, 
+      MAX_TIMES_TOTAL, BAD_LOAN_FLAG, DEFAULT_FLAG, 
+      LIMIT_IND, LOAN_FORM4, CLA, CLA_DATE, 
+      CLA_PRE, CLA_DATE_PRE, LATEST_REPAY_DATE, 
+      CUS_MANAGER, INPUT_BR_ID, FINA_BR_ID, 
+      MAIN_BR_ID, SETTL_DATE, LATEST_DATE, 
+      ACCOUNT_STATUS, BIZ_TYPE_DETAIL, DEV_AMT, 
+      DEV_AMT_PRE, DEV_FLAG, IR_TYPE, 
+      SPRD_RATE, FREQUENCY, PAY_DISTANCE, 
+      DUE_DAY, IR_ADJUST_MODE, PAY_TYPE, 
+      FINE_INT, COMD_INT, TERM, 
+      TERM_EXT, PRJ_COP_NO, NEW_ACCOUNT_CLASS, 
+      LOAN_TYPE_NO, LOAN_TYPE_NAME, OGR_TERM, 
+      INTEREST_ACC_MODE, CANCEL_SUM, CANCEL_INTEREST, 
+      CLA_NOW, CLA_NOW_DATE, LIST_SERNO, 
+      IQP_LOAN_SERNO, PARTNER_NO, CHANNEL_NO, 
+      CERT_TYPE, CERT_CODE, DIRECTION_NAME, 
+      LOAN_USE_TYPE, USE_DEC, INPUT_ID, 
+      INPUT_TIME, UPDATE_TIME, EFFECT_STATUS, 
+      PARTNER_NAME, CHANNEL_NAME, RE_EXPLORE_DATE, 
+      REPAYMENT_MODE_DESC, REPAY_PERCENT, CLAIM_SETTLING_FREQUENCY, 
+      CURRENT_CLAIM_TERM, TREATY_PK, PREVENT_RATE, 
+      PAY_ACCOUNT, PAY_ACCOUNT_NAME, INTEREST_SUBSIDY, 
+      OVER_TIMES_DAYS, OVERDUE_INT, OVERDUE_FINE_INT, 
+      CHECK_DATE, DATA_SOURCE, EFFECT_DATE, 
+      PAID_AMT_TOTAL, RECOVERED_AMT_TOTAL, PAID_AMT_SUM, 
+      OVERDUE_START_DATE, PRE_ACCOUNT_STATUS, NET_PHONE, 
+      PRD_INSTANCE, LST_FOREIGN_KEY, LST_INNET_KEY, 
+      RISK_GRADE, SXYH_PREPAY_FLAG, SECOND_ACCOUNTS
+      
+    from ACC_LOAN
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </select>
+  <select id="getLstInfoByBillNo" parameterType="String" resultType="java.util.Map">
+  	select t.cover_amount as coverAmount,t.Excuse_Rate as excuseRate from lst_iqp_info t,acc_loan a where t.list_serno = a.list_serno and a.bill_no = #{billNo,jdbcType=VARCHAR}
+  </select>
+</mapper>

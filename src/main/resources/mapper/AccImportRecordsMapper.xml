@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.AccImportRecordsMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.AccImportRecords">
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="IMPORT_DATA" jdbcType="VARCHAR" property="importData" />
+    <result column="IMPORT_USER_ID" jdbcType="VARCHAR" property="importUserId" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="IMPORT_DATE" jdbcType="VARCHAR" property="importDate" />
+    <result column="IMPORT_TIME" jdbcType="VARCHAR" property="importTime" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.AccImportRecords">
+    insert into ACC_IMPORT_RECORDS (SERNO, IMPORT_DATA, IMPORT_USER_ID, 
+      MEMO, IMPORT_DATE, IMPORT_TIME
+      )
+    values (#{serno,jdbcType=VARCHAR}, #{importData,jdbcType=VARCHAR}, #{importUserId,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{importDate,jdbcType=VARCHAR}, #{importTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.AccImportRecords">
+    insert into ACC_IMPORT_RECORDS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="importData != null">
+        IMPORT_DATA,
+      </if>
+      <if test="importUserId != null">
+        IMPORT_USER_ID,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="importDate != null">
+        IMPORT_DATE,
+      </if>
+      <if test="importTime != null">
+        IMPORT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="importData != null">
+        #{importData,jdbcType=VARCHAR},
+      </if>
+      <if test="importUserId != null">
+        #{importUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="importDate != null">
+        #{importDate,jdbcType=VARCHAR},
+      </if>
+      <if test="importTime != null">
+        #{importTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

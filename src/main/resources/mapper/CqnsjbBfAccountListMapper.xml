@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CqnsjbBfAccountListMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CqnsjbBfAccountList">
+    <result column="ACCOUNT_MONTH" jdbcType="VARCHAR" property="accountMonth" />
+    <result column="REAL_TOTAL_INT" jdbcType="DECIMAL" property="realTotalInt" />
+    <result column="CUS_REAL_INT" jdbcType="DECIMAL" property="cusRealInt" />
+    <result column="CUS_REAL_NUM" jdbcType="VARCHAR" property="cusRealNum" />
+    <result column="CLAIM_INT" jdbcType="DECIMAL" property="claimInt" />
+    <result column="CLAIM_NUM" jdbcType="VARCHAR" property="claimNum" />
+    <result column="INSURE_INT" jdbcType="DECIMAL" property="insureInt" />
+    <result column="INSURE_AMOUNT" jdbcType="DECIMAL" property="insureAmount" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="OPER_NAME" jdbcType="VARCHAR" property="operName" />
+    <result column="OPER_DATE" jdbcType="VARCHAR" property="operDate" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfAccountList">
+    insert into CQNSJB_BF_ACCOUNT_LIST (ACCOUNT_MONTH, REAL_TOTAL_INT, CUS_REAL_INT, 
+      CUS_REAL_NUM, CLAIM_INT, CLAIM_NUM, 
+      INSURE_INT, INSURE_AMOUNT, STATUS, 
+      OPER_NAME, OPER_DATE)
+    values (#{accountMonth,jdbcType=VARCHAR}, #{realTotalInt,jdbcType=DECIMAL}, #{cusRealInt,jdbcType=DECIMAL}, 
+      #{cusRealNum,jdbcType=VARCHAR}, #{claimInt,jdbcType=DECIMAL}, #{claimNum,jdbcType=VARCHAR}, 
+      #{insureInt,jdbcType=DECIMAL}, #{insureAmount,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, 
+      #{operName,jdbcType=VARCHAR}, #{operDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfAccountList">
+    insert into CQNSJB_BF_ACCOUNT_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountMonth != null">
+        ACCOUNT_MONTH,
+      </if>
+      <if test="realTotalInt != null">
+        REAL_TOTAL_INT,
+      </if>
+      <if test="cusRealInt != null">
+        CUS_REAL_INT,
+      </if>
+      <if test="cusRealNum != null">
+        CUS_REAL_NUM,
+      </if>
+      <if test="claimInt != null">
+        CLAIM_INT,
+      </if>
+      <if test="claimNum != null">
+        CLAIM_NUM,
+      </if>
+      <if test="insureInt != null">
+        INSURE_INT,
+      </if>
+      <if test="insureAmount != null">
+        INSURE_AMOUNT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="operName != null">
+        OPER_NAME,
+      </if>
+      <if test="operDate != null">
+        OPER_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountMonth != null">
+        #{accountMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="realTotalInt != null">
+        #{realTotalInt,jdbcType=DECIMAL},
+      </if>
+      <if test="cusRealInt != null">
+        #{cusRealInt,jdbcType=DECIMAL},
+      </if>
+      <if test="cusRealNum != null">
+        #{cusRealNum,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInt != null">
+        #{claimInt,jdbcType=DECIMAL},
+      </if>
+      <if test="claimNum != null">
+        #{claimNum,jdbcType=VARCHAR},
+      </if>
+      <if test="insureInt != null">
+        #{insureInt,jdbcType=DECIMAL},
+      </if>
+      <if test="insureAmount != null">
+        #{insureAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null">
+        #{operDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="caleBfAccountList" resultMap="BaseResultMap">
+  		select substr(b.PS_REAL_DT,0,7) as account_month,
+        sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0)) as real_total_int, 
+        sum(case when b.abstract = '20' then 0 else nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0) end ) as cus_real_int,
+        sum(case when b.abstract = '20' then 0 else 1 end ) as cus_real_num,
+        sum(case when b.abstract = '20' then nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0) else 0 end ) as claim_int,
+        sum(case when b.abstract = '20' then 1 else 0 end ) as claim_num,
+        sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0))*0.2  as insure_amount
+      from acc_mtd_ps_note b,acc_loan c
+      where c.bill_no = b.bill_no
+        and c.iqp_loan_serno like 'JBSQ%'
+        group by substr(b.PS_REAL_DT,0,7)
+        order by substr(b.PS_REAL_DT,0,7)
+  </select> 
+  
+   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="int">
+    select 
+    	count(*)
+    from CQNSJB_BF_ACCOUNT_LIST
+    where ACCOUNT_MONTH = #{accountMonth,jdbcType=VARCHAR}
+  </select>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfAccountList">
+  		 update CQNSJB_BF_ACCOUNT_LIST
+	    <set>
+	      <if test="realTotalInt != null">
+	        REAL_TOTAL_INT = #{realTotalInt,jdbcType=DECIMAL},
+	      </if>
+	      <if test="cusRealInt != null">
+	        CUS_REAL_INT = #{cusRealInt,jdbcType=DECIMAL},
+	      </if>
+	      <if test="claimInt != null">
+	        CLAIM_INT = #{claimInt,jdbcType=DECIMAL},
+	      </if>
+	      <if test="claimNum != null">
+	        CLAIM_NUM = #{claimNum,jdbcType=VARCHAR},
+	      </if>
+	      <if test="insureInt != null">
+	        INSURE_INT = #{insureInt,jdbcType=DECIMAL},
+	      </if>
+	      <if test="insureAmount != null">
+	        INSURE_AMOUNT = #{insureAmount,jdbcType=DECIMAL},
+	      </if>
+	      <if test="status != null">
+	        STATUS = #{status,jdbcType=VARCHAR},
+	      </if>
+	      <if test="operName != null">
+	        OPER_NAME = #{operName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="operDate != null">
+	        OPER_DATE = #{operDate,jdbcType=VARCHAR},
+	      </if>
+	    </set>
+	    where ACCOUNT_MONTH = #{accountMonth,jdbcType=VARCHAR}
+  </update>
+  
+   <!-- 查询明细数据 -->
+  <select id="queryDetailInfo" resultType="Map">
+  	select 
+	  	t.account_month,
+	  	t.list_serno,
+	  	t.bill_no,
+	  	trunc(sum(nvl(t.accrued_int_amt,0))*0.2,2) accrued_int_amt
+	  from cqnsjb_bf_detail_info t 
+	  group by t.account_month,t.list_serno,t.bill_no
+  </select>
+</mapper>

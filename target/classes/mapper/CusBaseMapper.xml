@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CusBaseMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CusBase">
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="TRANS_CUS_ID" jdbcType="VARCHAR" property="transCusId" />
+    <result column="CUS_TYPE" jdbcType="CHAR" property="cusType" />
+    <result column="CUS_EN_NAME" jdbcType="VARCHAR" property="cusEnName" />
+    <result column="CUS_SHORT_NAME" jdbcType="VARCHAR" property="cusShortName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="COM_INS_CODE" jdbcType="VARCHAR" property="comInsCode" />
+    <result column="BELONG_TO" jdbcType="VARCHAR" property="belongTo" />
+    <result column="CUS_PRO" jdbcType="VARCHAR" property="cusPro" />
+    <result column="LOAN_CARD_ID" jdbcType="VARCHAR" property="loanCardId" />
+    <result column="REG_TYPE" jdbcType="VARCHAR" property="regType" />
+    <result column="REG_CODE" jdbcType="VARCHAR" property="regCode" />
+    <result column="REG_CUR_TYPE" jdbcType="VARCHAR" property="regCurType" />
+    <result column="REG_CAP_AMT" jdbcType="DECIMAL" property="regCapAmt" />
+    <result column="COM_OPT_ADDR" jdbcType="VARCHAR" property="comOptAddr" />
+    <result column="CUST_MGR" jdbcType="VARCHAR" property="custMgr" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="CREDIT_CERT_TYPE" jdbcType="VARCHAR" property="creditCertType" />
+    <result column="CREDIT_CERT_CODE" jdbcType="VARCHAR" property="creditCertCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CUS_ID, CUS_NAME, TRANS_CUS_ID, CUS_TYPE, CUS_EN_NAME, CUS_SHORT_NAME, CERT_TYPE, 
+    CERT_CODE, COM_INS_CODE, BELONG_TO, CUS_PRO, LOAN_CARD_ID, REG_TYPE, REG_CODE, REG_CUR_TYPE, 
+    REG_CAP_AMT, COM_OPT_ADDR, CUST_MGR, MAIN_BR_ID, CREDIT_CERT_TYPE, CREDIT_CERT_CODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CUS_BASE
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CUS_BASE
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CusBase">
+  	<selectKey keyProperty="cusId" resultType="string" order="BEFORE">  
+            select 'CUS'||to_char(sysdate,'yyyymmdd')||CUSCODE_ALL.nextval from dual
+    </selectKey>
+    insert into CUS_BASE (CUS_ID, CUS_NAME, TRANS_CUS_ID, 
+      CUS_TYPE, CUS_EN_NAME, CUS_SHORT_NAME, 
+      CERT_TYPE, CERT_CODE, COM_INS_CODE, 
+      BELONG_TO, CUS_PRO, LOAN_CARD_ID, 
+      REG_TYPE, REG_CODE, REG_CUR_TYPE, 
+      REG_CAP_AMT, COM_OPT_ADDR, CUST_MGR, 
+      MAIN_BR_ID, CREDIT_CERT_TYPE, CREDIT_CERT_CODE
+      )
+    values (#{cusId,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, #{transCusId,jdbcType=VARCHAR}, 
+      #{cusType,jdbcType=CHAR}, #{cusEnName,jdbcType=VARCHAR}, #{cusShortName,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{comInsCode,jdbcType=VARCHAR}, 
+      #{belongTo,jdbcType=VARCHAR}, #{cusPro,jdbcType=VARCHAR}, #{loanCardId,jdbcType=VARCHAR}, 
+      #{regType,jdbcType=VARCHAR}, #{regCode,jdbcType=VARCHAR}, #{regCurType,jdbcType=VARCHAR}, 
+      #{regCapAmt,jdbcType=DECIMAL}, #{comOptAddr,jdbcType=VARCHAR}, #{custMgr,jdbcType=VARCHAR}, 
+      #{mainBrId,jdbcType=VARCHAR}, #{creditCertType,jdbcType=VARCHAR}, #{creditCertCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CusBase">
+    <selectKey keyProperty="cusId" resultType="string" order="BEFORE">  
+            select 'CUS'||to_char(sysdate,'yyyymmdd')||CUSCODE_ALL.nextval from dual  
+    </selectKey>
+    insert into CUS_BASE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="transCusId != null">
+        TRANS_CUS_ID,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="cusEnName != null">
+        CUS_EN_NAME,
+      </if>
+      <if test="cusShortName != null">
+        CUS_SHORT_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="comInsCode != null">
+        COM_INS_CODE,
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO,
+      </if>
+      <if test="cusPro != null">
+        CUS_PRO,
+      </if>
+      <if test="loanCardId != null">
+        LOAN_CARD_ID,
+      </if>
+      <if test="regType != null">
+        REG_TYPE,
+      </if>
+      <if test="regCode != null">
+        REG_CODE,
+      </if>
+      <if test="regCurType != null">
+        REG_CUR_TYPE,
+      </if>
+      <if test="regCapAmt != null">
+        REG_CAP_AMT,
+      </if>
+      <if test="comOptAddr != null">
+        COM_OPT_ADDR,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="creditCertType != null">
+        CREDIT_CERT_TYPE,
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="transCusId != null">
+        #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="cusEnName != null">
+        #{cusEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusShortName != null">
+        #{cusShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsCode != null">
+        #{comInsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPro != null">
+        #{cusPro,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardId != null">
+        #{loanCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="regType != null">
+        #{regType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCode != null">
+        #{regCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regCurType != null">
+        #{regCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapAmt != null">
+        #{regCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comOptAddr != null">
+        #{comOptAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertType != null">
+        #{creditCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertSelective2" parameterType="cn.com.sinosafe.domain.entity.CusBase">
+    insert into CUS_BASE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="transCusId != null">
+        TRANS_CUS_ID,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="cusEnName != null">
+        CUS_EN_NAME,
+      </if>
+      <if test="cusShortName != null">
+        CUS_SHORT_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="comInsCode != null">
+        COM_INS_CODE,
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO,
+      </if>
+      <if test="cusPro != null">
+        CUS_PRO,
+      </if>
+      <if test="loanCardId != null">
+        LOAN_CARD_ID,
+      </if>
+      <if test="regType != null">
+        REG_TYPE,
+      </if>
+      <if test="regCode != null">
+        REG_CODE,
+      </if>
+      <if test="regCurType != null">
+        REG_CUR_TYPE,
+      </if>
+      <if test="regCapAmt != null">
+        REG_CAP_AMT,
+      </if>
+      <if test="comOptAddr != null">
+        COM_OPT_ADDR,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="creditCertType != null">
+        CREDIT_CERT_TYPE,
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="transCusId != null">
+        #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="cusEnName != null">
+        #{cusEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusShortName != null">
+        #{cusShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsCode != null">
+        #{comInsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPro != null">
+        #{cusPro,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardId != null">
+        #{loanCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="regType != null">
+        #{regType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCode != null">
+        #{regCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regCurType != null">
+        #{regCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapAmt != null">
+        #{regCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comOptAddr != null">
+        #{comOptAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertType != null">
+        #{creditCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CusBase">
+    update CUS_BASE
+    <set>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="transCusId != null">
+        TRANS_CUS_ID = #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=CHAR},
+      </if>
+      <if test="cusEnName != null">
+        CUS_EN_NAME = #{cusEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusShortName != null">
+        CUS_SHORT_NAME = #{cusShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comInsCode != null">
+        COM_INS_CODE = #{comInsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO = #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPro != null">
+        CUS_PRO = #{cusPro,jdbcType=VARCHAR},
+      </if>
+      <if test="loanCardId != null">
+        LOAN_CARD_ID = #{loanCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="regType != null">
+        REG_TYPE = #{regType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCode != null">
+        REG_CODE = #{regCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regCurType != null">
+        REG_CUR_TYPE = #{regCurType,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapAmt != null">
+        REG_CAP_AMT = #{regCapAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comOptAddr != null">
+        COM_OPT_ADDR = #{comOptAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertType != null">
+        CREDIT_CERT_TYPE = #{creditCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE = #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CusBase">
+    update CUS_BASE
+    set CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      TRANS_CUS_ID = #{transCusId,jdbcType=VARCHAR},
+      CUS_TYPE = #{cusType,jdbcType=CHAR},
+      CUS_EN_NAME = #{cusEnName,jdbcType=VARCHAR},
+      CUS_SHORT_NAME = #{cusShortName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      COM_INS_CODE = #{comInsCode,jdbcType=VARCHAR},
+      BELONG_TO = #{belongTo,jdbcType=VARCHAR},
+      CUS_PRO = #{cusPro,jdbcType=VARCHAR},
+      LOAN_CARD_ID = #{loanCardId,jdbcType=VARCHAR},
+      REG_TYPE = #{regType,jdbcType=VARCHAR},
+      REG_CODE = #{regCode,jdbcType=VARCHAR},
+      REG_CUR_TYPE = #{regCurType,jdbcType=VARCHAR},
+      REG_CAP_AMT = #{regCapAmt,jdbcType=DECIMAL},
+      COM_OPT_ADDR = #{comOptAddr,jdbcType=VARCHAR},
+      CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      CREDIT_CERT_TYPE = #{creditCertType,jdbcType=VARCHAR},
+      CREDIT_CERT_CODE = #{creditCertCode,jdbcType=VARCHAR}
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectCusInfoByNameId" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	SELECT CUS_ID, CUS_NAME, TRANS_CUS_ID, 
+      CUS_TYPE, CUS_EN_NAME, CUS_SHORT_NAME, 
+      CERT_TYPE, CERT_CODE, COM_INS_CODE, 
+      BELONG_TO, CUS_PRO, LOAN_CARD_ID, 
+      REG_TYPE, REG_CODE, REG_CUR_TYPE, 
+      REG_CAP_AMT, COM_OPT_ADDR, CUST_MGR, 
+      MAIN_BR_ID, CREDIT_CERT_TYPE, CREDIT_CERT_CODE
+    FROM CUS_BASE WHERE CUS_NAME=#{cusName,jdbcType=VARCHAR} AND CERT_CODE=#{certCode,jdbcType=VARCHAR}
+  </select>
+  <select id="createCusId" resultType="String">
+  	select 'CUS'||to_char(sysdate,'yyyymmdd')||CUSCODE_ALL.nextval from dual
+  </select>
+  <select id="queryByCertCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from CUS_BASE
+    where cert_code = #{certCode,jdbcType=VARCHAR}
+  </select>
+</mapper>

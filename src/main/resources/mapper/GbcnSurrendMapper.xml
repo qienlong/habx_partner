@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.GbcnSurrendMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.gbcn.request.SurrendRequest$SurrendRequestBody">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="POLICYNO" jdbcType="VARCHAR" property="policyno" />
+    <result column="POLICYREASON" jdbcType="VARCHAR" property="policyReason" />
+    <result column="ACCOUNTNO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="BANKNAME" jdbcType="VARCHAR" property="bankName" />
+    <result column="BANKNO" jdbcType="VARCHAR" property="bankNo" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="SURRENDSTATUS" jdbcType="VARCHAR" property="surrendStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, POLICYNO, POLICYREASON, ACCOUNTNO, BANKNAME, BANKNO, CREATETIME, SURRENDSTATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_GBCN_SURREND
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+   <select id="selectByPolicyNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_GBCN_SURREND
+    where POLICYNO = #{policyno,jdbcType=VARCHAR}
+  </select>
+  <select id="queryHasSendByPolicyNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from T_GBCN_SURREND
+    where SURRENDSTATUS = '1'
+    and POLICYNO = #{policyno,jdbcType=VARCHAR}
+  </select>
+   <update id="updateSurrendStatus" parameterType="cn.com.sinosafe.domain.gbcn.request.SurrendRequest$SurrendRequestBody">
+    update T_GBCN_SURREND
+    <set>
+      <if test="surrendStatus != null">
+        SURRENDSTATUS = #{surrendStatus,jdbcType=VARCHAR},
+      </if>
+    </set>    
+    where SURRENDSTATUS != '1' and POLICYNO = #{policyno,jdbcType=VARCHAR}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_GBCN_SURREND
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.gbcn.request.SurrendRequest$SurrendRequestBody">
+    insert into T_GBCN_SURREND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="policyno != null">
+        POLICYNO,
+      </if>
+      <if test="policyReason != null">
+        POLICYREASON,
+      </if>
+      <if test="accountNo != null">
+        ACCOUNTNO,
+      </if>
+      <if test="bankName != null">
+        BANKNAME,
+      </if>
+      <if test="bankNo != null">
+        BANKNO,
+      </if>
+      <if test="createTime != null">
+        CREATETIME,
+      </if>
+      <if test="surrendStatus != null">
+        SURRENDSTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyno != null">
+        #{policyno,jdbcType=VARCHAR},
+      </if>
+      <if test="policyReason != null">
+        #{policyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null">
+        #{bankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="surrendStatus != null">
+        #{surrendStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.gbcn.request.SurrendRequest$SurrendRequestBody">
+    update T_GBCN_SURREND
+    <set>
+      <if test="policyno != null">
+        POLICYNO = #{policyno,jdbcType=VARCHAR},
+      </if>
+      <if test="policyReason != null">
+        POLICYREASON = #{policyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        ACCOUNTNO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        BANKNAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null">
+        BANKNO = #{bankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATETIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="surrendStatus != null">
+        SURRENDSTATUS = #{surrendStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <select id="queryWithoutSend" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM T_GBCN_SURREND T
+    WHERE T.SURRENDSTATUS != '1'
+  </select>
+  <select id="queryAdviceByPolicyNo" parameterType="java.lang.String" resultType="java.lang.String">
+    select * from(
+      select bpm.app_advice from sinno_bpm_rel bpm
+      left join iqp_me_cancel iqp on iqp.serno = bpm.pk_value
+      left join lst_iqp_info lst on lst.iqp_loan_serno = iqp.serno
+      where iqp.cancel_type = '001'
+      and bpm.nodename = '总部审批岗'
+      and lst.list_serno=#{policyno,jdbcType=VARCHAR}
+      order by bpm.task_begin_time desc
+    ) where rownum = 1
+  </select>
+</mapper>

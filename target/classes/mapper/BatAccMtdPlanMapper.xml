@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.BatAccMtdPlanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.BatAccMtdPlan">
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="PS_DUE_DT" jdbcType="VARCHAR" property="psDueDt" />
+    <result column="PS_PRCP_AMT" jdbcType="DECIMAL" property="psPrcpAmt" />
+    <result column="PS_NORM_INT_AMT" jdbcType="DECIMAL" property="psNormIntAmt" />
+    <result column="PS_OD_INT_AMT" jdbcType="DECIMAL" property="psOdIntAmt" />
+    <result column="PS_COMM_OD_INT" jdbcType="DECIMAL" property="psCommOdInt" />
+    <result column="PS_REAL_DT" jdbcType="CHAR" property="psRealDt" />
+    <result column="PS_REAL_PRCP_AMT" jdbcType="DECIMAL" property="psRealPrcpAmt" />
+    <result column="PS_REAL_INT_AMT" jdbcType="DECIMAL" property="psRealIntAmt" />
+    <result column="SETL_OD_INC_TAKEN" jdbcType="DECIMAL" property="setlOdIncTaken" />
+    <result column="SETL_COMM_OD_INT" jdbcType="DECIMAL" property="setlCommOdInt" />
+    <result column="SOURCES" jdbcType="VARCHAR" property="sources" />
+    <result column="SYN_STATUS" jdbcType="VARCHAR" property="synStatus" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+    <result column="CHECK_RESULT" jdbcType="VARCHAR" property="checkResult" />
+    <result column="CHECK_REASON" jdbcType="VARCHAR" property="checkReason" />
+    <result column="PRE_PAY" jdbcType="VARCHAR" property="prePay" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.BatAccMtdPlan">
+    insert into BAT_ACC_MTD_PLAN (BILL_NO, PS_PERD_NO, PS_DUE_DT, 
+      PS_PRCP_AMT, PS_NORM_INT_AMT, PS_OD_INT_AMT, 
+      PS_COMM_OD_INT, PS_REAL_DT, PS_REAL_PRCP_AMT, 
+      PS_REAL_INT_AMT, SETL_OD_INC_TAKEN, SETL_COMM_OD_INT, 
+      SOURCES, SYN_STATUS, BUSINESS_DATE, 
+      CHECK_RESULT, CHECK_REASON, PRE_PAY
+      )
+    values (#{billNo,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=DECIMAL}, #{psDueDt,jdbcType=VARCHAR}, 
+      #{psPrcpAmt,jdbcType=DECIMAL}, #{psNormIntAmt,jdbcType=DECIMAL}, #{psOdIntAmt,jdbcType=DECIMAL}, 
+      #{psCommOdInt,jdbcType=DECIMAL}, #{psRealDt,jdbcType=CHAR}, #{psRealPrcpAmt,jdbcType=DECIMAL}, 
+      #{psRealIntAmt,jdbcType=DECIMAL}, #{setlOdIncTaken,jdbcType=DECIMAL}, #{setlCommOdInt,jdbcType=DECIMAL}, 
+      #{sources,jdbcType=VARCHAR}, #{synStatus,jdbcType=VARCHAR}, #{businessDate,jdbcType=VARCHAR}, 
+      #{checkResult,jdbcType=VARCHAR}, #{checkReason,jdbcType=VARCHAR}, #{prePay,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.BatAccMtdPlan">
+    insert into BAT_ACC_MTD_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="psDueDt != null">
+        PS_DUE_DT,
+      </if>
+      <if test="psPrcpAmt != null">
+        PS_PRCP_AMT,
+      </if>
+      <if test="psNormIntAmt != null">
+        PS_NORM_INT_AMT,
+      </if>
+      <if test="psOdIntAmt != null">
+        PS_OD_INT_AMT,
+      </if>
+      <if test="psCommOdInt != null">
+        PS_COMM_OD_INT,
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT,
+      </if>
+      <if test="psRealPrcpAmt != null">
+        PS_REAL_PRCP_AMT,
+      </if>
+      <if test="psRealIntAmt != null">
+        PS_REAL_INT_AMT,
+      </if>
+      <if test="setlOdIncTaken != null">
+        SETL_OD_INC_TAKEN,
+      </if>
+      <if test="setlCommOdInt != null">
+        SETL_COMM_OD_INT,
+      </if>
+      <if test="sources != null">
+        SOURCES,
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+      <if test="checkResult != null">
+        CHECK_RESULT,
+      </if>
+      <if test="checkReason != null">
+        CHECK_REASON,
+      </if>
+      <if test="prePay != null">
+        PRE_PAY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="psDueDt != null">
+        #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psPrcpAmt != null">
+        #{psPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psNormIntAmt != null">
+        #{psNormIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psOdIntAmt != null">
+        #{psOdIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psCommOdInt != null">
+        #{psCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealDt != null">
+        #{psRealDt,jdbcType=CHAR},
+      </if>
+      <if test="psRealPrcpAmt != null">
+        #{psRealPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealIntAmt != null">
+        #{psRealIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="setlOdIncTaken != null">
+        #{setlOdIncTaken,jdbcType=DECIMAL},
+      </if>
+      <if test="setlCommOdInt != null">
+        #{setlCommOdInt,jdbcType=DECIMAL},
+      </if>
+      <if test="sources != null">
+        #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkReason != null">
+        #{checkReason,jdbcType=VARCHAR},
+      </if>
+      <if test="prePay != null">
+        #{prePay,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

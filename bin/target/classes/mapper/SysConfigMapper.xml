@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.SysConfigMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.SysConfig">
+    <id column="config_id" jdbcType="INTEGER" property="configId" />
+    <result column="config_type" jdbcType="VARCHAR" property="configType" />
+    <result column="config_value" jdbcType="VARCHAR" property="configValue" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    config_id, config_type, config_value, remark, create_date, update_date
+  </sql>
+  
+  	<select id="listSystemConfig" resultType="java.util.Map">
+		select t.sc_key,t.sc_value from SYSTEM_CONFIG t
+	</select>
+	
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_config
+    where config_id = #{configId,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sys_config
+    where config_id = #{configId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.SysConfig">
+    insert into t_sys_config (config_id, config_type, config_value, 
+      remark, create_date, update_date
+      )
+    values (#{configId,jdbcType=INTEGER}, #{configType,jdbcType=VARCHAR}, #{configValue,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.SysConfig">
+    insert into t_sys_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="configId != null">
+        config_id,
+      </if>
+      <if test="configType != null">
+        config_type,
+      </if>
+      <if test="configValue != null">
+        config_value,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="configId != null">
+        #{configId,jdbcType=INTEGER},
+      </if>
+      <if test="configType != null">
+        #{configType,jdbcType=VARCHAR},
+      </if>
+      <if test="configValue != null">
+        #{configValue,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.SysConfig">
+    update t_sys_config
+    <set>
+      <if test="configType != null">
+        config_type = #{configType,jdbcType=VARCHAR},
+      </if>
+      <if test="configValue != null">
+        config_value = #{configValue,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where config_id = #{configId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.SysConfig">
+    update t_sys_config
+    set config_type = #{configType,jdbcType=VARCHAR},
+      config_value = #{configValue,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where config_id = #{configId,jdbcType=INTEGER}
+  </update>
+</mapper>

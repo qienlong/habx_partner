@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.AccFeePsNoteMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.AccFeePsNote">
+    <result column="LST_SERNO" jdbcType="VARCHAR" property="lstSerno" />
+    <result column="PS_REAL_DT" jdbcType="VARCHAR" property="psRealDt" />
+    <result column="PS_REAL_FEE_AMT" jdbcType="DECIMAL" property="psRealFeeAmt" />
+    <result column="REPAYMENT_STATE" jdbcType="VARCHAR" property="repaymentState" />
+    <result column="PS_REAL_SOURCE" jdbcType="VARCHAR" property="psRealSource" />
+    <result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="UPDATE_DATE" jdbcType="VARCHAR" property="updateDate" />
+    <result column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="BANK_SERNO" jdbcType="VARCHAR" property="bankSerno" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="FEE_SOURCE" jdbcType="VARCHAR" property="feeSource" />
+    <result column="PREMIUM_REPAY_TYPE" jdbcType="VARCHAR" property="premiumRepayType" />
+    <result column="INPUT_DATE_TIME" jdbcType="VARCHAR" property="inputDateTime" />
+    <result column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.AccFeePsNote">
+    insert into ACC_FEE_PS_NOTE (LST_SERNO, PS_REAL_DT, PS_REAL_FEE_AMT, 
+      REPAYMENT_STATE, PS_REAL_SOURCE, SUMMARY, 
+      INPUT_DATE, UPDATE_DATE, PS_PERD_NO, 
+      BANK_SERNO, INPUT_ID, INPUT_BR_ID, 
+      FEE_SOURCE, PREMIUM_REPAY_TYPE, INPUT_DATE_TIME, 
+      PK_ID)
+    values (#{lstSerno,jdbcType=VARCHAR}, #{psRealDt,jdbcType=VARCHAR}, #{psRealFeeAmt,jdbcType=DECIMAL}, 
+      #{repaymentState,jdbcType=VARCHAR}, #{psRealSource,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=DECIMAL}, 
+      #{bankSerno,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, 
+      #{feeSource,jdbcType=VARCHAR}, #{premiumRepayType,jdbcType=VARCHAR}, #{inputDateTime,jdbcType=VARCHAR}, 
+      #{pkId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.AccFeePsNote">
+    insert into ACC_FEE_PS_NOTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lstSerno != null">
+        LST_SERNO,
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT,
+      </if>
+      <if test="psRealFeeAmt != null">
+        PS_REAL_FEE_AMT,
+      </if>
+      <if test="repaymentState != null">
+        REPAYMENT_STATE,
+      </if>
+      <if test="psRealSource != null">
+        PS_REAL_SOURCE,
+      </if>
+      <if test="summary != null">
+        SUMMARY,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="bankSerno != null">
+        BANK_SERNO,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="feeSource != null">
+        FEE_SOURCE,
+      </if>
+      <if test="premiumRepayType != null">
+        PREMIUM_REPAY_TYPE,
+      </if>
+      <if test="inputDateTime != null">
+        INPUT_DATE_TIME,
+      </if>
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lstSerno != null">
+        #{lstSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealDt != null">
+        #{psRealDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealFeeAmt != null">
+        #{psRealFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentState != null">
+        #{repaymentState,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealSource != null">
+        #{psRealSource,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="bankSerno != null">
+        #{bankSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="feeSource != null">
+        #{feeSource,jdbcType=VARCHAR},
+      </if>
+      <if test="premiumRepayType != null">
+        #{premiumRepayType,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDateTime != null">
+        #{inputDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

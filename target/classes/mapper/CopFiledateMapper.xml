@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CopFiledateMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CopFiledate">
+    <id column="COPNAME" jdbcType="VARCHAR" property="copname" />
+    <result column="FILEDATE" jdbcType="VARCHAR" property="filedate" />
+    <result column="COP_DESCRIBE" jdbcType="VARCHAR" property="copDescribe" />
+    <result column="CUT_DATE" jdbcType="VARCHAR" property="cutDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COPNAME, FILEDATE, COP_DESCRIBE, CUT_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COP_FILEDATE
+    where COPNAME = #{copname,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from COP_FILEDATE
+    where COPNAME = #{copname,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CopFiledate">
+    insert into COP_FILEDATE (COPNAME, FILEDATE, COP_DESCRIBE, 
+      CUT_DATE)
+    values (#{copname,jdbcType=VARCHAR}, #{filedate,jdbcType=VARCHAR}, #{copDescribe,jdbcType=VARCHAR}, 
+      #{cutDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CopFiledate">
+    insert into COP_FILEDATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="copname != null">
+        COPNAME,
+      </if>
+      <if test="filedate != null">
+        FILEDATE,
+      </if>
+      <if test="copDescribe != null">
+        COP_DESCRIBE,
+      </if>
+      <if test="cutDate != null">
+        CUT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="copname != null">
+        #{copname,jdbcType=VARCHAR},
+      </if>
+      <if test="filedate != null">
+        #{filedate,jdbcType=VARCHAR},
+      </if>
+      <if test="copDescribe != null">
+        #{copDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="cutDate != null">
+        #{cutDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CopFiledate">
+    update COP_FILEDATE
+    <set>
+      <if test="filedate != null">
+        FILEDATE = #{filedate,jdbcType=VARCHAR},
+      </if>
+      <if test="copDescribe != null">
+        COP_DESCRIBE = #{copDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="cutDate != null">
+        CUT_DATE = #{cutDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COPNAME = #{copname,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CopFiledate">
+    update COP_FILEDATE
+    set FILEDATE = #{filedate,jdbcType=VARCHAR},
+      COP_DESCRIBE = #{copDescribe,jdbcType=VARCHAR},
+      CUT_DATE = #{cutDate,jdbcType=VARCHAR}
+    where COPNAME = #{copname,jdbcType=VARCHAR}
+  </update>
+</mapper>

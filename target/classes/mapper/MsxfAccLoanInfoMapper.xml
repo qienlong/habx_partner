@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.MsxfAccLoanInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.MsxfAccLoanInfo">
+    <id column="DK_ID" jdbcType="VARCHAR" property="dkId" />
+    <result column="BIZ_DATE" jdbcType="VARCHAR" property="bizDate" />
+    <result column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="CONTR_NBR" jdbcType="VARCHAR" property="contrNbr" />
+    <result column="PRODUCT_CD" jdbcType="VARCHAR" property="productCd" />
+    <result column="REF_NBR" jdbcType="VARCHAR" property="refNbr" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="TXN_STATUS" jdbcType="CHAR" property="txnStatus" />
+    <result column="TXN_DATE" jdbcType="VARCHAR" property="txnDate" />
+    <result column="TXN_AMT" jdbcType="DECIMAL" property="txnAmt" />
+    <result column="INIT_TERM" jdbcType="VARCHAR" property="initTerm" />
+    <result column="CURR_TERM" jdbcType="VARCHAR" property="currTerm" />
+    <result column="OVERDUE_DAYS" jdbcType="DECIMAL" property="overdueDays" />
+    <result column="OVERDUE_DATE" jdbcType="VARCHAR" property="overdueDate" />
+    <result column="PRINCIPAL_BAL" jdbcType="DECIMAL" property="principalBal" />
+    <result column="INTEREST_BAL" jdbcType="DECIMAL" property="interestBal" />
+    <result column="OVERDUE_PRIN" jdbcType="DECIMAL" property="overduePrin" />
+    <result column="OVERDUE_INT" jdbcType="DECIMAL" property="overdueInt" />
+    <result column="PENALTY_BAL" jdbcType="DECIMAL" property="penaltyBal" />
+    <result column="INT_TYPE" jdbcType="VARCHAR" property="intType" />
+    <result column="INT_FLAG" jdbcType="CHAR" property="intFlag" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="GUARANTEE_FLAG" jdbcType="VARCHAR" property="guaranteeFlag" />
+    <result column="PMT_TYPE" jdbcType="CHAR" property="pmtType" />
+    <result column="INTEREST_RATE" jdbcType="DECIMAL" property="interestRate" />
+    <result column="LOANRATE" jdbcType="DECIMAL" property="loanrate" />
+    <result column="PENALTY_RATE" jdbcType="DECIMAL" property="penaltyRate" />
+    <result column="INT_RATE_TYPE" jdbcType="CHAR" property="intRateType" />
+    <result column="PEN_RATE_TYPE" jdbcType="CHAR" property="penRateType" />
+    <result column="POLICY_NUMBER" jdbcType="VARCHAR" property="policyNumber" />
+    <result column="LOAN_RATIO" jdbcType="VARCHAR" property="loanRatio" />
+    <result column="COOP_ID" jdbcType="VARCHAR" property="coopId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="SYNC_STATUS" jdbcType="VARCHAR" property="syncStatus" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DK_ID, BIZ_DATE, UUID, CONTR_NBR, PRODUCT_CD, REF_NBR, CURRENCY, TXN_STATUS, TXN_DATE, 
+    TXN_AMT, INIT_TERM, CURR_TERM, OVERDUE_DAYS, OVERDUE_DATE, PRINCIPAL_BAL, INTEREST_BAL, 
+    OVERDUE_PRIN, OVERDUE_INT, PENALTY_BAL, INT_TYPE, INT_FLAG, CARD_NO, GUARANTEE_FLAG, 
+    PMT_TYPE, INTEREST_RATE, LOANRATE, PENALTY_RATE, INT_RATE_TYPE, PEN_RATE_TYPE, POLICY_NUMBER, 
+    LOAN_RATIO, COOP_ID, INPUT_DATE, SYNC_STATUS, COP_NO, BUSINESS_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MSXF_ACC_LOAN_INFO
+    where DK_ID = #{dkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MSXF_ACC_LOAN_INFO
+    where DK_ID = #{dkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.MsxfAccLoanInfo">
+    insert into MSXF_ACC_LOAN_INFO (DK_ID, BIZ_DATE, UUID, 
+      CONTR_NBR, PRODUCT_CD, REF_NBR, 
+      CURRENCY, TXN_STATUS, TXN_DATE, 
+      TXN_AMT, INIT_TERM, CURR_TERM, 
+      OVERDUE_DAYS, OVERDUE_DATE, PRINCIPAL_BAL, 
+      INTEREST_BAL, OVERDUE_PRIN, OVERDUE_INT, 
+      PENALTY_BAL, INT_TYPE, INT_FLAG, 
+      CARD_NO, GUARANTEE_FLAG, PMT_TYPE, 
+      INTEREST_RATE, LOANRATE, PENALTY_RATE, 
+      INT_RATE_TYPE, PEN_RATE_TYPE, POLICY_NUMBER, 
+      LOAN_RATIO, COOP_ID, INPUT_DATE, 
+      SYNC_STATUS, COP_NO, BUSINESS_DATE
+      )
+    values (#{dkId,jdbcType=VARCHAR}, #{bizDate,jdbcType=VARCHAR}, #{uuid,jdbcType=VARCHAR}, 
+      #{contrNbr,jdbcType=VARCHAR}, #{productCd,jdbcType=VARCHAR}, #{refNbr,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR}, #{txnStatus,jdbcType=CHAR}, #{txnDate,jdbcType=VARCHAR}, 
+      #{txnAmt,jdbcType=DECIMAL}, #{initTerm,jdbcType=VARCHAR}, #{currTerm,jdbcType=VARCHAR}, 
+      #{overdueDays,jdbcType=DECIMAL}, #{overdueDate,jdbcType=VARCHAR}, #{principalBal,jdbcType=DECIMAL}, 
+      #{interestBal,jdbcType=DECIMAL}, #{overduePrin,jdbcType=DECIMAL}, #{overdueInt,jdbcType=DECIMAL}, 
+      #{penaltyBal,jdbcType=DECIMAL}, #{intType,jdbcType=VARCHAR}, #{intFlag,jdbcType=CHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{guaranteeFlag,jdbcType=VARCHAR}, #{pmtType,jdbcType=CHAR}, 
+      #{interestRate,jdbcType=DECIMAL}, #{loanrate,jdbcType=DECIMAL}, #{penaltyRate,jdbcType=DECIMAL}, 
+      #{intRateType,jdbcType=CHAR}, #{penRateType,jdbcType=CHAR}, #{policyNumber,jdbcType=VARCHAR}, 
+      #{loanRatio,jdbcType=VARCHAR}, #{coopId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{syncStatus,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, #{businessDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.MsxfAccLoanInfo">
+    insert into MSXF_ACC_LOAN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dkId != null">
+        DK_ID,
+      </if>
+      <if test="bizDate != null">
+        BIZ_DATE,
+      </if>
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR,
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD,
+      </if>
+      <if test="refNbr != null">
+        REF_NBR,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="txnStatus != null">
+        TXN_STATUS,
+      </if>
+      <if test="txnDate != null">
+        TXN_DATE,
+      </if>
+      <if test="txnAmt != null">
+        TXN_AMT,
+      </if>
+      <if test="initTerm != null">
+        INIT_TERM,
+      </if>
+      <if test="currTerm != null">
+        CURR_TERM,
+      </if>
+      <if test="overdueDays != null">
+        OVERDUE_DAYS,
+      </if>
+      <if test="overdueDate != null">
+        OVERDUE_DATE,
+      </if>
+      <if test="principalBal != null">
+        PRINCIPAL_BAL,
+      </if>
+      <if test="interestBal != null">
+        INTEREST_BAL,
+      </if>
+      <if test="overduePrin != null">
+        OVERDUE_PRIN,
+      </if>
+      <if test="overdueInt != null">
+        OVERDUE_INT,
+      </if>
+      <if test="penaltyBal != null">
+        PENALTY_BAL,
+      </if>
+      <if test="intType != null">
+        INT_TYPE,
+      </if>
+      <if test="intFlag != null">
+        INT_FLAG,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="guaranteeFlag != null">
+        GUARANTEE_FLAG,
+      </if>
+      <if test="pmtType != null">
+        PMT_TYPE,
+      </if>
+      <if test="interestRate != null">
+        INTEREST_RATE,
+      </if>
+      <if test="loanrate != null">
+        LOANRATE,
+      </if>
+      <if test="penaltyRate != null">
+        PENALTY_RATE,
+      </if>
+      <if test="intRateType != null">
+        INT_RATE_TYPE,
+      </if>
+      <if test="penRateType != null">
+        PEN_RATE_TYPE,
+      </if>
+      <if test="policyNumber != null">
+        POLICY_NUMBER,
+      </if>
+      <if test="loanRatio != null">
+        LOAN_RATIO,
+      </if>
+      <if test="coopId != null">
+        COOP_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dkId != null">
+        #{dkId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null">
+        #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="txnStatus != null">
+        #{txnStatus,jdbcType=CHAR},
+      </if>
+      <if test="txnDate != null">
+        #{txnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmt != null">
+        #{txnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="initTerm != null">
+        #{initTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="currTerm != null">
+        #{currTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDays != null">
+        #{overdueDays,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueDate != null">
+        #{overdueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="principalBal != null">
+        #{principalBal,jdbcType=DECIMAL},
+      </if>
+      <if test="interestBal != null">
+        #{interestBal,jdbcType=DECIMAL},
+      </if>
+      <if test="overduePrin != null">
+        #{overduePrin,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueInt != null">
+        #{overdueInt,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyBal != null">
+        #{penaltyBal,jdbcType=DECIMAL},
+      </if>
+      <if test="intType != null">
+        #{intType,jdbcType=VARCHAR},
+      </if>
+      <if test="intFlag != null">
+        #{intFlag,jdbcType=CHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeFlag != null">
+        #{guaranteeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="pmtType != null">
+        #{pmtType,jdbcType=CHAR},
+      </if>
+      <if test="interestRate != null">
+        #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanrate != null">
+        #{loanrate,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyRate != null">
+        #{penaltyRate,jdbcType=DECIMAL},
+      </if>
+      <if test="intRateType != null">
+        #{intRateType,jdbcType=CHAR},
+      </if>
+      <if test="penRateType != null">
+        #{penRateType,jdbcType=CHAR},
+      </if>
+      <if test="policyNumber != null">
+        #{policyNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="loanRatio != null">
+        #{loanRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="coopId != null">
+        #{coopId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.MsxfAccLoanInfo">
+    update MSXF_ACC_LOAN_INFO
+    <set>
+      <if test="bizDate != null">
+        BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        CURRENCY = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="txnStatus != null">
+        TXN_STATUS = #{txnStatus,jdbcType=CHAR},
+      </if>
+      <if test="txnDate != null">
+        TXN_DATE = #{txnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmt != null">
+        TXN_AMT = #{txnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="initTerm != null">
+        INIT_TERM = #{initTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="currTerm != null">
+        CURR_TERM = #{currTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDays != null">
+        OVERDUE_DAYS = #{overdueDays,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueDate != null">
+        OVERDUE_DATE = #{overdueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="principalBal != null">
+        PRINCIPAL_BAL = #{principalBal,jdbcType=DECIMAL},
+      </if>
+      <if test="interestBal != null">
+        INTEREST_BAL = #{interestBal,jdbcType=DECIMAL},
+      </if>
+      <if test="overduePrin != null">
+        OVERDUE_PRIN = #{overduePrin,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueInt != null">
+        OVERDUE_INT = #{overdueInt,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyBal != null">
+        PENALTY_BAL = #{penaltyBal,jdbcType=DECIMAL},
+      </if>
+      <if test="intType != null">
+        INT_TYPE = #{intType,jdbcType=VARCHAR},
+      </if>
+      <if test="intFlag != null">
+        INT_FLAG = #{intFlag,jdbcType=CHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeFlag != null">
+        GUARANTEE_FLAG = #{guaranteeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="pmtType != null">
+        PMT_TYPE = #{pmtType,jdbcType=CHAR},
+      </if>
+      <if test="interestRate != null">
+        INTEREST_RATE = #{interestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanrate != null">
+        LOANRATE = #{loanrate,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyRate != null">
+        PENALTY_RATE = #{penaltyRate,jdbcType=DECIMAL},
+      </if>
+      <if test="intRateType != null">
+        INT_RATE_TYPE = #{intRateType,jdbcType=CHAR},
+      </if>
+      <if test="penRateType != null">
+        PEN_RATE_TYPE = #{penRateType,jdbcType=CHAR},
+      </if>
+      <if test="policyNumber != null">
+        POLICY_NUMBER = #{policyNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="loanRatio != null">
+        LOAN_RATIO = #{loanRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="coopId != null">
+        COOP_ID = #{coopId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DK_ID = #{dkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.MsxfAccLoanInfo">
+    update MSXF_ACC_LOAN_INFO
+    set BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      UUID = #{uuid,jdbcType=VARCHAR},
+      CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      CURRENCY = #{currency,jdbcType=VARCHAR},
+      TXN_STATUS = #{txnStatus,jdbcType=CHAR},
+      TXN_DATE = #{txnDate,jdbcType=VARCHAR},
+      TXN_AMT = #{txnAmt,jdbcType=DECIMAL},
+      INIT_TERM = #{initTerm,jdbcType=VARCHAR},
+      CURR_TERM = #{currTerm,jdbcType=VARCHAR},
+      OVERDUE_DAYS = #{overdueDays,jdbcType=DECIMAL},
+      OVERDUE_DATE = #{overdueDate,jdbcType=VARCHAR},
+      PRINCIPAL_BAL = #{principalBal,jdbcType=DECIMAL},
+      INTEREST_BAL = #{interestBal,jdbcType=DECIMAL},
+      OVERDUE_PRIN = #{overduePrin,jdbcType=DECIMAL},
+      OVERDUE_INT = #{overdueInt,jdbcType=DECIMAL},
+      PENALTY_BAL = #{penaltyBal,jdbcType=DECIMAL},
+      INT_TYPE = #{intType,jdbcType=VARCHAR},
+      INT_FLAG = #{intFlag,jdbcType=CHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      GUARANTEE_FLAG = #{guaranteeFlag,jdbcType=VARCHAR},
+      PMT_TYPE = #{pmtType,jdbcType=CHAR},
+      INTEREST_RATE = #{interestRate,jdbcType=DECIMAL},
+      LOANRATE = #{loanrate,jdbcType=DECIMAL},
+      PENALTY_RATE = #{penaltyRate,jdbcType=DECIMAL},
+      INT_RATE_TYPE = #{intRateType,jdbcType=CHAR},
+      PEN_RATE_TYPE = #{penRateType,jdbcType=CHAR},
+      POLICY_NUMBER = #{policyNumber,jdbcType=VARCHAR},
+      LOAN_RATIO = #{loanRatio,jdbcType=VARCHAR},
+      COOP_ID = #{coopId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    where DK_ID = #{dkId,jdbcType=VARCHAR}
+  </update>
+  <insert id ="insertAll" parameterType="java.util.List" >
+  insert into MSXF_ACC_LOAN_INFO (DK_ID, BIZ_DATE, UUID, 
+      CONTR_NBR, PRODUCT_CD, REF_NBR, 
+      CURRENCY, TXN_STATUS, TXN_DATE, 
+      TXN_AMT, INIT_TERM, CURR_TERM, 
+      OVERDUE_DAYS, OVERDUE_DATE, PRINCIPAL_BAL, 
+      INTEREST_BAL, OVERDUE_PRIN, OVERDUE_INT, 
+      PENALTY_BAL, INT_TYPE, INT_FLAG, 
+      CARD_NO, GUARANTEE_FLAG, PMT_TYPE, 
+      INTEREST_RATE, LOANRATE, PENALTY_RATE, 
+      INT_RATE_TYPE, PEN_RATE_TYPE, POLICY_NUMBER, 
+      LOAN_RATIO, COOP_ID, INPUT_DATE, 
+      SYNC_STATUS, COP_NO,BUSINESS_DATE)
+  <foreach collection ="list" item="item" index="index" separator="union all">
+    select
+   #{item.dkId,jdbcType=VARCHAR}, #{item.bizDate,jdbcType=VARCHAR}, #{item.uuid,jdbcType=VARCHAR}, 
+      #{item.contrNbr,jdbcType=VARCHAR}, #{item.productCd,jdbcType=VARCHAR}, #{item.refNbr,jdbcType=VARCHAR}, 
+      #{item.currency,jdbcType=VARCHAR}, #{item.txnStatus,jdbcType=CHAR}, #{item.txnDate,jdbcType=VARCHAR}, 
+      #{item.txnAmt,jdbcType=DECIMAL}, #{item.initTerm,jdbcType=VARCHAR}, #{item.currTerm,jdbcType=VARCHAR}, 
+      #{item.overdueDays,jdbcType=DECIMAL}, #{item.overdueDate,jdbcType=VARCHAR}, #{item.principalBal,jdbcType=DECIMAL}, 
+      #{item.interestBal,jdbcType=DECIMAL}, #{item.overduePrin,jdbcType=DECIMAL}, #{item.overdueInt,jdbcType=DECIMAL}, 
+      #{item.penaltyBal,jdbcType=DECIMAL}, #{item.intType,jdbcType=VARCHAR}, #{item.intFlag,jdbcType=CHAR}, 
+      #{item.cardNo,jdbcType=VARCHAR}, #{item.guaranteeFlag,jdbcType=VARCHAR}, #{item.pmtType,jdbcType=CHAR}, 
+      #{item.interestRate,jdbcType=DECIMAL}, #{item.loanrate,jdbcType=DECIMAL}, #{item.penaltyRate,jdbcType=DECIMAL}, 
+      #{item.intRateType,jdbcType=CHAR}, #{item.penRateType,jdbcType=CHAR}, #{item.policyNumber,jdbcType=VARCHAR}, 
+      #{item.loanRatio,jdbcType=VARCHAR}, #{item.coopId,jdbcType=VARCHAR}, to_char(sysdate,'yyyy-mm-dd'), 
+      #{item.syncStatus,jdbcType=VARCHAR}, #{item.copNo,jdbcType=VARCHAR},#{item.businessDate,jdbcType=VARCHAR}
+    from dual
+  </foreach >
+</insert>
+
+	<select id="selectByContNoAndDate" parameterType="Map" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from MSXF_ACC_LOAN_INFO
+	    where CONTR_NBR = #{contNo,jdbcType=VARCHAR}
+	    and BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="selectByStatusAndBusiDate" parameterType="Map" resultMap="BaseResultMap">
+    	select 
+	    <include refid="Base_Column_List" />
+	    from MSXF_ACC_LOAN_INFO
+	    where SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR}
+	    and BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="selectByContNoAndTxStatus" parameterType="Map" resultMap="BaseResultMap">
+    	select 
+	    <include refid="Base_Column_List" />
+	    from MSXF_ACC_LOAN_INFO
+	    where REF_NBR = #{contNo,jdbcType=VARCHAR}
+	    and TXN_STATUS in
+	    <foreach collection="txStatuss" item="txStatus" open="(" close=")" separator=",">
+	    	#{txStatus,jdbcType=VARCHAR}
+	    </foreach>
+    </select>
+    
+    <update id="updateStatusByBusiDate" parameterType="String">
+    	update MSXF_ACC_LOAN_INFO
+    	set SYNC_STATUS = '1'
+    	where BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    </update>
+</mapper>

@@ -1,0 +1,1737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CusIndivMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CusIndiv">
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="TRANS_CUS_ID" jdbcType="VARCHAR" property="transCusId" />
+    <result column="CUS_TYPE" jdbcType="VARCHAR" property="cusType" />
+    <result column="BELONG_TO" jdbcType="VARCHAR" property="belongTo" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="INDIV_SEX" jdbcType="CHAR" property="indivSex" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="INDIV_ID_BEG_DT" jdbcType="VARCHAR" property="indivIdBegDt" />
+    <result column="INDIV_ID_LONG" jdbcType="VARCHAR" property="indivIdLong" />
+    <result column="INDIV_ID_EXP_DT" jdbcType="VARCHAR" property="indivIdExpDt" />
+    <result column="AGRI_FLG" jdbcType="CHAR" property="agriFlg" />
+    <result column="CUS_BANK_REL" jdbcType="VARCHAR" property="cusBankRel" />
+    <result column="COM_HOLD_STK_AMT" jdbcType="DECIMAL" property="comHoldStkAmt" />
+    <result column="BANK_DUTY" jdbcType="VARCHAR" property="bankDuty" />
+    <result column="INDIV_NTN" jdbcType="VARCHAR" property="indivNtn" />
+    <result column="INDIV_BRT_PLACE" jdbcType="VARCHAR" property="indivBrtPlace" />
+    <result column="INDIV_DT_OF_BIRTH" jdbcType="VARCHAR" property="indivDtOfBirth" />
+    <result column="INDIV_POL_ST" jdbcType="VARCHAR" property="indivPolSt" />
+    <result column="INDIV_EDT" jdbcType="VARCHAR" property="indivEdt" />
+    <result column="INDIV_DGR" jdbcType="VARCHAR" property="indivDgr" />
+    <result column="INDIV_HEAL_ST" jdbcType="VARCHAR" property="indivHealSt" />
+    <result column="INDIV_SOC_SCR" jdbcType="VARCHAR" property="indivSocScr" />
+    <result column="INDIV_HOBBY" jdbcType="VARCHAR" property="indivHobby" />
+    <result column="INDIV_MAR_ST" jdbcType="CHAR" property="indivMarSt" />
+    <result column="INDIV_SPS_ID_TYP" jdbcType="VARCHAR" property="indivSpsIdTyp" />
+    <result column="INDIV_SPS_ID_CODE" jdbcType="VARCHAR" property="indivSpsIdCode" />
+    <result column="CUS_ID_REL" jdbcType="VARCHAR" property="cusIdRel" />
+    <result column="INDIV_SPS_NAME" jdbcType="VARCHAR" property="indivSpsName" />
+    <result column="INDIV_SPS_MAR_CODE" jdbcType="VARCHAR" property="indivSpsMarCode" />
+    <result column="INDIV_SPS_OCC" jdbcType="VARCHAR" property="indivSpsOcc" />
+    <result column="INDIV_SCOM_NAME" jdbcType="VARCHAR" property="indivScomName" />
+    <result column="INDIV_PSP_CRTFCTN" jdbcType="VARCHAR" property="indivPspCrtfctn" />
+    <result column="INDIV_SPS_DUTY" jdbcType="VARCHAR" property="indivSpsDuty" />
+    <result column="INDIV_SPS_MPHN" jdbcType="VARCHAR" property="indivSpsMphn" />
+    <result column="INDIV_SPS_PHN" jdbcType="VARCHAR" property="indivSpsPhn" />
+    <result column="INDIV_SPS_MINCM" jdbcType="DECIMAL" property="indivSpsMincm" />
+    <result column="INDIV_SPS_JOB_DT" jdbcType="VARCHAR" property="indivSpsJobDt" />
+    <result column="COM_REL_DGR" jdbcType="VARCHAR" property="comRelDgr" />
+    <result column="COM_INIT_LOAN_DATE" jdbcType="VARCHAR" property="comInitLoanDate" />
+    <result column="INDIV_HLD_ACNT" jdbcType="CHAR" property="indivHldAcnt" />
+    <result column="HOLD_CARD" jdbcType="VARCHAR" property="holdCard" />
+    <result column="PASSPORT_FLG" jdbcType="CHAR" property="passportFlg" />
+    <result column="CRD_GRADE" jdbcType="VARCHAR" property="crdGrade" />
+    <result column="CRD_DATE" jdbcType="VARCHAR" property="crdDate" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="POST_ADDR" jdbcType="VARCHAR" property="postAddr" />
+    <result column="POST_CODE" jdbcType="VARCHAR" property="postCode" />
+    <result column="INDIV_RSD_ADDR" jdbcType="VARCHAR" property="indivRsdAddr" />
+    <result column="INDIV_RSD_ST" jdbcType="VARCHAR" property="indivRsdSt" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="INDIV_ZIP_CODE" jdbcType="VARCHAR" property="indivZipCode" />
+    <result column="FPHONE" jdbcType="VARCHAR" property="fphone" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="FAX_CODE" jdbcType="VARCHAR" property="faxCode" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="INDIV_OCC" jdbcType="VARCHAR" property="indivOcc" />
+    <result column="INDIV_COM_NAME" jdbcType="VARCHAR" property="indivComName" />
+    <result column="INDIV_COM_TYP" jdbcType="VARCHAR" property="indivComTyp" />
+    <result column="INDIV_COM_FLD" jdbcType="VARCHAR" property="indivComFld" />
+    <result column="INDIV_COM_FLD_NAME" jdbcType="VARCHAR" property="indivComFldName" />
+    <result column="INDIV_COM_ADDR" jdbcType="VARCHAR" property="indivComAddr" />
+    <result column="INDIV_COM_ZIP_CODE" jdbcType="VARCHAR" property="indivComZipCode" />
+    <result column="INDIV_COM_PHN" jdbcType="VARCHAR" property="indivComPhn" />
+    <result column="INDIV_COM_FAX" jdbcType="VARCHAR" property="indivComFax" />
+    <result column="INDIV_COM_CNT_NAME" jdbcType="VARCHAR" property="indivComCntName" />
+    <result column="INDIV_WORK_JOB_Y" jdbcType="VARCHAR" property="indivWorkJobY" />
+    <result column="INDIV_COM_JOB_TTL" jdbcType="VARCHAR" property="indivComJobTtl" />
+    <result column="INDIV_CRTFCTN" jdbcType="VARCHAR" property="indivCrtfctn" />
+    <result column="INDIV_ANN_INCM" jdbcType="DECIMAL" property="indivAnnIncm" />
+    <result column="INDIV_ANN_INCM_SRC" jdbcType="VARCHAR" property="indivAnnIncmSrc" />
+    <result column="INDIV_SAL_ACC_BANK" jdbcType="VARCHAR" property="indivSalAccBank" />
+    <result column="INDIV_SAL_ACC_NO" jdbcType="VARCHAR" property="indivSalAccNo" />
+    <result column="WORK_RESUME" jdbcType="VARCHAR" property="workResume" />
+    <result column="VIP_FLAG" jdbcType="VARCHAR" property="vipFlag" />
+    <result column="VIP_LEVEL" jdbcType="VARCHAR" property="vipLevel" />
+    <result column="CUS_STATUS" jdbcType="VARCHAR" property="cusStatus" />
+    <result column="MAIN_BR_ID" jdbcType="VARCHAR" property="mainBrId" />
+    <result column="CUST_MGR" jdbcType="VARCHAR" property="custMgr" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="LAST_UPD_ID" jdbcType="VARCHAR" property="lastUpdId" />
+    <result column="LAST_UPD_DATE" jdbcType="VARCHAR" property="lastUpdDate" />
+    <result column="COM_COUNTRY" jdbcType="CHAR" property="comCountry" />
+    <result column="INDIV_BRT_PLE_ID" jdbcType="VARCHAR" property="indivBrtPleId" />
+    <result column="INDIV_BRT_PLE" jdbcType="VARCHAR" property="indivBrtPle" />
+    <result column="POST_ADDR_PLE_ID" jdbcType="VARCHAR" property="postAddrPleId" />
+    <result column="POST_ADDR_PLE" jdbcType="VARCHAR" property="postAddrPle" />
+    <result column="INDIV_RSD_PLE_ID" jdbcType="VARCHAR" property="indivRsdPleId" />
+    <result column="INDIV_RSD_PLE" jdbcType="VARCHAR" property="indivRsdPle" />
+    <result column="INDIV_COM_ADDR_PLE_ID" jdbcType="VARCHAR" property="indivComAddrPleId" />
+    <result column="INDIV_COM_ADDR_PLE" jdbcType="VARCHAR" property="indivComAddrPle" />
+    <result column="INDIV_RSD_STATE_CD" jdbcType="VARCHAR" property="indivRsdStateCd" />
+    <result column="INDIV_RSD_PROVINCE_CD" jdbcType="VARCHAR" property="indivRsdProvinceCd" />
+    <result column="INDIV_RSD_CITY_CD" jdbcType="VARCHAR" property="indivRsdCityCd" />
+    <result column="INDIV_RSD_DISTRICT_CD" jdbcType="VARCHAR" property="indivRsdDistrictCd" />
+    <result column="POST_STATE_CD" jdbcType="VARCHAR" property="postStateCd" />
+    <result column="POST_PROVINCE_CD" jdbcType="VARCHAR" property="postProvinceCd" />
+    <result column="POST_CITY_CD" jdbcType="VARCHAR" property="postCityCd" />
+    <result column="POST_DISTRICT_CD" jdbcType="VARCHAR" property="postDistrictCd" />
+    <result column="MANAGEMENT_STRUCTURE" jdbcType="VARCHAR" property="managementStructure" />
+    <result column="WORK_FLOW" jdbcType="VARCHAR" property="workFlow" />
+    <result column="BUSIN_NAME" jdbcType="VARCHAR" property="businName" />
+    <result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+    <result column="OPER_JOB" jdbcType="VARCHAR" property="operJob" />
+    <result column="OPER_NAME" jdbcType="VARCHAR" property="operName" />
+    <result column="OPEN_DATE" jdbcType="VARCHAR" property="openDate" />
+    <result column="OPER_YEARS" jdbcType="VARCHAR" property="operYears" />
+    <result column="OPER_AREA" jdbcType="VARCHAR" property="operArea" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="OPER_OTHER" jdbcType="VARCHAR" property="operOther" />
+    <result column="OPER_ADDR" jdbcType="VARCHAR" property="operAddr" />
+    <result column="OPER_PLACE" jdbcType="VARCHAR" property="operPlace" />
+    <result column="OPER_NO" jdbcType="VARCHAR" property="operNo" />
+    <result column="EMPLOYEE_NUM" jdbcType="VARCHAR" property="employeeNum" />
+    <result column="COM_INV_LOAN_CARD" jdbcType="VARCHAR" property="comInvLoanCard" />
+    <result column="OPER_RELATE" jdbcType="VARCHAR" property="operRelate" />
+    <result column="OPER_LOW_RELATE" jdbcType="VARCHAR" property="operLowRelate" />
+    <result column="OPER_HIST" jdbcType="VARCHAR" property="operHist" />
+    <result column="DESC0" jdbcType="VARCHAR" property="desc0" />
+    <result column="DESC1" jdbcType="VARCHAR" property="desc1" />
+    <result column="DESC2" jdbcType="VARCHAR" property="desc2" />
+    <result column="DESC3" jdbcType="VARCHAR" property="desc3" />
+    <result column="OPER_MONTHS" jdbcType="VARCHAR" property="operMonths" />
+    <result column="IS_BRT_LOCAL" jdbcType="VARCHAR" property="isBrtLocal" />
+    <result column="HOUSING_AREA" jdbcType="VARCHAR" property="housingArea" />
+    <result column="HOUSING_DATE" jdbcType="VARCHAR" property="housingDate" />
+    <result column="INDIV_FAM_NUM" jdbcType="VARCHAR" property="indivFamNum" />
+    <result column="CUS_LEVEL" jdbcType="VARCHAR" property="cusLevel" />
+    <result column="SOC_SCR_NO" jdbcType="VARCHAR" property="socScrNo" />
+    <result column="PROV_AREA_CODE" jdbcType="VARCHAR" property="provAreaCode" />
+    <result column="REG_RES_AREA_CODE" jdbcType="VARCHAR" property="regResAreaCode" />
+    <result column="WE_CHAT" jdbcType="VARCHAR" property="weChat" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="BANK_CARD_NO" jdbcType="VARCHAR" property="bankCardNo" />
+    <result column="MOBILE_ATTRIBUTION" jdbcType="VARCHAR" property="mobileAttribution" />
+    <result column="BANK_CARD_NAME" jdbcType="VARCHAR" property="bankCardName" />
+    <result column="HOUSE_FUND_ACCOUNT" jdbcType="VARCHAR" property="houseFundAccount" />
+    <result column="INDIV_SPS_IDCARD_OBV" jdbcType="VARCHAR" property="indivSpsIdcardObv" />
+    <result column="INDIV_OCC_NAME" jdbcType="VARCHAR" property="indivOccName" />
+    <result column="REGISTER_ID" jdbcType="VARCHAR" property="registerId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CUS_ID, TRANS_CUS_ID, CUS_TYPE, BELONG_TO, CUS_NAME, INDIV_SEX, CERT_TYPE, CERT_CODE, 
+    INDIV_ID_BEG_DT, INDIV_ID_LONG, INDIV_ID_EXP_DT, AGRI_FLG, CUS_BANK_REL, COM_HOLD_STK_AMT, 
+    BANK_DUTY, INDIV_NTN, INDIV_BRT_PLACE, INDIV_DT_OF_BIRTH, INDIV_POL_ST, INDIV_EDT, 
+    INDIV_DGR, INDIV_HEAL_ST, INDIV_SOC_SCR, INDIV_HOBBY, INDIV_MAR_ST, INDIV_SPS_ID_TYP, 
+    INDIV_SPS_ID_CODE, CUS_ID_REL, INDIV_SPS_NAME, INDIV_SPS_MAR_CODE, INDIV_SPS_OCC, 
+    INDIV_SCOM_NAME, INDIV_PSP_CRTFCTN, INDIV_SPS_DUTY, INDIV_SPS_MPHN, INDIV_SPS_PHN, 
+    INDIV_SPS_MINCM, INDIV_SPS_JOB_DT, COM_REL_DGR, COM_INIT_LOAN_DATE, INDIV_HLD_ACNT, 
+    HOLD_CARD, PASSPORT_FLG, CRD_GRADE, CRD_DATE, REMARK, POST_ADDR, POST_CODE, INDIV_RSD_ADDR, 
+    INDIV_RSD_ST, AREA_CODE, AREA_NAME, INDIV_ZIP_CODE, FPHONE, MOBILE, PHONE, FAX_CODE, 
+    EMAIL, INDIV_OCC, INDIV_COM_NAME, INDIV_COM_TYP, INDIV_COM_FLD, INDIV_COM_FLD_NAME, 
+    INDIV_COM_ADDR, INDIV_COM_ZIP_CODE, INDIV_COM_PHN, INDIV_COM_FAX, INDIV_COM_CNT_NAME, 
+    INDIV_WORK_JOB_Y, INDIV_COM_JOB_TTL, INDIV_CRTFCTN, INDIV_ANN_INCM, INDIV_ANN_INCM_SRC, 
+    INDIV_SAL_ACC_BANK, INDIV_SAL_ACC_NO, WORK_RESUME, VIP_FLAG, VIP_LEVEL, CUS_STATUS, 
+    MAIN_BR_ID, CUST_MGR, INPUT_ID, INPUT_BR_ID, INPUT_DATE, LAST_UPD_ID, LAST_UPD_DATE, 
+    COM_COUNTRY, INDIV_BRT_PLE_ID, INDIV_BRT_PLE, POST_ADDR_PLE_ID, POST_ADDR_PLE, INDIV_RSD_PLE_ID, 
+    INDIV_RSD_PLE, INDIV_COM_ADDR_PLE_ID, INDIV_COM_ADDR_PLE, INDIV_RSD_STATE_CD, INDIV_RSD_PROVINCE_CD, 
+    INDIV_RSD_CITY_CD, INDIV_RSD_DISTRICT_CD, POST_STATE_CD, POST_PROVINCE_CD, POST_CITY_CD, 
+    POST_DISTRICT_CD, MANAGEMENT_STRUCTURE, WORK_FLOW, BUSIN_NAME, LEGAL_NAME, OPER_JOB, 
+    OPER_NAME, OPEN_DATE, OPER_YEARS, OPER_AREA, TELEPHONE, OPER_OTHER, OPER_ADDR, OPER_PLACE, 
+    OPER_NO, EMPLOYEE_NUM, COM_INV_LOAN_CARD, OPER_RELATE, OPER_LOW_RELATE, OPER_HIST, 
+    DESC0, DESC1, DESC2, DESC3, OPER_MONTHS, IS_BRT_LOCAL, HOUSING_AREA, HOUSING_DATE, 
+    INDIV_FAM_NUM, CUS_LEVEL, SOC_SCR_NO, PROV_AREA_CODE, REG_RES_AREA_CODE, WE_CHAT, 
+    QQ, BANK_CARD_NO, MOBILE_ATTRIBUTION, BANK_CARD_NAME, HOUSE_FUND_ACCOUNT, INDIV_SPS_IDCARD_OBV, 
+    INDIV_OCC_NAME,REGISTER_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CUS_INDIV
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CUS_INDIV
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CusIndiv">
+    insert into CUS_INDIV (CUS_ID, TRANS_CUS_ID, CUS_TYPE, 
+      BELONG_TO, CUS_NAME, INDIV_SEX, 
+      CERT_TYPE, CERT_CODE, INDIV_ID_BEG_DT, 
+      INDIV_ID_LONG, INDIV_ID_EXP_DT, AGRI_FLG, 
+      CUS_BANK_REL, COM_HOLD_STK_AMT, BANK_DUTY, 
+      INDIV_NTN, INDIV_BRT_PLACE, INDIV_DT_OF_BIRTH, 
+      INDIV_POL_ST, INDIV_EDT, INDIV_DGR, 
+      INDIV_HEAL_ST, INDIV_SOC_SCR, INDIV_HOBBY, 
+      INDIV_MAR_ST, INDIV_SPS_ID_TYP, INDIV_SPS_ID_CODE, 
+      CUS_ID_REL, INDIV_SPS_NAME, INDIV_SPS_MAR_CODE, 
+      INDIV_SPS_OCC, INDIV_SCOM_NAME, INDIV_PSP_CRTFCTN, 
+      INDIV_SPS_DUTY, INDIV_SPS_MPHN, INDIV_SPS_PHN, 
+      INDIV_SPS_MINCM, INDIV_SPS_JOB_DT, COM_REL_DGR, 
+      COM_INIT_LOAN_DATE, INDIV_HLD_ACNT, HOLD_CARD, 
+      PASSPORT_FLG, CRD_GRADE, CRD_DATE, 
+      REMARK, POST_ADDR, POST_CODE, 
+      INDIV_RSD_ADDR, INDIV_RSD_ST, AREA_CODE, 
+      AREA_NAME, INDIV_ZIP_CODE, FPHONE, 
+      MOBILE, PHONE, FAX_CODE, 
+      EMAIL, INDIV_OCC, INDIV_COM_NAME, 
+      INDIV_COM_TYP, INDIV_COM_FLD, INDIV_COM_FLD_NAME, 
+      INDIV_COM_ADDR, INDIV_COM_ZIP_CODE, INDIV_COM_PHN, 
+      INDIV_COM_FAX, INDIV_COM_CNT_NAME, INDIV_WORK_JOB_Y, 
+      INDIV_COM_JOB_TTL, INDIV_CRTFCTN, INDIV_ANN_INCM, 
+      INDIV_ANN_INCM_SRC, INDIV_SAL_ACC_BANK, INDIV_SAL_ACC_NO, 
+      WORK_RESUME, VIP_FLAG, VIP_LEVEL, 
+      CUS_STATUS, MAIN_BR_ID, CUST_MGR, 
+      INPUT_ID, INPUT_BR_ID, INPUT_DATE, 
+      LAST_UPD_ID, LAST_UPD_DATE, COM_COUNTRY, 
+      INDIV_BRT_PLE_ID, INDIV_BRT_PLE, POST_ADDR_PLE_ID, 
+      POST_ADDR_PLE, INDIV_RSD_PLE_ID, INDIV_RSD_PLE, 
+      INDIV_COM_ADDR_PLE_ID, INDIV_COM_ADDR_PLE, INDIV_RSD_STATE_CD, 
+      INDIV_RSD_PROVINCE_CD, INDIV_RSD_CITY_CD, INDIV_RSD_DISTRICT_CD, 
+      POST_STATE_CD, POST_PROVINCE_CD, POST_CITY_CD, 
+      POST_DISTRICT_CD, MANAGEMENT_STRUCTURE, WORK_FLOW, 
+      BUSIN_NAME, LEGAL_NAME, OPER_JOB, 
+      OPER_NAME, OPEN_DATE, OPER_YEARS, 
+      OPER_AREA, TELEPHONE, OPER_OTHER, 
+      OPER_ADDR, OPER_PLACE, OPER_NO, 
+      EMPLOYEE_NUM, COM_INV_LOAN_CARD, OPER_RELATE, 
+      OPER_LOW_RELATE, OPER_HIST, DESC0, 
+      DESC1, DESC2, DESC3, 
+      OPER_MONTHS, IS_BRT_LOCAL, HOUSING_AREA, 
+      HOUSING_DATE, INDIV_FAM_NUM, CUS_LEVEL, 
+      SOC_SCR_NO, PROV_AREA_CODE, REG_RES_AREA_CODE, 
+      WE_CHAT, QQ, BANK_CARD_NO, 
+      MOBILE_ATTRIBUTION, BANK_CARD_NAME, HOUSE_FUND_ACCOUNT, 
+      INDIV_SPS_IDCARD_OBV, INDIV_OCC_NAME, REGISTER_ID)
+    values (#{cusId,jdbcType=VARCHAR}, #{transCusId,jdbcType=VARCHAR}, #{cusType,jdbcType=VARCHAR}, 
+      #{belongTo,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, #{indivSex,jdbcType=CHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{indivIdBegDt,jdbcType=VARCHAR}, 
+      #{indivIdLong,jdbcType=VARCHAR}, #{indivIdExpDt,jdbcType=VARCHAR}, #{agriFlg,jdbcType=CHAR}, 
+      #{cusBankRel,jdbcType=VARCHAR}, #{comHoldStkAmt,jdbcType=DECIMAL}, #{bankDuty,jdbcType=VARCHAR}, 
+      #{indivNtn,jdbcType=VARCHAR}, #{indivBrtPlace,jdbcType=VARCHAR}, #{indivDtOfBirth,jdbcType=VARCHAR}, 
+      #{indivPolSt,jdbcType=VARCHAR}, #{indivEdt,jdbcType=VARCHAR}, #{indivDgr,jdbcType=VARCHAR}, 
+      #{indivHealSt,jdbcType=VARCHAR}, #{indivSocScr,jdbcType=VARCHAR}, #{indivHobby,jdbcType=VARCHAR}, 
+      #{indivMarSt,jdbcType=CHAR}, #{indivSpsIdTyp,jdbcType=VARCHAR}, #{indivSpsIdCode,jdbcType=VARCHAR}, 
+      #{cusIdRel,jdbcType=VARCHAR}, #{indivSpsName,jdbcType=VARCHAR}, #{indivSpsMarCode,jdbcType=VARCHAR}, 
+      #{indivSpsOcc,jdbcType=VARCHAR}, #{indivScomName,jdbcType=VARCHAR}, #{indivPspCrtfctn,jdbcType=VARCHAR}, 
+      #{indivSpsDuty,jdbcType=VARCHAR}, #{indivSpsMphn,jdbcType=VARCHAR}, #{indivSpsPhn,jdbcType=VARCHAR}, 
+      #{indivSpsMincm,jdbcType=DECIMAL}, #{indivSpsJobDt,jdbcType=VARCHAR}, #{comRelDgr,jdbcType=VARCHAR}, 
+      #{comInitLoanDate,jdbcType=VARCHAR}, #{indivHldAcnt,jdbcType=CHAR}, #{holdCard,jdbcType=VARCHAR}, 
+      #{passportFlg,jdbcType=CHAR}, #{crdGrade,jdbcType=VARCHAR}, #{crdDate,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{postAddr,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, 
+      #{indivRsdAddr,jdbcType=VARCHAR}, #{indivRsdSt,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{areaName,jdbcType=VARCHAR}, #{indivZipCode,jdbcType=VARCHAR}, #{fphone,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{faxCode,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{indivOcc,jdbcType=VARCHAR}, #{indivComName,jdbcType=VARCHAR}, 
+      #{indivComTyp,jdbcType=VARCHAR}, #{indivComFld,jdbcType=VARCHAR}, #{indivComFldName,jdbcType=VARCHAR}, 
+      #{indivComAddr,jdbcType=VARCHAR}, #{indivComZipCode,jdbcType=VARCHAR}, #{indivComPhn,jdbcType=VARCHAR}, 
+      #{indivComFax,jdbcType=VARCHAR}, #{indivComCntName,jdbcType=VARCHAR}, #{indivWorkJobY,jdbcType=VARCHAR}, 
+      #{indivComJobTtl,jdbcType=VARCHAR}, #{indivCrtfctn,jdbcType=VARCHAR}, #{indivAnnIncm,jdbcType=DECIMAL}, 
+      #{indivAnnIncmSrc,jdbcType=VARCHAR}, #{indivSalAccBank,jdbcType=VARCHAR}, #{indivSalAccNo,jdbcType=VARCHAR}, 
+      #{workResume,jdbcType=VARCHAR}, #{vipFlag,jdbcType=VARCHAR}, #{vipLevel,jdbcType=VARCHAR}, 
+      #{cusStatus,jdbcType=VARCHAR}, #{mainBrId,jdbcType=VARCHAR}, #{custMgr,jdbcType=VARCHAR}, 
+      #{inputId,jdbcType=VARCHAR}, #{inputBrId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
+      #{lastUpdId,jdbcType=VARCHAR}, #{lastUpdDate,jdbcType=VARCHAR}, #{comCountry,jdbcType=CHAR}, 
+      #{indivBrtPleId,jdbcType=VARCHAR}, #{indivBrtPle,jdbcType=VARCHAR}, #{postAddrPleId,jdbcType=VARCHAR}, 
+      #{postAddrPle,jdbcType=VARCHAR}, #{indivRsdPleId,jdbcType=VARCHAR}, #{indivRsdPle,jdbcType=VARCHAR}, 
+      #{indivComAddrPleId,jdbcType=VARCHAR}, #{indivComAddrPle,jdbcType=VARCHAR}, #{indivRsdStateCd,jdbcType=VARCHAR}, 
+      #{indivRsdProvinceCd,jdbcType=VARCHAR}, #{indivRsdCityCd,jdbcType=VARCHAR}, #{indivRsdDistrictCd,jdbcType=VARCHAR}, 
+      #{postStateCd,jdbcType=VARCHAR}, #{postProvinceCd,jdbcType=VARCHAR}, #{postCityCd,jdbcType=VARCHAR}, 
+      #{postDistrictCd,jdbcType=VARCHAR}, #{managementStructure,jdbcType=VARCHAR}, #{workFlow,jdbcType=VARCHAR}, 
+      #{businName,jdbcType=VARCHAR}, #{legalName,jdbcType=VARCHAR}, #{operJob,jdbcType=VARCHAR}, 
+      #{operName,jdbcType=VARCHAR}, #{openDate,jdbcType=VARCHAR}, #{operYears,jdbcType=VARCHAR}, 
+      #{operArea,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{operOther,jdbcType=VARCHAR}, 
+      #{operAddr,jdbcType=VARCHAR}, #{operPlace,jdbcType=VARCHAR}, #{operNo,jdbcType=VARCHAR}, 
+      #{employeeNum,jdbcType=VARCHAR}, #{comInvLoanCard,jdbcType=VARCHAR}, #{operRelate,jdbcType=VARCHAR}, 
+      #{operLowRelate,jdbcType=VARCHAR}, #{operHist,jdbcType=VARCHAR}, #{desc0,jdbcType=VARCHAR}, 
+      #{desc1,jdbcType=VARCHAR}, #{desc2,jdbcType=VARCHAR}, #{desc3,jdbcType=VARCHAR}, 
+      #{operMonths,jdbcType=VARCHAR}, #{isBrtLocal,jdbcType=VARCHAR}, #{housingArea,jdbcType=VARCHAR}, 
+      #{housingDate,jdbcType=VARCHAR}, #{indivFamNum,jdbcType=VARCHAR}, #{cusLevel,jdbcType=VARCHAR}, 
+      #{socScrNo,jdbcType=VARCHAR}, #{provAreaCode,jdbcType=VARCHAR}, #{regResAreaCode,jdbcType=VARCHAR}, 
+      #{weChat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{bankCardNo,jdbcType=VARCHAR}, 
+      #{mobileAttribution,jdbcType=VARCHAR}, #{bankCardName,jdbcType=VARCHAR}, #{houseFundAccount,jdbcType=VARCHAR}, 
+      #{indivSpsIdcardObv,jdbcType=VARCHAR}, #{indivOccName,jdbcType=VARCHAR}, #{registerId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CusIndiv">
+    insert into CUS_INDIV
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="transCusId != null">
+        TRANS_CUS_ID,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="indivSex != null">
+        INDIV_SEX,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="indivIdBegDt != null">
+        INDIV_ID_BEG_DT,
+      </if>
+      <if test="indivIdLong != null">
+        INDIV_ID_LONG,
+      </if>
+      <if test="indivIdExpDt != null">
+        INDIV_ID_EXP_DT,
+      </if>
+      <if test="agriFlg != null">
+        AGRI_FLG,
+      </if>
+      <if test="cusBankRel != null">
+        CUS_BANK_REL,
+      </if>
+      <if test="comHoldStkAmt != null">
+        COM_HOLD_STK_AMT,
+      </if>
+      <if test="bankDuty != null">
+        BANK_DUTY,
+      </if>
+      <if test="indivNtn != null">
+        INDIV_NTN,
+      </if>
+      <if test="indivBrtPlace != null">
+        INDIV_BRT_PLACE,
+      </if>
+      <if test="indivDtOfBirth != null">
+        INDIV_DT_OF_BIRTH,
+      </if>
+      <if test="indivPolSt != null">
+        INDIV_POL_ST,
+      </if>
+      <if test="indivEdt != null">
+        INDIV_EDT,
+      </if>
+      <if test="indivDgr != null">
+        INDIV_DGR,
+      </if>
+      <if test="indivHealSt != null">
+        INDIV_HEAL_ST,
+      </if>
+      <if test="indivSocScr != null">
+        INDIV_SOC_SCR,
+      </if>
+      <if test="indivHobby != null">
+        INDIV_HOBBY,
+      </if>
+      <if test="indivMarSt != null">
+        INDIV_MAR_ST,
+      </if>
+      <if test="indivSpsIdTyp != null">
+        INDIV_SPS_ID_TYP,
+      </if>
+      <if test="indivSpsIdCode != null">
+        INDIV_SPS_ID_CODE,
+      </if>
+      <if test="cusIdRel != null">
+        CUS_ID_REL,
+      </if>
+      <if test="indivSpsName != null">
+        INDIV_SPS_NAME,
+      </if>
+      <if test="indivSpsMarCode != null">
+        INDIV_SPS_MAR_CODE,
+      </if>
+      <if test="indivSpsOcc != null">
+        INDIV_SPS_OCC,
+      </if>
+      <if test="indivScomName != null">
+        INDIV_SCOM_NAME,
+      </if>
+      <if test="indivPspCrtfctn != null">
+        INDIV_PSP_CRTFCTN,
+      </if>
+      <if test="indivSpsDuty != null">
+        INDIV_SPS_DUTY,
+      </if>
+      <if test="indivSpsMphn != null">
+        INDIV_SPS_MPHN,
+      </if>
+      <if test="indivSpsPhn != null">
+        INDIV_SPS_PHN,
+      </if>
+      <if test="indivSpsMincm != null">
+        INDIV_SPS_MINCM,
+      </if>
+      <if test="indivSpsJobDt != null">
+        INDIV_SPS_JOB_DT,
+      </if>
+      <if test="comRelDgr != null">
+        COM_REL_DGR,
+      </if>
+      <if test="comInitLoanDate != null">
+        COM_INIT_LOAN_DATE,
+      </if>
+      <if test="indivHldAcnt != null">
+        INDIV_HLD_ACNT,
+      </if>
+      <if test="holdCard != null">
+        HOLD_CARD,
+      </if>
+      <if test="passportFlg != null">
+        PASSPORT_FLG,
+      </if>
+      <if test="crdGrade != null">
+        CRD_GRADE,
+      </if>
+      <if test="crdDate != null">
+        CRD_DATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="postAddr != null">
+        POST_ADDR,
+      </if>
+      <if test="postCode != null">
+        POST_CODE,
+      </if>
+      <if test="indivRsdAddr != null">
+        INDIV_RSD_ADDR,
+      </if>
+      <if test="indivRsdSt != null">
+        INDIV_RSD_ST,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="indivZipCode != null">
+        INDIV_ZIP_CODE,
+      </if>
+      <if test="fphone != null">
+        FPHONE,
+      </if>
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="faxCode != null">
+        FAX_CODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="indivOcc != null">
+        INDIV_OCC,
+      </if>
+      <if test="indivComName != null">
+        INDIV_COM_NAME,
+      </if>
+      <if test="indivComTyp != null">
+        INDIV_COM_TYP,
+      </if>
+      <if test="indivComFld != null">
+        INDIV_COM_FLD,
+      </if>
+      <if test="indivComFldName != null">
+        INDIV_COM_FLD_NAME,
+      </if>
+      <if test="indivComAddr != null">
+        INDIV_COM_ADDR,
+      </if>
+      <if test="indivComZipCode != null">
+        INDIV_COM_ZIP_CODE,
+      </if>
+      <if test="indivComPhn != null">
+        INDIV_COM_PHN,
+      </if>
+      <if test="indivComFax != null">
+        INDIV_COM_FAX,
+      </if>
+      <if test="indivComCntName != null">
+        INDIV_COM_CNT_NAME,
+      </if>
+      <if test="indivWorkJobY != null">
+        INDIV_WORK_JOB_Y,
+      </if>
+      <if test="indivComJobTtl != null">
+        INDIV_COM_JOB_TTL,
+      </if>
+      <if test="indivCrtfctn != null">
+        INDIV_CRTFCTN,
+      </if>
+      <if test="indivAnnIncm != null">
+        INDIV_ANN_INCM,
+      </if>
+      <if test="indivAnnIncmSrc != null">
+        INDIV_ANN_INCM_SRC,
+      </if>
+      <if test="indivSalAccBank != null">
+        INDIV_SAL_ACC_BANK,
+      </if>
+      <if test="indivSalAccNo != null">
+        INDIV_SAL_ACC_NO,
+      </if>
+      <if test="workResume != null">
+        WORK_RESUME,
+      </if>
+      <if test="vipFlag != null">
+        VIP_FLAG,
+      </if>
+      <if test="vipLevel != null">
+        VIP_LEVEL,
+      </if>
+      <if test="cusStatus != null">
+        CUS_STATUS,
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID,
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID,
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE,
+      </if>
+      <if test="comCountry != null">
+        COM_COUNTRY,
+      </if>
+      <if test="indivBrtPleId != null">
+        INDIV_BRT_PLE_ID,
+      </if>
+      <if test="indivBrtPle != null">
+        INDIV_BRT_PLE,
+      </if>
+      <if test="postAddrPleId != null">
+        POST_ADDR_PLE_ID,
+      </if>
+      <if test="postAddrPle != null">
+        POST_ADDR_PLE,
+      </if>
+      <if test="indivRsdPleId != null">
+        INDIV_RSD_PLE_ID,
+      </if>
+      <if test="indivRsdPle != null">
+        INDIV_RSD_PLE,
+      </if>
+      <if test="indivComAddrPleId != null">
+        INDIV_COM_ADDR_PLE_ID,
+      </if>
+      <if test="indivComAddrPle != null">
+        INDIV_COM_ADDR_PLE,
+      </if>
+      <if test="indivRsdStateCd != null">
+        INDIV_RSD_STATE_CD,
+      </if>
+      <if test="indivRsdProvinceCd != null">
+        INDIV_RSD_PROVINCE_CD,
+      </if>
+      <if test="indivRsdCityCd != null">
+        INDIV_RSD_CITY_CD,
+      </if>
+      <if test="indivRsdDistrictCd != null">
+        INDIV_RSD_DISTRICT_CD,
+      </if>
+      <if test="postStateCd != null">
+        POST_STATE_CD,
+      </if>
+      <if test="postProvinceCd != null">
+        POST_PROVINCE_CD,
+      </if>
+      <if test="postCityCd != null">
+        POST_CITY_CD,
+      </if>
+      <if test="postDistrictCd != null">
+        POST_DISTRICT_CD,
+      </if>
+      <if test="managementStructure != null">
+        MANAGEMENT_STRUCTURE,
+      </if>
+      <if test="workFlow != null">
+        WORK_FLOW,
+      </if>
+      <if test="businName != null">
+        BUSIN_NAME,
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME,
+      </if>
+      <if test="operJob != null">
+        OPER_JOB,
+      </if>
+      <if test="operName != null">
+        OPER_NAME,
+      </if>
+      <if test="openDate != null">
+        OPEN_DATE,
+      </if>
+      <if test="operYears != null">
+        OPER_YEARS,
+      </if>
+      <if test="operArea != null">
+        OPER_AREA,
+      </if>
+      <if test="telephone != null">
+        TELEPHONE,
+      </if>
+      <if test="operOther != null">
+        OPER_OTHER,
+      </if>
+      <if test="operAddr != null">
+        OPER_ADDR,
+      </if>
+      <if test="operPlace != null">
+        OPER_PLACE,
+      </if>
+      <if test="operNo != null">
+        OPER_NO,
+      </if>
+      <if test="employeeNum != null">
+        EMPLOYEE_NUM,
+      </if>
+      <if test="comInvLoanCard != null">
+        COM_INV_LOAN_CARD,
+      </if>
+      <if test="operRelate != null">
+        OPER_RELATE,
+      </if>
+      <if test="operLowRelate != null">
+        OPER_LOW_RELATE,
+      </if>
+      <if test="operHist != null">
+        OPER_HIST,
+      </if>
+      <if test="desc0 != null">
+        DESC0,
+      </if>
+      <if test="desc1 != null">
+        DESC1,
+      </if>
+      <if test="desc2 != null">
+        DESC2,
+      </if>
+      <if test="desc3 != null">
+        DESC3,
+      </if>
+      <if test="operMonths != null">
+        OPER_MONTHS,
+      </if>
+      <if test="isBrtLocal != null">
+        IS_BRT_LOCAL,
+      </if>
+      <if test="housingArea != null">
+        HOUSING_AREA,
+      </if>
+      <if test="housingDate != null">
+        HOUSING_DATE,
+      </if>
+      <if test="indivFamNum != null">
+        INDIV_FAM_NUM,
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL,
+      </if>
+      <if test="socScrNo != null">
+        SOC_SCR_NO,
+      </if>
+      <if test="provAreaCode != null">
+        PROV_AREA_CODE,
+      </if>
+      <if test="regResAreaCode != null">
+        REG_RES_AREA_CODE,
+      </if>
+      <if test="weChat != null">
+        WE_CHAT,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="bankCardNo != null">
+        BANK_CARD_NO,
+      </if>
+      <if test="mobileAttribution != null">
+        MOBILE_ATTRIBUTION,
+      </if>
+      <if test="bankCardName != null">
+        BANK_CARD_NAME,
+      </if>
+      <if test="houseFundAccount != null">
+        HOUSE_FUND_ACCOUNT,
+      </if>
+      <if test="indivSpsIdcardObv != null">
+        INDIV_SPS_IDCARD_OBV,
+      </if>
+      <if test="indivOccName != null">
+        INDIV_OCC_NAME,
+      </if>
+      <if test="registerId != null">
+        REGISTER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="transCusId != null">
+        #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSex != null">
+        #{indivSex,jdbcType=CHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivIdBegDt != null">
+        #{indivIdBegDt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivIdLong != null">
+        #{indivIdLong,jdbcType=VARCHAR},
+      </if>
+      <if test="indivIdExpDt != null">
+        #{indivIdExpDt,jdbcType=VARCHAR},
+      </if>
+      <if test="agriFlg != null">
+        #{agriFlg,jdbcType=CHAR},
+      </if>
+      <if test="cusBankRel != null">
+        #{cusBankRel,jdbcType=VARCHAR},
+      </if>
+      <if test="comHoldStkAmt != null">
+        #{comHoldStkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="bankDuty != null">
+        #{bankDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="indivNtn != null">
+        #{indivNtn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivBrtPlace != null">
+        #{indivBrtPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="indivDtOfBirth != null">
+        #{indivDtOfBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="indivPolSt != null">
+        #{indivPolSt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEdt != null">
+        #{indivEdt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivDgr != null">
+        #{indivDgr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivHealSt != null">
+        #{indivHealSt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSocScr != null">
+        #{indivSocScr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivHobby != null">
+        #{indivHobby,jdbcType=VARCHAR},
+      </if>
+      <if test="indivMarSt != null">
+        #{indivMarSt,jdbcType=CHAR},
+      </if>
+      <if test="indivSpsIdTyp != null">
+        #{indivSpsIdTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdCode != null">
+        #{indivSpsIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusIdRel != null">
+        #{cusIdRel,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsName != null">
+        #{indivSpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsMarCode != null">
+        #{indivSpsMarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsOcc != null">
+        #{indivSpsOcc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivScomName != null">
+        #{indivScomName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivPspCrtfctn != null">
+        #{indivPspCrtfctn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsDuty != null">
+        #{indivSpsDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsMphn != null">
+        #{indivSpsMphn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsPhn != null">
+        #{indivSpsPhn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsMincm != null">
+        #{indivSpsMincm,jdbcType=DECIMAL},
+      </if>
+      <if test="indivSpsJobDt != null">
+        #{indivSpsJobDt,jdbcType=VARCHAR},
+      </if>
+      <if test="comRelDgr != null">
+        #{comRelDgr,jdbcType=VARCHAR},
+      </if>
+      <if test="comInitLoanDate != null">
+        #{comInitLoanDate,jdbcType=VARCHAR},
+      </if>
+      <if test="indivHldAcnt != null">
+        #{indivHldAcnt,jdbcType=CHAR},
+      </if>
+      <if test="holdCard != null">
+        #{holdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="passportFlg != null">
+        #{passportFlg,jdbcType=CHAR},
+      </if>
+      <if test="crdGrade != null">
+        #{crdGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="crdDate != null">
+        #{crdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddr != null">
+        #{postAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdAddr != null">
+        #{indivRsdAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdSt != null">
+        #{indivRsdSt,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivZipCode != null">
+        #{indivZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null">
+        #{fphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="faxCode != null">
+        #{faxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="indivOcc != null">
+        #{indivOcc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComName != null">
+        #{indivComName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComTyp != null">
+        #{indivComTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComFld != null">
+        #{indivComFld,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComFldName != null">
+        #{indivComFldName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComAddr != null">
+        #{indivComAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComZipCode != null">
+        #{indivComZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComPhn != null">
+        #{indivComPhn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComFax != null">
+        #{indivComFax,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComCntName != null">
+        #{indivComCntName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivWorkJobY != null">
+        #{indivWorkJobY,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComJobTtl != null">
+        #{indivComJobTtl,jdbcType=VARCHAR},
+      </if>
+      <if test="indivCrtfctn != null">
+        #{indivCrtfctn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivAnnIncm != null">
+        #{indivAnnIncm,jdbcType=DECIMAL},
+      </if>
+      <if test="indivAnnIncmSrc != null">
+        #{indivAnnIncmSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSalAccBank != null">
+        #{indivSalAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSalAccNo != null">
+        #{indivSalAccNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workResume != null">
+        #{workResume,jdbcType=VARCHAR},
+      </if>
+      <if test="vipFlag != null">
+        #{vipFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="vipLevel != null">
+        #{vipLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStatus != null">
+        #{cusStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comCountry != null">
+        #{comCountry,jdbcType=CHAR},
+      </if>
+      <if test="indivBrtPleId != null">
+        #{indivBrtPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivBrtPle != null">
+        #{indivBrtPle,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddrPleId != null">
+        #{postAddrPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddrPle != null">
+        #{postAddrPle,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdPleId != null">
+        #{indivRsdPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdPle != null">
+        #{indivRsdPle,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComAddrPleId != null">
+        #{indivComAddrPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComAddrPle != null">
+        #{indivComAddrPle,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdStateCd != null">
+        #{indivRsdStateCd,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdProvinceCd != null">
+        #{indivRsdProvinceCd,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdCityCd != null">
+        #{indivRsdCityCd,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdDistrictCd != null">
+        #{indivRsdDistrictCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postStateCd != null">
+        #{postStateCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postProvinceCd != null">
+        #{postProvinceCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postCityCd != null">
+        #{postCityCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postDistrictCd != null">
+        #{postDistrictCd,jdbcType=VARCHAR},
+      </if>
+      <if test="managementStructure != null">
+        #{managementStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="workFlow != null">
+        #{workFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="businName != null">
+        #{businName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="operJob != null">
+        #{operJob,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null">
+        #{openDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operYears != null">
+        #{operYears,jdbcType=VARCHAR},
+      </if>
+      <if test="operArea != null">
+        #{operArea,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="operOther != null">
+        #{operOther,jdbcType=VARCHAR},
+      </if>
+      <if test="operAddr != null">
+        #{operAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="operPlace != null">
+        #{operPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="operNo != null">
+        #{operNo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeNum != null">
+        #{employeeNum,jdbcType=VARCHAR},
+      </if>
+      <if test="comInvLoanCard != null">
+        #{comInvLoanCard,jdbcType=VARCHAR},
+      </if>
+      <if test="operRelate != null">
+        #{operRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="operLowRelate != null">
+        #{operLowRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="operHist != null">
+        #{operHist,jdbcType=VARCHAR},
+      </if>
+      <if test="desc0 != null">
+        #{desc0,jdbcType=VARCHAR},
+      </if>
+      <if test="desc1 != null">
+        #{desc1,jdbcType=VARCHAR},
+      </if>
+      <if test="desc2 != null">
+        #{desc2,jdbcType=VARCHAR},
+      </if>
+      <if test="desc3 != null">
+        #{desc3,jdbcType=VARCHAR},
+      </if>
+      <if test="operMonths != null">
+        #{operMonths,jdbcType=VARCHAR},
+      </if>
+      <if test="isBrtLocal != null">
+        #{isBrtLocal,jdbcType=VARCHAR},
+      </if>
+      <if test="housingArea != null">
+        #{housingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="housingDate != null">
+        #{housingDate,jdbcType=VARCHAR},
+      </if>
+      <if test="indivFamNum != null">
+        #{indivFamNum,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLevel != null">
+        #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="socScrNo != null">
+        #{socScrNo,jdbcType=VARCHAR},
+      </if>
+      <if test="provAreaCode != null">
+        #{provAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regResAreaCode != null">
+        #{regResAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="weChat != null">
+        #{weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null">
+        #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileAttribution != null">
+        #{mobileAttribution,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardName != null">
+        #{bankCardName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFundAccount != null">
+        #{houseFundAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdcardObv != null">
+        #{indivSpsIdcardObv,jdbcType=VARCHAR},
+      </if>
+      <if test="indivOccName != null">
+        #{indivOccName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerId != null">
+        #{registerId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CusIndiv">
+    update CUS_INDIV
+    <set>
+      <if test="transCusId != null">
+        TRANS_CUS_ID = #{transCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null">
+        BELONG_TO = #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSex != null">
+        INDIV_SEX = #{indivSex,jdbcType=CHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivIdBegDt != null">
+        INDIV_ID_BEG_DT = #{indivIdBegDt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivIdLong != null">
+        INDIV_ID_LONG = #{indivIdLong,jdbcType=VARCHAR},
+      </if>
+      <if test="indivIdExpDt != null">
+        INDIV_ID_EXP_DT = #{indivIdExpDt,jdbcType=VARCHAR},
+      </if>
+      <if test="agriFlg != null">
+        AGRI_FLG = #{agriFlg,jdbcType=CHAR},
+      </if>
+      <if test="cusBankRel != null">
+        CUS_BANK_REL = #{cusBankRel,jdbcType=VARCHAR},
+      </if>
+      <if test="comHoldStkAmt != null">
+        COM_HOLD_STK_AMT = #{comHoldStkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="bankDuty != null">
+        BANK_DUTY = #{bankDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="indivNtn != null">
+        INDIV_NTN = #{indivNtn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivBrtPlace != null">
+        INDIV_BRT_PLACE = #{indivBrtPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="indivDtOfBirth != null">
+        INDIV_DT_OF_BIRTH = #{indivDtOfBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="indivPolSt != null">
+        INDIV_POL_ST = #{indivPolSt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEdt != null">
+        INDIV_EDT = #{indivEdt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivDgr != null">
+        INDIV_DGR = #{indivDgr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivHealSt != null">
+        INDIV_HEAL_ST = #{indivHealSt,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSocScr != null">
+        INDIV_SOC_SCR = #{indivSocScr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivHobby != null">
+        INDIV_HOBBY = #{indivHobby,jdbcType=VARCHAR},
+      </if>
+      <if test="indivMarSt != null">
+        INDIV_MAR_ST = #{indivMarSt,jdbcType=CHAR},
+      </if>
+      <if test="indivSpsIdTyp != null">
+        INDIV_SPS_ID_TYP = #{indivSpsIdTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdCode != null">
+        INDIV_SPS_ID_CODE = #{indivSpsIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusIdRel != null">
+        CUS_ID_REL = #{cusIdRel,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsName != null">
+        INDIV_SPS_NAME = #{indivSpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsMarCode != null">
+        INDIV_SPS_MAR_CODE = #{indivSpsMarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsOcc != null">
+        INDIV_SPS_OCC = #{indivSpsOcc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivScomName != null">
+        INDIV_SCOM_NAME = #{indivScomName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivPspCrtfctn != null">
+        INDIV_PSP_CRTFCTN = #{indivPspCrtfctn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsDuty != null">
+        INDIV_SPS_DUTY = #{indivSpsDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsMphn != null">
+        INDIV_SPS_MPHN = #{indivSpsMphn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsPhn != null">
+        INDIV_SPS_PHN = #{indivSpsPhn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsMincm != null">
+        INDIV_SPS_MINCM = #{indivSpsMincm,jdbcType=DECIMAL},
+      </if>
+      <if test="indivSpsJobDt != null">
+        INDIV_SPS_JOB_DT = #{indivSpsJobDt,jdbcType=VARCHAR},
+      </if>
+      <if test="comRelDgr != null">
+        COM_REL_DGR = #{comRelDgr,jdbcType=VARCHAR},
+      </if>
+      <if test="comInitLoanDate != null">
+        COM_INIT_LOAN_DATE = #{comInitLoanDate,jdbcType=VARCHAR},
+      </if>
+      <if test="indivHldAcnt != null">
+        INDIV_HLD_ACNT = #{indivHldAcnt,jdbcType=CHAR},
+      </if>
+      <if test="holdCard != null">
+        HOLD_CARD = #{holdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="passportFlg != null">
+        PASSPORT_FLG = #{passportFlg,jdbcType=CHAR},
+      </if>
+      <if test="crdGrade != null">
+        CRD_GRADE = #{crdGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="crdDate != null">
+        CRD_DATE = #{crdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddr != null">
+        POST_ADDR = #{postAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        POST_CODE = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdAddr != null">
+        INDIV_RSD_ADDR = #{indivRsdAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdSt != null">
+        INDIV_RSD_ST = #{indivRsdSt,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivZipCode != null">
+        INDIV_ZIP_CODE = #{indivZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null">
+        FPHONE = #{fphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="faxCode != null">
+        FAX_CODE = #{faxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="indivOcc != null">
+        INDIV_OCC = #{indivOcc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComName != null">
+        INDIV_COM_NAME = #{indivComName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComTyp != null">
+        INDIV_COM_TYP = #{indivComTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComFld != null">
+        INDIV_COM_FLD = #{indivComFld,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComFldName != null">
+        INDIV_COM_FLD_NAME = #{indivComFldName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComAddr != null">
+        INDIV_COM_ADDR = #{indivComAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComZipCode != null">
+        INDIV_COM_ZIP_CODE = #{indivComZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComPhn != null">
+        INDIV_COM_PHN = #{indivComPhn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComFax != null">
+        INDIV_COM_FAX = #{indivComFax,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComCntName != null">
+        INDIV_COM_CNT_NAME = #{indivComCntName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivWorkJobY != null">
+        INDIV_WORK_JOB_Y = #{indivWorkJobY,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComJobTtl != null">
+        INDIV_COM_JOB_TTL = #{indivComJobTtl,jdbcType=VARCHAR},
+      </if>
+      <if test="indivCrtfctn != null">
+        INDIV_CRTFCTN = #{indivCrtfctn,jdbcType=VARCHAR},
+      </if>
+      <if test="indivAnnIncm != null">
+        INDIV_ANN_INCM = #{indivAnnIncm,jdbcType=DECIMAL},
+      </if>
+      <if test="indivAnnIncmSrc != null">
+        INDIV_ANN_INCM_SRC = #{indivAnnIncmSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSalAccBank != null">
+        INDIV_SAL_ACC_BANK = #{indivSalAccBank,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSalAccNo != null">
+        INDIV_SAL_ACC_NO = #{indivSalAccNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workResume != null">
+        WORK_RESUME = #{workResume,jdbcType=VARCHAR},
+      </if>
+      <if test="vipFlag != null">
+        VIP_FLAG = #{vipFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="vipLevel != null">
+        VIP_LEVEL = #{vipLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStatus != null">
+        CUS_STATUS = #{cusStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBrId != null">
+        MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="custMgr != null">
+        CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdId != null">
+        LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="comCountry != null">
+        COM_COUNTRY = #{comCountry,jdbcType=CHAR},
+      </if>
+      <if test="indivBrtPleId != null">
+        INDIV_BRT_PLE_ID = #{indivBrtPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivBrtPle != null">
+        INDIV_BRT_PLE = #{indivBrtPle,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddrPleId != null">
+        POST_ADDR_PLE_ID = #{postAddrPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="postAddrPle != null">
+        POST_ADDR_PLE = #{postAddrPle,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdPleId != null">
+        INDIV_RSD_PLE_ID = #{indivRsdPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdPle != null">
+        INDIV_RSD_PLE = #{indivRsdPle,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComAddrPleId != null">
+        INDIV_COM_ADDR_PLE_ID = #{indivComAddrPleId,jdbcType=VARCHAR},
+      </if>
+      <if test="indivComAddrPle != null">
+        INDIV_COM_ADDR_PLE = #{indivComAddrPle,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdStateCd != null">
+        INDIV_RSD_STATE_CD = #{indivRsdStateCd,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdProvinceCd != null">
+        INDIV_RSD_PROVINCE_CD = #{indivRsdProvinceCd,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdCityCd != null">
+        INDIV_RSD_CITY_CD = #{indivRsdCityCd,jdbcType=VARCHAR},
+      </if>
+      <if test="indivRsdDistrictCd != null">
+        INDIV_RSD_DISTRICT_CD = #{indivRsdDistrictCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postStateCd != null">
+        POST_STATE_CD = #{postStateCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postProvinceCd != null">
+        POST_PROVINCE_CD = #{postProvinceCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postCityCd != null">
+        POST_CITY_CD = #{postCityCd,jdbcType=VARCHAR},
+      </if>
+      <if test="postDistrictCd != null">
+        POST_DISTRICT_CD = #{postDistrictCd,jdbcType=VARCHAR},
+      </if>
+      <if test="managementStructure != null">
+        MANAGEMENT_STRUCTURE = #{managementStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="workFlow != null">
+        WORK_FLOW = #{workFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="businName != null">
+        BUSIN_NAME = #{businName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME = #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="operJob != null">
+        OPER_JOB = #{operJob,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        OPER_NAME = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null">
+        OPEN_DATE = #{openDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operYears != null">
+        OPER_YEARS = #{operYears,jdbcType=VARCHAR},
+      </if>
+      <if test="operArea != null">
+        OPER_AREA = #{operArea,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="operOther != null">
+        OPER_OTHER = #{operOther,jdbcType=VARCHAR},
+      </if>
+      <if test="operAddr != null">
+        OPER_ADDR = #{operAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="operPlace != null">
+        OPER_PLACE = #{operPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="operNo != null">
+        OPER_NO = #{operNo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeNum != null">
+        EMPLOYEE_NUM = #{employeeNum,jdbcType=VARCHAR},
+      </if>
+      <if test="comInvLoanCard != null">
+        COM_INV_LOAN_CARD = #{comInvLoanCard,jdbcType=VARCHAR},
+      </if>
+      <if test="operRelate != null">
+        OPER_RELATE = #{operRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="operLowRelate != null">
+        OPER_LOW_RELATE = #{operLowRelate,jdbcType=VARCHAR},
+      </if>
+      <if test="operHist != null">
+        OPER_HIST = #{operHist,jdbcType=VARCHAR},
+      </if>
+      <if test="desc0 != null">
+        DESC0 = #{desc0,jdbcType=VARCHAR},
+      </if>
+      <if test="desc1 != null">
+        DESC1 = #{desc1,jdbcType=VARCHAR},
+      </if>
+      <if test="desc2 != null">
+        DESC2 = #{desc2,jdbcType=VARCHAR},
+      </if>
+      <if test="desc3 != null">
+        DESC3 = #{desc3,jdbcType=VARCHAR},
+      </if>
+      <if test="operMonths != null">
+        OPER_MONTHS = #{operMonths,jdbcType=VARCHAR},
+      </if>
+      <if test="isBrtLocal != null">
+        IS_BRT_LOCAL = #{isBrtLocal,jdbcType=VARCHAR},
+      </if>
+      <if test="housingArea != null">
+        HOUSING_AREA = #{housingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="housingDate != null">
+        HOUSING_DATE = #{housingDate,jdbcType=VARCHAR},
+      </if>
+      <if test="indivFamNum != null">
+        INDIV_FAM_NUM = #{indivFamNum,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="socScrNo != null">
+        SOC_SCR_NO = #{socScrNo,jdbcType=VARCHAR},
+      </if>
+      <if test="provAreaCode != null">
+        PROV_AREA_CODE = #{provAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regResAreaCode != null">
+        REG_RES_AREA_CODE = #{regResAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="weChat != null">
+        WE_CHAT = #{weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null">
+        BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileAttribution != null">
+        MOBILE_ATTRIBUTION = #{mobileAttribution,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardName != null">
+        BANK_CARD_NAME = #{bankCardName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFundAccount != null">
+        HOUSE_FUND_ACCOUNT = #{houseFundAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdcardObv != null">
+        INDIV_SPS_IDCARD_OBV = #{indivSpsIdcardObv,jdbcType=VARCHAR},
+      </if>
+      <if test="indivOccName != null">
+        INDIV_OCC_NAME = #{indivOccName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerId != null">
+        REGISTER_ID = #{registerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CusIndiv">
+    update CUS_INDIV
+    set TRANS_CUS_ID = #{transCusId,jdbcType=VARCHAR},
+      CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      BELONG_TO = #{belongTo,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      INDIV_SEX = #{indivSex,jdbcType=CHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      INDIV_ID_BEG_DT = #{indivIdBegDt,jdbcType=VARCHAR},
+      INDIV_ID_LONG = #{indivIdLong,jdbcType=VARCHAR},
+      INDIV_ID_EXP_DT = #{indivIdExpDt,jdbcType=VARCHAR},
+      AGRI_FLG = #{agriFlg,jdbcType=CHAR},
+      CUS_BANK_REL = #{cusBankRel,jdbcType=VARCHAR},
+      COM_HOLD_STK_AMT = #{comHoldStkAmt,jdbcType=DECIMAL},
+      BANK_DUTY = #{bankDuty,jdbcType=VARCHAR},
+      INDIV_NTN = #{indivNtn,jdbcType=VARCHAR},
+      INDIV_BRT_PLACE = #{indivBrtPlace,jdbcType=VARCHAR},
+      INDIV_DT_OF_BIRTH = #{indivDtOfBirth,jdbcType=VARCHAR},
+      INDIV_POL_ST = #{indivPolSt,jdbcType=VARCHAR},
+      INDIV_EDT = #{indivEdt,jdbcType=VARCHAR},
+      INDIV_DGR = #{indivDgr,jdbcType=VARCHAR},
+      INDIV_HEAL_ST = #{indivHealSt,jdbcType=VARCHAR},
+      INDIV_SOC_SCR = #{indivSocScr,jdbcType=VARCHAR},
+      INDIV_HOBBY = #{indivHobby,jdbcType=VARCHAR},
+      INDIV_MAR_ST = #{indivMarSt,jdbcType=CHAR},
+      INDIV_SPS_ID_TYP = #{indivSpsIdTyp,jdbcType=VARCHAR},
+      INDIV_SPS_ID_CODE = #{indivSpsIdCode,jdbcType=VARCHAR},
+      CUS_ID_REL = #{cusIdRel,jdbcType=VARCHAR},
+      INDIV_SPS_NAME = #{indivSpsName,jdbcType=VARCHAR},
+      INDIV_SPS_MAR_CODE = #{indivSpsMarCode,jdbcType=VARCHAR},
+      INDIV_SPS_OCC = #{indivSpsOcc,jdbcType=VARCHAR},
+      INDIV_SCOM_NAME = #{indivScomName,jdbcType=VARCHAR},
+      INDIV_PSP_CRTFCTN = #{indivPspCrtfctn,jdbcType=VARCHAR},
+      INDIV_SPS_DUTY = #{indivSpsDuty,jdbcType=VARCHAR},
+      INDIV_SPS_MPHN = #{indivSpsMphn,jdbcType=VARCHAR},
+      INDIV_SPS_PHN = #{indivSpsPhn,jdbcType=VARCHAR},
+      INDIV_SPS_MINCM = #{indivSpsMincm,jdbcType=DECIMAL},
+      INDIV_SPS_JOB_DT = #{indivSpsJobDt,jdbcType=VARCHAR},
+      COM_REL_DGR = #{comRelDgr,jdbcType=VARCHAR},
+      COM_INIT_LOAN_DATE = #{comInitLoanDate,jdbcType=VARCHAR},
+      INDIV_HLD_ACNT = #{indivHldAcnt,jdbcType=CHAR},
+      HOLD_CARD = #{holdCard,jdbcType=VARCHAR},
+      PASSPORT_FLG = #{passportFlg,jdbcType=CHAR},
+      CRD_GRADE = #{crdGrade,jdbcType=VARCHAR},
+      CRD_DATE = #{crdDate,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      POST_ADDR = #{postAddr,jdbcType=VARCHAR},
+      POST_CODE = #{postCode,jdbcType=VARCHAR},
+      INDIV_RSD_ADDR = #{indivRsdAddr,jdbcType=VARCHAR},
+      INDIV_RSD_ST = #{indivRsdSt,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      INDIV_ZIP_CODE = #{indivZipCode,jdbcType=VARCHAR},
+      FPHONE = #{fphone,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      FAX_CODE = #{faxCode,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      INDIV_OCC = #{indivOcc,jdbcType=VARCHAR},
+      INDIV_COM_NAME = #{indivComName,jdbcType=VARCHAR},
+      INDIV_COM_TYP = #{indivComTyp,jdbcType=VARCHAR},
+      INDIV_COM_FLD = #{indivComFld,jdbcType=VARCHAR},
+      INDIV_COM_FLD_NAME = #{indivComFldName,jdbcType=VARCHAR},
+      INDIV_COM_ADDR = #{indivComAddr,jdbcType=VARCHAR},
+      INDIV_COM_ZIP_CODE = #{indivComZipCode,jdbcType=VARCHAR},
+      INDIV_COM_PHN = #{indivComPhn,jdbcType=VARCHAR},
+      INDIV_COM_FAX = #{indivComFax,jdbcType=VARCHAR},
+      INDIV_COM_CNT_NAME = #{indivComCntName,jdbcType=VARCHAR},
+      INDIV_WORK_JOB_Y = #{indivWorkJobY,jdbcType=VARCHAR},
+      INDIV_COM_JOB_TTL = #{indivComJobTtl,jdbcType=VARCHAR},
+      INDIV_CRTFCTN = #{indivCrtfctn,jdbcType=VARCHAR},
+      INDIV_ANN_INCM = #{indivAnnIncm,jdbcType=DECIMAL},
+      INDIV_ANN_INCM_SRC = #{indivAnnIncmSrc,jdbcType=VARCHAR},
+      INDIV_SAL_ACC_BANK = #{indivSalAccBank,jdbcType=VARCHAR},
+      INDIV_SAL_ACC_NO = #{indivSalAccNo,jdbcType=VARCHAR},
+      WORK_RESUME = #{workResume,jdbcType=VARCHAR},
+      VIP_FLAG = #{vipFlag,jdbcType=VARCHAR},
+      VIP_LEVEL = #{vipLevel,jdbcType=VARCHAR},
+      CUS_STATUS = #{cusStatus,jdbcType=VARCHAR},
+      MAIN_BR_ID = #{mainBrId,jdbcType=VARCHAR},
+      CUST_MGR = #{custMgr,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      LAST_UPD_ID = #{lastUpdId,jdbcType=VARCHAR},
+      LAST_UPD_DATE = #{lastUpdDate,jdbcType=VARCHAR},
+      COM_COUNTRY = #{comCountry,jdbcType=CHAR},
+      INDIV_BRT_PLE_ID = #{indivBrtPleId,jdbcType=VARCHAR},
+      INDIV_BRT_PLE = #{indivBrtPle,jdbcType=VARCHAR},
+      POST_ADDR_PLE_ID = #{postAddrPleId,jdbcType=VARCHAR},
+      POST_ADDR_PLE = #{postAddrPle,jdbcType=VARCHAR},
+      INDIV_RSD_PLE_ID = #{indivRsdPleId,jdbcType=VARCHAR},
+      INDIV_RSD_PLE = #{indivRsdPle,jdbcType=VARCHAR},
+      INDIV_COM_ADDR_PLE_ID = #{indivComAddrPleId,jdbcType=VARCHAR},
+      INDIV_COM_ADDR_PLE = #{indivComAddrPle,jdbcType=VARCHAR},
+      INDIV_RSD_STATE_CD = #{indivRsdStateCd,jdbcType=VARCHAR},
+      INDIV_RSD_PROVINCE_CD = #{indivRsdProvinceCd,jdbcType=VARCHAR},
+      INDIV_RSD_CITY_CD = #{indivRsdCityCd,jdbcType=VARCHAR},
+      INDIV_RSD_DISTRICT_CD = #{indivRsdDistrictCd,jdbcType=VARCHAR},
+      POST_STATE_CD = #{postStateCd,jdbcType=VARCHAR},
+      POST_PROVINCE_CD = #{postProvinceCd,jdbcType=VARCHAR},
+      POST_CITY_CD = #{postCityCd,jdbcType=VARCHAR},
+      POST_DISTRICT_CD = #{postDistrictCd,jdbcType=VARCHAR},
+      MANAGEMENT_STRUCTURE = #{managementStructure,jdbcType=VARCHAR},
+      WORK_FLOW = #{workFlow,jdbcType=VARCHAR},
+      BUSIN_NAME = #{businName,jdbcType=VARCHAR},
+      LEGAL_NAME = #{legalName,jdbcType=VARCHAR},
+      OPER_JOB = #{operJob,jdbcType=VARCHAR},
+      OPER_NAME = #{operName,jdbcType=VARCHAR},
+      OPEN_DATE = #{openDate,jdbcType=VARCHAR},
+      OPER_YEARS = #{operYears,jdbcType=VARCHAR},
+      OPER_AREA = #{operArea,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      OPER_OTHER = #{operOther,jdbcType=VARCHAR},
+      OPER_ADDR = #{operAddr,jdbcType=VARCHAR},
+      OPER_PLACE = #{operPlace,jdbcType=VARCHAR},
+      OPER_NO = #{operNo,jdbcType=VARCHAR},
+      EMPLOYEE_NUM = #{employeeNum,jdbcType=VARCHAR},
+      COM_INV_LOAN_CARD = #{comInvLoanCard,jdbcType=VARCHAR},
+      OPER_RELATE = #{operRelate,jdbcType=VARCHAR},
+      OPER_LOW_RELATE = #{operLowRelate,jdbcType=VARCHAR},
+      OPER_HIST = #{operHist,jdbcType=VARCHAR},
+      DESC0 = #{desc0,jdbcType=VARCHAR},
+      DESC1 = #{desc1,jdbcType=VARCHAR},
+      DESC2 = #{desc2,jdbcType=VARCHAR},
+      DESC3 = #{desc3,jdbcType=VARCHAR},
+      OPER_MONTHS = #{operMonths,jdbcType=VARCHAR},
+      IS_BRT_LOCAL = #{isBrtLocal,jdbcType=VARCHAR},
+      HOUSING_AREA = #{housingArea,jdbcType=VARCHAR},
+      HOUSING_DATE = #{housingDate,jdbcType=VARCHAR},
+      INDIV_FAM_NUM = #{indivFamNum,jdbcType=VARCHAR},
+      CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      SOC_SCR_NO = #{socScrNo,jdbcType=VARCHAR},
+      PROV_AREA_CODE = #{provAreaCode,jdbcType=VARCHAR},
+      REG_RES_AREA_CODE = #{regResAreaCode,jdbcType=VARCHAR},
+      WE_CHAT = #{weChat,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR},
+      MOBILE_ATTRIBUTION = #{mobileAttribution,jdbcType=VARCHAR},
+      BANK_CARD_NAME = #{bankCardName,jdbcType=VARCHAR},
+      HOUSE_FUND_ACCOUNT = #{houseFundAccount,jdbcType=VARCHAR},
+      INDIV_SPS_IDCARD_OBV = #{indivSpsIdcardObv,jdbcType=VARCHAR},
+      INDIV_OCC_NAME = #{indivOccName,jdbcType=VARCHAR},
+      REGISTER_ID = #{registerId,jdbcType=VARCHAR}
+    where CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+</mapper>

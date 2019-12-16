@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PaIndCrtRepayPlanMapper">
+
+	<insert id="mergeIntoPaIndCrtRepayPlan" parameterType="java.util.List">
+		MERGE INTO Pa_Ind_Crt_Repay_Plan prp
+		USING (
+		<foreach collection="PaIndCrtRepayPlanLists" item="a"
+			separator="union all">
+			<![CDATA[
+				        select  #{a.id, jdbcType=VARCHAR}          as    ID,
+								#{a.applNo, jdbcType=VARCHAR}        as    APPL_NO,
+								#{a.lnAcct, jdbcType=VARCHAR}        as    LN_ACCT,
+								#{a.period, jdbcType=DECIMAL}        as    PERIOD,
+
+								#{a.dueDate, jdbcType=VARCHAR}       as    DUE_DATE,
+								#{a.dueInsAmt, jdbcType=DECIMAL}     as    DUE_INS_AMT,
+								#{a.realInsAmt, jdbcType=DECIMAL}    as    REAL_INS_AMT,
+								#{a.duePrinAmt, jdbcType=DECIMAL}    as    DUE_PRIN_AMT,
+
+								#{a.realPrinAmt, jdbcType=DECIMAL}   as    REAL_PRIN_AMT,
+								#{a.dueIntAmt, jdbcType=DECIMAL}     as    DUE_INT_AMT,
+								#{a.realIntAmt, jdbcType=DECIMAL}    as    REAL_INT_AMT,
+								#{a.dueLcAmt, jdbcType=DECIMAL}      as    DUE_LC_AMT,
+
+								#{a.realLcAmt, jdbcType=DECIMAL}     as    REAL_LC_AMT,
+								#{a.status, jdbcType=VARCHAR}        as    STATUS,
+								#{a.insuCompany, jdbcType=VARCHAR}   as    INSU_COMPANY,
+								#{a.source, jdbcType=VARCHAR}        as    SOURCE,
+
+								#{a.businessDate, jdbcType=VARCHAR}  as    BUSINESS_DATE
+				        from dual
+				     ]]>
+		</foreach>
+		) datas
+
+		ON (prp.period = datas.period and prp.APPL_NO = datas.APPL_NO
+		and prp.LN_ACCT = datas.LN_ACCT and prp.BUSINESS_DATE =
+		datas.BUSINESS_DATE)
+
+		WHEN MATCHED THEN
+		update set
+		prp.DUE_DATE =
+		datas.DUE_DATE,
+		prp.DUE_INS_AMT = datas.DUE_INS_AMT,
+		prp.REAL_INS_AMT =
+		datas.REAL_INS_AMT,
+		prp.DUE_PRIN_AMT = datas.DUE_PRIN_AMT,
+
+		prp.REAL_PRIN_AMT = datas.REAL_PRIN_AMT,
+		prp.DUE_INT_AMT =
+		datas.DUE_INT_AMT,
+		prp.REAL_INT_AMT = datas.REAL_INT_AMT,
+		prp.DUE_LC_AMT = datas.DUE_LC_AMT,
+
+		prp.REAL_LC_AMT = datas.REAL_LC_AMT,
+		prp.STATUS = datas.STATUS,
+		prp.INSU_COMPANY = datas.INSU_COMPANY,
+		prp.SOURCE = datas.SOURCE,
+		prp.UPDATE_DATE_TIME = to_char(sysdate,
+		'YYYY-MM-DD hh24:mi:ss')
+
+		where prp.SYN_STATUS = '0'
+
+		WHEN NOT MATCHED
+		THEN
+		INSERT
+		(
+		prp.ID,
+		prp.APPL_NO,
+		prp.LN_ACCT,
+		prp.PERIOD,
+
+		prp.DUE_DATE,
+		prp.DUE_INS_AMT,
+		prp.REAL_INS_AMT,
+		prp.DUE_PRIN_AMT,
+
+		prp.REAL_PRIN_AMT,
+		prp.DUE_INT_AMT,
+		prp.REAL_INT_AMT,
+		prp.DUE_LC_AMT,
+
+		prp.REAL_LC_AMT,
+		prp.STATUS,
+		prp.INSU_COMPANY,
+		prp.SOURCE,
+
+		prp.BUSINESS_DATE
+		)
+		VALUES
+		(
+		datas.ID,
+		datas.APPL_NO,
+		datas.LN_ACCT,
+		datas.PERIOD,
+
+		datas.DUE_DATE,
+		datas.DUE_INS_AMT,
+		datas.REAL_INS_AMT,
+		datas.DUE_PRIN_AMT,
+
+		datas.REAL_PRIN_AMT,
+		datas.DUE_INT_AMT,
+		datas.REAL_INT_AMT,
+		datas.DUE_LC_AMT,
+
+		datas.REAL_LC_AMT,
+		datas.STATUS,
+		datas.INSU_COMPANY,
+		datas.SOURCE,
+
+		datas.BUSINESS_DATE
+		)
+	</insert>
+
+	<!-- 同步本次数据前有必要删除之前已同步借据的还款计划数据(根据借据号去做删除) -->
+	<delete id="deleteOldRepayPlanInfo" parameterType="java.util.List">
+		<foreach collection="specialRepayPlanLists" item="a" open="begin" close=";end;" separator=";">
+			<![CDATA[
+               delete from ACC_MTD_PLAN where ps_perd_no > #{a.period, jdbcType=DECIMAL}
+                            and bill_no= #{a.lnAcct,jdbcType=VARCHAR}
+            ]]>
+		</foreach>
+	</delete>
+
+	<delete id="deleteOldRepayPlanInfoByBillnoAndPeiod" parameterType="string">
+	<![CDATA[
+		  delete from ACC_MTD_PLAN where ps_perd_no > #{period, jdbcType=DECIMAL}
+						and bill_no= #{billNo,jdbcType=VARCHAR}
+		]]>
+	</delete>
+
+	<delete id="deleteOldaccFeeMtdPlan" parameterType="string">
+	<![CDATA[
+		  delete from acc_fee_mtd_plan where ps_perd_no > #{period, jdbcType=DECIMAL}
+						and bill_no= #{billNo,jdbcType=VARCHAR}
+		]]>
+	</delete>
+
+	<insert id="mergeRepayPlanInfo" parameterType="String">
+  	  <![CDATA[
+		MERGE INTO ACC_MTD_PLAN amp
+		USING (select  prp.ln_acct          as  BILL_NO,
+				       prp.period           as  PS_PERD_NO,
+				       prp.due_date         as  PS_DUE_DT,
+				       prp.due_prin_amt     as  PS_PRCP_AMT,
+				       prp.real_prin_amt    as  PS_REAL_PRCP_AMT,
+
+				       prp.due_int_amt      as  PS_NORM_INT_AMT,
+				       prp.real_int_amt     as  PS_REAL_INT_AMT,
+				       prp.due_lc_amt       as  PS_OD_INT_AMT,
+				       prp.real_lc_amt      as  SETL_OD_INC_TAKEN,
+				       decode(prp.status, '01', '00', '02', '20', '04', '10', '05', '10', '09', '21', '10', '21', prp.status)           as  REPAY_FLAG,
+
+				       prp.BUSINESS_DATE    as  INPUT_DATE,
+				       prp.BUSINESS_DATE    as  UPDATE_DATE,
+					   prp.due_prin_amt + due_int_amt as PS_INSTM_AMT
+  				from Pa_Ind_Crt_Repay_Plan prp
+ 				   where not exists (select 1 from PSP_CLAIM_LOAN where BILL_NO = prp.ln_acct)
+ 				   	and prp.SYN_STATUS = '0'
+   					and prp.BUSINESS_DATE = #{date, jdbcType=VARCHAR}) datas
+
+		ON (amp.PS_PERD_NO = datas.PS_PERD_NO and amp.BILL_NO = datas.BILL_NO)
+
+		WHEN MATCHED THEN
+		  update set
+					 amp.PS_DUE_DT         =     datas.PS_DUE_DT,
+					 amp.PS_PRCP_AMT       =     datas.PS_PRCP_AMT,
+					 amp.PS_REAL_PRCP_AMT  =     datas.PS_REAL_PRCP_AMT,
+					 amp.PS_NORM_INT_AMT   =     datas.PS_NORM_INT_AMT,
+					 amp.PS_REAL_INT_AMT   =     datas.PS_REAL_INT_AMT,
+
+					 amp.PS_OD_INT_AMT     =     datas.PS_OD_INT_AMT,
+					 amp.SETL_OD_INC_TAKEN =     datas.SETL_OD_INC_TAKEN,
+					 amp.REPAY_FLAG        =     datas.REPAY_FLAG,
+					 amp.UPDATE_DATE       =     datas.UPDATE_DATE,
+					 amp.PS_INSTM_AMT	   =	 datas.PS_INSTM_AMT
+
+		WHEN NOT MATCHED THEN
+  			INSERT
+    			(amp.BILL_NO,
+				 amp.PS_PERD_NO,
+				 amp.PS_DUE_DT,
+				 amp.PS_PRCP_AMT,
+				 amp.PS_REAL_PRCP_AMT,
+
+				 amp.PS_NORM_INT_AMT,
+				 amp.PS_REAL_INT_AMT,
+				 amp.PS_OD_INT_AMT,
+				 amp.SETL_OD_INC_TAKEN,
+				 amp.REPAY_FLAG,
+
+				 amp.INPUT_DATE,
+				 amp.PS_INSTM_AMT)
+			  VALUES
+			    (datas.BILL_NO,
+				 datas.PS_PERD_NO,
+				 datas.PS_DUE_DT,
+				 datas.PS_PRCP_AMT,
+				 datas.PS_REAL_PRCP_AMT,
+
+				 datas.PS_NORM_INT_AMT,
+				 datas.PS_REAL_INT_AMT,
+				 datas.PS_OD_INT_AMT,
+				 datas.SETL_OD_INC_TAKEN,
+				 datas.REPAY_FLAG,
+				 datas.INPUT_DATE,
+				 datas.PS_INSTM_AMT)
+	  ]]>
+	</insert>
+
+	<insert id="mergePsRealDt" parameterType="String">
+  	  <![CDATA[
+		MERGE INTO ACC_MTD_PLAN amp
+		USING (select
+					   prp.ln_acct          as  BILL_NO,
+				       prp.period           as  PS_PERD_NO,
+				       prp.real_prin_amt    as  PS_REAL_PRCP_AMT,
+				       prp.BUSINESS_DATE    as  UPDATE_DATE,
+					   to_char(to_date(prp.BUSINESS_DATE,'yyyy-mm-dd') -1,'yyyy-mm-dd')	as  PS_REAL_DT
+  				from Pa_Ind_Crt_Repay_Plan prp
+					   where	not exists (select 1 from PSP_CLAIM_LOAN where BILL_NO = prp.ln_acct)
+ 				    and prp.REAL_PRIN_AMT > 0
+ 				   	and  prp.SYN_STATUS = '0'
+   					and prp.BUSINESS_DATE = #{date, jdbcType=VARCHAR}) datas
+
+		ON (amp.PS_PERD_NO = datas.PS_PERD_NO and amp.BILL_NO = datas.BILL_NO)
+
+		WHEN MATCHED THEN
+		  update set
+					 amp.PS_REAL_DT	   	   =	 datas.PS_REAL_DT,
+					 amp.UPDATE_DATE	   =	 datas.UPDATE_DATE
+	  ]]>
+	</insert>
+
+	<!--还款记录 -->
+	<insert id="mergeRepayRecord" parameterType="String">
+  	  <![CDATA[
+		MERGE INTO ACC_MTD_PS_NOTE ampn
+		USING (select
+						ID			as	PK_ID,
+						LN_ACCT			as	BILL_NO,
+						PERIOD			as	PS_PERD_NO,
+						to_char(to_date(BUSINESS_DATE,'yyyy-mm-dd') -1,'yyyy-mm-dd')	as	PS_REAL_DT,
+						DUE_LC_AMT		as	PS_OD_INT_AMT,
+
+						REAL_PRIN_AMT	as	PS_REAL_PRCP_AMT,
+						REAL_INT_AMT	as	PS_REAL_INT_AMT,
+						REAL_LC_AMT		as	SETL_OD_INC_TAKEN,
+						'3'				as	UPDATE_WAY,
+						to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss')	as	INPUT_DATE,
+
+						'101067571'		as	INPUT_ID,
+						'1680004'		as	INPUT_BR_ID,
+						'PAHA'			as	REMARK,
+						'04'			as	PS_REAL_SOURCE,
+
+					   case
+						 when STATUS = '09' then '30'
+						 else
+						   case
+							 when (to_date(#{date, jdbcType=VARCHAR},'yyyy-mm-dd') - 1 <= to_date(DUE_DATE,'yyyy-mm-dd')) then '10'
+							 when (to_date(#{date, jdbcType=VARCHAR},'yyyy-mm-dd') - 1 > to_date(DUE_DATE,'yyyy-mm-dd')) then '21'
+							   end
+						   end as ABSTRACT
+						from Pa_Ind_Crt_Repay_Plan
+							where STATUS !='10'
+						   		and REAL_PRIN_AMT >0
+						   		and SYN_STATUS = '0'
+						  		and BUSINESS_DATE = #{date, jdbcType=VARCHAR}) datas
+
+		ON (ampn.PS_PERD_NO = datas.PS_PERD_NO and ampn.BILL_NO = datas.BILL_NO and ampn.PK_ID = datas.PK_ID)
+
+		WHEN MATCHED THEN
+		  update set
+					ampn.PS_REAL_DT			=	datas.PS_REAL_DT,
+					ampn.PS_OD_INT_AMT		=	datas.PS_OD_INT_AMT,
+
+					ampn.PS_REAL_PRCP_AMT	=	datas.PS_REAL_PRCP_AMT,
+					ampn.PS_REAL_INT_AMT	=	datas.PS_REAL_INT_AMT,
+					ampn.SETL_OD_INC_TAKEN	=	datas.SETL_OD_INC_TAKEN,
+					ampn.UPDATE_WAY			=	datas.UPDATE_WAY,
+					ampn.INPUT_DATE			=	datas.INPUT_DATE,
+
+					ampn.INPUT_ID			=	datas.INPUT_ID,
+					ampn.INPUT_BR_ID		=	datas.INPUT_BR_ID,
+					ampn.REMARK				=	datas.REMARK,
+					ampn.PS_REAL_SOURCE		=	datas.PS_REAL_SOURCE,
+					ampn.ABSTRACT			=   datas.ABSTRACT
+
+
+		WHEN NOT MATCHED THEN
+  			INSERT
+    			(	ampn.PK_ID,
+					ampn.BILL_NO,
+					ampn.PS_PERD_NO,
+					ampn.PS_REAL_DT,
+					ampn.PS_OD_INT_AMT,
+
+					ampn.PS_REAL_PRCP_AMT,
+					ampn.PS_REAL_INT_AMT,
+					ampn.SETL_OD_INC_TAKEN,
+					ampn.UPDATE_WAY,
+					ampn.INPUT_DATE,
+
+					ampn.INPUT_ID,
+					ampn.INPUT_BR_ID,
+					ampn.REMARK,
+					ampn.PS_REAL_SOURCE,
+					ampn.ABSTRACT
+				)
+			  VALUES
+    			(	datas.PK_ID	,
+					datas.BILL_NO,
+					datas.PS_PERD_NO,
+					datas.PS_REAL_DT,
+					datas.PS_OD_INT_AMT,
+
+					datas.PS_REAL_PRCP_AMT,
+					datas.PS_REAL_INT_AMT,
+					datas.SETL_OD_INC_TAKEN,
+					datas.UPDATE_WAY,
+					datas.INPUT_DATE,
+
+					datas.INPUT_ID,
+					datas.INPUT_BR_ID,
+					datas.REMARK,
+					datas.PS_REAL_SOURCE,
+					datas.ABSTRACT
+				)
+	  ]]>
+	</insert>
+
+	<!-- 更新数据同步状态 -->
+	<update id="updateSynStatus" parameterType="String">
+		update Pa_Ind_Crt_Repay_Plan
+		set SYN_STATUS = '1',
+		UPDATE_DATE_TIME = to_char(sysdate, 'YYYY-MM-DD hh24:mi:ss')
+		where exists (select 1 from ACC_MTD_PLAN amp, Pa_Ind_Crt_Repay_Plan prp
+		where amp.PS_PERD_NO = prp.PERIOD
+		and amp.BILL_NO = prp.LN_ACCT
+		and BUSINESS_DATE = #{date,jdbcType=VARCHAR})
+		and SYN_STATUS = '0'
+		and BUSINESS_DATE = #{date,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据还款计划生成保费计划 -->
+	<insert id="cerateInsuranceRepayPlan" parameterType="String">
+	    <![CDATA[
+	        MERGE INTO acc_fee_mtd_plan amp
+	        USING (  select      li.SERNO                  as LST_SERNO,--投保单业务流水号
+	                             prp.LN_ACCT               as BILL_NO,--借据号
+						         li.RATE             		as RATE,--费率
+						         prp.DUE_INS_AMT           as PS_COVERAGE_FEE,--应收保费
+						         prp.DUE_DATE              as PS_DUE_DT,--应还日期
+						         '00'                      as REPAY_FLAG,--状态
+						         prp.BUSINESS_DATE         as INPUT_DATE,--录入时间
+						         li.COVER_SERNO            as COVER_SERNO,--投保单编号
+						         li.LIST_SERNO             as LIST_SERNO,--保单编号
+						         li.IQP_LOAN_SERNO         as IQP_LOAN_SERNO,--调查流水号
+						         prp.PERIOD                as PS_PERD_NO,--期号
+						         '3'                       as REPAYMENT_MODE,--还款方式(等额本息'3')
+						         '1'                       as PAY_MODE, -- 还款方式（STD_FEE_REPAY_WAY）
+						         li.INPUT_ID               as INPUT_ID,--录入人id
+						         li.MGR_ORG                as INPUT_BR_ID --录入机构id
+	                from    Pa_Ind_Crt_Repay_Plan prp,
+	                        lst_iqp_info li
+	                        --partner_busi_import_detail pbd
+	                where prp.APPL_NO = li.iqp_loan_serno
+	                --and pbd.bill_no = prp.ln_acct
+	                and prp.status = '01'
+	                and prp.syn_status = '0'
+	                and prp.BUSINESS_DATE = #{date,jdbcType=VARCHAR}
+	                order by  PS_PERD_NO) datas
+
+	        ON (amp.PS_PERD_NO = datas.PS_PERD_NO and amp.LST_SERNO = datas.LST_SERNO)
+
+
+
+	        WHEN MATCHED THEN
+	            update set
+                    amp.BILL_NO= datas.BILL_NO
+
+            WHEN NOT MATCHED THEN
+	            INSERT
+	                (   amp.LST_SERNO,
+	                    amp.BILL_NO,
+	                    amp.RATE,
+						amp.PS_COVERAGE_FEE,
+						amp.PS_DUE_DT,
+						amp.REPAY_FLAG,
+						amp.INPUT_DATE,
+						amp.COVER_SERNO,
+						amp.LIST_SERNO,
+						amp.IQP_LOAN_SERNO,
+						amp.PS_PERD_NO,
+						amp.REPAYMENT_MODE,
+						amp.PAY_MODE,
+						amp.INPUT_ID,
+						amp.INPUT_BR_ID
+						)
+	              VALUES
+	                (   datas.LST_SERNO,
+	                    datas.BILL_NO,
+	                    datas.RATE,
+	                    datas.PS_COVERAGE_FEE,
+	                    datas.PS_DUE_DT,
+	                    datas.REPAY_FLAG,
+	                    datas.INPUT_DATE,
+	                    datas.COVER_SERNO,
+	                    datas.LIST_SERNO,
+	                    datas.IQP_LOAN_SERNO,
+	                    datas.PS_PERD_NO,
+	                    datas.REPAYMENT_MODE,
+	                    datas.PAY_MODE,
+	                    datas.INPUT_ID,
+	                    datas.INPUT_BR_ID
+	                    )
+	     ]]>
+	</insert>
+
+	<!-- 保费分期基础信息表 -->
+	<insert id="cerateInsuranceBaseInfo" parameterType="String">
+	    <![CDATA[
+	        MERGE INTO acc_fee_info afi
+	        USING ( select li.SERNO             as  LST_SERNO,--投保单业务流水号
+					       (select sum(PS_REAL_FEE_AMT) from  acc_fee_ps_note a where a.lst_serno=li.serno) as  COVERAGE_FEE  ,--保费收入(根据保费还款明细来计算)
+					       li.FIRST_PREM_RATE   as  FIRST_RATE,--首期费率
+					       prp.DUE_INS_AMT      as FIRST_FEE,-- 首期保费
+					       li.EVERY_PREM_RATE   as  EACH_RATE,-- 每期费率
+					       prp.DUE_DATE         as FIRST_DEBIT_DAY,--首期扣款日
+					       (select due_day from ACC_LOAN acc where acc.IQP_LOAN_SERNO = li.IQP_LOAN_SERNO) as EACH_DEBIT_DAY,--每期扣款日
+					       (select term from ACC_LOAN acc where acc.IQP_LOAN_SERNO = li.IQP_LOAN_SERNO) as TERM,-- 期限
+					       '02'                 as  TERM_TYPE ,--期限类型
+					       '3'                  as  REPAYMENT_MODE,--  还款方式（STD_ZB_REPAY_MODE）等额本息
+					       li.COVER_SERNO       as  COVER_SERNO,--投保单编号
+					       li.LIST_SERNO        as  LIST_SERNO,--  保单编号
+					       li.IQP_LOAN_SERNO    as  IQP_LOAN_SERNO,-- 调查流水号
+					       ''                   as  STATUS,-- 状态（是否做放款登记0否1是）
+					       prp.LN_ACCT          as  BILL_NO,--借据号
+					       '1'                  as  PAY_MODE -- 还款方式（STD_FEE_REPAY_WAY）
+	                from    Pa_Ind_Crt_Repay_Plan prp,
+	                        --partner_busi_import_detail pbd,
+	                        LST_IQP_INFO li
+	                where prp.APPL_NO = li.IQP_LOAN_SERNO
+	                  --and pbd.REQ_SEQ_NO = prp.APPL_NO
+	                  and prp.REAL_PRIN_AMT <= 0
+	                  and prp.status = '01'
+					  and prp.PERIOD = '1'
+					  and prp.SYN_STATUS = '0'
+					  and prp.BUSINESS_DATE = #{date,jdbcType=VARCHAR}) datas
+	        ON (afi.LST_SERNO = datas.LST_SERNO)
+
+	        WHEN MATCHED THEN
+	            update set
+							afi.COVERAGE_FEE = datas.COVERAGE_FEE,
+							afi.FIRST_RATE = datas.FIRST_RATE,
+							afi.FIRST_FEE = datas.FIRST_FEE,
+							afi.EACH_RATE = datas.EACH_RATE,
+							afi.FIRST_DEBIT_DAY = datas.FIRST_DEBIT_DAY,
+							afi.EACH_DEBIT_DAY = datas.EACH_DEBIT_DAY,
+							afi.TERM = datas.TERM,
+							afi.TERM_TYPE = datas.TERM_TYPE,
+							afi.REPAYMENT_MODE = datas.REPAYMENT_MODE,
+							afi.COVER_SERNO = datas.COVER_SERNO,
+							afi.LIST_SERNO = datas.LIST_SERNO,
+							afi.IQP_LOAN_SERNO = datas.IQP_LOAN_SERNO,
+							afi.STATUS = datas.STATUS,
+							afi.BILL_NO = datas.BILL_NO,
+							afi.PAY_MODE = datas.PAY_MODE
+
+	        WHEN NOT MATCHED THEN
+	            INSERT
+	                (   afi.LST_SERNO,
+						afi.COVERAGE_FEE,
+						afi.FIRST_RATE,
+						afi.FIRST_FEE,
+						afi.EACH_RATE,
+						afi.FIRST_DEBIT_DAY,
+						afi.EACH_DEBIT_DAY,
+						afi.TERM,
+						afi.TERM_TYPE,
+						afi.REPAYMENT_MODE,
+						afi.COVER_SERNO,
+						afi.LIST_SERNO,
+						afi.IQP_LOAN_SERNO,
+						afi.STATUS,
+						afi.BILL_NO,
+						afi.PAY_MODE)
+	              VALUES
+	                (   datas.LST_SERNO,
+	                    datas.COVERAGE_FEE,
+	                    datas.FIRST_RATE,
+	                    datas.FIRST_FEE,
+	                    datas.EACH_RATE,
+	                    datas.FIRST_DEBIT_DAY,
+	                    datas.EACH_DEBIT_DAY,
+	                    datas.TERM,
+	                    datas.TERM_TYPE,
+	                    datas.REPAYMENT_MODE,
+	                    datas.COVER_SERNO,
+	                    datas.LIST_SERNO,
+	                    datas.IQP_LOAN_SERNO,
+	                    datas.STATUS,
+	                    datas.BILL_NO,
+	                    datas.PAY_MODE)
+	     ]]>
+	</insert>
+
+	<!-- 根据代偿还款计划更新实际计划ACC_MTD_PLAN -->
+	<insert id="updateRepayPlanInfo" parameterType="String">
+  	 <![CDATA[
+			MERGE INTO ACC_MTD_PLAN amp
+			USING (select  prp.ln_acct          as  BILL_NO, --借据号
+						   prp.period           as  PS_PERD_NO, --期次
+						   prp.due_date         as  PS_DUE_DT, --应还款日
+						   prp.due_prin_amt     as  PS_PRCP_AMT, --应还本金
+
+						   prp.due_int_amt      as  PS_NORM_INT_AMT, --应还利息
+						   prp.due_lc_amt       as  PS_OD_INT_AMT, --应还罚息
+						   decode(prp.status, '01', '00', '02', '20', '04', '10', '05', '10', '09', '21', '10', '21', prp.status)           as  REPAY_FLAG,
+
+						   prp.BUSINESS_DATE    as  INPUT_DATE,
+						   prp.BUSINESS_DATE    as  UPDATE_DATE,
+						   prp.due_prin_amt + due_int_amt as PS_INSTM_AMT
+					from Pa_Ind_Crt_Repay_Plan prp
+					   where exists (select 1 from PSP_CLAIM_LOAN where BILL_NO = prp.ln_acct)
+						and prp.STATUS= '09'
+						and prp.SYN_STATUS = '0'
+						and prp.BUSINESS_DATE = #{date, jdbcType=VARCHAR}) datas
+
+			ON (amp.PS_PERD_NO = datas.PS_PERD_NO and amp.BILL_NO = datas.BILL_NO)
+
+			WHEN MATCHED THEN
+			  update set amp.PS_DUE_DT         =     datas.PS_DUE_DT,
+						 amp.PS_PRCP_AMT       =     datas.PS_PRCP_AMT,
+						 amp.PS_NORM_INT_AMT   =     datas.PS_NORM_INT_AMT,
+
+						 amp.PS_OD_INT_AMT     =     datas.PS_OD_INT_AMT,
+						 amp.REPAY_FLAG        =     datas.REPAY_FLAG,
+						 amp.UPDATE_DATE       =     datas.UPDATE_DATE,
+						 amp.PS_INSTM_AMT	   =	 datas.PS_INSTM_AMT
+		]]>
+	</insert>
+
+	<insert id="updateAccFeeMtdPlan" parameterType="String">
+	    <![CDATA[
+	        MERGE INTO acc_fee_mtd_plan amp
+	        USING (  select      li.SERNO                  as LST_SERNO,--投保单业务流水号
+	                             prp.LN_ACCT               as BILL_NO,--借据号
+	                             prp.DUE_DATE              as PS_DUE_DT,--应还日期
+						         --'50'                      as REPAY_FLAG,--状态
+						         prp.DUE_INS_AMT          as PS_COVERAGE_FEE,
+						         prp.BUSINESS_DATE         as  UPDATE_DATE,
+						         prp.PERIOD                as PS_PERD_NO--期号
+	                from    Pa_Ind_Crt_Repay_Plan prp,
+	                        lst_iqp_info li
+	                where prp.APPL_NO = li.iqp_loan_serno
+	                and prp.status = '09'
+	                and prp.syn_status = '0'
+	                and prp.BUSINESS_DATE = #{date,jdbcType=VARCHAR}
+	                order by  PS_PERD_NO) datas
+
+	        ON (amp.PS_PERD_NO = datas.PS_PERD_NO and amp.BILL_NO = datas.BILL_NO)
+
+	        WHEN MATCHED THEN
+	            update set
+	            	amp.PS_DUE_DT      = datas.PS_DUE_DT,
+                    amp.PS_COVERAGE_FEE= datas.PS_COVERAGE_FEE,
+                    --amp.REPAY_FLAG=datas.REPAY_FLAG,
+                    amp.UPDATE_TIME=datas.UPDATE_DATE
+	     ]]>
+	</insert>
+	<resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PaIndCrtRepayPlan">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="LN_ACCT" jdbcType="VARCHAR" property="lnAcct" />
+    <result column="PERIOD" jdbcType="DECIMAL" property="period" />
+    <result column="DUE_DATE" jdbcType="VARCHAR" property="dueDate" />
+    <result column="DUE_INS_AMT" jdbcType="DECIMAL" property="dueInsAmt" />
+    <result column="REAL_INS_AMT" jdbcType="DECIMAL" property="realInsAmt" />
+    <result column="DUE_PRIN_AMT" jdbcType="DECIMAL" property="duePrinAmt" />
+    <result column="REAL_PRIN_AMT" jdbcType="DECIMAL" property="realPrinAmt" />
+    <result column="DUE_INT_AMT" jdbcType="DECIMAL" property="dueIntAmt" />
+    <result column="REAL_INT_AMT" jdbcType="DECIMAL" property="realIntAmt" />
+    <result column="DUE_LC_AMT" jdbcType="DECIMAL" property="dueLcAmt" />
+    <result column="REAL_LC_AMT" jdbcType="DECIMAL" property="realLcAmt" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="SYN_STATUS" jdbcType="VARCHAR" property="synStatus" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+    <result column="INPUT_DATE_TIME" jdbcType="VARCHAR" property="inputDateTime" />
+    <result column="UPDATE_DATE_TIME" jdbcType="VARCHAR" property="updateDateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, APPL_NO, LN_ACCT, PERIOD, DUE_DATE, DUE_INS_AMT, REAL_INS_AMT, DUE_PRIN_AMT, 
+    REAL_PRIN_AMT, DUE_INT_AMT, REAL_INT_AMT, DUE_LC_AMT, REAL_LC_AMT, STATUS, INSU_COMPANY, 
+    SOURCE, SYN_STATUS, BUSINESS_DATE, INPUT_DATE_TIME, UPDATE_DATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PA_IND_CRT_REPAY_PLAN
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PA_IND_CRT_REPAY_PLAN
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayPlan">
+    insert into PA_IND_CRT_REPAY_PLAN (ID, APPL_NO, LN_ACCT, 
+      PERIOD, DUE_DATE, DUE_INS_AMT, 
+      REAL_INS_AMT, DUE_PRIN_AMT, REAL_PRIN_AMT, 
+      DUE_INT_AMT, REAL_INT_AMT, DUE_LC_AMT, 
+      REAL_LC_AMT, STATUS, INSU_COMPANY, 
+      SOURCE, SYN_STATUS, BUSINESS_DATE, 
+      INPUT_DATE_TIME, UPDATE_DATE_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{applNo,jdbcType=VARCHAR}, #{lnAcct,jdbcType=VARCHAR}, 
+      #{period,jdbcType=DECIMAL}, #{dueDate,jdbcType=VARCHAR}, #{dueInsAmt,jdbcType=DECIMAL}, 
+      #{realInsAmt,jdbcType=DECIMAL}, #{duePrinAmt,jdbcType=DECIMAL}, #{realPrinAmt,jdbcType=DECIMAL}, 
+      #{dueIntAmt,jdbcType=DECIMAL}, #{realIntAmt,jdbcType=DECIMAL}, #{dueLcAmt,jdbcType=DECIMAL}, 
+      #{realLcAmt,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{synStatus,jdbcType=VARCHAR}, #{businessDate,jdbcType=VARCHAR}, 
+      #{inputDateTime,jdbcType=VARCHAR}, #{updateDateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayPlan">
+    insert into PA_IND_CRT_REPAY_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT,
+      </if>
+      <if test="period != null">
+        PERIOD,
+      </if>
+      <if test="dueDate != null">
+        DUE_DATE,
+      </if>
+      <if test="dueInsAmt != null">
+        DUE_INS_AMT,
+      </if>
+      <if test="realInsAmt != null">
+        REAL_INS_AMT,
+      </if>
+      <if test="duePrinAmt != null">
+        DUE_PRIN_AMT,
+      </if>
+      <if test="realPrinAmt != null">
+        REAL_PRIN_AMT,
+      </if>
+      <if test="dueIntAmt != null">
+        DUE_INT_AMT,
+      </if>
+      <if test="realIntAmt != null">
+        REAL_INT_AMT,
+      </if>
+      <if test="dueLcAmt != null">
+        DUE_LC_AMT,
+      </if>
+      <if test="realLcAmt != null">
+        REAL_LC_AMT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+      <if test="inputDateTime != null">
+        INPUT_DATE_TIME,
+      </if>
+      <if test="updateDateTime != null">
+        UPDATE_DATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=DECIMAL},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueInsAmt != null">
+        #{dueInsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realInsAmt != null">
+        #{realInsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="duePrinAmt != null">
+        #{duePrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realPrinAmt != null">
+        #{realPrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueIntAmt != null">
+        #{dueIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realIntAmt != null">
+        #{realIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueLcAmt != null">
+        #{dueLcAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realLcAmt != null">
+        #{realLcAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDateTime != null">
+        #{inputDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDateTime != null">
+        #{updateDateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayPlan">
+    update PA_IND_CRT_REPAY_PLAN
+    <set>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        PERIOD = #{period,jdbcType=DECIMAL},
+      </if>
+      <if test="dueDate != null">
+        DUE_DATE = #{dueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueInsAmt != null">
+        DUE_INS_AMT = #{dueInsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realInsAmt != null">
+        REAL_INS_AMT = #{realInsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="duePrinAmt != null">
+        DUE_PRIN_AMT = #{duePrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realPrinAmt != null">
+        REAL_PRIN_AMT = #{realPrinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueIntAmt != null">
+        DUE_INT_AMT = #{dueIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realIntAmt != null">
+        REAL_INT_AMT = #{realIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueLcAmt != null">
+        DUE_LC_AMT = #{dueLcAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="realLcAmt != null">
+        REAL_LC_AMT = #{realLcAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS = #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDateTime != null">
+        INPUT_DATE_TIME = #{inputDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDateTime != null">
+        UPDATE_DATE_TIME = #{updateDateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayPlan">
+    update PA_IND_CRT_REPAY_PLAN
+    set APPL_NO = #{applNo,jdbcType=VARCHAR},
+      LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      PERIOD = #{period,jdbcType=DECIMAL},
+      DUE_DATE = #{dueDate,jdbcType=VARCHAR},
+      DUE_INS_AMT = #{dueInsAmt,jdbcType=DECIMAL},
+      REAL_INS_AMT = #{realInsAmt,jdbcType=DECIMAL},
+      DUE_PRIN_AMT = #{duePrinAmt,jdbcType=DECIMAL},
+      REAL_PRIN_AMT = #{realPrinAmt,jdbcType=DECIMAL},
+      DUE_INT_AMT = #{dueIntAmt,jdbcType=DECIMAL},
+      REAL_INT_AMT = #{realIntAmt,jdbcType=DECIMAL},
+      DUE_LC_AMT = #{dueLcAmt,jdbcType=DECIMAL},
+      REAL_LC_AMT = #{realLcAmt,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SYN_STATUS = #{synStatus,jdbcType=VARCHAR},
+      BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      INPUT_DATE_TIME = #{inputDateTime,jdbcType=VARCHAR},
+      UPDATE_DATE_TIME = #{updateDateTime,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="getBatchOutData" resultType="cn.com.sinosafe.domain.entity.PaIndCrtRepayPlan">
+  	select a.APPL_NO as applNo, a.STATUS as status
+	  from PA_IND_CRT_REPAY_PLAN a
+	 where a.STATUS in ('05', '09')
+	   and not exists (select t.sent_serno
+	  from sent_status t
+	 where t.sent_type = 'PAPH_BATCH_OUT'
+	   and t.sent_serno = a.appl_no) 
+	   and a.period = (select max(b.period) from PA_IND_CRT_REPAY_PLAN b where b.STATUS in ('05', '09') and b.appl_no = a.appl_no)
+  </select>
+  <select id="getXbTotalAmt" parameterType="String" resultType="java.math.BigDecimal">
+  	select sum(a.ps_coverage_fee)-sum(nvl(a.ps_real_prcp_amt,0))
+	  from lst_iqp_info t, acc_fee_mtd_plan a
+	 where t.serno = a.lst_serno
+	   and t.cover_create_status = '04'
+	   and t.business_source = 'PAPH'
+	   and t.iqp_loan_serno = #{serno,jdbcType=VARCHAR}
+  </select>
+  <select id="getSfTotalAmt" parameterType="String" resultType="java.math.BigDecimal">
+  	  select sum(a.ps_coverage_fee)
+	  from lst_iqp_info t, acc_fee_mtd_plan a
+	 where t.serno = a.lst_serno
+	   and t.cover_create_status = '04'
+	   and t.business_source = 'PAPH'
+	   and t.iqp_loan_serno = #{serno,jdbcType=VARCHAR}
+  </select>
+  <select id="getMaxPerdNo" parameterType="String" resultType="String">
+       select max(t.period)
+		  from PA_IND_CRT_REPAY_PLAN t
+		 where t.status in ('05', '09')
+		   and t.appl_no = #{serno,jdbcType=VARCHAR}
+  </select>
+  <select id="getMinPerno" parameterType="String" resultType="String">
+       select min(a.ps_perd_no)
+		  from lst_iqp_info t, acc_fee_mtd_plan a
+		 where t.serno = a.lst_serno
+		   and t.cover_create_status = '04'
+		   and t.business_source = 'PAPH'
+	     and t.serno = #{serno,jdbcType=VARCHAR}
+	     and a.ps_coverage_fee != nvl(a.ps_real_prcp_amt,0) 
+  </select>
+</mapper>

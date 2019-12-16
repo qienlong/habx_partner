@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.LstSettleInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.LstSettleInfo">
+    <id column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="ACC_STATUS" jdbcType="VARCHAR" property="accStatus" />
+    <result column="SOURCES" jdbcType="VARCHAR" property="sources" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="SENT_STATUS" jdbcType="CHAR" property="sentStatus" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BILL_NO, LIST_SERNO, ACC_STATUS, SOURCES, "STATUS", SENT_STATUS, INPUT_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LST_SETTLE_INFO
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from LST_SETTLE_INFO
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.LstSettleInfo">
+    insert into LST_SETTLE_INFO (BILL_NO, LIST_SERNO, ACC_STATUS, 
+      SOURCES, "STATUS", SENT_STATUS, 
+      INPUT_DATE)
+    values (#{billNo,jdbcType=VARCHAR}, #{listSerno,jdbcType=VARCHAR}, #{accStatus,jdbcType=VARCHAR}, 
+      #{sources,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{sentStatus,jdbcType=CHAR}, 
+      #{inputDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.LstSettleInfo">
+    insert into LST_SETTLE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="accStatus != null">
+        ACC_STATUS,
+      </if>
+      <if test="sources != null">
+        SOURCES,
+      </if>
+      <if test="status != null">
+        "STATUS",
+      </if>
+      <if test="sentStatus != null">
+        SENT_STATUS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="accStatus != null">
+        #{accStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sources != null">
+        #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="sentStatus != null">
+        #{sentStatus,jdbcType=CHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.LstSettleInfo">
+    update LST_SETTLE_INFO
+    <set>
+      <if test="listSerno != null">
+        LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="accStatus != null">
+        ACC_STATUS = #{accStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sources != null">
+        SOURCES = #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        "STATUS" = #{status,jdbcType=CHAR},
+      </if>
+      <if test="sentStatus != null">
+        SENT_STATUS = #{sentStatus,jdbcType=CHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.LstSettleInfo">
+    update LST_SETTLE_INFO
+    set LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      ACC_STATUS = #{accStatus,jdbcType=VARCHAR},
+      SOURCES = #{sources,jdbcType=VARCHAR},
+      "STATUS" = #{status,jdbcType=CHAR},
+      SENT_STATUS = #{sentStatus,jdbcType=CHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR}
+    where BILL_NO = #{billNo,jdbcType=VARCHAR}
+  </update>
+  <!-- 查询单个银行未发送的退保数据 -->
+    <select id="selectBySentStatusAndSource" parameterType="java.util.Map" resultType="java.util.Map">
+    select 
+    a.bill_no    ref_nbr,
+    a.list_serno policy_no,
+    a.status     cancel_status,
+    a.input_date cancel_date
+    from lst_settle_info a,acc_loan b
+    where a.bill_no = b.bill_no
+    and a.sent_status = '0'
+    and a.sources = #{sources,jdbcType=VARCHAR}
+    and b.partner_no = #{partner,jdbcType=VARCHAR}
+  </select>
+  <!-- 批量更新退保数据发送状态 -->
+  <update id="updateAll" parameterType="java.util.List">
+   update lst_settle_info
+    set sent_status = '1'
+  	where sent_status ='0'
+	and bill_no in
+	<foreach collection="list" item="items" open="(" close=")" separator=",">
+	#{items.REF_NBR,jdbcType=VARCHAR}
+	</foreach>
+  </update>
+</mapper>

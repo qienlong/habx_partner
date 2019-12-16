@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PrjCopTrustPlanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="PLAN_NAME" jdbcType="VARCHAR" property="planName" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="GROSS_RATE" jdbcType="VARCHAR" property="grossRate" />
+    <result column="TOTAL_AMT" jdbcType="DECIMAL" property="totalAmt" />
+    <result column="EDIT_BALANCE" jdbcType="VARCHAR" property="editBalance" />
+    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="OPER_USER_ID" jdbcType="VARCHAR" property="operUserId" />
+    <result column="OPER_DATE" jdbcType="VARCHAR" property="operDate" />
+    <result column="OPER_TIME" jdbcType="VARCHAR" property="operTime" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="IS_HIS" jdbcType="CHAR" property="isHis" />
+    <result column="FIRST_END_DATE" jdbcType="VARCHAR" property="firstEndDate" />
+    <result column="OPER_TYPE" jdbcType="CHAR" property="operType" />
+    <result column="AMT_SOURCES" jdbcType="VARCHAR" property="amtSources" />
+    <result column="FUNDER_ID" jdbcType="VARCHAR" property="funderId" />
+    <result column="SETTLE_AT_BANK_NAME" jdbcType="VARCHAR" property="settleAtBankName" />
+    <result column="SETTLE_BANK_NAME" jdbcType="VARCHAR" property="settleBankName" />
+    <result column="SETTLE_ACOUNT_NO" jdbcType="VARCHAR" property="settleAcountNo" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="SETTLE_ACOUNT_NAME" jdbcType="VARCHAR" property="settleAcountName" />
+    <result column="SETTLE_BANK_CITY_CODE" jdbcType="VARCHAR" property="settleBankCityCode" />
+    <result column="SETTLE_BANK_CITY" jdbcType="VARCHAR" property="settleBankCity" />
+    <result column="SETTLE_AT_BANK_CODE" jdbcType="VARCHAR" property="settleAtBankCode" />
+    <result column="SETTLE_BANK_CODE" jdbcType="VARCHAR" property="settleBankCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, COP_NO, PLAN_NAME, TERM, GROSS_RATE, TOTAL_AMT, EDIT_BALANCE, BALANCE, START_DATE, 
+    END_DATE, OPER_USER_ID, OPER_DATE, OPER_TIME, MEMO, IS_HIS, FIRST_END_DATE, OPER_TYPE, 
+    AMT_SOURCES, FUNDER_ID, SETTLE_AT_BANK_NAME, SETTLE_BANK_NAME, SETTLE_ACOUNT_NO, 
+    INSU_COMPANY, SETTLE_ACOUNT_NAME, SETTLE_BANK_CITY_CODE, SETTLE_BANK_CITY, SETTLE_AT_BANK_CODE, 
+    SETTLE_BANK_CODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRJ_COP_TRUST_PLAN
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PRJ_COP_TRUST_PLAN
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    insert into PRJ_COP_TRUST_PLAN (PK_ID, COP_NO, PLAN_NAME, 
+      TERM, GROSS_RATE, TOTAL_AMT, 
+      EDIT_BALANCE, BALANCE, START_DATE, 
+      END_DATE, OPER_USER_ID, OPER_DATE, 
+      OPER_TIME, MEMO, IS_HIS, 
+      FIRST_END_DATE, OPER_TYPE, AMT_SOURCES, 
+      FUNDER_ID, SETTLE_AT_BANK_NAME, SETTLE_BANK_NAME, 
+      SETTLE_ACOUNT_NO, INSU_COMPANY, SETTLE_ACOUNT_NAME, 
+      SETTLE_BANK_CITY_CODE, SETTLE_BANK_CITY, SETTLE_AT_BANK_CODE, 
+      SETTLE_BANK_CODE)
+    values (#{pkId,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, #{planName,jdbcType=VARCHAR}, 
+      #{term,jdbcType=VARCHAR}, #{grossRate,jdbcType=VARCHAR}, #{totalAmt,jdbcType=DECIMAL}, 
+      #{editBalance,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, #{startDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{operUserId,jdbcType=VARCHAR}, #{operDate,jdbcType=VARCHAR}, 
+      #{operTime,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{isHis,jdbcType=CHAR}, 
+      #{firstEndDate,jdbcType=VARCHAR}, #{operType,jdbcType=CHAR}, #{amtSources,jdbcType=VARCHAR}, 
+      #{funderId,jdbcType=VARCHAR}, #{settleAtBankName,jdbcType=VARCHAR}, #{settleBankName,jdbcType=VARCHAR}, 
+      #{settleAcountNo,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR}, #{settleAcountName,jdbcType=VARCHAR}, 
+      #{settleBankCityCode,jdbcType=VARCHAR}, #{settleBankCity,jdbcType=VARCHAR}, #{settleAtBankCode,jdbcType=VARCHAR}, 
+      #{settleBankCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    insert into PRJ_COP_TRUST_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="planName != null">
+        PLAN_NAME,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="grossRate != null">
+        GROSS_RATE,
+      </if>
+      <if test="totalAmt != null">
+        TOTAL_AMT,
+      </if>
+      <if test="editBalance != null">
+        EDIT_BALANCE,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="operUserId != null">
+        OPER_USER_ID,
+      </if>
+      <if test="operDate != null">
+        OPER_DATE,
+      </if>
+      <if test="operTime != null">
+        OPER_TIME,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="isHis != null">
+        IS_HIS,
+      </if>
+      <if test="firstEndDate != null">
+        FIRST_END_DATE,
+      </if>
+      <if test="operType != null">
+        OPER_TYPE,
+      </if>
+      <if test="amtSources != null">
+        AMT_SOURCES,
+      </if>
+      <if test="funderId != null">
+        FUNDER_ID,
+      </if>
+      <if test="settleAtBankName != null">
+        SETTLE_AT_BANK_NAME,
+      </if>
+      <if test="settleBankName != null">
+        SETTLE_BANK_NAME,
+      </if>
+      <if test="settleAcountNo != null">
+        SETTLE_ACOUNT_NO,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="settleAcountName != null">
+        SETTLE_ACOUNT_NAME,
+      </if>
+      <if test="settleBankCityCode != null">
+        SETTLE_BANK_CITY_CODE,
+      </if>
+      <if test="settleBankCity != null">
+        SETTLE_BANK_CITY,
+      </if>
+      <if test="settleAtBankCode != null">
+        SETTLE_AT_BANK_CODE,
+      </if>
+      <if test="settleBankCode != null">
+        SETTLE_BANK_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null">
+        #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="grossRate != null">
+        #{grossRate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null">
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="editBalance != null">
+        #{editBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserId != null">
+        #{operUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null">
+        #{operDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        #{operTime,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="isHis != null">
+        #{isHis,jdbcType=CHAR},
+      </if>
+      <if test="firstEndDate != null">
+        #{firstEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        #{operType,jdbcType=CHAR},
+      </if>
+      <if test="amtSources != null">
+        #{amtSources,jdbcType=VARCHAR},
+      </if>
+      <if test="funderId != null">
+        #{funderId,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAtBankName != null">
+        #{settleAtBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankName != null">
+        #{settleBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAcountNo != null">
+        #{settleAcountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAcountName != null">
+        #{settleAcountName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankCityCode != null">
+        #{settleBankCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankCity != null">
+        #{settleBankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAtBankCode != null">
+        #{settleAtBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankCode != null">
+        #{settleBankCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    update PRJ_COP_TRUST_PLAN
+    <set>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null">
+        PLAN_NAME = #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="grossRate != null">
+        GROSS_RATE = #{grossRate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null">
+        TOTAL_AMT = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="editBalance != null">
+        EDIT_BALANCE = #{editBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        BALANCE = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        START_DATE = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserId != null">
+        OPER_USER_ID = #{operUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null">
+        OPER_DATE = #{operDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        OPER_TIME = #{operTime,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="isHis != null">
+        IS_HIS = #{isHis,jdbcType=CHAR},
+      </if>
+      <if test="firstEndDate != null">
+        FIRST_END_DATE = #{firstEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        OPER_TYPE = #{operType,jdbcType=CHAR},
+      </if>
+      <if test="amtSources != null">
+        AMT_SOURCES = #{amtSources,jdbcType=VARCHAR},
+      </if>
+      <if test="funderId != null">
+        FUNDER_ID = #{funderId,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAtBankName != null">
+        SETTLE_AT_BANK_NAME = #{settleAtBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankName != null">
+        SETTLE_BANK_NAME = #{settleBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAcountNo != null">
+        SETTLE_ACOUNT_NO = #{settleAcountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAcountName != null">
+        SETTLE_ACOUNT_NAME = #{settleAcountName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankCityCode != null">
+        SETTLE_BANK_CITY_CODE = #{settleBankCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankCity != null">
+        SETTLE_BANK_CITY = #{settleBankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="settleAtBankCode != null">
+        SETTLE_AT_BANK_CODE = #{settleAtBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settleBankCode != null">
+        SETTLE_BANK_CODE = #{settleBankCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    update PRJ_COP_TRUST_PLAN
+    set COP_NO = #{copNo,jdbcType=VARCHAR},
+      PLAN_NAME = #{planName,jdbcType=VARCHAR},
+      TERM = #{term,jdbcType=VARCHAR},
+      GROSS_RATE = #{grossRate,jdbcType=VARCHAR},
+      TOTAL_AMT = #{totalAmt,jdbcType=DECIMAL},
+      EDIT_BALANCE = #{editBalance,jdbcType=VARCHAR},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      START_DATE = #{startDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      OPER_USER_ID = #{operUserId,jdbcType=VARCHAR},
+      OPER_DATE = #{operDate,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      IS_HIS = #{isHis,jdbcType=CHAR},
+      FIRST_END_DATE = #{firstEndDate,jdbcType=VARCHAR},
+      OPER_TYPE = #{operType,jdbcType=CHAR},
+      AMT_SOURCES = #{amtSources,jdbcType=VARCHAR},
+      FUNDER_ID = #{funderId,jdbcType=VARCHAR},
+      SETTLE_AT_BANK_NAME = #{settleAtBankName,jdbcType=VARCHAR},
+      SETTLE_BANK_NAME = #{settleBankName,jdbcType=VARCHAR},
+      SETTLE_ACOUNT_NO = #{settleAcountNo,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      SETTLE_ACOUNT_NAME = #{settleAcountName,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAcountByFunderId" parameterType="String" resultType="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+  	select 
+  		a.COP_NO as copNo,
+		a.PLAN_NAME as planName,
+		a.TERM as term,
+		a.GROSS_RATE as grossRate,
+		a.TOTAL_AMT as totalAmt,
+		a.EDIT_BALANCE as editBalance,
+		a.BALANCE as balance,
+		a.START_DATE as startDate,
+		a.END_DATE as endDate,
+		a.OPER_USER_ID as operUserId,
+		a.OPER_DATE as operDate,
+		a.OPER_TIME as operTime,
+		a.MEMO as memo,
+		a.IS_HIS as isHis,
+		a.FIRST_END_DATE as firstEndDate,
+		a.OPER_TYPE as operType,
+		a.AMT_SOURCES as amtSources,
+		a.FUNDER_ID as funderId,
+		a.SETTLE_AT_BANK_NAME as settleAtBankName,
+		a.SETTLE_BANK_NAME as settleBankName,
+		a.SETTLE_ACOUNT_NO as settleAcountNo,
+		a.INSU_COMPANY as insuCompany,
+		a.SETTLE_ACOUNT_NAME as settleAcountName,
+		a.SETTLE_BANK_CITY_CODE as settleBankCityCode,
+		a.SETTLE_BANK_CITY as settleBankCity,
+		a.SETTLE_AT_BANK_CODE as settleAtBankCode,
+		a.SETTLE_BANK_CODE as settleBankCode
+  	from acc_loan t,Prj_Cop_Trust_Plan a where t.bill_no = #{billNo,jdbcType=VARCHAR} and a.funder_id = t.funder_id and a.cop_no = #{copNo,jdbcType=VARCHAR} and a.IS_HIS = '0'
+  </select>
+</mapper>

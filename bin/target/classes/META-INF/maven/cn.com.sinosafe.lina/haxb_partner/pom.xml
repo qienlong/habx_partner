@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://mavn.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+    <artifactId>haxb_partner</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>haxb_partner</name>
+	<description>信保业务渠道方模块微服务</description>
+	
+    <parent>
+		<groupId>cn.com.sinosafe.lina</groupId>
+		<artifactId>lina-starter-parent</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+		<dependency>
+		  <groupId>cn.com.sinosafe.lina</groupId>
+		  <artifactId>lina-common-libs</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.com.sinosafe.lina</groupId>
+			<artifactId>lina-mybatis-oracle-starter</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>cn.com.sinosafe.lina</groupId>
+		  <artifactId>lina-redis-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.com.sinosafe.lina</groupId>
+			<artifactId>lina-dubbo-starter</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>cn.com.sinosafe.lina</groupId>
+            <artifactId>lina-rabbitmq-starter</artifactId>
+        </dependency>
+		
+		<dependency>
+		  <groupId>org.jdom</groupId>
+		  <artifactId>jdom</artifactId>
+		  <version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.53</version>
+		</dependency>
+		<!-- 华安影像系统相关包 -->
+		<dependency>
+		  <groupId>cn.com.sinosafe.imgpf</groupId>
+		  <artifactId>imgpf-filetrans</artifactId>
+		  <version>6.3</version>
+		</dependency>
+		<dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+        <dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>commons-httpclient</groupId>
+		  <artifactId>commons-httpclient</artifactId>
+		  <version>3.1</version>
+		</dependency>
+		<dependency>
+		  <groupId>commons-io</groupId>
+		  <artifactId>commons-io</artifactId>
+		  <version>2.6</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.16.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+		<dependency>
+	        <groupId>dom4j</groupId>
+	        <artifactId>dom4j</artifactId>
+	    </dependency>
+        <dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+    </dependencies>
+    
+    
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <!-- <skipTests>true</skipTests> -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>

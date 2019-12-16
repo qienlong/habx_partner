@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeCoboMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeCobo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="COBO_NAME" jdbcType="VARCHAR" property="coboName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="COBO_PHONE" jdbcType="VARCHAR" property="coboPhone" />
+    <result column="COBO_JOB" jdbcType="VARCHAR" property="coboJob" />
+    <result column="COBO_ADDR" jdbcType="VARCHAR" property="coboAddr" />
+    <result column="MEANS" jdbcType="DECIMAL" property="means" />
+    <result column="COBO_RELATE" jdbcType="CHAR" property="coboRelate" />
+    <result column="COBO_ID" jdbcType="VARCHAR" property="coboId" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="PROPOSER_REGARD" jdbcType="VARCHAR" property="proposerRegard" />
+    <result column="CUS_HOUSE_ADDR" jdbcType="VARCHAR" property="cusHouseAddr" />
+    <result column="CUS_WORK_UNIT" jdbcType="VARCHAR" property="cusWorkUnit" />
+    <result column="CUS_POST" jdbcType="VARCHAR" property="cusPost" />
+    <result column="CUS_WORK_ADDR" jdbcType="VARCHAR" property="cusWorkAddr" />
+    <result column="CUS_ASSETS" jdbcType="VARCHAR" property="cusAssets" />
+    <result column="MONTHLY_PAY" jdbcType="DECIMAL" property="monthlyPay" />
+    <result column="EVALUATE" jdbcType="VARCHAR" property="evaluate" />
+    <result column="COBO_TYPE" jdbcType="VARCHAR" property="coboType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, SERNO, COBO_NAME, CERT_TYPE, CERT_NO, COBO_PHONE, COBO_JOB, COBO_ADDR, MEANS, 
+    COBO_RELATE, COBO_ID, CUS_ID, PROPOSER_REGARD, CUS_HOUSE_ADDR, CUS_WORK_UNIT, CUS_POST, 
+    CUS_WORK_ADDR, CUS_ASSETS, MONTHLY_PAY, EVALUATE, COBO_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_COBO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_COBO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMeCobo">
+    insert into IQP_ME_COBO (PK_ID, SERNO, COBO_NAME, 
+      CERT_TYPE, CERT_NO, COBO_PHONE, 
+      COBO_JOB, COBO_ADDR, MEANS, 
+      COBO_RELATE, COBO_ID, CUS_ID, 
+      PROPOSER_REGARD, CUS_HOUSE_ADDR, CUS_WORK_UNIT, 
+      CUS_POST, CUS_WORK_ADDR, CUS_ASSETS, 
+      MONTHLY_PAY, EVALUATE, COBO_TYPE
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{coboName,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, #{coboPhone,jdbcType=VARCHAR}, 
+      #{coboJob,jdbcType=VARCHAR}, #{coboAddr,jdbcType=VARCHAR}, #{means,jdbcType=DECIMAL}, 
+      #{coboRelate,jdbcType=CHAR}, #{coboId,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, 
+      #{proposerRegard,jdbcType=VARCHAR}, #{cusHouseAddr,jdbcType=VARCHAR}, #{cusWorkUnit,jdbcType=VARCHAR}, 
+      #{cusPost,jdbcType=VARCHAR}, #{cusWorkAddr,jdbcType=VARCHAR}, #{cusAssets,jdbcType=VARCHAR}, 
+      #{monthlyPay,jdbcType=DECIMAL}, #{evaluate,jdbcType=VARCHAR}, #{coboType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeCobo">
+    insert into IQP_ME_COBO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="coboName != null">
+        COBO_NAME,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="coboPhone != null">
+        COBO_PHONE,
+      </if>
+      <if test="coboJob != null">
+        COBO_JOB,
+      </if>
+      <if test="coboAddr != null">
+        COBO_ADDR,
+      </if>
+      <if test="means != null">
+        MEANS,
+      </if>
+      <if test="coboRelate != null">
+        COBO_RELATE,
+      </if>
+      <if test="coboId != null">
+        COBO_ID,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="proposerRegard != null">
+        PROPOSER_REGARD,
+      </if>
+      <if test="cusHouseAddr != null">
+        CUS_HOUSE_ADDR,
+      </if>
+      <if test="cusWorkUnit != null">
+        CUS_WORK_UNIT,
+      </if>
+      <if test="cusPost != null">
+        CUS_POST,
+      </if>
+      <if test="cusWorkAddr != null">
+        CUS_WORK_ADDR,
+      </if>
+      <if test="cusAssets != null">
+        CUS_ASSETS,
+      </if>
+      <if test="monthlyPay != null">
+        MONTHLY_PAY,
+      </if>
+      <if test="evaluate != null">
+        EVALUATE,
+      </if>
+      <if test="coboType != null">
+        COBO_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="coboName != null">
+        #{coboName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coboPhone != null">
+        #{coboPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="coboJob != null">
+        #{coboJob,jdbcType=VARCHAR},
+      </if>
+      <if test="coboAddr != null">
+        #{coboAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="means != null">
+        #{means,jdbcType=DECIMAL},
+      </if>
+      <if test="coboRelate != null">
+        #{coboRelate,jdbcType=CHAR},
+      </if>
+      <if test="coboId != null">
+        #{coboId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="proposerRegard != null">
+        #{proposerRegard,jdbcType=VARCHAR},
+      </if>
+      <if test="cusHouseAddr != null">
+        #{cusHouseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="cusWorkUnit != null">
+        #{cusWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPost != null">
+        #{cusPost,jdbcType=VARCHAR},
+      </if>
+      <if test="cusWorkAddr != null">
+        #{cusWorkAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAssets != null">
+        #{cusAssets,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyPay != null">
+        #{monthlyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="evaluate != null">
+        #{evaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="coboType != null">
+        #{coboType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeCobo">
+    update IQP_ME_COBO
+    <set>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="coboName != null">
+        COBO_NAME = #{coboName,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="coboPhone != null">
+        COBO_PHONE = #{coboPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="coboJob != null">
+        COBO_JOB = #{coboJob,jdbcType=VARCHAR},
+      </if>
+      <if test="coboAddr != null">
+        COBO_ADDR = #{coboAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="means != null">
+        MEANS = #{means,jdbcType=DECIMAL},
+      </if>
+      <if test="coboRelate != null">
+        COBO_RELATE = #{coboRelate,jdbcType=CHAR},
+      </if>
+      <if test="coboId != null">
+        COBO_ID = #{coboId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        CUS_ID = #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="proposerRegard != null">
+        PROPOSER_REGARD = #{proposerRegard,jdbcType=VARCHAR},
+      </if>
+      <if test="cusHouseAddr != null">
+        CUS_HOUSE_ADDR = #{cusHouseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="cusWorkUnit != null">
+        CUS_WORK_UNIT = #{cusWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPost != null">
+        CUS_POST = #{cusPost,jdbcType=VARCHAR},
+      </if>
+      <if test="cusWorkAddr != null">
+        CUS_WORK_ADDR = #{cusWorkAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAssets != null">
+        CUS_ASSETS = #{cusAssets,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyPay != null">
+        MONTHLY_PAY = #{monthlyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="evaluate != null">
+        EVALUATE = #{evaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="coboType != null">
+        COBO_TYPE = #{coboType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeCobo">
+    update IQP_ME_COBO
+    set SERNO = #{serno,jdbcType=VARCHAR},
+      COBO_NAME = #{coboName,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      COBO_PHONE = #{coboPhone,jdbcType=VARCHAR},
+      COBO_JOB = #{coboJob,jdbcType=VARCHAR},
+      COBO_ADDR = #{coboAddr,jdbcType=VARCHAR},
+      MEANS = #{means,jdbcType=DECIMAL},
+      COBO_RELATE = #{coboRelate,jdbcType=CHAR},
+      COBO_ID = #{coboId,jdbcType=VARCHAR},
+      CUS_ID = #{cusId,jdbcType=VARCHAR},
+      PROPOSER_REGARD = #{proposerRegard,jdbcType=VARCHAR},
+      CUS_HOUSE_ADDR = #{cusHouseAddr,jdbcType=VARCHAR},
+      CUS_WORK_UNIT = #{cusWorkUnit,jdbcType=VARCHAR},
+      CUS_POST = #{cusPost,jdbcType=VARCHAR},
+      CUS_WORK_ADDR = #{cusWorkAddr,jdbcType=VARCHAR},
+      CUS_ASSETS = #{cusAssets,jdbcType=VARCHAR},
+      MONTHLY_PAY = #{monthlyPay,jdbcType=DECIMAL},
+      EVALUATE = #{evaluate,jdbcType=VARCHAR},
+      COBO_TYPE = #{coboType,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.SOrgMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.SOrg">
+    <id column="ORGANNO" jdbcType="VARCHAR" property="organno" />
+    <result column="SUPORGANNO" jdbcType="VARCHAR" property="suporganno" />
+    <result column="ARTI_ORGANNO" jdbcType="VARCHAR" property="artiOrganno" />
+    <result column="LOCATE" jdbcType="VARCHAR" property="locate" />
+    <result column="ORGANNAME" jdbcType="VARCHAR" property="organname" />
+    <result column="ORGANSHORTFORM" jdbcType="VARCHAR" property="organshortform" />
+    <result column="ENNAME" jdbcType="VARCHAR" property="enname" />
+    <result column="ORDERNO" jdbcType="DECIMAL" property="orderno" />
+    <result column="DISTNO" jdbcType="VARCHAR" property="distno" />
+    <result column="DISTNAME" jdbcType="VARCHAR" property="distname" />
+    <result column="LAUNCHDATE" jdbcType="CHAR" property="launchdate" />
+    <result column="ORGANLEVEL" jdbcType="DECIMAL" property="organlevel" />
+    <result column="FINCODE" jdbcType="VARCHAR" property="fincode" />
+    <result column="CONTROL" jdbcType="VARCHAR" property="control" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="ORGANCHIEF" jdbcType="VARCHAR" property="organchief" />
+    <result column="TELNUM" jdbcType="VARCHAR" property="telnum" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="AREA_DEV_CATE_TYPE" jdbcType="CHAR" property="areaDevCateType" />
+    <result column="CHIEF_JOB" jdbcType="VARCHAR" property="chiefJob" />
+    <result column="ORGZDLEVEL" jdbcType="VARCHAR" property="orgzdlevel" />
+    <result column="BANK_SRRNO" jdbcType="VARCHAR" property="bankSrrno" />
+    <result column="SUBORGANNO" jdbcType="VARCHAR" property="suborganno" />
+    <result column="AREA_APPR_CENT" jdbcType="VARCHAR" property="areaApprCent" />
+    <result column="IS_SUB_CENT" jdbcType="VARCHAR" property="isSubCent" />
+    <result column="CONT_SIGN_NAME" jdbcType="VARCHAR" property="contSignName" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="JURIS_TYPE" jdbcType="CHAR" property="jurisType" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="CORE_ORGANNO" jdbcType="VARCHAR" property="coreOrganno" />
+    <result column="MANAGE_ORG" jdbcType="VARCHAR" property="manageOrg" />
+    <result column="LATITUDE" jdbcType="VARCHAR" property="latitude" />
+    <result column="BAIDU_LATITUDE" jdbcType="VARCHAR" property="baiduLatitude" />
+    <result column="GAO_TENG_LATITUDE" jdbcType="VARCHAR" property="gaoTengLatitude" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORGANNO, SUPORGANNO, ARTI_ORGANNO, LOCATE, ORGANNAME, ORGANSHORTFORM, ENNAME, ORDERNO, 
+    DISTNO, DISTNAME, LAUNCHDATE, ORGANLEVEL, FINCODE, CONTROL, STATE, ORGANCHIEF, TELNUM, 
+    ADDRESS, POSTCODE, AREA_DEV_CATE_TYPE, CHIEF_JOB, ORGZDLEVEL, BANK_SRRNO, SUBORGANNO, 
+    AREA_APPR_CENT, IS_SUB_CENT, CONT_SIGN_NAME, EMAIL, AREA_CODE, JURIS_TYPE, AREA_NAME, 
+    CORE_ORGANNO, MANAGE_ORG, LATITUDE, BAIDU_LATITUDE, GAO_TENG_LATITUDE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_ORG
+    where ORGANNO = #{organno,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByOrganno" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT S.ORGANNO,S.TELNUM,SS.ORGANSHORTFORM,SS.ADDRESS FROM S_ORG S
+    LEFT JOIN S_ORG SS ON SUBSTR(S.ORGANNO,0,2) = SS.ORGANNO
+    WHERE S.ORGANNO = #{organno,jdbcType=VARCHAR}
+  </select>
+</mapper>

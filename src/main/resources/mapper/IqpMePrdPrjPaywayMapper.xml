@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMePrdPrjPaywayMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMePrdPrjPayway">
+    <result column="PRD_ID" jdbcType="VARCHAR" property="prdId" />
+    <result column="PARTNER_NO" jdbcType="VARCHAR" property="partnerNo" />
+    <result column="PAY_WAY" jdbcType="VARCHAR" property="payWay" />
+    <result column="REPAY_MODEL" jdbcType="VARCHAR" property="repayModel" />
+    <result column="TERM_TYPE" jdbcType="VARCHAR" property="termType" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="GROSS_RATE" jdbcType="VARCHAR" property="grossRate" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="LOAN_USE_NO" jdbcType="VARCHAR" property="loanUseNo" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMePrdPrjPayway">
+    insert into IQP_ME_PRD_PRJ_PAYWAY (PRD_ID, PARTNER_NO, PAY_WAY, 
+      REPAY_MODEL, TERM_TYPE, TERM, 
+      GROSS_RATE, MEMO, LOAN_USE_NO
+      )
+    values (#{prdId,jdbcType=VARCHAR}, #{partnerNo,jdbcType=VARCHAR}, #{payWay,jdbcType=VARCHAR}, 
+      #{repayModel,jdbcType=VARCHAR}, #{termType,jdbcType=VARCHAR}, #{term,jdbcType=VARCHAR}, 
+      #{grossRate,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{loanUseNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMePrdPrjPayway">
+    insert into IQP_ME_PRD_PRJ_PAYWAY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prdId != null">
+        PRD_ID,
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO,
+      </if>
+      <if test="payWay != null">
+        PAY_WAY,
+      </if>
+      <if test="repayModel != null">
+        REPAY_MODEL,
+      </if>
+      <if test="termType != null">
+        TERM_TYPE,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="grossRate != null">
+        GROSS_RATE,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="loanUseNo != null">
+        LOAN_USE_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prdId != null">
+        #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="repayModel != null">
+        #{repayModel,jdbcType=VARCHAR},
+      </if>
+      <if test="termType != null">
+        #{termType,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="grossRate != null">
+        #{grossRate,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseNo != null">
+        #{loanUseNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="queryIqpMePrdPrjPaywayByBean" parameterType="cn.com.sinosafe.domain.entity.IqpMePrdPrjPayway" resultMap="BaseResultMap">
+    select *
+    from Iqp_Me_Prd_Prj_Payway
+    <where>
+      <if test="partnerNo != null and partnerNo != ''">
+        and partner_no = #{partnerNo,jdbcType=VARCHAR}
+      </if>
+      <if test="prdId != null and prdId != ''">
+        and (prd_id = getnewprdcode(#{prdId,jdbcType=VARCHAR} ) or  prd_id = #{prdId,jdbcType=VARCHAR} )
+      </if>
+      <if test="termType != null and termType != ''">
+        and term_Type = #{termType,jdbcType=VARCHAR}
+      </if>
+      <if test="term != null and term != ''">
+        and term = #{term,jdbcType=VARCHAR}
+      </if>
+      <if test="repayModel != null and repayModel != ''">
+        and repay_Model = #{repayModel,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>

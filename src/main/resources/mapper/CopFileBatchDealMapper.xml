@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CopFileBatchDealMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CopFileBatchDeal">
+    <id column="COP_NAME" jdbcType="VARCHAR" property="copName" />
+    <result column="FTP_TYPE" jdbcType="VARCHAR" property="ftpType" />
+    <result column="FTP_HOST" jdbcType="VARCHAR" property="ftpHost" />
+    <result column="FTP_PORT" jdbcType="DECIMAL" property="ftpPort" />
+    <result column="FTP_USERNAME" jdbcType="VARCHAR" property="ftpUsername" />
+    <result column="FTP_PWD" jdbcType="VARCHAR" property="ftpPwd" />
+    <result column="DOWNLOAD_PATH" jdbcType="VARCHAR" property="downloadPath" />
+    <result column="UPLOAD_PATH" jdbcType="VARCHAR" property="uploadPath" />
+    <result column="LOCATE_PATH" jdbcType="VARCHAR" property="locatePath" />
+    <result column="INTEFACES" jdbcType="VARCHAR" property="intefaces" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="PARTNER_NO" jdbcType="VARCHAR" property="partnerNo" />
+    <result column="BACKUP_EFFECT_FLAG" jdbcType="VARCHAR" property="backupEffectFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COP_NAME, FTP_TYPE, FTP_HOST, FTP_PORT, FTP_USERNAME, FTP_PWD, DOWNLOAD_PATH, UPLOAD_PATH, 
+    LOCATE_PATH, INTEFACES, MEMO, PARTNER_NO, BACKUP_EFFECT_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COP_FILE_BATCH_DEAL
+    where COP_NAME = #{copName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from COP_FILE_BATCH_DEAL
+    where COP_NAME = #{copName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CopFileBatchDeal">
+    insert into COP_FILE_BATCH_DEAL (COP_NAME, FTP_TYPE, FTP_HOST, 
+      FTP_PORT, FTP_USERNAME, FTP_PWD, 
+      DOWNLOAD_PATH, UPLOAD_PATH, LOCATE_PATH, 
+      INTEFACES, MEMO, PARTNER_NO, 
+      BACKUP_EFFECT_FLAG)
+    values (#{copName,jdbcType=VARCHAR}, #{ftpType,jdbcType=VARCHAR}, #{ftpHost,jdbcType=VARCHAR}, 
+      #{ftpPort,jdbcType=DECIMAL}, #{ftpUsername,jdbcType=VARCHAR}, #{ftpPwd,jdbcType=VARCHAR}, 
+      #{downloadPath,jdbcType=VARCHAR}, #{uploadPath,jdbcType=VARCHAR}, #{locatePath,jdbcType=VARCHAR}, 
+      #{intefaces,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{partnerNo,jdbcType=VARCHAR}, 
+      #{backupEffectFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CopFileBatchDeal">
+    insert into COP_FILE_BATCH_DEAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="copName != null">
+        COP_NAME,
+      </if>
+      <if test="ftpType != null">
+        FTP_TYPE,
+      </if>
+      <if test="ftpHost != null">
+        FTP_HOST,
+      </if>
+      <if test="ftpPort != null">
+        FTP_PORT,
+      </if>
+      <if test="ftpUsername != null">
+        FTP_USERNAME,
+      </if>
+      <if test="ftpPwd != null">
+        FTP_PWD,
+      </if>
+      <if test="downloadPath != null">
+        DOWNLOAD_PATH,
+      </if>
+      <if test="uploadPath != null">
+        UPLOAD_PATH,
+      </if>
+      <if test="locatePath != null">
+        LOCATE_PATH,
+      </if>
+      <if test="intefaces != null">
+        INTEFACES,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO,
+      </if>
+      <if test="backupEffectFlag != null">
+        BACKUP_EFFECT_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="copName != null">
+        #{copName,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpType != null">
+        #{ftpType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpHost != null">
+        #{ftpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpPort != null">
+        #{ftpPort,jdbcType=DECIMAL},
+      </if>
+      <if test="ftpUsername != null">
+        #{ftpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpPwd != null">
+        #{ftpPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadPath != null">
+        #{downloadPath,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadPath != null">
+        #{uploadPath,jdbcType=VARCHAR},
+      </if>
+      <if test="locatePath != null">
+        #{locatePath,jdbcType=VARCHAR},
+      </if>
+      <if test="intefaces != null">
+        #{intefaces,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="backupEffectFlag != null">
+        #{backupEffectFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CopFileBatchDeal">
+    update COP_FILE_BATCH_DEAL
+    <set>
+      <if test="ftpType != null">
+        FTP_TYPE = #{ftpType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpHost != null">
+        FTP_HOST = #{ftpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpPort != null">
+        FTP_PORT = #{ftpPort,jdbcType=DECIMAL},
+      </if>
+      <if test="ftpUsername != null">
+        FTP_USERNAME = #{ftpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="ftpPwd != null">
+        FTP_PWD = #{ftpPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadPath != null">
+        DOWNLOAD_PATH = #{downloadPath,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadPath != null">
+        UPLOAD_PATH = #{uploadPath,jdbcType=VARCHAR},
+      </if>
+      <if test="locatePath != null">
+        LOCATE_PATH = #{locatePath,jdbcType=VARCHAR},
+      </if>
+      <if test="intefaces != null">
+        INTEFACES = #{intefaces,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerNo != null">
+        PARTNER_NO = #{partnerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="backupEffectFlag != null">
+        BACKUP_EFFECT_FLAG = #{backupEffectFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COP_NAME = #{copName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CopFileBatchDeal">
+    update COP_FILE_BATCH_DEAL
+    set FTP_TYPE = #{ftpType,jdbcType=VARCHAR},
+      FTP_HOST = #{ftpHost,jdbcType=VARCHAR},
+      FTP_PORT = #{ftpPort,jdbcType=DECIMAL},
+      FTP_USERNAME = #{ftpUsername,jdbcType=VARCHAR},
+      FTP_PWD = #{ftpPwd,jdbcType=VARCHAR},
+      DOWNLOAD_PATH = #{downloadPath,jdbcType=VARCHAR},
+      UPLOAD_PATH = #{uploadPath,jdbcType=VARCHAR},
+      LOCATE_PATH = #{locatePath,jdbcType=VARCHAR},
+      INTEFACES = #{intefaces,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      PARTNER_NO = #{partnerNo,jdbcType=VARCHAR},
+      BACKUP_EFFECT_FLAG = #{backupEffectFlag,jdbcType=VARCHAR}
+    where COP_NAME = #{copName,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBusiDate" parameterType="String" resultType="String" >
+		select filedate from cop_filedate where copname=#{copName,jdbcType=VARCHAR}
+  </select>
+   <update id="updateCopfiledateByCopname" parameterType="java.util.Map">
+    update COP_FILEDATE
+    set FILEDATE = #{filedate,jdbcType=VARCHAR}
+    where COPNAME = #{copName,jdbcType=VARCHAR}
+  </update>
+</mapper>

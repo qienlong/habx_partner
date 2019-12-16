@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PspClaimApproveRecodeMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PspClaimApproveRecode">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="BATCH_NO" jdbcType="VARCHAR" property="batchNo" />
+    <result column="COUNT" jdbcType="DECIMAL" property="count" />
+    <result column="POLICY_NO" jdbcType="VARCHAR" property="policyNo" />
+    <result column="CLAIM_TYPE" jdbcType="VARCHAR" property="claimType" />
+    <result column="LN_ACCT" jdbcType="VARCHAR" property="lnAcct" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="LN_AMT" jdbcType="DECIMAL" property="lnAmt" />
+    <result column="LN_TERM" jdbcType="DECIMAL" property="lnTerm" />
+    <result column="CLAIM_AMT" jdbcType="DECIMAL" property="claimAmt" />
+    <result column="PRIN_AMT" jdbcType="DECIMAL" property="prinAmt" />
+    <result column="INT_AMT" jdbcType="DECIMAL" property="intAmt" />
+    <result column="LC_AMT" jdbcType="DECIMAL" property="lcAmt" />
+    <result column="PREM_DATE" jdbcType="VARCHAR" property="premDate" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="APPROVE_STATUS" jdbcType="VARCHAR" property="approveStatus" />
+    <result column="IS_HOLIDAY" jdbcType="VARCHAR" property="isHoliday" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, BATCH_NO, COUNT, POLICY_NO, CLAIM_TYPE, LN_ACCT, APPL_NO, LN_AMT, LN_TERM, CLAIM_AMT, 
+    PRIN_AMT, INT_AMT, LC_AMT, PREM_DATE, INSU_COMPANY, APPROVE_STATUS,IS_HOLIDAY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PSP_CLAIM_APPROVE_RECODE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PSP_CLAIM_APPROVE_RECODE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PspClaimApproveRecode">
+    insert into PSP_CLAIM_APPROVE_RECODE (PK_ID, BATCH_NO, COUNT, POLICY_NO, 
+      CLAIM_TYPE, LN_ACCT, APPL_NO, 
+      LN_AMT, LN_TERM, CLAIM_AMT, 
+      PRIN_AMT, INT_AMT, LC_AMT, 
+      PREM_DATE, INSU_COMPANY, APPROVE_STATUS, IS_HOLIDAY
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{batchNo,jdbcType=VARCHAR}, #{count,jdbcType=DECIMAL}, #{policyNo,jdbcType=VARCHAR}, 
+      #{claimType,jdbcType=VARCHAR}, #{lnAcct,jdbcType=VARCHAR}, #{applNo,jdbcType=VARCHAR}, 
+      #{lnAmt,jdbcType=DECIMAL}, #{lnTerm,jdbcType=DECIMAL}, #{claimAmt,jdbcType=DECIMAL}, 
+      #{prinAmt,jdbcType=DECIMAL}, #{intAmt,jdbcType=DECIMAL}, #{lcAmt,jdbcType=DECIMAL}, 
+      #{premDate,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR}, #{approveStatus,jdbcType=VARCHAR},
+      #{isHoliday,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimApproveRecode">
+    insert into PSP_CLAIM_APPROVE_RECODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="batchNo != null">
+        BATCH_NO,
+      </if>
+      <if test="count != null">
+        COUNT,
+      </if>
+      <if test="policyNo != null">
+        POLICY_NO,
+      </if>
+      <if test="claimType != null">
+        CLAIM_TYPE,
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="lnAmt != null">
+        LN_AMT,
+      </if>
+      <if test="lnTerm != null">
+        LN_TERM,
+      </if>
+      <if test="claimAmt != null">
+        CLAIM_AMT,
+      </if>
+      <if test="prinAmt != null">
+        PRIN_AMT,
+      </if>
+      <if test="intAmt != null">
+        INT_AMT,
+      </if>
+      <if test="lcAmt != null">
+        LC_AMT,
+      </if>
+      <if test="premDate != null">
+        PREM_DATE,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS,
+      </if>
+      <if test="isHoliday != null">
+        IS_HOLIDAY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=DECIMAL},
+      </if>
+      <if test="policyNo != null">
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimType != null">
+        #{claimType,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAmt != null">
+        #{lnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lnTerm != null">
+        #{lnTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="claimAmt != null">
+        #{claimAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prinAmt != null">
+        #{prinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="intAmt != null">
+        #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lcAmt != null">
+        #{lcAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="premDate != null">
+        #{premDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null">
+        #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isHoliday != null">
+        #{isHoliday,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimApproveRecode">
+    update PSP_CLAIM_APPROVE_RECODE
+    <set>
+      <if test="count != null">
+        COUNT = #{count,jdbcType=DECIMAL},
+      </if>
+      <if test="policyNo != null">
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimType != null">
+        CLAIM_TYPE = #{claimType,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAmt != null">
+        LN_AMT = #{lnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lnTerm != null">
+        LN_TERM = #{lnTerm,jdbcType=DECIMAL},
+      </if>
+      <if test="claimAmt != null">
+        CLAIM_AMT = #{claimAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prinAmt != null">
+        PRIN_AMT = #{prinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="intAmt != null">
+        INT_AMT = #{intAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lcAmt != null">
+        LC_AMT = #{lcAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="premDate != null">
+        PREM_DATE = #{premDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS = #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isHoliday != null">
+        IS_HOLIDAY = #{isHoliday,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PspClaimApproveRecode">
+    update PSP_CLAIM_APPROVE_RECODE
+    set COUNT = #{count,jdbcType=DECIMAL},
+      POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      CLAIM_TYPE = #{claimType,jdbcType=VARCHAR},
+      LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      APPL_NO = #{applNo,jdbcType=VARCHAR},
+      LN_AMT = #{lnAmt,jdbcType=DECIMAL},
+      LN_TERM = #{lnTerm,jdbcType=DECIMAL},
+      CLAIM_AMT = #{claimAmt,jdbcType=DECIMAL},
+      PRIN_AMT = #{prinAmt,jdbcType=DECIMAL},
+      INT_AMT = #{intAmt,jdbcType=DECIMAL},
+      LC_AMT = #{lcAmt,jdbcType=DECIMAL},
+      PREM_DATE = #{premDate,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      APPROVE_STATUS = #{approveStatus,jdbcType=VARCHAR},
+      IS_HOLIDAY = #{isHoliday,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <select id="getPaphData" resultType="Map">
+  	select a.list_serno,a.transfer_req,t.term,t.cover_end_date from lst_iqp_info t,LST_IQP_SEAL a where a.list_serno=t.list_serno and t.business_source = 'PAPH' and t.cover_create_status = '04' and t.prd_id = '05210306' and a.input_time <![CDATA[ < ]]> '2019-09-05' order by a.input_time desc
+  </select>
+</mapper>

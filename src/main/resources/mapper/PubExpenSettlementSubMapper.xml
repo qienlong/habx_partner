@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PubExpenSettlementSubMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PubExpenSettlementSub">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="OVERDUE_STAGE" jdbcType="VARCHAR" property="overdueStage" />
+    <result column="OVERDUE_RATE" jdbcType="DECIMAL" property="overdueRate" />
+    <result column="OVERDUE_AMOUNT" jdbcType="DECIMAL" property="overdueAmount" />
+    <result column="OVERDUE_FEE" jdbcType="DECIMAL" property="overdueFee" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, UUID, OVERDUE_STAGE, OVERDUE_RATE, OVERDUE_AMOUNT, OVERDUE_FEE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PUB_EXPEN_SETTLEMENT_SUB
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PUB_EXPEN_SETTLEMENT_SUB
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlementSub">
+    insert into PUB_EXPEN_SETTLEMENT_SUB (PK_ID, UUID, OVERDUE_STAGE, OVERDUE_RATE, 
+      OVERDUE_AMOUNT, OVERDUE_FEE)
+    values (#{pkId,jdbcType=VARCHAR},#{uuid,jdbcType=VARCHAR}, #{overdueStage,jdbcType=VARCHAR}, #{overdueRate,jdbcType=DECIMAL}, 
+      #{overdueAmount,jdbcType=DECIMAL}, #{overdueFee,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlementSub">
+    insert into PUB_EXPEN_SETTLEMENT_SUB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="overdueStage != null">
+        OVERDUE_STAGE,
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE,
+      </if>
+      <if test="overdueAmount != null">
+        OVERDUE_AMOUNT,
+      </if>
+      <if test="overdueFee != null">
+        OVERDUE_FEE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueStage != null">
+        #{overdueStage,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueRate != null">
+        #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueAmount != null">
+        #{overdueAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueFee != null">
+        #{overdueFee,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlementSub">
+    update PUB_EXPEN_SETTLEMENT_SUB
+    <set>
+      <if test="uuid != null">
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueStage != null">
+        OVERDUE_STAGE = #{overdueStage,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueRate != null">
+        OVERDUE_RATE = #{overdueRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueAmount != null">
+        OVERDUE_AMOUNT = #{overdueAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueFee != null">
+        OVERDUE_FEE = #{overdueFee,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PubExpenSettlementSub">
+    update PUB_EXPEN_SETTLEMENT_SUB
+    set UUID = #{uuid,jdbcType=VARCHAR},
+      OVERDUE_STAGE = #{overdueStage,jdbcType=VARCHAR},
+      OVERDUE_RATE = #{overdueRate,jdbcType=DECIMAL},
+      OVERDUE_AMOUNT = #{overdueAmount,jdbcType=DECIMAL},
+      OVERDUE_FEE = #{overdueFee,jdbcType=DECIMAL}
+    where PKID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

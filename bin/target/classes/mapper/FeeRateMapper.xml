@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.FeeRateMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.FeeRate">
+    <id column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="PARENT_PRODUCT_NO" jdbcType="VARCHAR" property="parentProductNo" />
+    <result column="FEE_CODE" jdbcType="VARCHAR" property="feeCode" />
+    <result column="HA_FEE_RATE" jdbcType="VARCHAR" property="feeRate" />
+    <result column="PA_FEE_RATE" jdbcType="VARCHAR" property="paFeeRate" />
+    <result column="RATE_UNIT" jdbcType="VARCHAR" property="feeRateUint" />
+    <result column="INCREASE_CREDIT_CODE" jdbcType="VARCHAR" property="increaseCreditCode" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="COP_NAME" jdbcType="VARCHAR" property="copName" />
+    <result column="DEL_FLAG" jdbcType="VARCHAR" property="delFlag" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="DATETIME_CREATED" jdbcType="VARCHAR" property="datetimeCreated" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="DATETIME_UPDATED" jdbcType="VARCHAR" property="datetimeUpdated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    UUID, PARENT_PRODUCT_NO, FEE_CODE, HA_FEE_RATE, PA_FEE_RATE, RATE_UNIT,
+    INCREASE_CREDIT_CODE, INSU_COMPANY, COP_NO, COP_NAME, DEL_FLAG, CREATED_BY, DATETIME_CREATED,
+    UPDATED_BY, DATETIME_UPDATED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FEE_RATE
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FEE_RATE
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.FeeRate">
+    insert into FEE_RATE (UUID, PARENT_PRODUCT_NO, FEE_CODE,
+      HA_FEE_RATE, PA_FEE_RATE,
+      RATE_UNIT, INCREASE_CREDIT_CODE, INSU_COMPANY,
+      COP_NO, COP_NAME, DEL_FLAG,
+      CREATED_BY, DATETIME_CREATED, UPDATED_BY,
+      DATETIME_UPDATED)
+    values (#{uuid,jdbcType=VARCHAR}, #{parentProductNo,jdbcType=VARCHAR}, #{feeCode,jdbcType=VARCHAR},
+      #{feeRate,jdbcType=VARCHAR}, #{paFeeRate,jdbcType=VARCHAR},
+      #{feeRateUint,jdbcType=VARCHAR}, #{increaseCreditCode,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR},
+      #{copNo,jdbcType=VARCHAR}, #{copName,jdbcType=VARCHAR}, #{delFlag,jdbcType=VARCHAR},
+      #{createdBy,jdbcType=VARCHAR}, #{datetimeCreated,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR},
+      #{datetimeUpdated,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.FeeRate">
+    insert into FEE_RATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="parentProductNo != null">
+        PARENT_PRODUCT_NO,
+      </if>
+      <if test="feeCode != null">
+        FEE_CODE,
+      </if>
+      <if test="feeRate != null">
+        HA_FEE_RATE,
+      </if>
+      <if test="paFeeRate != null">
+        PA_FEE_RATE,
+      </if>
+      <if test="feeRateUint != null">
+        RATE_UNIT,
+      </if>
+      <if test="increaseCreditCode != null">
+        INCREASE_CREDIT_CODE,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="copName != null">
+        COP_NAME,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="datetimeCreated != null">
+        DATETIME_CREATED,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="datetimeUpdated != null">
+        DATETIME_UPDATED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentProductNo != null">
+        #{parentProductNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeCode != null">
+        #{feeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRate != null">
+        #{feeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="paFeeRate != null">
+        #{paFeeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRateUint != null">
+        #{feeRateUint,jdbcType=VARCHAR},
+      </if>
+      <if test="increaseCreditCode != null">
+        #{increaseCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copName != null">
+        #{copName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="datetimeCreated != null">
+        #{datetimeCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="datetimeUpdated != null">
+        #{datetimeUpdated,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.FeeRate">
+    update FEE_RATE
+    <set>
+      <if test="parentProductNo != null">
+        PARENT_PRODUCT_NO = #{parentProductNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeCode != null">
+        FEE_CODE = #{feeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRate != null">
+        HA_FEE_RATE = #{feeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="paFeeRate != null">
+        PA_FEE_RATE = #{paFeeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRateUint != null">
+        RATE_UNIT = #{feeRateUint,jdbcType=VARCHAR},
+      </if>
+      <if test="increaseCreditCode != null">
+        INCREASE_CREDIT_CODE = #{increaseCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copName != null">
+        COP_NAME = #{copName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="datetimeCreated != null">
+        DATETIME_CREATED = #{datetimeCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="datetimeUpdated != null">
+        DATETIME_UPDATED = #{datetimeUpdated,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.FeeRate">
+    update FEE_RATE
+    set PARENT_PRODUCT_NO = #{parentProductNo,jdbcType=VARCHAR},
+      FEE_CODE = #{feeCode,jdbcType=VARCHAR},
+      HA_FEE_RATE = #{feeRate,jdbcType=VARCHAR},
+      PA_FEE_RATE = #{paFeeRate,jdbcType=VARCHAR},
+      RATE_UNIT = #{feeRateUint,jdbcType=VARCHAR},
+      INCREASE_CREDIT_CODE = #{increaseCreditCode,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      COP_NAME = #{copName,jdbcType=VARCHAR},
+      DEL_FLAG = #{delFlag,jdbcType=VARCHAR},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      DATETIME_CREATED = #{datetimeCreated,jdbcType=VARCHAR},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      DATETIME_UPDATED = #{datetimeUpdated,jdbcType=VARCHAR}
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+
+   <!-- 根据条件查询费率信息 -->
+    <select id="queryFeeRateInfo" resultMap="BaseResultMap" parameterType="cn.com.sinosafe.domain.entity.FeeRate">
+	select
+    <include refid="Base_Column_List" />
+    from FEE_RATE WHERE 1=1
+      AND DEL_FLAG = '0'
+      and COP_NO = 'PRJ20181220087417'
+     <if test="parentProductNo != null">
+       AND PARENT_PRODUCT_NO = #{parentProductNo,jdbcType=VARCHAR}
+     </if>
+     <if test="feeCode != null">
+       AND FEE_CODE = #{feeCode,jdbcType=VARCHAR}
+     </if>
+  </select>
+  
+  <!-- 根据条件查询费率信息 -->
+    <select id="queryFeeRateInfoByIqp" resultMap="BaseResultMap" parameterType="cn.com.sinosafe.domain.entity.IqpMeLoanApp">
+	select
+    <include refid="Base_Column_List" />
+    from FEE_RATE WHERE 1=1
+      AND DEL_FLAG = '0'
+      and COP_NO = 'PRJ20181220087417'
+     <if test="prdId != null">
+       AND HA_PRD_ID = #{prdId,jdbcType=VARCHAR}
+     </if>
+     <if test="insureRateCode != null">
+       AND FEE_CODE = #{insureRateCode,jdbcType=VARCHAR}
+     </if>
+  </select>
+  <!--根据条件查询字典表-->
+  <select id="querySdicForEnname" resultType="java.lang.String">
+    select s.enname from s_dic s where s.opttype=#{opttype} and s.cnname=#{cnName}
+  </select>
+</mapper>

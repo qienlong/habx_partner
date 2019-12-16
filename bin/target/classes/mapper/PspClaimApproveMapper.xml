@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PspClaimApproveMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PspClaimApprove">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="CLAIM_TYPE" jdbcType="VARCHAR" property="claimType" />
+    <result column="CLAIM_APPLY_AMOUNT" jdbcType="DECIMAL" property="claimApplyAmount" />
+    <result column="IS_GUAR" jdbcType="VARCHAR" property="isGuar" />
+    <result column="CLAIM_DATE" jdbcType="VARCHAR" property="claimDate" />
+    <result column="CLAIM_ORG" jdbcType="VARCHAR" property="claimOrg" />
+    <result column="APPROVER" jdbcType="VARCHAR" property="approver" />
+    <result column="CLAIM_APPLY_TYPE" jdbcType="VARCHAR" property="claimApplyType" />
+    <result column="CLAIM_END_AMOUNT" jdbcType="DECIMAL" property="claimEndAmount" />
+    <result column="CLAIM_OPINION" jdbcType="VARCHAR" property="claimOpinion" />
+    <result column="CLAIM_RESULT" jdbcType="VARCHAR" property="claimResult" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="OVERDUE_AMOUNT" jdbcType="DECIMAL" property="overdueAmount" />
+    <result column="IS_MANUAL" jdbcType="VARCHAR" property="isManual" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, CLAIM_TYPE, CLAIM_APPLY_AMOUNT, IS_GUAR, CLAIM_DATE, CLAIM_ORG, APPROVER, 
+    CLAIM_APPLY_TYPE, CLAIM_END_AMOUNT, CLAIM_OPINION, CLAIM_RESULT, SERNO, OVERDUE_AMOUNT, 
+    IS_MANUAL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PSP_CLAIM_APPROVE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PSP_CLAIM_APPROVE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PspClaimApprove">
+    insert into PSP_CLAIM_APPROVE (PK_ID, CLAIM_TYPE, CLAIM_APPLY_AMOUNT, 
+      IS_GUAR, CLAIM_DATE, CLAIM_ORG, 
+      APPROVER, CLAIM_APPLY_TYPE, CLAIM_END_AMOUNT, 
+      CLAIM_OPINION, CLAIM_RESULT, SERNO, 
+      OVERDUE_AMOUNT, IS_MANUAL)
+    values (#{pkId,jdbcType=VARCHAR}, #{claimType,jdbcType=VARCHAR}, #{claimApplyAmount,jdbcType=DECIMAL}, 
+      #{isGuar,jdbcType=VARCHAR}, #{claimDate,jdbcType=VARCHAR}, #{claimOrg,jdbcType=VARCHAR}, 
+      #{approver,jdbcType=VARCHAR}, #{claimApplyType,jdbcType=VARCHAR}, #{claimEndAmount,jdbcType=DECIMAL}, 
+      #{claimOpinion,jdbcType=VARCHAR}, #{claimResult,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, 
+      #{overdueAmount,jdbcType=DECIMAL}, #{isManual,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimApprove">
+    insert into PSP_CLAIM_APPROVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="claimType != null">
+        CLAIM_TYPE,
+      </if>
+      <if test="claimApplyAmount != null">
+        CLAIM_APPLY_AMOUNT,
+      </if>
+      <if test="isGuar != null">
+        IS_GUAR,
+      </if>
+      <if test="claimDate != null">
+        CLAIM_DATE,
+      </if>
+      <if test="claimOrg != null">
+        CLAIM_ORG,
+      </if>
+      <if test="approver != null">
+        APPROVER,
+      </if>
+      <if test="claimApplyType != null">
+        CLAIM_APPLY_TYPE,
+      </if>
+      <if test="claimEndAmount != null">
+        CLAIM_END_AMOUNT,
+      </if>
+      <if test="claimOpinion != null">
+        CLAIM_OPINION,
+      </if>
+      <if test="claimResult != null">
+        CLAIM_RESULT,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="overdueAmount != null">
+        OVERDUE_AMOUNT,
+      </if>
+      <if test="isManual != null">
+        IS_MANUAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimType != null">
+        #{claimType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimApplyAmount != null">
+        #{claimApplyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isGuar != null">
+        #{isGuar,jdbcType=VARCHAR},
+      </if>
+      <if test="claimDate != null">
+        #{claimDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimOrg != null">
+        #{claimOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="approver != null">
+        #{approver,jdbcType=VARCHAR},
+      </if>
+      <if test="claimApplyType != null">
+        #{claimApplyType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimEndAmount != null">
+        #{claimEndAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="claimOpinion != null">
+        #{claimOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="claimResult != null">
+        #{claimResult,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueAmount != null">
+        #{overdueAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isManual != null">
+        #{isManual,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PspClaimApprove">
+    update PSP_CLAIM_APPROVE
+    <set>
+      <if test="claimType != null">
+        CLAIM_TYPE = #{claimType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimApplyAmount != null">
+        CLAIM_APPLY_AMOUNT = #{claimApplyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isGuar != null">
+        IS_GUAR = #{isGuar,jdbcType=VARCHAR},
+      </if>
+      <if test="claimDate != null">
+        CLAIM_DATE = #{claimDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimOrg != null">
+        CLAIM_ORG = #{claimOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="approver != null">
+        APPROVER = #{approver,jdbcType=VARCHAR},
+      </if>
+      <if test="claimApplyType != null">
+        CLAIM_APPLY_TYPE = #{claimApplyType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimEndAmount != null">
+        CLAIM_END_AMOUNT = #{claimEndAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="claimOpinion != null">
+        CLAIM_OPINION = #{claimOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="claimResult != null">
+        CLAIM_RESULT = #{claimResult,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueAmount != null">
+        OVERDUE_AMOUNT = #{overdueAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isManual != null">
+        IS_MANUAL = #{isManual,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PspClaimApprove">
+    update PSP_CLAIM_APPROVE
+    set CLAIM_TYPE = #{claimType,jdbcType=VARCHAR},
+      CLAIM_APPLY_AMOUNT = #{claimApplyAmount,jdbcType=DECIMAL},
+      IS_GUAR = #{isGuar,jdbcType=VARCHAR},
+      CLAIM_DATE = #{claimDate,jdbcType=VARCHAR},
+      CLAIM_ORG = #{claimOrg,jdbcType=VARCHAR},
+      APPROVER = #{approver,jdbcType=VARCHAR},
+      CLAIM_APPLY_TYPE = #{claimApplyType,jdbcType=VARCHAR},
+      CLAIM_END_AMOUNT = #{claimEndAmount,jdbcType=DECIMAL},
+      CLAIM_OPINION = #{claimOpinion,jdbcType=VARCHAR},
+      CLAIM_RESULT = #{claimResult,jdbcType=VARCHAR},
+      SERNO = #{serno,jdbcType=VARCHAR},
+      OVERDUE_AMOUNT = #{overdueAmount,jdbcType=DECIMAL},
+      IS_MANUAL = #{isManual,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

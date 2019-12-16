@@ -1,0 +1,202 @@
+info:
+  build:
+    artifact: '@project.artifactId@'
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
+
+# database
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.1.108.41:1521:coredev
+    username: cmis
+    password: uuca280de
+    initialSize: 5
+    minIdle: 5
+    maxActive: 5
+    maxWait: 3000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    removeAbandoned: true
+    removeAbandonedTimeout: 600
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  mail:
+    host: ds.sinosafe.com.cn
+    username: gjzxdk@ds.sinosafe.com.cn
+    password: Sno@afe18#
+    properties:
+      mail: 
+          mime.splitlongparameters: false
+          smtp: 
+            port: 7250
+            auth: true
+            starttls:
+                enable: false
+                required: false
+  redis: 
+    cluster:
+      nodes:
+        - 10.2.108.40:7000
+        - 10.2.108.40:7001
+        - 10.2.108.40:7002
+        - 10.2.108.40:7003
+        - 10.2.108.40:7004
+        - 10.2.108.40:7005
+    pool:
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+    password: 123456                
+
+#影像系统配置
+file: 
+  upload: 
+    savePath: E:/hastudy/hastudy-app/hastudy-cluster/hastudy/temp/img 
+    imageSystem: 
+      imgUrl: http://proxytest.sinosafe.com.cn/xbapp/Interface_Cluster/IImgXmlUpLoadSyn
+      fileUrl: http://proxytest.sinosafe.com.cn/xbapp/TransServer2.0/ISerFIleUp
+      imgDomain: http://proxytest.sinosafe.com.cn/xbapp/
+      imgDomainHttps: https://proxytest.sinosafe.com.cn/wx-xdx/
+  canvasPlugPrefix: https://proxytest.sinosafe.com.cn/habsl-h5-dev/iframePage2?url=https://proxytest.sinosafe.com.cn/haxb_partner_test/pa/lst_dowload/lsturl/
+ 
+lina:
+  dubbo: 
+    enable: true
+    application:
+      name: haxb_partner
+    protocol:
+      name: dubbo
+      port: 20999
+    registry:
+ #     address: zookeeper://dubbotest.sinosafe.com.cn:2181
+      address: zookeeper://10.1.109.209:2181
+  rabbit:
+    max-consume-retry-count: 5            # if null, will default 3
+    multi: 
+      exp: 
+        host: 10.1.110.19
+        port: 5672
+        username: xb_credit_app
+        password: credit2017
+        virtualHost: /xb-credit-app
+        publisherConfirms: true 
+        publisherReturns: true  
+      connection1: 
+        host: 10.1.110.19
+        port: 5672
+        username: xb_credit_app
+        password: credit2017
+        virtualHost: /xb-credit-app
+        publisherConfirms: true 
+        publisherReturns: true   
+    consumers: 
+      messageConsumer: 
+        class: cn.com.sinosafe.extend.MessageConsumer
+        connection: exp
+        acknowledge: manual
+        prefetch: 5
+        concurrency: 10
+        max-concurrency: 20
+        queue: ha.queue_order_xb_partner_padb
+
+#保单生产接口地址      
+issueMsg:
+  status: 997
+  addr: http://10.2.108.91:8055/cmis-main/MyChannelForHttp
+  pattern: 2
+  writtenboard: QT_2808
+  lstboard: QT_2809
+
+#邮件发送
+mail: 
+  #发件人邮箱地址
+  from: haxb_partner@sinosafe.com.cn
+  #发件人昵称
+  personal: 华安信保合作方对接系统
+  #异常警报接收人
+  reciverAddress: 111@sinosafe.com.cn
+  #异常警报抄送人
+  ccAddress: 111@sinosafe.com.cn
+
+#理赔邮件发送
+claim: 
+  #发件人邮箱地址
+  from: haxb_partner@sinosafe.com.cn
+  #发件人昵称
+  personal: 华安信保合作方对接系统
+  #异常警报接收人
+  reciverAddress: 111@sinosafe.com.cn
+  #异常警报抄送人
+  ccAddress: 111@sinosafe.com.cn
+ 
+# 短信配置
+sms: 
+  url: http://msgplat.sinosafe.com.cn:80/sms/Api/Send.do
+  user: H04
+  pwd: Hsms04
+  
+#sftp\u5c5e\u6027\u914d\u7f6e
+sftpProperties:
+  host: 10.1.109.113
+  port: 22
+  account: xb-paphuser
+  pwd: XBpahp-2019
+  uploadSftpLocation: /upload/lstpath
+  dowloadSftpLoacation: /upload/lstpath
+  localFileLocation: C://temp/test
+  
+#马上消费参数
+msxf:
+  #邮件标题
+  mail-title: 【开发环境】-马上消费对接异常
+  #是否发送邮件
+  mail-send: false
+  #华安公钥
+  ha-public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCLvJidtCtuyywNhaMzgD1Glo0Kdf4KlyYtB42+8yVkxsWkhunndg4HpcHB+cz5DKYPyusC1tH28smK/KP2CTW10MUtyyfuNUoYyODIoi2Z9/Bdcd6NrADuJznFHAP7FE08LlT50gXLbZGcfO35y/wssrC3QTSzC+xW8o4+blbs8QIDAQAB
+  #华安私钥
+  ha-private-key: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIu8mJ20K27LLA2FozOAPUaWjQp1/gqXJi0Hjb7zJWTGxaSG6ed2DgelwcH5zPkMpg/K6wLW0fbyyYr8o/YJNbXQxS3LJ+41ShjI4MiiLZn38F1x3o2sAO4nOcUcA/sUTTwuVPnSBcttkZx87fnL/CyysLdBNLML7Fbyjj5uVuzxAgMBAAECgYBtrwHUeAHHm67ehlFOMZDngXEADxHzWiVbHxzCD7UAX43v0P508pOcqR1nlx6vNqB6sPq7Zce1oWlVsW05yIzhGA+V/I6WmqlSP0lcsLJngVhHiK63oKnJU0neoEk+Tb58JPz4oJZIpmxGAC4LJ7IzqFthSctfKXF+B/izFTu1iQJBANqSUIQYt8NpyiDcOT+dGe9oSDTLNotHzrXppwSS7Xx5qlyCTDKzUtkTE3nwSgH+LskhX/RaMRAEtWyxHFx3FK8CQQCjqlbkXPCCVrkXGEHSQtOFHSJSadcGwj/vBdbMOk8UH/+5CNgYBGJIK5/9pWCdU5SeAwanz3H8TLc+MF1KTcBfAkEA1QguudFtqmT9wTFkCwCQOqulVO+L5gzDCMMHKooaNmxPA4NryS7G3RSeswbk2zRnXVnOMFeH4lj0i0/EmMrnuQJARx7beYsFnK4Q6n9JAxS1FBBP/N4vaal53OV9rOvdt1Icbwzv0qf9CX2jnbaC4HsUhwGrn7qevtObgXPE5mgZIwJAcw5K/5XU9D0aoHvdOC+uyaTusR65IIt44yRxq5uN3XX/KY8UDx5gBM7seRI3UTOTHb/BpwTnBav+q+v7aBiXxg==
+  #压缩包密钥
+  encry-key: 1p/BuWnB12MIlO5B7nAZLXsF6z4xKS0S7YZPLh7NEmU=
+  
+#工保网对接
+gbcn:
+  #验签key
+  signKey: MeTKJnC3fIAxeer8erADRTlJ
+  #工保接收发票回执地址
+  queryInvoiceUrl: http://127.0.0.1/xml/queryInvoiceRequest
+  #工保接收发票回执地址
+  querySurrendUrl: http://127.0.0.1/xml/querySurrendRequest
+  #缴费回执地址
+  insuranceCallBackUrl: http://47.110.12.117:85/pt-platform/insuranceNotice/payNotice
+  #保单电子保单下载地址
+  insureDownloadUrl: http://proxytest.sinosafe.com.cn/xbapp
+
+#电子签章
+haxb:
+  #电子在线签章地址生成新保单
+  sealUrl: http://10.1.109.140:28088/sign/habxseal/executeSeal
+  #电子在线签章地址生成新保函
+  seal_Url: http://127.0.0.1:18088/signSeal/executeSeal
+  #生成新保单后回调地址
+  insuranceUrl: http://10.11.245.20:18088/gbcn/insuranceCallBack
+  #生成保函后回调地址
+  assureUrl: http://127.0.0.1:18088/gbcn/guaranteeCallBack
+  #核心出单地址
+  chudanUrl: http://10.2.108.91:8055/cmis-main/MyChannelForHttp
+
+#电子签章相关配置
+seal:
+  transferCallBackUrl: http://10.11.244.134:18088/signSeal/transferNotice
+  sealCallBackUrl: http://10.11.244.134:18088/signSeal/sealNotice
+  transferExceptionCallBackUrl: http://10.11.244.134:18088/signSeal/transferExceptionNotice
+  sealExceptionCallBackUrl: http://10.11.244.134:18088/signSeal/sealExceptionNotice
+

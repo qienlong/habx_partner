@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PaPhTrustPlanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="PLAN_NAME" jdbcType="VARCHAR" property="planName" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="GROSS_RATE" jdbcType="VARCHAR" property="grossRate" />
+    <result column="TOTAL_AMT" jdbcType="VARCHAR" property="totalAmt" />
+    <result column="EDIT_BALANCE" jdbcType="DECIMAL" property="editBalance" />
+    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
+    <result column="START_DATE" jdbcType="DECIMAL" property="startDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="OPER_USER_ID" jdbcType="VARCHAR" property="operUserId" />
+    <result column="OPER_DATE" jdbcType="VARCHAR" property="operDate" />
+    <result column="OPER_TIME" jdbcType="VARCHAR" property="operTime" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="IS_HIS" jdbcType="VARCHAR" property="isHis" />
+    <result column="FIRST_END_DATE" jdbcType="VARCHAR" property="firstEndDate" />
+    <result column="OPER_TYPE" jdbcType="VARCHAR" property="operType" />
+    <result column="AMT_SOURCES" jdbcType="VARCHAR" property="amtSources" />
+    <result column="FUNDER_ID" jdbcType="VARCHAR" property="funderId" />
+    <result column="SETTLE_AT_BANK_NAME" jdbcType="VARCHAR" property="settleAtBankName" />
+    <result column="SETTLE_BANK_NAME" jdbcType="VARCHAR" property="settleBankName" />
+    <result column="SETTLE_ACOUNT_NO" jdbcType="VARCHAR" property="settleAcountNo" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="SETTLE_ACOUNT_NAME" jdbcType="VARCHAR" property="settleAcountName" />
+    <result column="SETTLE_BANK_CITY_CODE" jdbcType="VARCHAR" property="settleBankCityCode" />
+    <result column="SETTLE_BANK_CITY" jdbcType="VARCHAR" property="settleBankCity" />
+    <result column="SETTLE_AT_BANK_CODE" jdbcType="VARCHAR" property="settleAtBankCode" />
+    <result column="SETTLE_BANK_CODE" jdbcType="VARCHAR" property="settleBankCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, COP_NO, PLAN_NAME, TERM, GROSS_RATE, TOTAL_AMT, EDIT_BALANCE, BALANCE, START_DATE,
+    END_DATE, OPER_USER_ID,OPER_DATE, OPER_TIME, MEMO, IS_HIS, FIRST_END_DATE, OPER_TYPE,
+    AMT_SOURCES, FUNDER_ID, SETTLE_AT_BANK_NAME,SETTLE_BANK_NAME,SETTLE_ACOUNT_NO,INSU_COMPANY,SETTLE_ACOUNT_NAME
+  </sql>
+
+  <insert id="mergePrjCopTrustPlan" parameterType="cn.com.sinosafe.domain.entity.PrjCopTrustPlan">
+    MERGE INTO PRJ_COP_TRUST_PLAN pctp
+    USING (
+    select
+    #{pkId,jdbcType=VARCHAR} 			     as PK_ID,
+    #{copNo,jdbcType=VARCHAR} 			 as COP_NO,
+    #{planName,jdbcType=VARCHAR} 		 as PLAN_NAME,
+    #{funderId,jdbcType=VARCHAR} 		 as FUNDER_ID,
+    #{settleAtBankName,jdbcType=VARCHAR} as SETTLE_AT_BANK_NAME,
+    #{settleBankName,jdbcType=VARCHAR} 	 as SETTLE_BANK_NAME,
+    #{settleAcountNo,jdbcType=VARCHAR} 	 as SETTLE_ACOUNT_NO,
+    #{insuCompany,jdbcType=VARCHAR} 	 as INSU_COMPANY,
+    #{settleAcountName,jdbcType=VARCHAR} as SETTLE_ACOUNT_NAME,
+    #{operDate,jdbcType=VARCHAR}         as OPER_DATE,
+
+    #{settleBankCityCode,jdbcType=VARCHAR}         as SETTLE_BANK_CITY_CODE,
+    #{settleBankCity,jdbcType=VARCHAR}         as SETTLE_BANK_CITY,
+    #{settleAtBankCode,jdbcType=VARCHAR}         as SETTLE_AT_BANK_CODE,
+    #{settleBankCode,jdbcType=VARCHAR}         as SETTLE_BANK_CODE,
+
+    #{operTime,jdbcType=VARCHAR}         as OPER_TIME
+    from dual
+    ) datas
+    ON (pctp.COP_NO = datas.COP_NO and pctp.IS_HIS='0' and pctp.FUNDER_ID=datas.FUNDER_ID)
+    WHEN MATCHED THEN
+    UPDATE
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="planName != null  ">pctp.PLAN_NAME = datas.PLAN_NAME,</if>
+      <if test="settleAtBankName != null  ">pctp.SETTLE_AT_BANK_NAME = datas.SETTLE_AT_BANK_NAME,</if>
+      <if test="settleBankName != null  ">pctp.SETTLE_BANK_NAME = datas.SETTLE_BANK_NAME,</if>
+      <if test="settleAcountNo != null  ">pctp.SETTLE_ACOUNT_NO = datas.SETTLE_ACOUNT_NO,</if>
+      <if test="insuCompany != null  ">pctp.INSU_COMPANY = datas.INSU_COMPANY,</if>
+      <if test="operDate != null  ">pctp.OPER_DATE = datas.OPER_DATE,</if>
+      <if test="operTime != null  ">pctp.OPER_TIME = datas.OPER_TIME,</if>
+
+      pctp.SETTLE_BANK_CITY_CODE = datas.SETTLE_BANK_CITY_CODE,
+      pctp.SETTLE_BANK_CITY = datas.SETTLE_BANK_CITY,
+      pctp.SETTLE_AT_BANK_CODE = datas.SETTLE_AT_BANK_CODE,
+      pctp.SETTLE_BANK_CODE = datas.SETTLE_BANK_CODE,
+      <if test="settleAcountName != null  ">pctp.SETTLE_ACOUNT_NAME = datas.SETTLE_ACOUNT_NAME</if>
+    </trim>
+    WHEN NOT MATCHED THEN
+    INSERT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">PK_ID,</if>
+      <if test="copNo != null"> COP_NO,</if>
+      <if test="planName != null">PLAN_NAME,</if>
+      <if test="funderId != null">FUNDER_ID,</if>
+      <if test="settleAtBankName != null">SETTLE_AT_BANK_NAME,</if>
+      <if test="settleBankName != null">SETTLE_BANK_NAME,</if>
+      <if test="settleAcountNo != null">SETTLE_ACOUNT_NO,</if>
+      <if test="insuCompany != null">INSU_COMPANY,</if>
+      <if test="operDate != null">OPER_DATE,</if>
+      <if test="operTime != null">OPER_TIME,</if>
+
+      SETTLE_BANK_CITY_CODE,
+      SETTLE_BANK_CITY,
+      SETTLE_AT_BANK_CODE,
+      SETTLE_BANK_CODE,
+      IS_HIS,
+      <if test="settleAcountName != null">SETTLE_ACOUNT_NAME</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null  ">datas.PK_ID,</if>
+      <if test="copNo != null  ">datas.COP_NO,</if>
+      <if test="planName != null  ">datas.PLAN_NAME,</if>
+      <if test="funderId != null  ">datas.FUNDER_ID,</if>
+      <if test="settleAtBankName != null  ">datas.SETTLE_AT_BANK_NAME,</if>
+      <if test="settleBankName != null  ">datas.SETTLE_BANK_NAME,</if>
+      <if test="settleAcountNo != null  ">datas.SETTLE_ACOUNT_NO,</if>
+      <if test="insuCompany != null  ">datas.INSU_COMPANY,</if>
+      <if test="operDate != null">datas.OPER_DATE,</if>
+      <if test="operTime != null">datas.OPER_TIME,</if>
+
+      datas.SETTLE_BANK_CITY_CODE,
+      datas.SETTLE_BANK_CITY,
+      datas.SETTLE_AT_BANK_CODE,
+      datas.SETTLE_BANK_CODE,
+      '0',
+      <if test="settleAcountName != null  ">datas.SETTLE_ACOUNT_NAME</if>
+    </trim>
+  </insert>
+</mapper>

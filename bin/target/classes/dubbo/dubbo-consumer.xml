@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+		
+			
+	<!-- 消费方应用名 -->  
+	<dubbo:application name="${lina.dubbo.application.name}" />
+	<dubbo:protocol name="${lina.dubbo.protocol.name}" port="${lina.dubbo.protocol.port}"/>
+	
+	<!-- zookeeper注册中心暴露服务地址  -->
+	<dubbo:registry address="${lina.dubbo.registry.address}" timeout="6000000"/> 
+	
+	<dubbo:reference id="haXbCmisAppApiService" interface="com.sinosafe.service.cmis.HaXbCmisAppApiServiceV2" check="false"/>
+	<dubbo:reference id="otherCreditQueryService" interface="com.sinosafe.xinbao.dubbo.service.OtherCreditQueryService"  check="false"/>
+	
+</beans>

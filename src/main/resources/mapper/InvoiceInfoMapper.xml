@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.InvoiceInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.gbcn.queryInvoice.InvoiceInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="POLICY_NO" jdbcType="VARCHAR" property="policyNo" />
+    <result column="APP_NAME" jdbcType="VARCHAR" property="appName" />
+    <result column="APP_EMAIL" jdbcType="VARCHAR" property="appEmail" />
+    <result column="APP_MOBILE" jdbcType="VARCHAR" property="appMobile" />
+    <result column="IMG_ID" jdbcType="VARCHAR" property="imgId" />
+    <result column="INVOICE_CODE" jdbcType="VARCHAR" property="invoiceCode" />
+    <result column="INVOICE_MONEY" jdbcType="DECIMAL" property="invoiceMoney" />
+    <result column="INVOICE_NUMBER" jdbcType="VARCHAR" property="invoiceNumber" />
+    <result column="SHORURL" jdbcType="VARCHAR" property="shorurl" />
+    <result column="INPUT_TIME" jdbcType="TIMESTAMP" property="inputTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, POLICY_NO, APP_NAME, APP_EMAIL, APP_MOBILE, IMG_ID, INVOICE_CODE, INVOICE_MONEY, 
+    INVOICE_NUMBER, SHORURL, INPUT_TIME
+  </sql>
+  <select id="selectByPolicyNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * FROM
+    (SELECT
+    <include refid="Base_Column_List" />
+     FROM T_ELEC_POLICY_INFO T
+    WHERE T.POLICY_NO = #{policyNo,jdbcType=VARCHAR} ORDER BY T.INPUT_TIME DESC )
+    WHERE ROWNUM = 1
+  </select>
+</mapper>

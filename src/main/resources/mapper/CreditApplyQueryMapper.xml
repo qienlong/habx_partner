@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CreditApplyQueryMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CreditApplyQuery">
+    <id column="P_NO" jdbcType="VARCHAR" property="pNo" />
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="IS_QUERY_CREDIT" jdbcType="VARCHAR" property="isQueryCredit" />
+    <result column="CUS_TYPE" jdbcType="VARCHAR" property="cusType" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="IS_UP_CREDIT" jdbcType="VARCHAR" property="isUpCredit" />
+    <result column="IS_GUA" jdbcType="VARCHAR" property="isGua" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="ONLINE_CACHE" jdbcType="VARCHAR" property="onlineCache" />
+    <result column="BUSINESS_RELATIONS" jdbcType="VARCHAR" property="businessRelations" />
+    <result column="CREDIT_CERT_CODE" jdbcType="VARCHAR" property="creditCertCode" />
+    <result column="QRY_TIME" jdbcType="VARCHAR" property="qryTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    P_NO, SERNO, IS_QUERY_CREDIT, CUS_TYPE, CUS_NAME, CUS_ID, CERT_TYPE, CERT_CODE, IS_UP_CREDIT, 
+    IS_GUA, FLAG, ONLINE_CACHE, BUSINESS_RELATIONS, CREDIT_CERT_CODE, QRY_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CreditApplyQuery" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CREDIT_APPLY_QUERY
+    where P_NO = #{pNo,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CreditApplyQuery">
+    delete from CREDIT_APPLY_QUERY
+    where P_NO = #{pNo,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CreditApplyQuery">
+    insert into CREDIT_APPLY_QUERY (P_NO, SERNO, IS_QUERY_CREDIT, 
+      CUS_TYPE, CUS_NAME, CUS_ID, 
+      CERT_TYPE, CERT_CODE, IS_UP_CREDIT, 
+      IS_GUA, FLAG, ONLINE_CACHE, 
+      BUSINESS_RELATIONS, CREDIT_CERT_CODE, QRY_TIME
+      )
+    values (#{pNo,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{isQueryCredit,jdbcType=VARCHAR}, 
+      #{cusType,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{isUpCredit,jdbcType=VARCHAR}, 
+      #{isGua,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{onlineCache,jdbcType=VARCHAR}, 
+      #{businessRelations,jdbcType=VARCHAR}, #{creditCertCode,jdbcType=VARCHAR}, #{qryTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CreditApplyQuery">
+    insert into CREDIT_APPLY_QUERY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pNo != null">
+        P_NO,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="isQueryCredit != null">
+        IS_QUERY_CREDIT,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="isUpCredit != null">
+        IS_UP_CREDIT,
+      </if>
+      <if test="isGua != null">
+        IS_GUA,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="onlineCache != null">
+        ONLINE_CACHE,
+      </if>
+      <if test="businessRelations != null">
+        BUSINESS_RELATIONS,
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE,
+      </if>
+      <if test="qryTime != null">
+        QRY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pNo != null">
+        #{pNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="isQueryCredit != null">
+        #{isQueryCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpCredit != null">
+        #{isUpCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="isGua != null">
+        #{isGua,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineCache != null">
+        #{onlineCache,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRelations != null">
+        #{businessRelations,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="qryTime != null">
+        #{qryTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CreditApplyQuery">
+    update CREDIT_APPLY_QUERY
+    <set>
+      <if test="isQueryCredit != null">
+        IS_QUERY_CREDIT = #{isQueryCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        CUS_ID = #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpCredit != null">
+        IS_UP_CREDIT = #{isUpCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="isGua != null">
+        IS_GUA = #{isGua,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineCache != null">
+        ONLINE_CACHE = #{onlineCache,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRelations != null">
+        BUSINESS_RELATIONS = #{businessRelations,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE = #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="qryTime != null">
+        QRY_TIME = #{qryTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where P_NO = #{pNo,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CreditApplyQuery">
+    update CREDIT_APPLY_QUERY
+    set IS_QUERY_CREDIT = #{isQueryCredit,jdbcType=VARCHAR},
+      CUS_TYPE = #{cusType,jdbcType=VARCHAR},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      CUS_ID = #{cusId,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_CODE = #{certCode,jdbcType=VARCHAR},
+      IS_UP_CREDIT = #{isUpCredit,jdbcType=VARCHAR},
+      IS_GUA = #{isGua,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      ONLINE_CACHE = #{onlineCache,jdbcType=VARCHAR},
+      BUSINESS_RELATIONS = #{businessRelations,jdbcType=VARCHAR},
+      CREDIT_CERT_CODE = #{creditCertCode,jdbcType=VARCHAR},
+      QRY_TIME = #{qryTime,jdbcType=VARCHAR}
+    where P_NO = #{pNo,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+</mapper>

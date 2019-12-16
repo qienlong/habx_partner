@@ -1,0 +1,277 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS",
+      "type": "cn.com.sinosafe.common.config.properties.OssProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign",
+      "type": "cn.com.sinosafe.common.config.properties.AxsignProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.ClaimProperties",
+      "name": "claim",
+      "type": "cn.com.sinosafe.common.config.properties.ClaimProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.IssueMsgProperties",
+      "name": "issueMsg",
+      "type": "cn.com.sinosafe.common.config.properties.IssueMsgProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MailProperties",
+      "name": "mail",
+      "type": "cn.com.sinosafe.common.config.properties.MailProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MsxfProperties",
+      "name": "msxf",
+      "type": "cn.com.sinosafe.common.config.properties.MsxfProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties",
+      "type": "cn.com.sinosafe.common.config.properties.SftpProperties"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SmsProperties",
+      "name": "sms",
+      "type": "cn.com.sinosafe.common.config.properties.SmsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS.access-key-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS.access-key-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS.bucket",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS.endpoint",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS.proxy-host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.OssProperties",
+      "name": "OSS.proxy-port",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign.jks-alias",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign.jks-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign.jks-pwd",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign.jks-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign.plat-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.AxsignProperties",
+      "name": "axsign.sms-template-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.ClaimProperties",
+      "name": "claim.cc-address",
+      "description": "异常警报抄送人",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.ClaimProperties",
+      "name": "claim.from",
+      "description": "发件人邮箱地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.ClaimProperties",
+      "name": "claim.personal",
+      "description": "发件人昵称",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.ClaimProperties",
+      "name": "claim.reciver-address",
+      "description": "异常警报接收人",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.IssueMsgProperties",
+      "name": "issueMsg.addr",
+      "description": "出单请求地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.IssueMsgProperties",
+      "name": "issueMsg.lstboard",
+      "description": "投保单模板",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.IssueMsgProperties",
+      "name": "issueMsg.pattern",
+      "description": "报文格式",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.IssueMsgProperties",
+      "name": "issueMsg.status",
+      "description": "保单审批状态",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.IssueMsgProperties",
+      "name": "issueMsg.writtenboard",
+      "description": "授权书模板",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MailProperties",
+      "name": "mail.cc-address",
+      "description": "异常警报抄送人",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MailProperties",
+      "name": "mail.from",
+      "description": "发件人邮箱地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MailProperties",
+      "name": "mail.personal",
+      "description": "发件人昵称",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MailProperties",
+      "name": "mail.reciver-address",
+      "description": "异常警报接收人",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MsxfProperties",
+      "name": "msxf.encry-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MsxfProperties",
+      "name": "msxf.ha-private-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MsxfProperties",
+      "name": "msxf.ha-public-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MsxfProperties",
+      "name": "msxf.mail-send",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.MsxfProperties",
+      "name": "msxf.mail-title",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.account",
+      "description": "账号",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.dowload-sftp-loacation",
+      "description": "下载地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.host",
+      "description": "目标",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.local-file-location",
+      "description": "本地文件地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.port",
+      "description": "端口号",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.pwd",
+      "description": "密码",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SftpProperties",
+      "name": "sftpProperties.upload-sftp-location",
+      "description": "上传地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SmsProperties",
+      "name": "sms.pwd",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SmsProperties",
+      "name": "sms.t01",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SmsProperties",
+      "name": "sms.t02",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SmsProperties",
+      "name": "sms.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.com.sinosafe.common.config.properties.SmsProperties",
+      "name": "sms.user",
+      "type": "java.lang.String"
+    }
+  ]
+}

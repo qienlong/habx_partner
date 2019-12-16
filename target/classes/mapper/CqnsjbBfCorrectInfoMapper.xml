@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CqnsjbBfCorrectInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CqnsjbBfCorrectInfo">
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="AMOUNT_ORIG" jdbcType="DECIMAL" property="amountOrig" />
+    <result column="AMOUNT_CURR" jdbcType="DECIMAL" property="amountCurr" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CREATE_DATE" jdbcType="VARCHAR" property="createDate" />
+    <result column="UPDATE_DATE" jdbcType="VARCHAR" property="updateDate" />
+    <result column="CORRECT_DATE" jdbcType="VARCHAR" property="correctDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERNO, LIST_SERNO, AMOUNT_ORIG, AMOUNT_CURR, STATUS, CREATE_DATE, UPDATE_DATE,CORRECT_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CQNSJB_BF_CORRECT_INFO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByListserno" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfCorrectInfo" resultMap="BaseResultMap">
+  	select 
+  		a.serno,a.list_serno,
+		a.amount_orig,a.amount_curr,
+		a.status,a.create_date,
+		a.update_date,a.correct_date  
+  	from
+		(select t.serno,t.list_serno,
+			t.amount_orig,t.amount_curr,
+			t.status,t.create_date,
+			t.update_date,t.correct_date 
+			from CQNSJB_BF_CORRECT_INFO t 
+		where 
+		t.serno=#{serno,jdbcType=VARCHAR}
+		and t.list_serno=#{listSerno,jdbcType=VARCHAR}
+		<if test="status != null and status != ''">
+			and t.status=#{status,jdbcType=VARCHAR}
+		</if>
+		order by t.create_date desc) a
+	where rownum = 1
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CQNSJB_BF_CORRECT_INFO
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfCorrectInfo">
+    insert into CQNSJB_BF_CORRECT_INFO (SERNO, LIST_SERNO, 
+      AMOUNT_ORIG, AMOUNT_CURR, STATUS, 
+      CREATE_DATE, UPDATE_DATE,CORRECT_DATE)
+    values (#{serno,jdbcType=VARCHAR}, #{listSerno,jdbcType=VARCHAR}, 
+      #{amountOrig,jdbcType=DECIMAL}, #{amountCurr,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR},#{correctDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfCorrectInfo">
+    insert into CQNSJB_BF_CORRECT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="amountOrig != null">
+        AMOUNT_ORIG,
+      </if>
+      <if test="amountCurr != null">
+        AMOUNT_CURR,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="correctDate != null">
+        CORRECT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOrig != null">
+        #{amountOrig,jdbcType=DECIMAL},
+      </if>
+      <if test="amountCurr != null">
+        #{amountCurr,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+       <if test="correctDate != null">
+        #{correctDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfCorrectInfo">
+    update CQNSJB_BF_CORRECT_INFO
+    <set>
+      <if test="listSerno != null">
+        LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOrig != null">
+        AMOUNT_ORIG = #{amountOrig,jdbcType=DECIMAL},
+      </if>
+      <if test="amountCurr != null">
+        AMOUNT_CURR = #{amountCurr,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      </if>
+       <if test="correctDate != null">
+        CORRECT_DATE = #{correctDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfCorrectInfo">
+    update CQNSJB_BF_CORRECT_INFO
+    set 
+      LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      AMOUNT_ORIG = #{amountOrig,jdbcType=DECIMAL},
+      AMOUNT_CURR = #{amountCurr,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      CORRECT_DATE = #{correctDate,jdbcType=VARCHAR}
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <insert id="insertBatch" parameterType="java.util.List">
+  	insert into CQNSJB_BF_CORRECT_INFO (SERNO, LIST_SERNO, 
+      AMOUNT_ORIG, AMOUNT_CURR, STATUS, 
+      CREATE_DATE, UPDATE_DATE,CORRECT_DATE)
+       <foreach collection="correctInfoList" item="a" separator="union all">
+       		SELECT
+       			#{a.serno,jdbcType=VARCHAR}, #{a.listSerno,jdbcType=VARCHAR}, 
+      			#{a.amountOrig,jdbcType=DECIMAL}, #{a.amountCurr,jdbcType=DECIMAL}, #{a.status,jdbcType=VARCHAR}, 
+      			#{a.createDate,jdbcType=VARCHAR}, #{a.updateDate,jdbcType=VARCHAR},#{a.correctDate,jdbcType=VARCHAR}
+       		FROM
+			DUAL
+       </foreach>
+  </insert>
+   <!-- 计算出第1个月到i-1个月的每笔保单的保费 -->
+   <select id="queryCorrectPremAmount" parameterType="String" resultType="Map">
+   <![CDATA[
+  		select 
+		   substr(b.PS_REAL_DT,0,7) as account_month ,c.list_serno,
+		   trunc(sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0))*0.2,2) insure_amount
+	  	from acc_mtd_ps_note b,acc_loan c,lst_iqp_info d
+	  	where c.bill_no = b.bill_no
+	  	and c.list_serno = d.list_serno
+	   	and c.iqp_loan_serno like 'JBSQ%'
+	   	and substr(b.PS_REAL_DT,0,7) < #{currentDay,jdbcType=VARCHAR} 
+	   	group by substr(b.PS_REAL_DT,0,7),c.list_serno
+	  ]]> 
+  </select>
+  <!-- 计算当前月的每笔保单的保费，（范围为：当月1号到当前系统时间-1天） -->
+  <select id="queryCurrentMonthPremAmount" parameterType="Map" resultType="Map">
+  <![CDATA[
+  		select 
+		   substr(b.PS_REAL_DT,0,7) as account_month ,c.list_serno,
+		   trunc(sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0))*0.2,2) last_month_int_amt
+	  	from acc_mtd_ps_note b,acc_loan c,lst_iqp_info d
+	  	where c.bill_no = b.bill_no
+	  	and c.list_serno = d.list_serno
+	   	and c.iqp_loan_serno like 'JBSQ%'
+        and b.ps_real_dt >= #{monthFirstDay,jdbcType=VARCHAR}
+	   	and b.ps_real_dt <= #{monthlastDay,jdbcType=VARCHAR}
+	   	group by substr(b.PS_REAL_DT,0,7),c.list_serno
+   ]]> 
+  </select>
+  
+   <!-- 根据保单、日期查询每笔借据的利息,日期范围是当月1号到计算日期 -->
+   <select id="queryBillAccruedInterestByListSerno" parameterType="Map" resultType="Map">
+  	<![CDATA[
+	  	select 
+		   substr(b.PS_REAL_DT,0,7) as account_month,d.list_serno,
+		   sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0)) accr_int_amount
+	  	from acc_mtd_ps_note b,acc_loan c,lst_iqp_info d
+	  	where c.bill_no = b.bill_no
+	  	and c.list_serno = d.list_serno
+	   	and c.iqp_loan_serno like 'JBSQ%'
+	   	and b.ps_real_dt >= #{monthFirstDay,jdbcType=VARCHAR}
+        and b.ps_real_dt <= #{calculateDate,jdbcType=VARCHAR}
+        and d.list_serno = #{listSerno,jdbcType=VARCHAR}
+	   	group by substr(b.PS_REAL_DT,0,7),d.list_serno
+   	 ]]> 
+  </select>
+ <!-- 查询当月所有保单的实还 -->
+  <select id="queryCurrentMontRealIntAmt" resultType="Map">
+  	select 
+		d.list_serno,
+	    substr(b.PS_REAL_DT,0,7) as account_month,
+	    sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0)) real_int_amount
+	from acc_mtd_ps_note b,acc_loan c,lst_iqp_info d
+	where c.bill_no = b.bill_no
+	 and c.list_serno = d.list_serno
+	 and c.iqp_loan_serno like 'JBSQ%'
+	 and substr(b.ps_real_dt,0,7) = #{currentMonth,jdbcType=VARCHAR}
+	 group by d.list_serno,substr(b.PS_REAL_DT,0,7)
+  </select>
+  <!-- 根据借据号和期次查询应还利息 -->
+  <select id="queryPsNormIntAmtByBill" parameterType="String" resultType="Map">
+  		select 
+  			p.bill_no,
+  			p.ps_perd_no,
+  			p.ps_norm_int_amt 
+  		from acc_mtd_plan p 
+  		where p.bill_no = #{billNo,jdbcType=VARCHAR}
+  		and p.ps_perd_no = #{psPerdNo,jdbcType=VARCHAR}
+  </select>
+</mapper>

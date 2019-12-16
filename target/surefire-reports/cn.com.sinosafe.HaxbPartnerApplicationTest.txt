@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cn.com.sinosafe.HaxbPartnerApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.417 sec - in cn.com.sinosafe.HaxbPartnerApplicationTest

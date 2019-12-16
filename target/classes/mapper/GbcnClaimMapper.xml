@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.GbcnClaimMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.gbcn.request.ClaimRequest$ClaimRequestBody">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="POLICYNO" jdbcType="VARCHAR" property="policyno" />
+    <result column="CLAIMNAME" jdbcType="VARCHAR" property="claimName" />
+    <result column="CLAIMPHONE" jdbcType="VARCHAR" property="claimPhone" />
+    <result column="CLIAIMREASON" jdbcType="VARCHAR" property="cliaimReason" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="CLAIMSTATUS" jdbcType="VARCHAR" property="claimStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, POLICYNO, CLAIMNAME, CLAIMPHONE, CLIAIMREASON, CREATETIME, CLAIMSTATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from T_GBCN_CLAIM
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_GBCN_CLAIM
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.gbcn.request.ClaimRequest$ClaimRequestBody">
+    insert into T_GBCN_CLAIM (PK_ID, POLICYNO, CLAIMNAME,
+      CLAIMPHONE, CLIAIMREASON, CREATETIME,
+      CLAIMSTATUS)
+    values (#{pkId,jdbcType=VARCHAR}, #{policyno,jdbcType=VARCHAR}, #{claimName,jdbcType=VARCHAR},
+      #{claimPhone,jdbcType=VARCHAR}, #{cliaimReason,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR},
+      #{claimStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.gbcn.request.ClaimRequest$ClaimRequestBody">
+    insert into T_GBCN_CLAIM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="policyno != null">
+        POLICYNO,
+      </if>
+      <if test="claimname != null">
+        CLAIMNAME,
+      </if>
+      <if test="claimphone != null">
+        CLAIMPHONE,
+      </if>
+      <if test="cliaimreason != null">
+        CLIAIMREASON,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="claimstatus != null">
+        CLAIMSTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyno != null">
+        #{policyno,jdbcType=VARCHAR},
+      </if>
+      <if test="claimname != null">
+        #{claimName,jdbcType=VARCHAR},
+      </if>
+      <if test="claimphone != null">
+        #{claimPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="cliaimreason != null">
+        #{cliaimReason,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="claimstatus != null">
+        #{claimStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.gbcn.request.ClaimRequest$ClaimRequestBody">
+    update T_GBCN_CLAIM
+    <set>
+      <if test="policyno != null">
+        POLICYNO = #{policyno,jdbcType=VARCHAR},
+      </if>
+      <if test="claimname != null">
+        CLAIMNAME = #{claimName,jdbcType=VARCHAR},
+      </if>
+      <if test="claimphone != null">
+        CLAIMPHONE = #{claimPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="cliaimreason != null">
+        CLIAIMREASON = #{cliaimReason,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="claimstatus != null">
+        CLAIMSTATUS = #{claimStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.gbcn.request.ClaimRequest$ClaimRequestBody">
+    update T_GBCN_CLAIM
+    set POLICYNO = #{policyno,jdbcType=VARCHAR},
+      CLAIMNAME = #{claimName,jdbcType=VARCHAR},
+      CLAIMPHONE = #{claimPhone,jdbcType=VARCHAR},
+      CLIAIMREASON = #{cliaimReason,jdbcType=VARCHAR},
+      CREATETIME = #{createTime,jdbcType=VARCHAR},
+      CLAIMSTATUS = #{claimStatus,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

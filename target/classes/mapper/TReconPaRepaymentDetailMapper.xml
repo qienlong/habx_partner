@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.TReconPaRepaymentDetailMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.TReconPaRepaymentDetail">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="BATCH_NO" jdbcType="VARCHAR" property="batchNo" />
+    <result column="POLICY_NO" jdbcType="VARCHAR" property="policyNo" />
+    <result column="SRE_NO" jdbcType="VARCHAR" property="sreNo" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="RE_BUR_AMT" jdbcType="DECIMAL" property="reBurAmt" />
+    <result column="RE_BUR_DATE" jdbcType="VARCHAR" property="reBurDate" />
+    <result column="RE_BUR_FROM_NAME" jdbcType="VARCHAR" property="reBurFromName" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="RE_BUR_STATUS" jdbcType="VARCHAR" property="reBurStatus" />
+    <result column="HANDLE_BY" jdbcType="VARCHAR" property="handleBy" />
+    <result column="HANDLE_TIME" jdbcType="VARCHAR" property="handleTime" />
+    <result column="NOTICE_RESULT" jdbcType="VARCHAR" property="noticeResult" />
+    <result column="NOTICE_TIME" jdbcType="VARCHAR" property="noticeTime" />
+    <result column="TRADING_FLOW_NO" jdbcType="VARCHAR" property="tradingFlowNo" />
+    <result column="TRANDING_TIME" jdbcType="TIMESTAMP" property="trandingTime" />
+    <result column="BATCH_COUNT" jdbcType="VARCHAR" property="batchCount" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, BATCH_NO, POLICY_NO, SRE_NO, APPL_NO, CUST_NAME, CARD_NO, RE_BUR_AMT, RE_BUR_DATE, 
+    RE_BUR_FROM_NAME, INSU_COMPANY, RE_BUR_STATUS, HANDLE_BY, HANDLE_TIME, NOTICE_RESULT, 
+    NOTICE_TIME, TRADING_FLOW_NO, TRANDING_TIME, BATCH_COUNT, CREATED_BY, CREATED_TIME, 
+    UPDATED_BY, UPDATED_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_RECON_PA_REPAYMENT_DETAIL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_RECON_PA_REPAYMENT_DETAIL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.TReconPaRepaymentDetail">
+    insert into T_RECON_PA_REPAYMENT_DETAIL (PK_ID, BATCH_NO, POLICY_NO, 
+      SRE_NO, APPL_NO, CUST_NAME, 
+      CARD_NO, RE_BUR_AMT, RE_BUR_DATE, 
+      RE_BUR_FROM_NAME, INSU_COMPANY, RE_BUR_STATUS, 
+      HANDLE_BY, HANDLE_TIME, NOTICE_RESULT, 
+      NOTICE_TIME, TRADING_FLOW_NO, TRANDING_TIME, 
+      BATCH_COUNT, CREATED_BY, CREATED_TIME, 
+      UPDATED_BY, UPDATED_TIME)
+    values (#{pkId,jdbcType=VARCHAR}, #{batchNo,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, 
+      #{sreNo,jdbcType=VARCHAR}, #{applNo,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{reBurAmt,jdbcType=DECIMAL}, #{reBurDate,jdbcType=VARCHAR}, 
+      #{reBurFromName,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR}, #{reBurStatus,jdbcType=VARCHAR}, 
+      #{handleBy,jdbcType=VARCHAR}, #{handleTime,jdbcType=VARCHAR}, #{noticeResult,jdbcType=VARCHAR}, 
+      #{noticeTime,jdbcType=VARCHAR}, #{tradingFlowNo,jdbcType=VARCHAR}, #{trandingTime,jdbcType=TIMESTAMP}, 
+      #{batchCount,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.TReconPaRepaymentDetail">
+    insert into T_RECON_PA_REPAYMENT_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="batchNo != null">
+        BATCH_NO,
+      </if>
+      <if test="policyNo != null">
+        POLICY_NO,
+      </if>
+      <if test="sreNo != null">
+        SRE_NO,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="reBurAmt != null">
+        RE_BUR_AMT,
+      </if>
+      <if test="reBurDate != null">
+        RE_BUR_DATE,
+      </if>
+      <if test="reBurFromName != null">
+        RE_BUR_FROM_NAME,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="reBurStatus != null">
+        RE_BUR_STATUS,
+      </if>
+      <if test="handleBy != null">
+        HANDLE_BY,
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME,
+      </if>
+      <if test="noticeResult != null">
+        NOTICE_RESULT,
+      </if>
+      <if test="noticeTime != null">
+        NOTICE_TIME,
+      </if>
+      <if test="tradingFlowNo != null">
+        TRADING_FLOW_NO,
+      </if>
+      <if test="trandingTime != null">
+        TRANDING_TIME,
+      </if>
+      <if test="batchCount != null">
+        BATCH_COUNT,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sreNo != null">
+        #{sreNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurAmt != null">
+        #{reBurAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reBurDate != null">
+        #{reBurDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurFromName != null">
+        #{reBurFromName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurStatus != null">
+        #{reBurStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="handleBy != null">
+        #{handleBy,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        #{handleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeResult != null">
+        #{noticeResult,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeTime != null">
+        #{noticeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tradingFlowNo != null">
+        #{tradingFlowNo,jdbcType=VARCHAR},
+      </if>
+      <if test="trandingTime != null">
+        #{trandingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batchCount != null">
+        #{batchCount,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.TReconPaRepaymentDetail">
+    update T_RECON_PA_REPAYMENT_DETAIL
+    <set>
+      <if test="batchNo != null">
+        BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sreNo != null">
+        SRE_NO = #{sreNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurAmt != null">
+        RE_BUR_AMT = #{reBurAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reBurDate != null">
+        RE_BUR_DATE = #{reBurDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurFromName != null">
+        RE_BUR_FROM_NAME = #{reBurFromName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurStatus != null">
+        RE_BUR_STATUS = #{reBurStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="handleBy != null">
+        HANDLE_BY = #{handleBy,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME = #{handleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeResult != null">
+        NOTICE_RESULT = #{noticeResult,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeTime != null">
+        NOTICE_TIME = #{noticeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tradingFlowNo != null">
+        TRADING_FLOW_NO = #{tradingFlowNo,jdbcType=VARCHAR},
+      </if>
+      <if test="trandingTime != null">
+        TRANDING_TIME = #{trandingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batchCount != null">
+        BATCH_COUNT = #{batchCount,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.TReconPaRepaymentDetail">
+    update T_RECON_PA_REPAYMENT_DETAIL
+    set BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      SRE_NO = #{sreNo,jdbcType=VARCHAR},
+      APPL_NO = #{applNo,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      RE_BUR_AMT = #{reBurAmt,jdbcType=DECIMAL},
+      RE_BUR_DATE = #{reBurDate,jdbcType=VARCHAR},
+      RE_BUR_FROM_NAME = #{reBurFromName,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      RE_BUR_STATUS = #{reBurStatus,jdbcType=VARCHAR},
+      HANDLE_BY = #{handleBy,jdbcType=VARCHAR},
+      HANDLE_TIME = #{handleTime,jdbcType=VARCHAR},
+      NOTICE_RESULT = #{noticeResult,jdbcType=VARCHAR},
+      NOTICE_TIME = #{noticeTime,jdbcType=VARCHAR},
+      TRADING_FLOW_NO = #{tradingFlowNo,jdbcType=VARCHAR},
+      TRANDING_TIME = #{trandingTime,jdbcType=TIMESTAMP},
+      BATCH_COUNT = #{batchCount,jdbcType=VARCHAR},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByBatchNo">
+  	update T_RECON_PA_REPAYMENT_DETAIL
+    <set>
+      <if test="policyNo != null">
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sreNo != null">
+        SRE_NO = #{sreNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurAmt != null">
+        RE_BUR_AMT = #{reBurAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reBurDate != null">
+        RE_BUR_DATE = #{reBurDate,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurFromName != null">
+        RE_BUR_FROM_NAME = #{reBurFromName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="reBurStatus != null">
+        RE_BUR_STATUS = #{reBurStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="handleBy != null">
+        HANDLE_BY = #{handleBy,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME = #{handleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeResult != null">
+        NOTICE_RESULT = #{noticeResult,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeTime != null">
+        NOTICE_TIME = #{noticeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tradingFlowNo != null">
+        TRADING_FLOW_NO = #{tradingFlowNo,jdbcType=VARCHAR},
+      </if>
+      <if test="trandingTime != null">
+        TRANDING_TIME = #{trandingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batchCount != null">
+        BATCH_COUNT = #{batchCount,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BATCH_NO = #{batchNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

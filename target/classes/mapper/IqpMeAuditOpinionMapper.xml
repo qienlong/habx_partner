@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeAuditOpinionMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeAuditOpinion">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="MANAGER_ADVICE" jdbcType="VARCHAR" property="managerAdvice" />
+    <result column="MANAGER_ADVICE_OTHER" jdbcType="VARCHAR" property="managerAdviceOther" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="APPROVE_ID" jdbcType="VARCHAR" property="approveId" />
+    <result column="APPROVE_NAME" jdbcType="VARCHAR" property="approveName" />
+    <result column="APPROVE_OPINION" jdbcType="VARCHAR" property="approveOpinion" />
+    <result column="APPROVE_OPINION_DETAILS" jdbcType="VARCHAR" property="approveOpinionDetails" />
+    <result column="APPROVE_AMOUNT" jdbcType="DECIMAL" property="approveAmount" />
+    <result column="APPROVE_TERM" jdbcType="VARCHAR" property="approveTerm" />
+    <result column="APPROVE_RATE" jdbcType="DECIMAL" property="approveRate" />
+    <result column="APPROVE_REPAYMODE" jdbcType="VARCHAR" property="approveRepaymode" />
+    <result column="LOAN_USE_TYPE" jdbcType="VARCHAR" property="loanUseType" />
+    <result column="USE_DEC" jdbcType="VARCHAR" property="useDec" />
+    <result column="GROUP_OPINION" jdbcType="VARCHAR" property="groupOpinion" />
+    <result column="GROUP_OPINION_DETAILS" jdbcType="VARCHAR" property="groupOpinionDetails" />
+    <result column="APPROVE_CONDITION" jdbcType="VARCHAR" property="approveCondition" />
+    <result column="MONITOR_CONDITON" jdbcType="VARCHAR" property="monitorConditon" />
+    <result column="SUP_CONDITION" jdbcType="VARCHAR" property="supCondition" />
+    <result column="REFUSE_REASON" jdbcType="VARCHAR" property="refuseReason" />
+    <result column="OTHER_ITEM" jdbcType="VARCHAR" property="otherItem" />
+    <result column="APPROVE_RESULT" jdbcType="VARCHAR" property="approveResult" />
+    <result column="REPAYMODE" jdbcType="VARCHAR" property="repaymode" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="PAY_TYPE" jdbcType="VARCHAR" property="payType" />
+    <result column="APPROVE_PAY_TYPE" jdbcType="VARCHAR" property="approvePayType" />
+    <result column="APP_DUE_DAY" jdbcType="VARCHAR" property="appDueDay" />
+    <result column="APPROVE_DUE_DAY" jdbcType="VARCHAR" property="approveDueDay" />
+    <result column="APPROVE_IR_TYPE" jdbcType="VARCHAR" property="approveIrType" />
+    <result column="APPROVE_FLOATING_RATE" jdbcType="DECIMAL" property="approveFloatingRate" />
+    <result column="APPROVE_INTEREST_ACC_MODE" jdbcType="VARCHAR" property="approveInterestAccMode" />
+    <result column="APPROVE_RULING_IR" jdbcType="DECIMAL" property="approveRulingIr" />
+    <result column="APPROVE_FREQUENCY" jdbcType="VARCHAR" property="approveFrequency" />
+    <result column="REJECTED_REASON" jdbcType="VARCHAR" property="rejectedReason" />
+    <result column="SECOND_APPROVE_ID" jdbcType="VARCHAR" property="secondApproveId" />
+    <result column="SECOND_APPROVE_AMOUNT" jdbcType="DECIMAL" property="secondApproveAmount" />
+    <result column="SECOND_APPROVE_RATE" jdbcType="DECIMAL" property="secondApproveRate" />
+    <result column="CALL_BACK_REASON" jdbcType="VARCHAR" property="callBackReason" />
+    <result column="SECOND_APPROVE_TERM" jdbcType="VARCHAR" property="secondApproveTerm" />
+    <result column="INSUR_AMOUNT" jdbcType="DECIMAL" property="insurAmount" />
+    <result column="APPROVE_DATE" jdbcType="VARCHAR" property="approveDate" />
+    <result column="APPROVE_REPAYMODE_DESC" jdbcType="VARCHAR" property="approveRepaymodeDesc" />
+    <result column="REFUSE_CODE" jdbcType="VARCHAR" property="refuseCode" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="CHANNEL_NO" jdbcType="VARCHAR" property="channelNo" />
+    <result column="PRD_PK" jdbcType="VARCHAR" property="prdPk" />
+    <result column="COST_RATE" jdbcType="DECIMAL" property="costRate" />
+    <result column="ACCEPT_LOAN_AMOUNT" jdbcType="DECIMAL" property="acceptLoanAmount" />
+    <result column="IS_UPDATE" jdbcType="VARCHAR" property="isUpdate" />
+    <result column="APPROVE_REPAY_PERCENT" jdbcType="DECIMAL" property="approveRepayPercent" />
+    <result column="PENALTY_INTEREST" jdbcType="VARCHAR" property="penaltyInterest" />
+    <result column="APPROVE_TERMDAY" jdbcType="VARCHAR" property="approveTermday" />
+    <result column="APPROVE_TERM_TIME_TYPE" jdbcType="VARCHAR" property="approveTermTimeType" />
+    <result column="UNDERWRITING_RATE" jdbcType="DECIMAL" property="underwritingRate" />
+    <result column="TEL_OPINION" jdbcType="VARCHAR" property="telOpinion" />
+    <result column="SINGLE_PREM" jdbcType="VARCHAR" property="singlePrem" />
+    <result column="FIRST_PREM_RATE" jdbcType="DECIMAL" property="firstPremRate" />
+    <result column="EVERY_PREM_RATE" jdbcType="DECIMAL" property="everyPremRate" />
+    <result column="REFUSE_TYPE_ID" jdbcType="VARCHAR" property="refuseTypeId" />
+    <result column="REFUSE_TYPE" jdbcType="VARCHAR" property="refuseType" />
+    <result column="CUS_LEVEL" jdbcType="VARCHAR" property="cusLevel" />
+    <result column="IS_TEL_APPROVE" jdbcType="VARCHAR" property="isTelApprove" />
+    <result column="APPROVE_OPERA_DATE" jdbcType="VARCHAR" property="approveOperaDate" />
+    <result column="FLOW_LEVEL" jdbcType="VARCHAR" property="flowLevel" />
+    <result column="APPROVE_REMART" jdbcType="VARCHAR" property="approveRemart" />
+    <result column="APPROVE_NODEID" jdbcType="VARCHAR" property="approveNodeid" />
+    <result column="CREDIT_AMOUNT" jdbcType="DECIMAL" property="creditAmount" />
+    <result column="LOAN_AMOUNT" jdbcType="DECIMAL" property="loanAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, CUS_ID, SERNO, MANAGER_ADVICE, MANAGER_ADVICE_OTHER, AMOUNT, TERM, APPROVE_ID, 
+    APPROVE_NAME, APPROVE_OPINION, APPROVE_OPINION_DETAILS, APPROVE_AMOUNT, APPROVE_TERM, 
+    APPROVE_RATE, APPROVE_REPAYMODE, LOAN_USE_TYPE, USE_DEC, GROUP_OPINION, GROUP_OPINION_DETAILS, 
+    APPROVE_CONDITION, MONITOR_CONDITON, SUP_CONDITION, REFUSE_REASON, OTHER_ITEM, APPROVE_RESULT, 
+    REPAYMODE, RATE, PAY_TYPE, APPROVE_PAY_TYPE, APP_DUE_DAY, APPROVE_DUE_DAY, APPROVE_IR_TYPE, 
+    APPROVE_FLOATING_RATE, APPROVE_INTEREST_ACC_MODE, APPROVE_RULING_IR, APPROVE_FREQUENCY, 
+    REJECTED_REASON, SECOND_APPROVE_ID, SECOND_APPROVE_AMOUNT, SECOND_APPROVE_RATE, CALL_BACK_REASON, 
+    SECOND_APPROVE_TERM, INSUR_AMOUNT, APPROVE_DATE, APPROVE_REPAYMODE_DESC, REFUSE_CODE, 
+    COP_NO, CHANNEL_NO, PRD_PK, COST_RATE, ACCEPT_LOAN_AMOUNT, IS_UPDATE, APPROVE_REPAY_PERCENT, 
+    PENALTY_INTEREST, APPROVE_TERMDAY, APPROVE_TERM_TIME_TYPE, UNDERWRITING_RATE, TEL_OPINION, 
+    SINGLE_PREM, FIRST_PREM_RATE, EVERY_PREM_RATE, REFUSE_TYPE_ID, REFUSE_TYPE, CUS_LEVEL, 
+    IS_TEL_APPROVE, APPROVE_OPERA_DATE, FLOW_LEVEL, APPROVE_REMART, APPROVE_NODEID, CREDIT_AMOUNT, 
+    LOAN_AMOUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinionKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_AUDIT_OPINION
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinionKey">
+    delete from IQP_ME_AUDIT_OPINION
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinion">
+    insert into IQP_ME_AUDIT_OPINION (PK_ID, CUS_ID, SERNO, 
+      MANAGER_ADVICE, MANAGER_ADVICE_OTHER, AMOUNT, 
+      TERM, APPROVE_ID, APPROVE_NAME, 
+      APPROVE_OPINION, APPROVE_OPINION_DETAILS, 
+      APPROVE_AMOUNT, APPROVE_TERM, APPROVE_RATE, 
+      APPROVE_REPAYMODE, LOAN_USE_TYPE, USE_DEC, 
+      GROUP_OPINION, GROUP_OPINION_DETAILS, APPROVE_CONDITION, 
+      MONITOR_CONDITON, SUP_CONDITION, REFUSE_REASON, 
+      OTHER_ITEM, APPROVE_RESULT, REPAYMODE, 
+      RATE, PAY_TYPE, APPROVE_PAY_TYPE, 
+      APP_DUE_DAY, APPROVE_DUE_DAY, APPROVE_IR_TYPE, 
+      APPROVE_FLOATING_RATE, APPROVE_INTEREST_ACC_MODE, 
+      APPROVE_RULING_IR, APPROVE_FREQUENCY, REJECTED_REASON, 
+      SECOND_APPROVE_ID, SECOND_APPROVE_AMOUNT, SECOND_APPROVE_RATE, 
+      CALL_BACK_REASON, SECOND_APPROVE_TERM, INSUR_AMOUNT, 
+      APPROVE_DATE, APPROVE_REPAYMODE_DESC, REFUSE_CODE, 
+      COP_NO, CHANNEL_NO, PRD_PK, 
+      COST_RATE, ACCEPT_LOAN_AMOUNT, IS_UPDATE, 
+      APPROVE_REPAY_PERCENT, PENALTY_INTEREST, APPROVE_TERMDAY, 
+      APPROVE_TERM_TIME_TYPE, UNDERWRITING_RATE, 
+      TEL_OPINION, SINGLE_PREM, FIRST_PREM_RATE, 
+      EVERY_PREM_RATE, REFUSE_TYPE_ID, REFUSE_TYPE, 
+      CUS_LEVEL, IS_TEL_APPROVE, APPROVE_OPERA_DATE, 
+      FLOW_LEVEL, APPROVE_REMART, APPROVE_NODEID, 
+      CREDIT_AMOUNT, LOAN_AMOUNT)
+    values (#{pkId,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, 
+      #{managerAdvice,jdbcType=VARCHAR}, #{managerAdviceOther,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, 
+      #{term,jdbcType=VARCHAR}, #{approveId,jdbcType=VARCHAR}, #{approveName,jdbcType=VARCHAR}, 
+      #{approveOpinion,jdbcType=VARCHAR}, #{approveOpinionDetails,jdbcType=VARCHAR}, 
+      #{approveAmount,jdbcType=DECIMAL}, #{approveTerm,jdbcType=VARCHAR}, #{approveRate,jdbcType=DECIMAL}, 
+      #{approveRepaymode,jdbcType=VARCHAR}, #{loanUseType,jdbcType=VARCHAR}, #{useDec,jdbcType=VARCHAR}, 
+      #{groupOpinion,jdbcType=VARCHAR}, #{groupOpinionDetails,jdbcType=VARCHAR}, #{approveCondition,jdbcType=VARCHAR}, 
+      #{monitorConditon,jdbcType=VARCHAR}, #{supCondition,jdbcType=VARCHAR}, #{refuseReason,jdbcType=VARCHAR}, 
+      #{otherItem,jdbcType=VARCHAR}, #{approveResult,jdbcType=VARCHAR}, #{repaymode,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=DECIMAL}, #{payType,jdbcType=VARCHAR}, #{approvePayType,jdbcType=VARCHAR}, 
+      #{appDueDay,jdbcType=VARCHAR}, #{approveDueDay,jdbcType=VARCHAR}, #{approveIrType,jdbcType=VARCHAR}, 
+      #{approveFloatingRate,jdbcType=DECIMAL}, #{approveInterestAccMode,jdbcType=VARCHAR}, 
+      #{approveRulingIr,jdbcType=DECIMAL}, #{approveFrequency,jdbcType=VARCHAR}, #{rejectedReason,jdbcType=VARCHAR}, 
+      #{secondApproveId,jdbcType=VARCHAR}, #{secondApproveAmount,jdbcType=DECIMAL}, #{secondApproveRate,jdbcType=DECIMAL}, 
+      #{callBackReason,jdbcType=VARCHAR}, #{secondApproveTerm,jdbcType=VARCHAR}, #{insurAmount,jdbcType=DECIMAL}, 
+      #{approveDate,jdbcType=VARCHAR}, #{approveRepaymodeDesc,jdbcType=VARCHAR}, #{refuseCode,jdbcType=VARCHAR}, 
+      #{copNo,jdbcType=VARCHAR}, #{channelNo,jdbcType=VARCHAR}, #{prdPk,jdbcType=VARCHAR}, 
+      #{costRate,jdbcType=DECIMAL}, #{acceptLoanAmount,jdbcType=DECIMAL}, #{isUpdate,jdbcType=VARCHAR}, 
+      #{approveRepayPercent,jdbcType=DECIMAL}, #{penaltyInterest,jdbcType=VARCHAR}, #{approveTermday,jdbcType=VARCHAR}, 
+      #{approveTermTimeType,jdbcType=VARCHAR}, #{underwritingRate,jdbcType=DECIMAL}, 
+      #{telOpinion,jdbcType=VARCHAR}, #{singlePrem,jdbcType=VARCHAR}, #{firstPremRate,jdbcType=DECIMAL}, 
+      #{everyPremRate,jdbcType=DECIMAL}, #{refuseTypeId,jdbcType=VARCHAR}, #{refuseType,jdbcType=VARCHAR}, 
+      #{cusLevel,jdbcType=VARCHAR}, #{isTelApprove,jdbcType=VARCHAR}, #{approveOperaDate,jdbcType=VARCHAR}, 
+      #{flowLevel,jdbcType=VARCHAR}, #{approveRemart,jdbcType=VARCHAR}, #{approveNodeid,jdbcType=VARCHAR}, 
+      #{creditAmount,jdbcType=DECIMAL}, #{loanAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinion">
+    insert into IQP_ME_AUDIT_OPINION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="managerAdvice != null">
+        MANAGER_ADVICE,
+      </if>
+      <if test="managerAdviceOther != null">
+        MANAGER_ADVICE_OTHER,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="approveId != null">
+        APPROVE_ID,
+      </if>
+      <if test="approveName != null">
+        APPROVE_NAME,
+      </if>
+      <if test="approveOpinion != null">
+        APPROVE_OPINION,
+      </if>
+      <if test="approveOpinionDetails != null">
+        APPROVE_OPINION_DETAILS,
+      </if>
+      <if test="approveAmount != null">
+        APPROVE_AMOUNT,
+      </if>
+      <if test="approveTerm != null">
+        APPROVE_TERM,
+      </if>
+      <if test="approveRate != null">
+        APPROVE_RATE,
+      </if>
+      <if test="approveRepaymode != null">
+        APPROVE_REPAYMODE,
+      </if>
+      <if test="loanUseType != null">
+        LOAN_USE_TYPE,
+      </if>
+      <if test="useDec != null">
+        USE_DEC,
+      </if>
+      <if test="groupOpinion != null">
+        GROUP_OPINION,
+      </if>
+      <if test="groupOpinionDetails != null">
+        GROUP_OPINION_DETAILS,
+      </if>
+      <if test="approveCondition != null">
+        APPROVE_CONDITION,
+      </if>
+      <if test="monitorConditon != null">
+        MONITOR_CONDITON,
+      </if>
+      <if test="supCondition != null">
+        SUP_CONDITION,
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON,
+      </if>
+      <if test="otherItem != null">
+        OTHER_ITEM,
+      </if>
+      <if test="approveResult != null">
+        APPROVE_RESULT,
+      </if>
+      <if test="repaymode != null">
+        REPAYMODE,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="payType != null">
+        PAY_TYPE,
+      </if>
+      <if test="approvePayType != null">
+        APPROVE_PAY_TYPE,
+      </if>
+      <if test="appDueDay != null">
+        APP_DUE_DAY,
+      </if>
+      <if test="approveDueDay != null">
+        APPROVE_DUE_DAY,
+      </if>
+      <if test="approveIrType != null">
+        APPROVE_IR_TYPE,
+      </if>
+      <if test="approveFloatingRate != null">
+        APPROVE_FLOATING_RATE,
+      </if>
+      <if test="approveInterestAccMode != null">
+        APPROVE_INTEREST_ACC_MODE,
+      </if>
+      <if test="approveRulingIr != null">
+        APPROVE_RULING_IR,
+      </if>
+      <if test="approveFrequency != null">
+        APPROVE_FREQUENCY,
+      </if>
+      <if test="rejectedReason != null">
+        REJECTED_REASON,
+      </if>
+      <if test="secondApproveId != null">
+        SECOND_APPROVE_ID,
+      </if>
+      <if test="secondApproveAmount != null">
+        SECOND_APPROVE_AMOUNT,
+      </if>
+      <if test="secondApproveRate != null">
+        SECOND_APPROVE_RATE,
+      </if>
+      <if test="callBackReason != null">
+        CALL_BACK_REASON,
+      </if>
+      <if test="secondApproveTerm != null">
+        SECOND_APPROVE_TERM,
+      </if>
+      <if test="insurAmount != null">
+        INSUR_AMOUNT,
+      </if>
+      <if test="approveDate != null">
+        APPROVE_DATE,
+      </if>
+      <if test="approveRepaymodeDesc != null">
+        APPROVE_REPAYMODE_DESC,
+      </if>
+      <if test="refuseCode != null">
+        REFUSE_CODE,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="channelNo != null">
+        CHANNEL_NO,
+      </if>
+      <if test="prdPk != null">
+        PRD_PK,
+      </if>
+      <if test="costRate != null">
+        COST_RATE,
+      </if>
+      <if test="acceptLoanAmount != null">
+        ACCEPT_LOAN_AMOUNT,
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE,
+      </if>
+      <if test="approveRepayPercent != null">
+        APPROVE_REPAY_PERCENT,
+      </if>
+      <if test="penaltyInterest != null">
+        PENALTY_INTEREST,
+      </if>
+      <if test="approveTermday != null">
+        APPROVE_TERMDAY,
+      </if>
+      <if test="approveTermTimeType != null">
+        APPROVE_TERM_TIME_TYPE,
+      </if>
+      <if test="underwritingRate != null">
+        UNDERWRITING_RATE,
+      </if>
+      <if test="telOpinion != null">
+        TEL_OPINION,
+      </if>
+      <if test="singlePrem != null">
+        SINGLE_PREM,
+      </if>
+      <if test="firstPremRate != null">
+        FIRST_PREM_RATE,
+      </if>
+      <if test="everyPremRate != null">
+        EVERY_PREM_RATE,
+      </if>
+      <if test="refuseTypeId != null">
+        REFUSE_TYPE_ID,
+      </if>
+      <if test="refuseType != null">
+        REFUSE_TYPE,
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL,
+      </if>
+      <if test="isTelApprove != null">
+        IS_TEL_APPROVE,
+      </if>
+      <if test="approveOperaDate != null">
+        APPROVE_OPERA_DATE,
+      </if>
+      <if test="flowLevel != null">
+        FLOW_LEVEL,
+      </if>
+      <if test="approveRemart != null">
+        APPROVE_REMART,
+      </if>
+      <if test="approveNodeid != null">
+        APPROVE_NODEID,
+      </if>
+      <if test="creditAmount != null">
+        CREDIT_AMOUNT,
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdvice != null">
+        #{managerAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdviceOther != null">
+        #{managerAdviceOther,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="approveId != null">
+        #{approveId,jdbcType=VARCHAR},
+      </if>
+      <if test="approveName != null">
+        #{approveName,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOpinion != null">
+        #{approveOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOpinionDetails != null">
+        #{approveOpinionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="approveAmount != null">
+        #{approveAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="approveTerm != null">
+        #{approveTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRate != null">
+        #{approveRate,jdbcType=DECIMAL},
+      </if>
+      <if test="approveRepaymode != null">
+        #{approveRepaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseType != null">
+        #{loanUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="useDec != null">
+        #{useDec,jdbcType=VARCHAR},
+      </if>
+      <if test="groupOpinion != null">
+        #{groupOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="groupOpinionDetails != null">
+        #{groupOpinionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="approveCondition != null">
+        #{approveCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorConditon != null">
+        #{monitorConditon,jdbcType=VARCHAR},
+      </if>
+      <if test="supCondition != null">
+        #{supCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="otherItem != null">
+        #{otherItem,jdbcType=VARCHAR},
+      </if>
+      <if test="approveResult != null">
+        #{approveResult,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymode != null">
+        #{repaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="approvePayType != null">
+        #{approvePayType,jdbcType=VARCHAR},
+      </if>
+      <if test="appDueDay != null">
+        #{appDueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="approveDueDay != null">
+        #{approveDueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="approveIrType != null">
+        #{approveIrType,jdbcType=VARCHAR},
+      </if>
+      <if test="approveFloatingRate != null">
+        #{approveFloatingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="approveInterestAccMode != null">
+        #{approveInterestAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRulingIr != null">
+        #{approveRulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="approveFrequency != null">
+        #{approveFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectedReason != null">
+        #{rejectedReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveId != null">
+        #{secondApproveId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveAmount != null">
+        #{secondApproveAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="secondApproveRate != null">
+        #{secondApproveRate,jdbcType=DECIMAL},
+      </if>
+      <if test="callBackReason != null">
+        #{callBackReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveTerm != null">
+        #{secondApproveTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="insurAmount != null">
+        #{insurAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="approveDate != null">
+        #{approveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepaymodeDesc != null">
+        #{approveRepaymodeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseCode != null">
+        #{refuseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptLoanAmount != null">
+        #{acceptLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isUpdate != null">
+        #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepayPercent != null">
+        #{approveRepayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyInterest != null">
+        #{penaltyInterest,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermday != null">
+        #{approveTermday,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermTimeType != null">
+        #{approveTermTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="underwritingRate != null">
+        #{underwritingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="telOpinion != null">
+        #{telOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="singlePrem != null">
+        #{singlePrem,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPremRate != null">
+        #{firstPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="everyPremRate != null">
+        #{everyPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="refuseTypeId != null">
+        #{refuseTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseType != null">
+        #{refuseType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLevel != null">
+        #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isTelApprove != null">
+        #{isTelApprove,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOperaDate != null">
+        #{approveOperaDate,jdbcType=VARCHAR},
+      </if>
+      <if test="flowLevel != null">
+        #{flowLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRemart != null">
+        #{approveRemart,jdbcType=VARCHAR},
+      </if>
+      <if test="approveNodeid != null">
+        #{approveNodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="creditAmount != null">
+        #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        #{loanAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinion">
+    update IQP_ME_AUDIT_OPINION
+    <set>
+      <if test="serno != null">
+        SERNO = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdvice != null">
+        MANAGER_ADVICE = #{managerAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdviceOther != null">
+        MANAGER_ADVICE_OTHER = #{managerAdviceOther,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="approveId != null">
+        APPROVE_ID = #{approveId,jdbcType=VARCHAR},
+      </if>
+      <if test="approveName != null">
+        APPROVE_NAME = #{approveName,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOpinion != null">
+        APPROVE_OPINION = #{approveOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOpinionDetails != null">
+        APPROVE_OPINION_DETAILS = #{approveOpinionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="approveAmount != null">
+        APPROVE_AMOUNT = #{approveAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="approveTerm != null">
+        APPROVE_TERM = #{approveTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRate != null">
+        APPROVE_RATE = #{approveRate,jdbcType=DECIMAL},
+      </if>
+      <if test="approveRepaymode != null">
+        APPROVE_REPAYMODE = #{approveRepaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseType != null">
+        LOAN_USE_TYPE = #{loanUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="useDec != null">
+        USE_DEC = #{useDec,jdbcType=VARCHAR},
+      </if>
+      <if test="groupOpinion != null">
+        GROUP_OPINION = #{groupOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="groupOpinionDetails != null">
+        GROUP_OPINION_DETAILS = #{groupOpinionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="approveCondition != null">
+        APPROVE_CONDITION = #{approveCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorConditon != null">
+        MONITOR_CONDITON = #{monitorConditon,jdbcType=VARCHAR},
+      </if>
+      <if test="supCondition != null">
+        SUP_CONDITION = #{supCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="otherItem != null">
+        OTHER_ITEM = #{otherItem,jdbcType=VARCHAR},
+      </if>
+      <if test="approveResult != null">
+        APPROVE_RESULT = #{approveResult,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymode != null">
+        REPAYMODE = #{repaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="approvePayType != null">
+        APPROVE_PAY_TYPE = #{approvePayType,jdbcType=VARCHAR},
+      </if>
+      <if test="appDueDay != null">
+        APP_DUE_DAY = #{appDueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="approveDueDay != null">
+        APPROVE_DUE_DAY = #{approveDueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="approveIrType != null">
+        APPROVE_IR_TYPE = #{approveIrType,jdbcType=VARCHAR},
+      </if>
+      <if test="approveFloatingRate != null">
+        APPROVE_FLOATING_RATE = #{approveFloatingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="approveInterestAccMode != null">
+        APPROVE_INTEREST_ACC_MODE = #{approveInterestAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRulingIr != null">
+        APPROVE_RULING_IR = #{approveRulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="approveFrequency != null">
+        APPROVE_FREQUENCY = #{approveFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectedReason != null">
+        REJECTED_REASON = #{rejectedReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveId != null">
+        SECOND_APPROVE_ID = #{secondApproveId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveAmount != null">
+        SECOND_APPROVE_AMOUNT = #{secondApproveAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="secondApproveRate != null">
+        SECOND_APPROVE_RATE = #{secondApproveRate,jdbcType=DECIMAL},
+      </if>
+      <if test="callBackReason != null">
+        CALL_BACK_REASON = #{callBackReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveTerm != null">
+        SECOND_APPROVE_TERM = #{secondApproveTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="insurAmount != null">
+        INSUR_AMOUNT = #{insurAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="approveDate != null">
+        APPROVE_DATE = #{approveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepaymodeDesc != null">
+        APPROVE_REPAYMODE_DESC = #{approveRepaymodeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseCode != null">
+        REFUSE_CODE = #{refuseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        CHANNEL_NO = #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        COST_RATE = #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptLoanAmount != null">
+        ACCEPT_LOAN_AMOUNT = #{acceptLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepayPercent != null">
+        APPROVE_REPAY_PERCENT = #{approveRepayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyInterest != null">
+        PENALTY_INTEREST = #{penaltyInterest,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermday != null">
+        APPROVE_TERMDAY = #{approveTermday,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermTimeType != null">
+        APPROVE_TERM_TIME_TYPE = #{approveTermTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="underwritingRate != null">
+        UNDERWRITING_RATE = #{underwritingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="telOpinion != null">
+        TEL_OPINION = #{telOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="singlePrem != null">
+        SINGLE_PREM = #{singlePrem,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPremRate != null">
+        FIRST_PREM_RATE = #{firstPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="everyPremRate != null">
+        EVERY_PREM_RATE = #{everyPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="refuseTypeId != null">
+        REFUSE_TYPE_ID = #{refuseTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseType != null">
+        REFUSE_TYPE = #{refuseType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isTelApprove != null">
+        IS_TEL_APPROVE = #{isTelApprove,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOperaDate != null">
+        APPROVE_OPERA_DATE = #{approveOperaDate,jdbcType=VARCHAR},
+      </if>
+      <if test="flowLevel != null">
+        FLOW_LEVEL = #{flowLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRemart != null">
+        APPROVE_REMART = #{approveRemart,jdbcType=VARCHAR},
+      </if>
+      <if test="approveNodeid != null">
+        APPROVE_NODEID = #{approveNodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="creditAmount != null">
+        CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinion">
+    update IQP_ME_AUDIT_OPINION
+    set SERNO = #{serno,jdbcType=VARCHAR},
+      MANAGER_ADVICE = #{managerAdvice,jdbcType=VARCHAR},
+      MANAGER_ADVICE_OTHER = #{managerAdviceOther,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      TERM = #{term,jdbcType=VARCHAR},
+      APPROVE_ID = #{approveId,jdbcType=VARCHAR},
+      APPROVE_NAME = #{approveName,jdbcType=VARCHAR},
+      APPROVE_OPINION = #{approveOpinion,jdbcType=VARCHAR},
+      APPROVE_OPINION_DETAILS = #{approveOpinionDetails,jdbcType=VARCHAR},
+      APPROVE_AMOUNT = #{approveAmount,jdbcType=DECIMAL},
+      APPROVE_TERM = #{approveTerm,jdbcType=VARCHAR},
+      APPROVE_RATE = #{approveRate,jdbcType=DECIMAL},
+      APPROVE_REPAYMODE = #{approveRepaymode,jdbcType=VARCHAR},
+      LOAN_USE_TYPE = #{loanUseType,jdbcType=VARCHAR},
+      USE_DEC = #{useDec,jdbcType=VARCHAR},
+      GROUP_OPINION = #{groupOpinion,jdbcType=VARCHAR},
+      GROUP_OPINION_DETAILS = #{groupOpinionDetails,jdbcType=VARCHAR},
+      APPROVE_CONDITION = #{approveCondition,jdbcType=VARCHAR},
+      MONITOR_CONDITON = #{monitorConditon,jdbcType=VARCHAR},
+      SUP_CONDITION = #{supCondition,jdbcType=VARCHAR},
+      REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      OTHER_ITEM = #{otherItem,jdbcType=VARCHAR},
+      APPROVE_RESULT = #{approveResult,jdbcType=VARCHAR},
+      REPAYMODE = #{repaymode,jdbcType=VARCHAR},
+      RATE = #{rate,jdbcType=DECIMAL},
+      PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      APPROVE_PAY_TYPE = #{approvePayType,jdbcType=VARCHAR},
+      APP_DUE_DAY = #{appDueDay,jdbcType=VARCHAR},
+      APPROVE_DUE_DAY = #{approveDueDay,jdbcType=VARCHAR},
+      APPROVE_IR_TYPE = #{approveIrType,jdbcType=VARCHAR},
+      APPROVE_FLOATING_RATE = #{approveFloatingRate,jdbcType=DECIMAL},
+      APPROVE_INTEREST_ACC_MODE = #{approveInterestAccMode,jdbcType=VARCHAR},
+      APPROVE_RULING_IR = #{approveRulingIr,jdbcType=DECIMAL},
+      APPROVE_FREQUENCY = #{approveFrequency,jdbcType=VARCHAR},
+      REJECTED_REASON = #{rejectedReason,jdbcType=VARCHAR},
+      SECOND_APPROVE_ID = #{secondApproveId,jdbcType=VARCHAR},
+      SECOND_APPROVE_AMOUNT = #{secondApproveAmount,jdbcType=DECIMAL},
+      SECOND_APPROVE_RATE = #{secondApproveRate,jdbcType=DECIMAL},
+      CALL_BACK_REASON = #{callBackReason,jdbcType=VARCHAR},
+      SECOND_APPROVE_TERM = #{secondApproveTerm,jdbcType=VARCHAR},
+      INSUR_AMOUNT = #{insurAmount,jdbcType=DECIMAL},
+      APPROVE_DATE = #{approveDate,jdbcType=VARCHAR},
+      APPROVE_REPAYMODE_DESC = #{approveRepaymodeDesc,jdbcType=VARCHAR},
+      REFUSE_CODE = #{refuseCode,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      CHANNEL_NO = #{channelNo,jdbcType=VARCHAR},
+      PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      COST_RATE = #{costRate,jdbcType=DECIMAL},
+      ACCEPT_LOAN_AMOUNT = #{acceptLoanAmount,jdbcType=DECIMAL},
+      IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      APPROVE_REPAY_PERCENT = #{approveRepayPercent,jdbcType=DECIMAL},
+      PENALTY_INTEREST = #{penaltyInterest,jdbcType=VARCHAR},
+      APPROVE_TERMDAY = #{approveTermday,jdbcType=VARCHAR},
+      APPROVE_TERM_TIME_TYPE = #{approveTermTimeType,jdbcType=VARCHAR},
+      UNDERWRITING_RATE = #{underwritingRate,jdbcType=DECIMAL},
+      TEL_OPINION = #{telOpinion,jdbcType=VARCHAR},
+      SINGLE_PREM = #{singlePrem,jdbcType=VARCHAR},
+      FIRST_PREM_RATE = #{firstPremRate,jdbcType=DECIMAL},
+      EVERY_PREM_RATE = #{everyPremRate,jdbcType=DECIMAL},
+      REFUSE_TYPE_ID = #{refuseTypeId,jdbcType=VARCHAR},
+      REFUSE_TYPE = #{refuseType,jdbcType=VARCHAR},
+      CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      IS_TEL_APPROVE = #{isTelApprove,jdbcType=VARCHAR},
+      APPROVE_OPERA_DATE = #{approveOperaDate,jdbcType=VARCHAR},
+      FLOW_LEVEL = #{flowLevel,jdbcType=VARCHAR},
+      APPROVE_REMART = #{approveRemart,jdbcType=VARCHAR},
+      APPROVE_NODEID = #{approveNodeid,jdbcType=VARCHAR},
+      CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL},
+      LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 根据申请号和客户号更新审批风控决议表 -->
+   <update id="updateBySernoAndCustIdSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeAuditOpinion">
+    update IQP_ME_AUDIT_OPINION
+    <set>
+      <if test="managerAdvice != null">
+        MANAGER_ADVICE = #{managerAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="managerAdviceOther != null">
+        MANAGER_ADVICE_OTHER = #{managerAdviceOther,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="approveId != null">
+        APPROVE_ID = #{approveId,jdbcType=VARCHAR},
+      </if>
+      <if test="approveName != null">
+        APPROVE_NAME = #{approveName,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOpinion != null">
+        APPROVE_OPINION = #{approveOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOpinionDetails != null">
+        APPROVE_OPINION_DETAILS = #{approveOpinionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="approveAmount != null">
+        APPROVE_AMOUNT = #{approveAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="approveTerm != null">
+        APPROVE_TERM = #{approveTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRate != null">
+        APPROVE_RATE = #{approveRate,jdbcType=DECIMAL},
+      </if>
+      <if test="approveRepaymode != null">
+        APPROVE_REPAYMODE = #{approveRepaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="loanUseType != null">
+        LOAN_USE_TYPE = #{loanUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="useDec != null">
+        USE_DEC = #{useDec,jdbcType=VARCHAR},
+      </if>
+      <if test="groupOpinion != null">
+        GROUP_OPINION = #{groupOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="groupOpinionDetails != null">
+        GROUP_OPINION_DETAILS = #{groupOpinionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="approveCondition != null">
+        APPROVE_CONDITION = #{approveCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorConditon != null">
+        MONITOR_CONDITON = #{monitorConditon,jdbcType=VARCHAR},
+      </if>
+      <if test="supCondition != null">
+        SUP_CONDITION = #{supCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="otherItem != null">
+        OTHER_ITEM = #{otherItem,jdbcType=VARCHAR},
+      </if>
+      <if test="approveResult != null">
+        APPROVE_RESULT = #{approveResult,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymode != null">
+        REPAYMODE = #{repaymode,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="approvePayType != null">
+        APPROVE_PAY_TYPE = #{approvePayType,jdbcType=VARCHAR},
+      </if>
+      <if test="appDueDay != null">
+        APP_DUE_DAY = #{appDueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="approveDueDay != null">
+        APPROVE_DUE_DAY = #{approveDueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="approveIrType != null">
+        APPROVE_IR_TYPE = #{approveIrType,jdbcType=VARCHAR},
+      </if>
+      <if test="approveFloatingRate != null">
+        APPROVE_FLOATING_RATE = #{approveFloatingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="approveInterestAccMode != null">
+        APPROVE_INTEREST_ACC_MODE = #{approveInterestAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRulingIr != null">
+        APPROVE_RULING_IR = #{approveRulingIr,jdbcType=DECIMAL},
+      </if>
+      <if test="approveFrequency != null">
+        APPROVE_FREQUENCY = #{approveFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectedReason != null">
+        REJECTED_REASON = #{rejectedReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveId != null">
+        SECOND_APPROVE_ID = #{secondApproveId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveAmount != null">
+        SECOND_APPROVE_AMOUNT = #{secondApproveAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="secondApproveRate != null">
+        SECOND_APPROVE_RATE = #{secondApproveRate,jdbcType=DECIMAL},
+      </if>
+      <if test="callBackReason != null">
+        CALL_BACK_REASON = #{callBackReason,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApproveTerm != null">
+        SECOND_APPROVE_TERM = #{secondApproveTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="insurAmount != null">
+        INSUR_AMOUNT = #{insurAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="approveDate != null">
+        APPROVE_DATE = #{approveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepaymodeDesc != null">
+        APPROVE_REPAYMODE_DESC = #{approveRepaymodeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseCode != null">
+        REFUSE_CODE = #{refuseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        CHANNEL_NO = #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prdPk != null">
+        PRD_PK = #{prdPk,jdbcType=VARCHAR},
+      </if>
+      <if test="costRate != null">
+        COST_RATE = #{costRate,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptLoanAmount != null">
+        ACCEPT_LOAN_AMOUNT = #{acceptLoanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isUpdate != null">
+        IS_UPDATE = #{isUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRepayPercent != null">
+        APPROVE_REPAY_PERCENT = #{approveRepayPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyInterest != null">
+        PENALTY_INTEREST = #{penaltyInterest,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermday != null">
+        APPROVE_TERMDAY = #{approveTermday,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTermTimeType != null">
+        APPROVE_TERM_TIME_TYPE = #{approveTermTimeType,jdbcType=VARCHAR},
+      </if>
+      <if test="underwritingRate != null">
+        UNDERWRITING_RATE = #{underwritingRate,jdbcType=DECIMAL},
+      </if>
+      <if test="telOpinion != null">
+        TEL_OPINION = #{telOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="singlePrem != null">
+        SINGLE_PREM = #{singlePrem,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPremRate != null">
+        FIRST_PREM_RATE = #{firstPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="everyPremRate != null">
+        EVERY_PREM_RATE = #{everyPremRate,jdbcType=DECIMAL},
+      </if>
+      <if test="refuseTypeId != null">
+        REFUSE_TYPE_ID = #{refuseTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseType != null">
+        REFUSE_TYPE = #{refuseType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLevel != null">
+        CUS_LEVEL = #{cusLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isTelApprove != null">
+        IS_TEL_APPROVE = #{isTelApprove,jdbcType=VARCHAR},
+      </if>
+      <if test="approveOperaDate != null">
+        APPROVE_OPERA_DATE = #{approveOperaDate,jdbcType=VARCHAR},
+      </if>
+      <if test="flowLevel != null">
+        FLOW_LEVEL = #{flowLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="approveRemart != null">
+        APPROVE_REMART = #{approveRemart,jdbcType=VARCHAR},
+      </if>
+      <if test="approveNodeid != null">
+        APPROVE_NODEID = #{approveNodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="creditAmount != null">
+        CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where SERNO = #{serno,jdbcType=VARCHAR}
+      and CUS_ID = #{cusId,jdbcType=VARCHAR}
+  </update>
+  
+</mapper>

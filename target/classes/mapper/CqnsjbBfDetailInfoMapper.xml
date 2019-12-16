@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CqnsjbBfDetailInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CqnsjbBfDetailInfo">
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="PS_PERD_NO" jdbcType="VARCHAR" property="psPerdNo" />
+    <result column="PS_NORM_INT_AMT" jdbcType="DECIMAL" property="psNormIntAmt" />
+    <result column="PS_REAL_INT_AMT" jdbcType="DECIMAL" property="psRealIntAmt" />
+    <result column="ACCRUED_INT_AMT" jdbcType="DECIMAL" property="accruedIntAmt" />
+    <result column="REPAY_FLAG" jdbcType="VARCHAR" property="repayFlag" />
+    <result column="PS_DUE_DT" jdbcType="VARCHAR" property="psDueDt" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="ACCOUNT_MONTH" jdbcType="VARCHAR" property="accountMonth" />
+    <result column="LIST_DUE_DATE" jdbcType="VARCHAR" property="listDueDate" />
+    <result column="CORRECT_DATE" jdbcType="VARCHAR" property="correctDate" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfDetailInfo">
+    insert into CQNSJB_BF_DETAIL_INFO (LIST_SERNO, BILL_NO, CUS_NAME, 
+      CERT_CODE, PS_PERD_NO, PS_NORM_INT_AMT, 
+      PS_REAL_INT_AMT, ACCRUED_INT_AMT, REPAY_FLAG, 
+      PS_DUE_DT,INPUT_DATE,ACCOUNT_MONTH,LIST_DUE_DATE,CORRECT_DATE)
+    values (#{listSerno,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{cusName,jdbcType=VARCHAR}, 
+      #{certCode,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=VARCHAR}, #{psNormIntAmt,jdbcType=DECIMAL}, 
+      #{psRealIntAmt,jdbcType=DECIMAL}, #{accruedIntAmt,jdbcType=DECIMAL}, #{repayFlag,jdbcType=VARCHAR}, 
+      #{psDueDt,jdbcType=VARCHAR},#{inputDate,jdbcType=VARCHAR},#{accountMonth,jdbcType=VARCHAR},
+      #{listDueDate,jdbcType=VARCHAR},#{correctDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfDetailInfo">
+    insert into CQNSJB_BF_DETAIL_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="psNormIntAmt != null">
+        PS_NORM_INT_AMT,
+      </if>
+      <if test="psRealIntAmt != null">
+        PS_REAL_INT_AMT,
+      </if>
+      <if test="accruedIntAmt != null">
+        ACCRUED_INT_AMT,
+      </if>
+      <if test="repayFlag != null">
+        REPAY_FLAG,
+      </if>
+      <if test="psDueDt != null">
+        PS_DUE_DT,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+       <if test="accountMonth != null">
+        ACCOUNT_MONTH,
+      </if>
+      <if test="listDueDate != null">
+        LIST_DUE_DATE,
+      </if>
+      <if test="correctDate != null">
+        CORRECT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psNormIntAmt != null">
+        #{psNormIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="psRealIntAmt != null">
+        #{psRealIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="accruedIntAmt != null">
+        #{accruedIntAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayFlag != null">
+        #{repayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="psDueDt != null">
+        #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+       <if test="accountMonth != null">
+        #{accountMonth,jdbcType=VARCHAR},
+      </if>
+       <if test="listDueDate != null">
+        #{listDueDate,jdbcType=VARCHAR},
+      </if>
+       <if test="correctDate != null">
+        #{correctDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="queryInsuranceInfo" resultType="Map">
+  <![CDATA[
+  	select 
+       substr(b.PS_REAL_DT,0,7) as account_month ,c.list_serno,b.bill_no,
+       trunc(sum(nvl(b.ps_real_int_amt,0) + nvl(b.setl_comm_od_int,0) + nvl(b.setl_od_inc_taken,0))*0.2,2) insure_amount
+      from acc_mtd_ps_note b,acc_loan c,lst_iqp_info d
+      where c.bill_no = b.bill_no
+      and c.list_serno = d.list_serno
+	   	and c.iqp_loan_serno like 'JBSQ%'
+	   	and to_date(b.ps_real_dt,'yyyy-MM-dd') < to_date(d.cover_end_date,'yyyy-MM-dd')-1
+	   	group by substr(b.PS_REAL_DT,0,7),c.list_serno,b.bill_no
+	]]> 
+  </select>
+  <!-- 查询明细信息 -->
+  <select id="queryDetailInfo"  parameterType="String" resultType="String">
+  	select 
+  		distinct(LIST_SERNO) as listSerno
+  	from CQNSJB_BF_DETAIL_INFO 
+  	where ACCOUNT_MONTH =  #{psDueDt,jdbcType=VARCHAR}
+  </select>
+  <!-- 删除当月明细数据 -->
+  <delete id="deleteDetailInfoByMonth" parameterType="String">
+  	   delete  from CQNSJB_BF_DETAIL_INFO t 
+  	   where t.account_month = #{month,jdbcType=VARCHAR}
+  </delete>
+  <!-- 批量插入明细数据 -->
+  <insert id="insertBatchDetailInfo" parameterType="java.util.List">
+  	insert into CQNSJB_BF_DETAIL_INFO (LIST_SERNO, BILL_NO, CUS_NAME, 
+      CERT_CODE, PS_PERD_NO, PS_NORM_INT_AMT, 
+      PS_REAL_INT_AMT, ACCRUED_INT_AMT, REPAY_FLAG, 
+      PS_DUE_DT,INPUT_DATE,ACCOUNT_MONTH,LIST_DUE_DATE,CORRECT_DATE)
+      <foreach collection="cqnsjbBfDetailInfos" item="a" separator="union all">
+       		SELECT
+       			#{a.listSerno,jdbcType=VARCHAR}, #{a.billNo,jdbcType=VARCHAR}, #{a.cusName,jdbcType=VARCHAR}, 
+			    #{a.certCode,jdbcType=VARCHAR}, #{a.psPerdNo,jdbcType=VARCHAR}, #{a.psNormIntAmt,jdbcType=DECIMAL}, 
+			    #{a.psRealIntAmt,jdbcType=DECIMAL}, #{a.accruedIntAmt,jdbcType=DECIMAL}, #{a.repayFlag,jdbcType=VARCHAR}, 
+			    #{a.psDueDt,jdbcType=VARCHAR},#{a.inputDate,jdbcType=VARCHAR},#{a.accountMonth,jdbcType=VARCHAR},
+			    #{a.listDueDate,jdbcType=VARCHAR},#{a.correctDate,jdbcType=VARCHAR}
+       		FROM
+			DUAL
+       </foreach>
+  </insert>
+  <!-- 查询业务归属部门代码(10位出单机构代码)-->
+  <select id="querySOrgInfo" parameterType="String" resultType="String">
+  	   select 
+  	   		t.core_organno 
+  	   from s_org t 
+  	   where t.organno = (select t.br_id from iqp_me_api_cop t where t.accid=#{accid,jdbcType=VARCHAR})
+  </select>
+  
+</mapper>

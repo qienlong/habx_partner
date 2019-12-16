@@ -1,0 +1,10 @@
+server:
+  port: 18091 # 启动端口
+  
+ # LOGGING  
+logging:  
+  path: /app/haxb_partner_sev/logs
+  level:  
+     cn.com.sinosafe: debug
+     org.springframework: warn
+     org.spring.springboot.dao: debug

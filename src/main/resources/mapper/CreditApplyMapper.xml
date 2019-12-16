@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CreditApplyMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CreditApply">
+    <result column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="CUS_TYPE" jdbcType="VARCHAR" property="cusType" />
+    <result column="CUS_ID" jdbcType="VARCHAR" property="cusId" />
+    <result column="CUS_NAME" jdbcType="VARCHAR" property="cusName" />
+    <result column="PRD_ID" jdbcType="VARCHAR" property="prdId" />
+    <result column="PRD_NAME" jdbcType="VARCHAR" property="prdName" />
+    <result column="APPLY_REASON" jdbcType="VARCHAR" property="applyReason" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="APPLY_USER" jdbcType="VARCHAR" property="applyUser" />
+    <result column="APPLY_TIME" jdbcType="VARCHAR" property="applyTime" />
+    <result column="APPROVE_STATUS" jdbcType="VARCHAR" property="approveStatus" />
+    <result column="APPROVE_TIME" jdbcType="VARCHAR" property="approveTime" />
+    <result column="OLD_SERNO" jdbcType="VARCHAR" property="oldSerno" />
+    <result column="BIZ_MODE" jdbcType="VARCHAR" property="bizMode" />
+    <result column="CERT_CODE" jdbcType="VARCHAR" property="certCode" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="IS_UP_CREDIT" jdbcType="VARCHAR" property="isUpCredit" />
+    <result column="IS_GUA" jdbcType="VARCHAR" property="isGua" />
+    <result column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="IS_PRETRIAL" jdbcType="VARCHAR" property="isPretrial" />
+    <result column="IS_PRETRIAL_FLAG" jdbcType="VARCHAR" property="isPretrialFlag" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+    <result column="APPLY_BR_ID" jdbcType="VARCHAR" property="applyBrId" />
+    <result column="SEARCH_TYPE" jdbcType="VARCHAR" property="searchType" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="REPORT_ID" jdbcType="VARCHAR" property="reportId" />
+    <result column="REPORT_DATE" jdbcType="VARCHAR" property="reportDate" />
+    <result column="APPLY_RESULT" jdbcType="VARCHAR" property="applyResult" />
+    <result column="CREDIT_CERT_CODE" jdbcType="VARCHAR" property="creditCertCode" />
+    <result column="SUBMIT_TIME" jdbcType="VARCHAR" property="submitTime" />
+    <result column="CHANNEL" jdbcType="VARCHAR" property="channel" />
+    <result column="T_CRT_TM" jdbcType="VARCHAR" property="tCrtTm" />
+    <result column="T_UPT_TM" jdbcType="VARCHAR" property="tUptTm" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CreditApply">
+    insert into CREDIT_APPLY (SERNO, CUS_TYPE, CUS_ID, 
+      CUS_NAME, PRD_ID, PRD_NAME, 
+      APPLY_REASON, REMARK, APPLY_USER, 
+      APPLY_TIME, APPROVE_STATUS, APPROVE_TIME, 
+      OLD_SERNO, BIZ_MODE, CERT_CODE, 
+      CERT_TYPE, IS_UP_CREDIT, IS_GUA, 
+      PK_ID, IS_PRETRIAL, IS_PRETRIAL_FLAG, 
+      PHONE, BANK_CODE, APPLY_BR_ID, 
+      SEARCH_TYPE, TYPE, REPORT_ID, 
+      REPORT_DATE, APPLY_RESULT, CREDIT_CERT_CODE, 
+      SUBMIT_TIME, CHANNEL, T_CRT_TM, 
+      T_UPT_TM)
+    values (#{serno,jdbcType=VARCHAR}, #{cusType,jdbcType=VARCHAR}, #{cusId,jdbcType=VARCHAR}, 
+      #{cusName,jdbcType=VARCHAR}, #{prdId,jdbcType=VARCHAR}, #{prdName,jdbcType=VARCHAR}, 
+      #{applyReason,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{applyUser,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=VARCHAR}, #{approveStatus,jdbcType=VARCHAR}, #{approveTime,jdbcType=VARCHAR}, 
+      #{oldSerno,jdbcType=VARCHAR}, #{bizMode,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, 
+      #{certType,jdbcType=VARCHAR}, #{isUpCredit,jdbcType=VARCHAR}, #{isGua,jdbcType=VARCHAR}, 
+      #{pkId,jdbcType=VARCHAR}, #{isPretrial,jdbcType=VARCHAR}, #{isPretrialFlag,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR}, #{applyBrId,jdbcType=VARCHAR}, 
+      #{searchType,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{reportId,jdbcType=VARCHAR}, 
+      #{reportDate,jdbcType=VARCHAR}, #{applyResult,jdbcType=VARCHAR}, #{creditCertCode,jdbcType=VARCHAR}, 
+      #{submitTime,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{tCrtTm,jdbcType=VARCHAR}, 
+      #{tUptTm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CreditApply">
+    insert into CREDIT_APPLY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="cusType != null">
+        CUS_TYPE,
+      </if>
+      <if test="cusId != null">
+        CUS_ID,
+      </if>
+      <if test="cusName != null">
+        CUS_NAME,
+      </if>
+      <if test="prdId != null">
+        PRD_ID,
+      </if>
+      <if test="prdName != null">
+        PRD_NAME,
+      </if>
+      <if test="applyReason != null">
+        APPLY_REASON,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="applyUser != null">
+        APPLY_USER,
+      </if>
+      <if test="applyTime != null">
+        APPLY_TIME,
+      </if>
+      <if test="approveStatus != null">
+        APPROVE_STATUS,
+      </if>
+      <if test="approveTime != null">
+        APPROVE_TIME,
+      </if>
+      <if test="oldSerno != null">
+        OLD_SERNO,
+      </if>
+      <if test="bizMode != null">
+        BIZ_MODE,
+      </if>
+      <if test="certCode != null">
+        CERT_CODE,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="isUpCredit != null">
+        IS_UP_CREDIT,
+      </if>
+      <if test="isGua != null">
+        IS_GUA,
+      </if>
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="isPretrial != null">
+        IS_PRETRIAL,
+      </if>
+      <if test="isPretrialFlag != null">
+        IS_PRETRIAL_FLAG,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE,
+      </if>
+      <if test="applyBrId != null">
+        APPLY_BR_ID,
+      </if>
+      <if test="searchType != null">
+        SEARCH_TYPE,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="reportId != null">
+        REPORT_ID,
+      </if>
+      <if test="reportDate != null">
+        REPORT_DATE,
+      </if>
+      <if test="applyResult != null">
+        APPLY_RESULT,
+      </if>
+      <if test="creditCertCode != null">
+        CREDIT_CERT_CODE,
+      </if>
+      <if test="submitTime != null">
+        SUBMIT_TIME,
+      </if>
+      <if test="channel != null">
+        CHANNEL,
+      </if>
+      <if test="tCrtTm != null">
+        T_CRT_TM,
+      </if>
+      <if test="tUptTm != null">
+        T_UPT_TM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="cusType != null">
+        #{cusType,jdbcType=VARCHAR},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cusName != null">
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="prdId != null">
+        #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="prdName != null">
+        #{prdName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyReason != null">
+        #{applyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUser != null">
+        #{applyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null">
+        #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTime != null">
+        #{approveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="oldSerno != null">
+        #{oldSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMode != null">
+        #{bizMode,jdbcType=VARCHAR},
+      </if>
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpCredit != null">
+        #{isUpCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="isGua != null">
+        #{isGua,jdbcType=VARCHAR},
+      </if>
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="isPretrial != null">
+        #{isPretrial,jdbcType=VARCHAR},
+      </if>
+      <if test="isPretrialFlag != null">
+        #{isPretrialFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyBrId != null">
+        #{applyBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="searchType != null">
+        #{searchType,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="reportId != null">
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+      <if test="applyResult != null">
+        #{applyResult,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCertCode != null">
+        #{creditCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="tCrtTm != null">
+        #{tCrtTm,jdbcType=VARCHAR},
+      </if>
+      <if test="tUptTm != null">
+        #{tUptTm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMePrjCopDao">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMePrjCop">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="SERNO" jdbcType="VARCHAR" property="serno" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="COP_CUS_ID" jdbcType="VARCHAR" property="copCusId" />
+    <result column="COP_CUS_NAME" jdbcType="VARCHAR" property="copCusName" />
+    <result column="COP_CERT_TYPE" jdbcType="VARCHAR" property="copCertType" />
+    <result column="COP_CERT_CODE" jdbcType="VARCHAR" property="copCertCode" />
+    <result column="COP_CUS_TYPE" jdbcType="VARCHAR" property="copCusType" />
+    <result column="BIZ_COP_TYPE" jdbcType="VARCHAR" property="bizCopType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, SERNO, COP_NO, COP_CUS_ID, COP_CUS_NAME, COP_CERT_TYPE, COP_CERT_CODE, COP_CUS_TYPE, 
+    BIZ_COP_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMePrjCop" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_PRJ_COP
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="queryIqpMePrjCopBySerno" parameterType="String" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" />
+    from IQP_ME_PRJ_COP
+    where SERNO = #{serno,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMePrjCop">
+    delete from IQP_ME_PRJ_COP
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMePrjCop">
+    insert into IQP_ME_PRJ_COP (PK_ID, SERNO, COP_NO, 
+      COP_CUS_ID, COP_CUS_NAME, COP_CERT_TYPE, 
+      COP_CERT_CODE, COP_CUS_TYPE, BIZ_COP_TYPE
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{serno,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, 
+      #{copCusId,jdbcType=VARCHAR}, #{copCusName,jdbcType=VARCHAR}, #{copCertType,jdbcType=VARCHAR}, 
+      #{copCertCode,jdbcType=VARCHAR}, #{copCusType,jdbcType=VARCHAR}, #{bizCopType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMePrjCop">
+    insert into IQP_ME_PRJ_COP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="serno != null">
+        SERNO,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="copCusId != null">
+        COP_CUS_ID,
+      </if>
+      <if test="copCusName != null">
+        COP_CUS_NAME,
+      </if>
+      <if test="copCertType != null">
+        COP_CERT_TYPE,
+      </if>
+      <if test="copCertCode != null">
+        COP_CERT_CODE,
+      </if>
+      <if test="copCusType != null">
+        COP_CUS_TYPE,
+      </if>
+      <if test="bizCopType != null">
+        BIZ_COP_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusId != null">
+        #{copCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusName != null">
+        #{copCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertType != null">
+        #{copCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertCode != null">
+        #{copCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusType != null">
+        #{copCusType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizCopType != null">
+        #{bizCopType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMePrjCop">
+    update IQP_ME_PRJ_COP
+    <set>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusId != null">
+        COP_CUS_ID = #{copCusId,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusName != null">
+        COP_CUS_NAME = #{copCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertType != null">
+        COP_CERT_TYPE = #{copCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="copCertCode != null">
+        COP_CERT_CODE = #{copCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="copCusType != null">
+        COP_CUS_TYPE = #{copCusType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizCopType != null">
+        BIZ_COP_TYPE = #{bizCopType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMePrjCop">
+    update IQP_ME_PRJ_COP
+    set COP_NO = #{copNo,jdbcType=VARCHAR},
+      COP_CUS_ID = #{copCusId,jdbcType=VARCHAR},
+      COP_CUS_NAME = #{copCusName,jdbcType=VARCHAR},
+      COP_CERT_TYPE = #{copCertType,jdbcType=VARCHAR},
+      COP_CERT_CODE = #{copCertCode,jdbcType=VARCHAR},
+      COP_CUS_TYPE = #{copCusType,jdbcType=VARCHAR},
+      BIZ_COP_TYPE = #{bizCopType,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and SERNO = #{serno,jdbcType=VARCHAR}
+  </update>
+  
+  <insert id="insertIqpMePrjCop" parameterType="java.util.List">
+  	insert into iqp_me_prj_cop(
+  				PK_ID, SERNO, COP_NO, 
+		      	COP_CUS_ID, COP_CUS_NAME, COP_CERT_TYPE, 
+		      	COP_CERT_CODE, COP_CUS_TYPE, BIZ_COP_TYPE
+	        )
+        <foreach collection="iqpMePrjCops" item="iqpMePrjCop" separator="union all">
+            select 
+            #{iqpMePrjCop.pkId,jdbcType=VARCHAR}, #{iqpMePrjCop.serno,jdbcType=VARCHAR}, #{iqpMePrjCop.copNo,jdbcType=VARCHAR}, 
+      		#{iqpMePrjCop.copCusId,jdbcType=VARCHAR}, #{iqpMePrjCop.copCusName,jdbcType=VARCHAR}, #{iqpMePrjCop.copCertType,jdbcType=VARCHAR}, 
+      		#{iqpMePrjCop.copCertCode,jdbcType=VARCHAR}, #{iqpMePrjCop.copCusType,jdbcType=VARCHAR}, #{iqpMePrjCop.bizCopType,jdbcType=VARCHAR}
+            from dual
+        </foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.MsxfAccMtdPsNoteMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.MsxfAccMtdPsNote">
+    <id column="MSXF_ACC_MTD_PS_NOTE_ID" jdbcType="VARCHAR" property="msxfAccMtdPsNoteId" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+    <result column="ADD_DATE" jdbcType="VARCHAR" property="addDate" />
+    <result column="SYNC_STATUS" jdbcType="VARCHAR" property="syncStatus" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="BIZ_DATE" jdbcType="VARCHAR" property="bizDate" />
+    <result column="CONTR_NBR" jdbcType="VARCHAR" property="contrNbr" />
+    <result column="PRODUCT_CD" jdbcType="VARCHAR" property="productCd" />
+    <result column="REF_NBR" jdbcType="VARCHAR" property="refNbr" />
+    <result column="REPAY_DATE" jdbcType="VARCHAR" property="repayDate" />
+    <result column="REPAY_REF_NBR" jdbcType="VARCHAR" property="repayRefNbr" />
+    <result column="PRINCIPAL_DUE" jdbcType="DECIMAL" property="principalDue" />
+    <result column="PRINCIPAL_AMT" jdbcType="DECIMAL" property="principalAmt" />
+    <result column="INTEREST_DUE" jdbcType="DECIMAL" property="interestDue" />
+    <result column="INTEREST_AMT" jdbcType="DECIMAL" property="interestAmt" />
+    <result column="PENALTY_DUE" jdbcType="DECIMAL" property="penaltyDue" />
+    <result column="PENALTY_AMT" jdbcType="DECIMAL" property="penaltyAmt" />
+    <result column="REPAY_TERM" jdbcType="VARCHAR" property="repayTerm" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="REPAY_CARD_NO" jdbcType="VARCHAR" property="repayCardNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MSXF_ACC_MTD_PS_NOTE_ID, BUSINESS_DATE, ADD_DATE, SYNC_STATUS, COP_NO, BIZ_DATE, 
+    CONTR_NBR, PRODUCT_CD, REF_NBR, REPAY_DATE, REPAY_REF_NBR, PRINCIPAL_DUE, PRINCIPAL_AMT,
+    INTEREST_DUE, INTEREST_AMT, PENALTY_DUE, PENALTY_AMT, REPAY_TERM, REPAY_TYPE, REPAY_CARD_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MSXF_ACC_MTD_PS_NOTE
+    where MSXF_ACC_MTD_PS_NOTE_ID = #{msxfAccMtdPsNoteId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MSXF_ACC_MTD_PS_NOTE
+    where MSXF_ACC_MTD_PS_NOTE_ID = #{msxfAccMtdPsNoteId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPsNote">
+    insert into MSXF_ACC_MTD_PS_NOTE (MSXF_ACC_MTD_PS_NOTE_ID, BUSINESS_DATE, 
+      ADD_DATE, SYNC_STATUS, COP_NO, 
+      BIZ_DATE, CONTR_NBR, PRODUCT_CD, 
+      REF_NBR, REPAY_DATE, REPAY_REF_NBR, 
+      PRINCIPAL_DUE, PRINCIPAL_AMT, INTEREST_DUE,
+      INTEREST_AMT, PENALTY_DUE, PENALTY_AMT, 
+      REPAY_TERM, REPAY_TYPE, REPAY_CARD_NO
+      )
+    values (#{msxfAccMtdPsNoteId,jdbcType=VARCHAR}, #{businessDate,jdbcType=VARCHAR}, 
+      #{addDate,jdbcType=VARCHAR}, #{syncStatus,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, 
+      #{bizDate,jdbcType=VARCHAR}, #{contrNbr,jdbcType=VARCHAR}, #{productCd,jdbcType=VARCHAR}, 
+      #{refNbr,jdbcType=VARCHAR}, #{repayDate,jdbcType=VARCHAR}, #{repayRefNbr,jdbcType=VARCHAR}, 
+      #{principalDue,jdbcType=DECIMAL}, #{principalAmt,jdbcType=DECIMAL}, #{interestDue,jdbcType=DECIMAL},
+      #{interestAmt,jdbcType=DECIMAL}, #{penaltyDue,jdbcType=DECIMAL}, #{penaltyAmt,jdbcType=DECIMAL}, 
+      #{repayTerm,jdbcType=VARCHAR}, #{repayType,jdbcType=VARCHAR}, #{repayCardNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPsNote">
+    insert into MSXF_ACC_MTD_PS_NOTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msxfAccMtdPsNoteId != null">
+        MSXF_ACC_MTD_PS_NOTE_ID,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+      <if test="addDate != null">
+        ADD_DATE,
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="bizDate != null">
+        BIZ_DATE,
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR,
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD,
+      </if>
+      <if test="refNbr != null">
+        REF_NBR,
+      </if>
+      <if test="repayDate != null">
+        REPAY_DATE,
+      </if>
+      <if test="repayRefNbr != null">
+        REPAY_REF_NBR,
+      </if>
+      <if test="principalDue != null">
+        PRINCIPAL_DUE,
+      </if>
+      <if test="principalAmt != null">
+        PRINCIPAL_AMT,
+      </if>
+      <if test="interestDue != null">
+        INTEREST_DUE,
+      </if>
+      <if test="interestAmt != null">
+        INTEREST_AMT,
+      </if>
+      <if test="penaltyDue != null">
+        PENALTY_DUE,
+      </if>
+      <if test="penaltyAmt != null">
+        PENALTY_AMT,
+      </if>
+      <if test="repayTerm != null">
+        REPAY_TERM,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="repayCardNo != null">
+        REPAY_CARD_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msxfAccMtdPsNoteId != null">
+        #{msxfAccMtdPsNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="addDate != null">
+        #{addDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null">
+        #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDate != null">
+        #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="repayRefNbr != null">
+        #{repayRefNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="principalDue != null">
+        #{principalDue,jdbcType=DECIMAL},
+      </if>
+      <if test="principalAmt != null">
+        #{principalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="interestDue != null">
+        #{interestDue,jdbcType=DECIMAL},
+      </if>
+      <if test="interestAmt != null">
+        #{interestAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyDue != null">
+        #{penaltyDue,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyAmt != null">
+        #{penaltyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayTerm != null">
+        #{repayTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPsNote">
+    update MSXF_ACC_MTD_PS_NOTE
+    <set>
+      <if test="businessDate != null">
+        BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="addDate != null">
+        ADD_DATE = #{addDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null">
+        BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="repayDate != null">
+        REPAY_DATE = #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="repayRefNbr != null">
+        REPAY_REF_NBR = #{repayRefNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="principalDue != null">
+        PRINCIPAL_DUE = #{principalDue,jdbcType=DECIMAL},
+      </if>
+      <if test="principalAmt != null">
+        PRINCIPAL_AMT = #{principalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="interestDue != null">
+        INTEREST_DUE = #{interestDue,jdbcType=DECIMAL},
+      </if>
+      <if test="interestAmt != null">
+        INTEREST_AMT = #{interestAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyDue != null">
+        PENALTY_DUE = #{penaltyDue,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyAmt != null">
+        PENALTY_AMT = #{penaltyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayTerm != null">
+        REPAY_TERM = #{repayTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCardNo != null">
+        REPAY_CARD_NO = #{repayCardNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MSXF_ACC_MTD_PS_NOTE_ID = #{msxfAccMtdPsNoteId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPsNote">
+    update MSXF_ACC_MTD_PS_NOTE
+    set BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      ADD_DATE = #{addDate,jdbcType=VARCHAR},
+      SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      REPAY_DATE = #{repayDate,jdbcType=VARCHAR},
+      REPAY_REF_NBR = #{repayRefNbr,jdbcType=VARCHAR},
+      PRINCIPAL_DUE = #{principalDue,jdbcType=DECIMAL},
+      PRINCIPAL_AMT = #{principalAmt,jdbcType=DECIMAL},
+      INTEREST_DUE = #{interestDue,jdbcType=DECIMAL},
+      INTEREST_AMT = #{interestAmt,jdbcType=DECIMAL},
+      PENALTY_DUE = #{penaltyDue,jdbcType=DECIMAL},
+      PENALTY_AMT = #{penaltyAmt,jdbcType=DECIMAL},
+      REPAY_TERM = #{repayTerm,jdbcType=VARCHAR},
+      REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      REPAY_CARD_NO = #{repayCardNo,jdbcType=VARCHAR}
+    where MSXF_ACC_MTD_PS_NOTE_ID = #{msxfAccMtdPsNoteId,jdbcType=VARCHAR}
+  </update>
+
+  <insert id ="batchInsert" parameterType="java.util.List" >
+    insert into MSXF_ACC_MTD_PS_NOTE (MSXF_ACC_MTD_PS_NOTE_ID, BUSINESS_DATE,
+    ADD_DATE, SYNC_STATUS, COP_NO,
+    BIZ_DATE, CONTR_NBR, PRODUCT_CD,
+    REF_NBR, REPAY_DATE, REPAY_REF_NBR,
+    PRINCIPAL_DUE, PRINCIPAL_AMT, INTEREST_DUE,
+    INTEREST_AMT, PENALTY_DUE, PENALTY_AMT,
+    REPAY_TERM, REPAY_TYPE, REPAY_CARD_NO
+    )
+    <foreach collection ="list" item="item" index="index" separator="union all">
+      select
+      #{item.msxfAccMtdPsNoteId,jdbcType=VARCHAR}, #{item.businessDate,jdbcType=VARCHAR},
+      to_char(sysdate,'yyyy-mm-dd'), #{item.syncStatus,jdbcType=VARCHAR}, #{item.copNo,jdbcType=VARCHAR},
+      #{item.bizDate,jdbcType=VARCHAR}, #{item.contrNbr,jdbcType=VARCHAR}, #{item.productCd,jdbcType=VARCHAR},
+      #{item.refNbr,jdbcType=VARCHAR}, #{item.repayDate,jdbcType=VARCHAR}, #{item.repayRefNbr,jdbcType=VARCHAR},
+      #{item.principalDue,jdbcType=DECIMAL}, #{item.principalAmt,jdbcType=DECIMAL}, #{item.interestDue,jdbcType=DECIMAL},
+      #{item.interestAmt,jdbcType=DECIMAL}, #{item.penaltyDue,jdbcType=DECIMAL}, #{item.penaltyAmt,jdbcType=DECIMAL},
+      #{item.repayTerm,jdbcType=VARCHAR}, #{item.repayType,jdbcType=VARCHAR}, #{item.repayCardNo,jdbcType=VARCHAR}
+      from dual
+    </foreach >
+  </insert>
+
+  <select id="selectByContNoAndDate" parameterType="Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from MSXF_ACC_MTD_PS_NOTE
+    where REF_NBR = #{contrNbr,jdbcType=VARCHAR}
+    and BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    and SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR}
+  </select>
+</mapper>

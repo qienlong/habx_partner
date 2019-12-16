@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.MsxfAccMtdPlanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.MsxfAccMtdPlan">
+    <id column="MSXF_ACC_MTD_PLAN_ID" jdbcType="VARCHAR" property="msxfAccMtdPlanId" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+    <result column="ADD_DATE" jdbcType="VARCHAR" property="addDate" />
+    <result column="SYNC_STATUS" jdbcType="VARCHAR" property="syncStatus" />
+    <result column="COP_NO" jdbcType="VARCHAR" property="copNo" />
+    <result column="BIZ_DATE" jdbcType="VARCHAR" property="bizDate" />
+    <result column="CONTR_NBR" jdbcType="VARCHAR" property="contrNbr" />
+    <result column="PRODUCT_CD" jdbcType="VARCHAR" property="productCd" />
+    <result column="REF_NBR" jdbcType="VARCHAR" property="refNbr" />
+    <result column="TERM" jdbcType="VARCHAR" property="term" />
+    <result column="BEGIN_DATE" jdbcType="VARCHAR" property="beginDate" />
+    <result column="STMT_DATE" jdbcType="VARCHAR" property="stmtDate" />
+    <result column="GRACE_DATE" jdbcType="VARCHAR" property="graceDate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="PRINCIPAL" jdbcType="DECIMAL" property="principal" />
+    <result column="PRINCIPAL_PAID" jdbcType="DECIMAL" property="principalPaid" />
+    <result column="PRINCIPAL_DUE" jdbcType="DECIMAL" property="principalDue" />
+    <result column="PRINCIPAL_DUE_91" jdbcType="DECIMAL" property="principalDue91" />
+    <result column="INTEREST" jdbcType="DECIMAL" property="interest" />
+    <result column="INTEREST_PAID" jdbcType="DECIMAL" property="interestPaid" />
+    <result column="INTEREST_DUE" jdbcType="DECIMAL" property="interestDue" />
+    <result column="INTEREST_DUE_91" jdbcType="DECIMAL" property="interestDue91" />
+    <result column="PENALTY_DUE" jdbcType="DECIMAL" property="penaltyDue" />
+    <result column="PENALTY_PAID" jdbcType="DECIMAL" property="penaltyPaid" />
+    <result column="INIT_TERM" jdbcType="VARCHAR" property="initTerm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MSXF_ACC_MTD_PLAN_ID, BUSINESS_DATE, ADD_DATE, SYNC_STATUS, COP_NO, BIZ_DATE, CONTR_NBR, 
+    PRODUCT_CD, REF_NBR, TERM, BEGIN_DATE, STMT_DATE, GRACE_DATE, "STATUS", PRINCIPAL, 
+    PRINCIPAL_PAID, PRINCIPAL_DUE, PRINCIPAL_DUE_91, INTEREST, INTEREST_PAID, INTEREST_DUE, 
+    INTEREST_DUE_91, PENALTY_DUE, PENALTY_PAID, INIT_TERM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MSXF_ACC_MTD_PLAN
+    where MSXF_ACC_MTD_PLAN_ID = #{msxfAccMtdPlanId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MSXF_ACC_MTD_PLAN
+    where MSXF_ACC_MTD_PLAN_ID = #{msxfAccMtdPlanId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPlan">
+    insert into MSXF_ACC_MTD_PLAN (MSXF_ACC_MTD_PLAN_ID, BUSINESS_DATE, ADD_DATE, 
+      SYNC_STATUS, COP_NO, BIZ_DATE, 
+      CONTR_NBR, PRODUCT_CD, REF_NBR, 
+      TERM, BEGIN_DATE, STMT_DATE, 
+      GRACE_DATE, "STATUS", PRINCIPAL, 
+      PRINCIPAL_PAID, PRINCIPAL_DUE, PRINCIPAL_DUE_91, 
+      INTEREST, INTEREST_PAID, INTEREST_DUE, 
+      INTEREST_DUE_91, PENALTY_DUE, PENALTY_PAID, 
+      INIT_TERM)
+    values (#{msxfAccMtdPlanId,jdbcType=VARCHAR}, #{businessDate,jdbcType=VARCHAR}, #{addDate,jdbcType=VARCHAR}, 
+      #{syncStatus,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, #{bizDate,jdbcType=VARCHAR}, 
+      #{contrNbr,jdbcType=VARCHAR}, #{productCd,jdbcType=VARCHAR}, #{refNbr,jdbcType=VARCHAR}, 
+      #{term,jdbcType=VARCHAR}, #{beginDate,jdbcType=VARCHAR}, #{stmtDate,jdbcType=VARCHAR},
+      #{graceDate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{principal,jdbcType=DECIMAL}, 
+      #{principalPaid,jdbcType=DECIMAL}, #{principalDue,jdbcType=DECIMAL}, #{principalDue91,jdbcType=DECIMAL}, 
+      #{interest,jdbcType=DECIMAL}, #{interestPaid,jdbcType=DECIMAL}, #{interestDue,jdbcType=DECIMAL}, 
+      #{interestDue91,jdbcType=DECIMAL}, #{penaltyDue,jdbcType=DECIMAL}, #{penaltyPaid,jdbcType=DECIMAL}, 
+      #{initTerm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPlan">
+    insert into MSXF_ACC_MTD_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msxfAccMtdPlanId != null">
+        MSXF_ACC_MTD_PLAN_ID,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+      <if test="addDate != null">
+        ADD_DATE,
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS,
+      </if>
+      <if test="copNo != null">
+        COP_NO,
+      </if>
+      <if test="bizDate != null">
+        BIZ_DATE,
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR,
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD,
+      </if>
+      <if test="refNbr != null">
+        REF_NBR,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="beginDate != null">
+        BEGIN_DATE,
+      </if>
+      <if test="stmtDate != null">
+        STMT_DATE,
+      </if>
+      <if test="graceDate != null">
+        GRACE_DATE,
+      </if>
+      <if test="status != null">
+        "STATUS",
+      </if>
+      <if test="principal != null">
+        PRINCIPAL,
+      </if>
+      <if test="principalPaid != null">
+        PRINCIPAL_PAID,
+      </if>
+      <if test="principalDue != null">
+        PRINCIPAL_DUE,
+      </if>
+      <if test="principalDue91 != null">
+        PRINCIPAL_DUE_91,
+      </if>
+      <if test="interest != null">
+        INTEREST,
+      </if>
+      <if test="interestPaid != null">
+        INTEREST_PAID,
+      </if>
+      <if test="interestDue != null">
+        INTEREST_DUE,
+      </if>
+      <if test="interestDue91 != null">
+        INTEREST_DUE_91,
+      </if>
+      <if test="penaltyDue != null">
+        PENALTY_DUE,
+      </if>
+      <if test="penaltyPaid != null">
+        PENALTY_PAID,
+      </if>
+      <if test="initTerm != null">
+        INIT_TERM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msxfAccMtdPlanId != null">
+        #{msxfAccMtdPlanId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="addDate != null">
+        #{addDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null">
+        #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null">
+        #{beginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="stmtDate != null">
+        #{stmtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="graceDate != null">
+        #{graceDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=DECIMAL},
+      </if>
+      <if test="principalPaid != null">
+        #{principalPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="principalDue != null">
+        #{principalDue,jdbcType=DECIMAL},
+      </if>
+      <if test="principalDue91 != null">
+        #{principalDue91,jdbcType=DECIMAL},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="interestPaid != null">
+        #{interestPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="interestDue != null">
+        #{interestDue,jdbcType=DECIMAL},
+      </if>
+      <if test="interestDue91 != null">
+        #{interestDue91,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyDue != null">
+        #{penaltyDue,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyPaid != null">
+        #{penaltyPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="initTerm != null">
+        #{initTerm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPlan">
+    update MSXF_ACC_MTD_PLAN
+    <set>
+      <if test="businessDate != null">
+        BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="addDate != null">
+        ADD_DATE = #{addDate,jdbcType=VARCHAR},
+      </if>
+      <if test="syncStatus != null">
+        SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        COP_NO = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null">
+        BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrNbr != null">
+        CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCd != null">
+        PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        TERM = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null">
+        BEGIN_DATE = #{beginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="stmtDate != null">
+        STMT_DATE = #{stmtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="graceDate != null">
+        GRACE_DATE = #{graceDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        "STATUS" = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        PRINCIPAL = #{principal,jdbcType=DECIMAL},
+      </if>
+      <if test="principalPaid != null">
+        PRINCIPAL_PAID = #{principalPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="principalDue != null">
+        PRINCIPAL_DUE = #{principalDue,jdbcType=DECIMAL},
+      </if>
+      <if test="principalDue91 != null">
+        PRINCIPAL_DUE_91 = #{principalDue91,jdbcType=DECIMAL},
+      </if>
+      <if test="interest != null">
+        INTEREST = #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="interestPaid != null">
+        INTEREST_PAID = #{interestPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="interestDue != null">
+        INTEREST_DUE = #{interestDue,jdbcType=DECIMAL},
+      </if>
+      <if test="interestDue91 != null">
+        INTEREST_DUE_91 = #{interestDue91,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyDue != null">
+        PENALTY_DUE = #{penaltyDue,jdbcType=DECIMAL},
+      </if>
+      <if test="penaltyPaid != null">
+        PENALTY_PAID = #{penaltyPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="initTerm != null">
+        INIT_TERM = #{initTerm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MSXF_ACC_MTD_PLAN_ID = #{msxfAccMtdPlanId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.MsxfAccMtdPlan">
+    update MSXF_ACC_MTD_PLAN
+    set BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      ADD_DATE = #{addDate,jdbcType=VARCHAR},
+      SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR},
+      COP_NO = #{copNo,jdbcType=VARCHAR},
+      BIZ_DATE = #{bizDate,jdbcType=VARCHAR},
+      CONTR_NBR = #{contrNbr,jdbcType=VARCHAR},
+      PRODUCT_CD = #{productCd,jdbcType=VARCHAR},
+      REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      TERM = #{term,jdbcType=VARCHAR},
+      BEGIN_DATE = #{beginDate,jdbcType=VARCHAR},
+      STMT_DATE = #{stmtDate,jdbcType=VARCHAR},
+      GRACE_DATE = #{graceDate,jdbcType=VARCHAR},
+      "STATUS" = #{status,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=DECIMAL},
+      PRINCIPAL_PAID = #{principalPaid,jdbcType=DECIMAL},
+      PRINCIPAL_DUE = #{principalDue,jdbcType=DECIMAL},
+      PRINCIPAL_DUE_91 = #{principalDue91,jdbcType=DECIMAL},
+      INTEREST = #{interest,jdbcType=DECIMAL},
+      INTEREST_PAID = #{interestPaid,jdbcType=DECIMAL},
+      INTEREST_DUE = #{interestDue,jdbcType=DECIMAL},
+      INTEREST_DUE_91 = #{interestDue91,jdbcType=DECIMAL},
+      PENALTY_DUE = #{penaltyDue,jdbcType=DECIMAL},
+      PENALTY_PAID = #{penaltyPaid,jdbcType=DECIMAL},
+      INIT_TERM = #{initTerm,jdbcType=VARCHAR}
+    where MSXF_ACC_MTD_PLAN_ID = #{msxfAccMtdPlanId,jdbcType=VARCHAR}
+  </update>
+
+  <insert id ="batchInsert" parameterType="java.util.List" >
+    insert into MSXF_ACC_MTD_PLAN (MSXF_ACC_MTD_PLAN_ID, BUSINESS_DATE, ADD_DATE,
+    SYNC_STATUS, COP_NO, BIZ_DATE,
+    CONTR_NBR, PRODUCT_CD, REF_NBR,
+    TERM, BEGIN_DATE, STMT_DATE,
+    GRACE_DATE, STATUS, PRINCIPAL,
+    PRINCIPAL_PAID, PRINCIPAL_DUE, PRINCIPAL_DUE_91,
+    INTEREST, INTEREST_PAID, INTEREST_DUE,
+    INTEREST_DUE_91, PENALTY_DUE, PENALTY_PAID,
+    INIT_TERM)
+    <foreach collection ="list" item="item" index="index" separator="union all">
+      select
+      #{item.msxfAccMtdPlanId,jdbcType=VARCHAR}, #{item.businessDate,jdbcType=VARCHAR}, to_char(sysdate,'yyyy-mm-dd'),
+      #{item.syncStatus,jdbcType=VARCHAR}, #{item.copNo,jdbcType=VARCHAR}, #{item.bizDate,jdbcType=VARCHAR},
+      #{item.contrNbr,jdbcType=VARCHAR}, #{item.productCd,jdbcType=VARCHAR}, #{item.refNbr,jdbcType=VARCHAR},
+      #{item.term,jdbcType=VARCHAR}, #{item.beginDate,jdbcType=VARCHAR}, #{item.stmtDate,jdbcType=VARCHAR},
+      #{item.graceDate,jdbcType=VARCHAR}, #{item.status,jdbcType=VARCHAR}, #{item.principal,jdbcType=DECIMAL},
+      #{item.principalPaid,jdbcType=DECIMAL}, #{item.principalDue,jdbcType=DECIMAL}, #{item.principalDue91,jdbcType=DECIMAL},
+      #{item.interest,jdbcType=DECIMAL}, #{item.interestPaid,jdbcType=DECIMAL}, #{item.interestDue,jdbcType=DECIMAL},
+      #{item.interestDue91,jdbcType=DECIMAL}, #{item.penaltyDue,jdbcType=DECIMAL}, #{item.penaltyPaid,jdbcType=DECIMAL},
+      #{item.initTerm,jdbcType=VARCHAR}
+      from dual
+    </foreach >
+  </insert>
+
+  <select id="selectByContNoAndDate" parameterType="Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from MSXF_ACC_MTD_PLAN
+    where REF_NBR = #{contrNbr,jdbcType=VARCHAR}
+    and BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR}
+    and SYNC_STATUS = #{syncStatus,jdbcType=VARCHAR} order by term desc
+  </select>
+</mapper>

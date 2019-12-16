@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMeErrInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMeErrInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="MODULE" jdbcType="VARCHAR" property="module" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="MSG_TYPE" jdbcType="VARCHAR" property="msgType" />
+    <result column="MSG" jdbcType="VARCHAR" property="msg" />
+    <result column="INFO" jdbcType="VARCHAR" property="info" />
+    <result column="IDX" jdbcType="DECIMAL" property="idx" />
+    <result column="MSG_DATE" jdbcType="VARCHAR" property="msgDate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, MODULE, TYPE, MSG_TYPE, MSG, INFO, IDX, MSG_DATE, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_ERR_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_ERR_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMeErrInfo">
+    insert into IQP_ME_ERR_INFO (PK_ID, MODULE, TYPE, 
+      MSG_TYPE, MSG, INFO, 
+      IDX, MSG_DATE, STATUS
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{msgType,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
+      #{idx,jdbcType=DECIMAL}, #{msgDate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeErrInfo">
+    insert into IQP_ME_ERR_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="module != null">
+        MODULE,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE,
+      </if>
+      <if test="msg != null">
+        MSG,
+      </if>
+      <if test="info != null">
+        INFO,
+      </if>
+      <if test="idx != null">
+        IDX,
+      </if>
+      <if test="msgDate != null">
+        MSG_DATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null">
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="idx != null">
+        #{idx,jdbcType=DECIMAL},
+      </if>
+      <if test="msgDate != null">
+        #{msgDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMeErrInfo">
+    update IQP_ME_ERR_INFO
+    <set>
+      <if test="module != null">
+        MODULE = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        MSG = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null">
+        INFO = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="idx != null">
+        IDX = #{idx,jdbcType=DECIMAL},
+      </if>
+      <if test="msgDate != null">
+        MSG_DATE = #{msgDate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMeErrInfo">
+    update IQP_ME_ERR_INFO
+    set MODULE = #{module,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      MSG = #{msg,jdbcType=VARCHAR},
+      INFO = #{info,jdbcType=VARCHAR},
+      IDX = #{idx,jdbcType=DECIMAL},
+      MSG_DATE = #{msgDate,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  
+  <insert id="insertBatch" parameterType="Map">
+    insert into IQP_ME_ERR_INFO (PK_ID, MODULE, TYPE, 
+      MSG_TYPE, MSG, INFO, 
+      IDX, MSG_DATE, STATUS)
+     <foreach collection="errInfos" item="a" separator="union all">
+    	SELECT 
+	    	#{a.pkId,jdbcType=VARCHAR}, #{a.module,jdbcType=VARCHAR}, #{a.type,jdbcType=VARCHAR}, #{a.msgType,jdbcType=VARCHAR}, 
+		      #{a.msg,jdbcType=VARCHAR}, #{a.info,jdbcType=VARCHAR}, #{a.idx,jdbcType=NUMERIC}, #{a.msgDate,jdbcType=VARCHAR}, 
+		      #{a.status,jdbcType=VARCHAR}
+   		FROM DUAL
+    </foreach>
+  </insert>
+  
+  <select id="selectExceptions" parameterType="String" resultMap="BaseResultMap">
+  	select * from IQP_ME_ERR_INFO a
+	where a.status = '0' and not exists (select 1 from sent_status b where a.pk_id = b.sent_serno and b.sent_type = #{sentType})
+  </select>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.IqpMePaCreditCancelMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.IqpMePaCreditCancel">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="REJECT_DATE" jdbcType="VARCHAR" property="rejectDate" />
+    <result column="DATE_MSG" jdbcType="VARCHAR" property="dateMsg" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, APPL_NO, STATUS, REJECT_DATE, DATE_MSG, INSU_COMPANY, SOURCE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IQP_ME_PA_CREDIT_CANCEL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IQP_ME_PA_CREDIT_CANCEL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.IqpMePaCreditCancel">
+    insert into IQP_ME_PA_CREDIT_CANCEL (PK_ID, APPL_NO, STATUS, 
+      REJECT_DATE, DATE_MSG, INSU_COMPANY, 
+      SOURCE)
+    values (#{pkId,jdbcType=VARCHAR}, #{applNo,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{rejectDate,jdbcType=VARCHAR}, #{dateMsg,jdbcType=VARCHAR}, #{insuCompany,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.IqpMePaCreditCancel">
+    insert into IQP_ME_PA_CREDIT_CANCEL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="rejectDate != null">
+        REJECT_DATE,
+      </if>
+      <if test="dateMsg != null">
+        DATE_MSG,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectDate != null">
+        #{rejectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dateMsg != null">
+        #{dateMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.IqpMePaCreditCancel">
+    update IQP_ME_PA_CREDIT_CANCEL
+    <set>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectDate != null">
+        REJECT_DATE = #{rejectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dateMsg != null">
+        DATE_MSG = #{dateMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.IqpMePaCreditCancel">
+    update IQP_ME_PA_CREDIT_CANCEL
+    set APPL_NO = #{applNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      REJECT_DATE = #{rejectDate,jdbcType=VARCHAR},
+      DATE_MSG = #{dateMsg,jdbcType=VARCHAR},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

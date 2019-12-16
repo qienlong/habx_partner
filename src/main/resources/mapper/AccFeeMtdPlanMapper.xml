@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.AccFeeMtdPlanMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    <id column="LST_SERNO" jdbcType="VARCHAR" property="lstSerno" />
+    <id column="PS_PERD_NO" jdbcType="DECIMAL" property="psPerdNo" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="PS_COVERAGE_FEE" jdbcType="DECIMAL" property="psCoverageFee" />
+    <result column="PS_DUE_DT" jdbcType="VARCHAR" property="psDueDt" />
+    <result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+    <result column="PS_REAL_DT" jdbcType="VARCHAR" property="psRealDt" />
+    <result column="PS_REAL_PRCP_AMT" jdbcType="DECIMAL" property="psRealPrcpAmt" />
+    <result column="REPAY_FLAG" jdbcType="VARCHAR" property="repayFlag" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="INPUT_ID" jdbcType="VARCHAR" property="inputId" />
+    <result column="INPUT_BR_ID" jdbcType="VARCHAR" property="inputBrId" />
+    <result column="UPDATE_DATE" jdbcType="VARCHAR" property="updateDate" />
+    <result column="COVER_SERNO" jdbcType="VARCHAR" property="coverSerno" />
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="IQP_LOAN_SERNO" jdbcType="VARCHAR" property="iqpLoanSerno" />
+    <result column="REPAYMENT_MODE" jdbcType="VARCHAR" property="repaymentMode" />
+    <result column="PAY_MODE" jdbcType="VARCHAR" property="payMode" />
+    <result column="INPUT_TIME" jdbcType="VARCHAR" property="inputTime" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="INVOICE_AMOUNT" jdbcType="DECIMAL" property="invoiceAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LST_SERNO, PS_PERD_NO, BILL_NO, RATE, PS_COVERAGE_FEE, PS_DUE_DT, SUMMARY, PS_REAL_DT, 
+    PS_REAL_PRCP_AMT, REPAY_FLAG, INPUT_DATE, INPUT_ID, INPUT_BR_ID, UPDATE_DATE, COVER_SERNO, 
+    LIST_SERNO, IQP_LOAN_SERNO, REPAYMENT_MODE, PAY_MODE, INPUT_TIME, UPDATE_TIME, INVOICE_AMOUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ACC_FEE_MTD_PLAN
+    where LST_SERNO = #{lstSerno,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    delete from ACC_FEE_MTD_PLAN
+    where LST_SERNO = #{lstSerno,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    insert into ACC_FEE_MTD_PLAN (LST_SERNO, PS_PERD_NO, BILL_NO, 
+      RATE, PS_COVERAGE_FEE, PS_DUE_DT, 
+      SUMMARY, PS_REAL_DT, PS_REAL_PRCP_AMT, 
+      REPAY_FLAG, INPUT_DATE, INPUT_ID, 
+      INPUT_BR_ID, UPDATE_DATE, COVER_SERNO, 
+      LIST_SERNO, IQP_LOAN_SERNO, REPAYMENT_MODE, 
+      PAY_MODE, INPUT_TIME, UPDATE_TIME, 
+      INVOICE_AMOUNT)
+    values (#{lstSerno,jdbcType=VARCHAR}, #{psPerdNo,jdbcType=DECIMAL}, #{billNo,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=DECIMAL}, #{psCoverageFee,jdbcType=DECIMAL}, #{psDueDt,jdbcType=VARCHAR}, 
+      #{summary,jdbcType=VARCHAR}, #{psRealDt,jdbcType=VARCHAR}, #{psRealPrcpAmt,jdbcType=DECIMAL}, 
+      #{repayFlag,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{inputId,jdbcType=VARCHAR}, 
+      #{inputBrId,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, #{coverSerno,jdbcType=VARCHAR}, 
+      #{listSerno,jdbcType=VARCHAR}, #{iqpLoanSerno,jdbcType=VARCHAR}, #{repaymentMode,jdbcType=VARCHAR}, 
+      #{payMode,jdbcType=VARCHAR}, #{inputTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{invoiceAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    insert into ACC_FEE_MTD_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lstSerno != null">
+        LST_SERNO,
+      </if>
+      <if test="psPerdNo != null">
+        PS_PERD_NO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="psCoverageFee != null">
+        PS_COVERAGE_FEE,
+      </if>
+      <if test="psDueDt != null">
+        PS_DUE_DT,
+      </if>
+      <if test="summary != null">
+        SUMMARY,
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT,
+      </if>
+      <if test="psRealPrcpAmt != null">
+        PS_REAL_PRCP_AMT,
+      </if>
+      <if test="repayFlag != null">
+        REPAY_FLAG,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="inputId != null">
+        INPUT_ID,
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="coverSerno != null">
+        COVER_SERNO,
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="iqpLoanSerno != null">
+        IQP_LOAN_SERNO,
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE,
+      </if>
+      <if test="payMode != null">
+        PAY_MODE,
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="invoiceAmount != null">
+        INVOICE_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lstSerno != null">
+        #{lstSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="psPerdNo != null">
+        #{psPerdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="psCoverageFee != null">
+        #{psCoverageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="psDueDt != null">
+        #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealDt != null">
+        #{psRealDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealPrcpAmt != null">
+        #{psRealPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayFlag != null">
+        #{repayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="coverSerno != null">
+        #{coverSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpLoanSerno != null">
+        #{iqpLoanSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentMode != null">
+        #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="payMode != null">
+        #{payMode,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceAmount != null">
+        #{invoiceAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    update ACC_FEE_MTD_PLAN
+    <set>
+      <if test="billNo != null">
+        BILL_NO = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="psCoverageFee != null">
+        PS_COVERAGE_FEE = #{psCoverageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="psDueDt != null">
+        PS_DUE_DT = #{psDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        SUMMARY = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealDt != null">
+        PS_REAL_DT = #{psRealDt,jdbcType=VARCHAR},
+      </if>
+      <if test="psRealPrcpAmt != null">
+        PS_REAL_PRCP_AMT = #{psRealPrcpAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayFlag != null">
+        REPAY_FLAG = #{repayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputId != null">
+        INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputBrId != null">
+        INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="coverSerno != null">
+        COVER_SERNO = #{coverSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="listSerno != null">
+        LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="iqpLoanSerno != null">
+        IQP_LOAN_SERNO = #{iqpLoanSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentMode != null">
+        REPAYMENT_MODE = #{repaymentMode,jdbcType=VARCHAR},
+      </if>
+      <if test="payMode != null">
+        PAY_MODE = #{payMode,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceAmount != null">
+        INVOICE_AMOUNT = #{invoiceAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where LST_SERNO = #{lstSerno,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    update ACC_FEE_MTD_PLAN
+    set BILL_NO = #{billNo,jdbcType=VARCHAR},
+      RATE = #{rate,jdbcType=DECIMAL},
+      PS_COVERAGE_FEE = #{psCoverageFee,jdbcType=DECIMAL},
+      PS_DUE_DT = #{psDueDt,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      PS_REAL_DT = #{psRealDt,jdbcType=VARCHAR},
+      PS_REAL_PRCP_AMT = #{psRealPrcpAmt,jdbcType=DECIMAL},
+      REPAY_FLAG = #{repayFlag,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      INPUT_ID = #{inputId,jdbcType=VARCHAR},
+      INPUT_BR_ID = #{inputBrId,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      COVER_SERNO = #{coverSerno,jdbcType=VARCHAR},
+      LIST_SERNO = #{listSerno,jdbcType=VARCHAR},
+      IQP_LOAN_SERNO = #{iqpLoanSerno,jdbcType=VARCHAR},
+      REPAYMENT_MODE = #{repaymentMode,jdbcType=VARCHAR},
+      PAY_MODE = #{payMode,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      INVOICE_AMOUNT = #{invoiceAmount,jdbcType=DECIMAL}
+    where LST_SERNO = #{lstSerno,jdbcType=VARCHAR}
+      and PS_PERD_NO = #{psPerdNo,jdbcType=DECIMAL}
+  </update>
+    <delete id="deleteAllByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.AccFeeMtdPlan">
+    delete from ACC_FEE_MTD_PLAN
+    where LST_SERNO = #{lstSerno,jdbcType=VARCHAR}
+      and PS_PERD_NO > #{psPerdNo,jdbcType=DECIMAL}
+  </delete>
+    	<update id="updateAccFeeMtdPlanByPrimaryKey" parameterType="Map">
+		update acc_fee_mtd_plan acc
+		   set (ps_real_dt,ps_real_prcp_amt) =
+		       (select max(ps_real_dt),sum(ps_real_fee_amt)
+		          from acc_fee_ps_note aa
+		         where acc.lst_serno = aa.lst_serno
+		           and acc.ps_perd_no = aa.ps_perd_no)
+		 where exists (select 1
+		          from acc_fee_ps_note amp
+		         where acc.lst_serno = amp.lst_serno
+		           and acc.ps_perd_no = amp.ps_perd_no)
+		   and acc.lst_serno = #{lstSerno,jdbcType=VARCHAR} and acc.ps_perd_no=#{psPerdNo,jdbcType=VARCHAR}
+	</update>
+		<update id="updateAccFeeMtdPlanStateByPrimaryKey" parameterType="Map">
+	<![CDATA[			
+		update acc_fee_mtd_plan accp
+		   set accp.repay_flag =
+		       (select case
+		                 when acc.ps_real_prcp_amt >= acc.ps_coverage_fee then
+		                  case
+		                    when hasClaimRepay(lst_serno, ps_perd_no) = 'yes' then '21'
+		                    when acc.ps_real_dt <= nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) then '10'
+		                    when acc.ps_real_dt > nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) then '21'
+		                  end
+		                 else
+		                  case
+		                    when ps_real_dt is null and nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) >= to_char(sysdate, 'yyyy-mm-dd') then  '00'
+		                    when ps_real_dt is not null and  nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) >=  to_char(sysdate, 'yyyy-mm-dd') then  '10'
+		                    when nvl(acc.ps_due_dt, to_char(sysdate, 'yyyy-mm-dd')) < to_char(sysdate, 'yyyy-mm-dd') then  '20'
+		                  end
+		               end as repay_flag
+		          from acc_fee_mtd_plan acc
+		         where acc.lst_serno = accp.lst_serno
+		           and acc.ps_perd_no = accp.ps_perd_no)
+		 where accp.lst_serno = #{lstSerno,jdbcType=VARCHAR} and accp.ps_perd_no=#{psPerdNo,jdbcType=VARCHAR}
+	    ]]> 	
+	</update>
+  
+  	<select id="selectTotalFeeByPlanLstSerno" parameterType="String" resultType="BigDecimal">
+  		select sum(ps_coverage_fee) from acc_fee_mtd_plan where lst_serno = #{lstSerno,jdbcType=VARCHAR}
+  	</select>
+</mapper>

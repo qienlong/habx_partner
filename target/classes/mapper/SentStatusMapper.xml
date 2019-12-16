@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.SentStatusMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.SentStatus">
+    <result column="SENT_TYPE" jdbcType="VARCHAR" property="sentType" />
+    <result column="SENT_SERNO" jdbcType="VARCHAR" property="sentSerno" />
+    <result column="SENT_STATUS" jdbcType="VARCHAR" property="sentStatus" />
+    <result column="TM_SMP" jdbcType="VARCHAR" property="tmSmp" />
+    <result column="RUNTIME" jdbcType="TIMESTAMP" property="runTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SENT_TYPE,SENT_SERNO,SENT_STATUS,TM_SMP,RUNTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.SentStatus" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SENT_STATUS
+    where SENT_TYPE = #{sentType,jdbcType=VARCHAR} and SENT_SERNO = #{sentSerno,jdbcType=VARCHAR} and SENT_STATUS = #{sentStatus,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.SentStatus">
+   insert into SENT_STATUS (SENT_TYPE, SENT_SERNO, SENT_STATUS, TM_SMP, RUNTIME)
+	values ( #{sentType,jdbcType=VARCHAR}, #{sentSerno,jdbcType=VARCHAR}, #{sentStatus,jdbcType=VARCHAR}, #{tmSmp,jdbcType=VARCHAR}, #{runTime,jdbcType=TIMESTAMP} )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.SentStatus">
+    insert into SENT_STATUS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sentType != null">
+      	SENT_TYPE,
+      </if>
+      <if test="sentSerno != null">
+      	SENT_SERNO,
+      </if>
+      <if test="sentStatus != null">
+      	 SENT_STATUS,
+      </if>
+      <if test="tmSmp != null">
+      	TM_SMP,
+      </if>
+      <if test="runTime != null">
+      	RUNTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sentType != null">
+	    #{sentType,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="sentSerno != null">
+	    #{sentSerno,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="sentStatus != null">
+	    #{sentStatus,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="tmSmp != null">
+	    #{tmSmp,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="runTime != null">
+	    #{runTime,jdbcType=TIMESTAMP},
+	  </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.SentStatus">
+    update SENT_STATUS
+    <set>
+      <!-- <if test="sentType != null">
+	   SENT_TYPE = #{sentType,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="sentSerno != null">
+	   SENT_SERNO = #{sentSerno,jdbcType=VARCHAR}, 
+	  </if> -->
+	  <if test="sentStatus != null">
+	   SENT_STATUS = #{sentStatus,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="tmSmp != null">
+	   TM_SMP = #{tmSmp,jdbcType=VARCHAR}, 
+	  </if>
+<!-- 	  <if test="runTime != null"> -->
+	   RUNTIME = sysdate
+<!-- 	  </if> -->
+    </set>
+    where SENT_TYPE = #{sentType,jdbcType=VARCHAR} and SENT_SERNO = #{sentSerno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.CusBase">
+    update SENT_STATUS
+	   SENT_STATUS = #{sentStatus,jdbcType=VARCHAR}, 
+	   TM_SMP = #{tmSmp,jdbcType=VARCHAR}, 
+	   RUNTIME = #{runTime,jdbcType=TIMESTAMP}
+    where SENT_TYPE = #{sentType,jdbcType=VARCHAR} and SENT_SERNO = #{sentSerno,jdbcType=VARCHAR}
+  </update>
+    <insert id ="insertAll" parameterType="java.util.Map" >
+  insert into MSXF_ACC_LOAN_INFO (SENT_TYPE, SENT_SERNO, SENT_STATUS)
+  <foreach collection ="list" item="item" index="index" separator="union all">
+    select
+   	'MSXF-POLICY_CANCEL', #{item.ref_nbr,jdbcType=VARCHAR}, '01'
+    from dual
+  </foreach >
+</insert>
+
+
+<update id="updateBySernoAndType" parameterType="java.util.Map">
+    update SENT_STATUS
+    <set>
+	  <if test="sentStatus != null">
+	   SENT_STATUS = #{sentStatus,jdbcType=VARCHAR}, 
+	  </if>
+	  <if test="tmSmp != null">
+	   TM_SMP = #{tmSmp,jdbcType=VARCHAR}, 
+	  </if>
+	   RUNTIME = sysdate
+    </set>
+    where  SENT_STATUS = '01' 
+    and SENT_TYPE IN
+    <foreach item="item" index="index" collection="types" open="(" separator="," close=")">
+            #{item}
+    </foreach>
+    and SENT_SERNO = #{sentSerno,jdbcType=VARCHAR}
+  </update>
+</mapper>

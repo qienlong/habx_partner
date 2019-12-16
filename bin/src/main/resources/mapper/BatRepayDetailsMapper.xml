@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.BatRepayDetailsMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.BatRepayDetails">
+    <result column="REPAY_SERIAL_NO" jdbcType="VARCHAR" property="repaySerialNo" />
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="REPAY_TIMES_NO" jdbcType="DECIMAL" property="repayTimesNo" />
+    <result column="REPAY_DATE" jdbcType="VARCHAR" property="repayDate" />
+    <result column="REPAY_CAP" jdbcType="DECIMAL" property="repayCap" />
+    <result column="REPAY_INT" jdbcType="DECIMAL" property="repayInt" />
+    <result column="REPAY_FINE_INT" jdbcType="DECIMAL" property="repayFineInt" />
+    <result column="REPAY_COMP_INT" jdbcType="DECIMAL" property="repayCompInt" />
+    <result column="SOURCES" jdbcType="VARCHAR" property="sources" />
+    <result column="SYN_STATUS" jdbcType="VARCHAR" property="synStatus" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+    <result column="DUE_REPAY_CAP" jdbcType="DECIMAL" property="dueRepayCap" />
+    <result column="DUE_REPAY_INT" jdbcType="DECIMAL" property="dueRepayInt" />
+    <result column="DUE_FINE_INT" jdbcType="DECIMAL" property="dueFineInt" />
+    <result column="DUE_COMP_INT" jdbcType="DECIMAL" property="dueCompInt" />
+    <result column="PAY_SOURCE_TYPE" jdbcType="VARCHAR" property="paySourceType" />
+    <result column="PAY_SOURCE_ACCOUNT" jdbcType="VARCHAR" property="paySourceAccount" />
+    <result column="CHECK_RESULT" jdbcType="VARCHAR" property="checkResult" />
+    <result column="CHECK_REASON" jdbcType="VARCHAR" property="checkReason" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="PRE_PAY" jdbcType="VARCHAR" property="prePay" />
+    <result column="PAYMENT_NO" jdbcType="VARCHAR" property="paymentNo" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.BatRepayDetails">
+    insert into BAT_REPAY_DETAILS (REPAY_SERIAL_NO, BILL_NO, REPAY_TIMES_NO, 
+      REPAY_DATE, REPAY_CAP, REPAY_INT, 
+      REPAY_FINE_INT, REPAY_COMP_INT, SOURCES, 
+      SYN_STATUS, BUSINESS_DATE, DUE_REPAY_CAP, 
+      DUE_REPAY_INT, DUE_FINE_INT, DUE_COMP_INT, 
+      PAY_SOURCE_TYPE, PAY_SOURCE_ACCOUNT, CHECK_RESULT, 
+      CHECK_REASON, ACCOUNT_NAME, ACCOUNT_NO, 
+      PRE_PAY, PAYMENT_NO)
+    values (#{repaySerialNo,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{repayTimesNo,jdbcType=DECIMAL}, 
+      #{repayDate,jdbcType=VARCHAR}, #{repayCap,jdbcType=DECIMAL}, #{repayInt,jdbcType=DECIMAL}, 
+      #{repayFineInt,jdbcType=DECIMAL}, #{repayCompInt,jdbcType=DECIMAL}, #{sources,jdbcType=VARCHAR}, 
+      #{synStatus,jdbcType=VARCHAR}, #{businessDate,jdbcType=VARCHAR}, #{dueRepayCap,jdbcType=DECIMAL}, 
+      #{dueRepayInt,jdbcType=DECIMAL}, #{dueFineInt,jdbcType=DECIMAL}, #{dueCompInt,jdbcType=DECIMAL}, 
+      #{paySourceType,jdbcType=VARCHAR}, #{paySourceAccount,jdbcType=VARCHAR}, #{checkResult,jdbcType=VARCHAR}, 
+      #{checkReason,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+      #{prePay,jdbcType=VARCHAR}, #{paymentNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.BatRepayDetails">
+    insert into BAT_REPAY_DETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="repaySerialNo != null">
+        REPAY_SERIAL_NO,
+      </if>
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="repayTimesNo != null">
+        REPAY_TIMES_NO,
+      </if>
+      <if test="repayDate != null">
+        REPAY_DATE,
+      </if>
+      <if test="repayCap != null">
+        REPAY_CAP,
+      </if>
+      <if test="repayInt != null">
+        REPAY_INT,
+      </if>
+      <if test="repayFineInt != null">
+        REPAY_FINE_INT,
+      </if>
+      <if test="repayCompInt != null">
+        REPAY_COMP_INT,
+      </if>
+      <if test="sources != null">
+        SOURCES,
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+      <if test="dueRepayCap != null">
+        DUE_REPAY_CAP,
+      </if>
+      <if test="dueRepayInt != null">
+        DUE_REPAY_INT,
+      </if>
+      <if test="dueFineInt != null">
+        DUE_FINE_INT,
+      </if>
+      <if test="dueCompInt != null">
+        DUE_COMP_INT,
+      </if>
+      <if test="paySourceType != null">
+        PAY_SOURCE_TYPE,
+      </if>
+      <if test="paySourceAccount != null">
+        PAY_SOURCE_ACCOUNT,
+      </if>
+      <if test="checkResult != null">
+        CHECK_RESULT,
+      </if>
+      <if test="checkReason != null">
+        CHECK_REASON,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="accountNo != null">
+        ACCOUNT_NO,
+      </if>
+      <if test="prePay != null">
+        PRE_PAY,
+      </if>
+      <if test="paymentNo != null">
+        PAYMENT_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="repaySerialNo != null">
+        #{repaySerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="repayTimesNo != null">
+        #{repayTimesNo,jdbcType=DECIMAL},
+      </if>
+      <if test="repayDate != null">
+        #{repayDate,jdbcType=VARCHAR},
+      </if>
+      <if test="repayCap != null">
+        #{repayCap,jdbcType=DECIMAL},
+      </if>
+      <if test="repayInt != null">
+        #{repayInt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayFineInt != null">
+        #{repayFineInt,jdbcType=DECIMAL},
+      </if>
+      <if test="repayCompInt != null">
+        #{repayCompInt,jdbcType=DECIMAL},
+      </if>
+      <if test="sources != null">
+        #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="dueRepayCap != null">
+        #{dueRepayCap,jdbcType=DECIMAL},
+      </if>
+      <if test="dueRepayInt != null">
+        #{dueRepayInt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueFineInt != null">
+        #{dueFineInt,jdbcType=DECIMAL},
+      </if>
+      <if test="dueCompInt != null">
+        #{dueCompInt,jdbcType=DECIMAL},
+      </if>
+      <if test="paySourceType != null">
+        #{paySourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="paySourceAccount != null">
+        #{paySourceAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkReason != null">
+        #{checkReason,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prePay != null">
+        #{prePay,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentNo != null">
+        #{paymentNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

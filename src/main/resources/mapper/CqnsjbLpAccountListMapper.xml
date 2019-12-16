@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CqnsjbLpAccountListMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CqnsjbLpAccountList">
+    <result column="ACCOUNT_DATE" jdbcType="VARCHAR" property="accountDate" />
+    <result column="CLAIM_NUM" jdbcType="VARCHAR" property="claimNum" />
+    <result column="CLAIM_AMOUNT" jdbcType="DECIMAL" property="claimAmount" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="OPER_NAME" jdbcType="VARCHAR" property="operName" />
+    <result column="OPER_DATE" jdbcType="VARCHAR" property="operDate" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CqnsjbLpAccountList">
+    insert into CQNSJB_LP_ACCOUNT_LIST (ACCOUNT_DATE, CLAIM_NUM, CLAIM_AMOUNT, 
+      STATUS, OPER_NAME, OPER_DATE
+      )
+    values (#{accountDate,jdbcType=VARCHAR}, #{claimNum,jdbcType=VARCHAR}, #{claimAmount,jdbcType=DECIMAL}, 
+      #{status,jdbcType=VARCHAR}, #{operName,jdbcType=VARCHAR}, #{operDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbLpAccountList">
+    insert into CQNSJB_LP_ACCOUNT_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountDate != null">
+        ACCOUNT_DATE,
+      </if>
+      <if test="claimNum != null">
+        CLAIM_NUM,
+      </if>
+      <if test="claimAmount != null">
+        CLAIM_AMOUNT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="operName != null">
+        OPER_NAME,
+      </if>
+      <if test="operDate != null">
+        OPER_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountDate != null">
+        #{accountDate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNum != null">
+        #{claimNum,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmount != null">
+        #{claimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null">
+        #{operDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="caleLpAccountList" resultMap="BaseResultMap">
+  		select 
+  			t.CLAIM_END_DATE as account_date, 
+  			count(t.claim_amount) as claim_num, 
+  			sum(t.claim_amount) as claim_amount
+		from psp_claim_loan t, acc_loan b
+		where t.claim_serno is not null
+	    and t.bill_no = b.bill_no
+	    and b.iqp_loan_serno like 'JBSQ%'
+		group by t.CLAIM_END_DATE
+		order by t.CLAIM_END_DATE desc
+  </select>
+  
+  <select id="queryLpAccountList" parameterType="cn.com.sinosafe.domain.entity.CqnsjbLpAccountList" resultType="int">
+  		select count(*) 
+  		from cqnsjb_lp_account_list t 
+  		where t.account_date=#{accountDate,jdbcType=VARCHAR}
+  </select>
+  
+  <update id="updateLpAccountList" parameterType="cn.com.sinosafe.domain.entity.CqnsjbLpAccountList">
+  		update cqnsjb_lp_account_list t 
+  		set t.claim_num =#{claimNum,jdbcType=VARCHAR},t.claim_amount = #{claimAmount,jdbcType=DECIMAL}
+		where t.account_date=#{accountDate,jdbcType=VARCHAR}
+  </update>
+</mapper>

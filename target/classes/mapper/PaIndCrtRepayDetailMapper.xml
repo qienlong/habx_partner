@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.PaIndCrtRepayDetailMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.PaIndCrtRepayDetail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="APPL_NO" jdbcType="VARCHAR" property="applNo" />
+    <result column="LN_ACCT" jdbcType="VARCHAR" property="lnAcct" />
+    <result column="TRX_NO" jdbcType="VARCHAR" property="trxNo" />
+    <result column="RPY_TYPE" jdbcType="VARCHAR" property="rpyType" />
+    <result column="TRX_DATE" jdbcType="VARCHAR" property="trxDate" />
+    <result column="TRX_ST_DATE" jdbcType="VARCHAR" property="trxStDate" />
+    <result column="INSURE_AMT" jdbcType="DECIMAL" property="insureAmt" />
+    <result column="INST_NO" jdbcType="DECIMAL" property="instNo" />
+    <result column="INSU_COMPANY" jdbcType="VARCHAR" property="insuCompany" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="SYN_STATUS" jdbcType="VARCHAR" property="synStatus" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+    <result column="INPUT_DATE_TIME" jdbcType="VARCHAR" property="inputDateTime" />
+    <result column="UPDATE_DATE_TIME" jdbcType="VARCHAR" property="updateDateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, APPL_NO, LN_ACCT, TRX_NO, RPY_TYPE, TRX_DATE, TRX_ST_DATE, INSURE_AMT, INST_NO, 
+    INSU_COMPANY, SOURCE, SYN_STATUS, BUSINESS_DATE, INPUT_DATE_TIME, UPDATE_DATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PA_IND_CRT_REPAY_DETAIL
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PA_IND_CRT_REPAY_DETAIL
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayDetail">
+    insert into PA_IND_CRT_REPAY_DETAIL (ID, APPL_NO, LN_ACCT, 
+      TRX_NO, RPY_TYPE, TRX_DATE, 
+      TRX_ST_DATE, INSURE_AMT, INST_NO, 
+      INSU_COMPANY, SOURCE, SYN_STATUS, 
+      BUSINESS_DATE, INPUT_DATE_TIME, UPDATE_DATE_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{applNo,jdbcType=VARCHAR}, #{lnAcct,jdbcType=VARCHAR}, 
+      #{trxNo,jdbcType=VARCHAR}, #{rpyType,jdbcType=VARCHAR}, #{trxDate,jdbcType=VARCHAR}, 
+      #{trxStDate,jdbcType=VARCHAR}, #{insureAmt,jdbcType=DECIMAL}, #{instNo,jdbcType=DECIMAL}, 
+      #{insuCompany,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{synStatus,jdbcType=VARCHAR}, 
+      #{businessDate,jdbcType=VARCHAR}, #{inputDateTime,jdbcType=VARCHAR}, #{updateDateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayDetail">
+    insert into PA_IND_CRT_REPAY_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="applNo != null">
+        APPL_NO,
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT,
+      </if>
+      <if test="trxNo != null">
+        TRX_NO,
+      </if>
+      <if test="rpyType != null">
+        RPY_TYPE,
+      </if>
+      <if test="trxDate != null">
+        TRX_DATE,
+      </if>
+      <if test="trxStDate != null">
+        TRX_ST_DATE,
+      </if>
+      <if test="insureAmt != null">
+        INSURE_AMT,
+      </if>
+      <if test="instNo != null">
+        INST_NO,
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+      <if test="inputDateTime != null">
+        INPUT_DATE_TIME,
+      </if>
+      <if test="updateDateTime != null">
+        UPDATE_DATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="applNo != null">
+        #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="trxNo != null">
+        #{trxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rpyType != null">
+        #{rpyType,jdbcType=VARCHAR},
+      </if>
+      <if test="trxDate != null">
+        #{trxDate,jdbcType=VARCHAR},
+      </if>
+      <if test="trxStDate != null">
+        #{trxStDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAmt != null">
+        #{insureAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="instNo != null">
+        #{instNo,jdbcType=DECIMAL},
+      </if>
+      <if test="insuCompany != null">
+        #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDateTime != null">
+        #{inputDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDateTime != null">
+        #{updateDateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayDetail">
+    update PA_IND_CRT_REPAY_DETAIL
+    <set>
+      <if test="applNo != null">
+        APPL_NO = #{applNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lnAcct != null">
+        LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="trxNo != null">
+        TRX_NO = #{trxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rpyType != null">
+        RPY_TYPE = #{rpyType,jdbcType=VARCHAR},
+      </if>
+      <if test="trxDate != null">
+        TRX_DATE = #{trxDate,jdbcType=VARCHAR},
+      </if>
+      <if test="trxStDate != null">
+        TRX_ST_DATE = #{trxStDate,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAmt != null">
+        INSURE_AMT = #{insureAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="instNo != null">
+        INST_NO = #{instNo,jdbcType=DECIMAL},
+      </if>
+      <if test="insuCompany != null">
+        INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS = #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDateTime != null">
+        INPUT_DATE_TIME = #{inputDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDateTime != null">
+        UPDATE_DATE_TIME = #{updateDateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.PaIndCrtRepayDetail">
+    update PA_IND_CRT_REPAY_DETAIL
+    set APPL_NO = #{applNo,jdbcType=VARCHAR},
+      LN_ACCT = #{lnAcct,jdbcType=VARCHAR},
+      TRX_NO = #{trxNo,jdbcType=VARCHAR},
+      RPY_TYPE = #{rpyType,jdbcType=VARCHAR},
+      TRX_DATE = #{trxDate,jdbcType=VARCHAR},
+      TRX_ST_DATE = #{trxStDate,jdbcType=VARCHAR},
+      INSURE_AMT = #{insureAmt,jdbcType=DECIMAL},
+      INST_NO = #{instNo,jdbcType=DECIMAL},
+      INSU_COMPANY = #{insuCompany,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SYN_STATUS = #{synStatus,jdbcType=VARCHAR},
+      BUSINESS_DATE = #{businessDate,jdbcType=VARCHAR},
+      INPUT_DATE_TIME = #{inputDateTime,jdbcType=VARCHAR},
+      UPDATE_DATE_TIME = #{updateDateTime,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

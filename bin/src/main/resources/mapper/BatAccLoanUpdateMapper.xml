@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.BatAccLoanUpdateMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.BatAccLoanUpdate">
+    <result column="BILL_NO" jdbcType="VARCHAR" property="billNo" />
+    <result column="NORMAL_BALANCE" jdbcType="DECIMAL" property="normalBalance" />
+    <result column="CLA" jdbcType="CHAR" property="cla" />
+    <result column="SETTL_DATE" jdbcType="VARCHAR" property="settlDate" />
+    <result column="OVER_TIMES_TOTAL" jdbcType="DECIMAL" property="overTimesTotal" />
+    <result column="OVER_TIMES_CURRENT" jdbcType="DECIMAL" property="overTimesCurrent" />
+    <result column="OVER_TIMES_DAYS" jdbcType="DECIMAL" property="overTimesDays" />
+    <result column="OVERDUE_CAP" jdbcType="DECIMAL" property="overdueCap" />
+    <result column="OVERDUE_INT" jdbcType="DECIMAL" property="overdueInt" />
+    <result column="OVERDUE_FINE_INT" jdbcType="DECIMAL" property="overdueFineInt" />
+    <result column="COM_INT" jdbcType="DECIMAL" property="comInt" />
+    <result column="BASE_RATE" jdbcType="DECIMAL" property="baseRate" />
+    <result column="EXE_RATE" jdbcType="DECIMAL" property="exeRate" />
+    <result column="SOURCES" jdbcType="VARCHAR" property="sources" />
+    <result column="SYN_STATUS" jdbcType="VARCHAR" property="synStatus" />
+    <result column="BUSINESS_DATE" jdbcType="VARCHAR" property="businessDate" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.BatAccLoanUpdate">
+    insert into BAT_ACC_LOAN_UPDATE (BILL_NO, NORMAL_BALANCE, CLA, 
+      SETTL_DATE, OVER_TIMES_TOTAL, OVER_TIMES_CURRENT, 
+      OVER_TIMES_DAYS, OVERDUE_CAP, OVERDUE_INT, 
+      OVERDUE_FINE_INT, COM_INT, BASE_RATE, 
+      EXE_RATE, SOURCES, SYN_STATUS, 
+      BUSINESS_DATE)
+    values (#{billNo,jdbcType=VARCHAR}, #{normalBalance,jdbcType=DECIMAL}, #{cla,jdbcType=CHAR}, 
+      #{settlDate,jdbcType=VARCHAR}, #{overTimesTotal,jdbcType=DECIMAL}, #{overTimesCurrent,jdbcType=DECIMAL}, 
+      #{overTimesDays,jdbcType=DECIMAL}, #{overdueCap,jdbcType=DECIMAL}, #{overdueInt,jdbcType=DECIMAL}, 
+      #{overdueFineInt,jdbcType=DECIMAL}, #{comInt,jdbcType=DECIMAL}, #{baseRate,jdbcType=DECIMAL}, 
+      #{exeRate,jdbcType=DECIMAL}, #{sources,jdbcType=VARCHAR}, #{synStatus,jdbcType=VARCHAR}, 
+      #{businessDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.BatAccLoanUpdate">
+    insert into BAT_ACC_LOAN_UPDATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        BILL_NO,
+      </if>
+      <if test="normalBalance != null">
+        NORMAL_BALANCE,
+      </if>
+      <if test="cla != null">
+        CLA,
+      </if>
+      <if test="settlDate != null">
+        SETTL_DATE,
+      </if>
+      <if test="overTimesTotal != null">
+        OVER_TIMES_TOTAL,
+      </if>
+      <if test="overTimesCurrent != null">
+        OVER_TIMES_CURRENT,
+      </if>
+      <if test="overTimesDays != null">
+        OVER_TIMES_DAYS,
+      </if>
+      <if test="overdueCap != null">
+        OVERDUE_CAP,
+      </if>
+      <if test="overdueInt != null">
+        OVERDUE_INT,
+      </if>
+      <if test="overdueFineInt != null">
+        OVERDUE_FINE_INT,
+      </if>
+      <if test="comInt != null">
+        COM_INT,
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE,
+      </if>
+      <if test="exeRate != null">
+        EXE_RATE,
+      </if>
+      <if test="sources != null">
+        SOURCES,
+      </if>
+      <if test="synStatus != null">
+        SYN_STATUS,
+      </if>
+      <if test="businessDate != null">
+        BUSINESS_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="normalBalance != null">
+        #{normalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="cla != null">
+        #{cla,jdbcType=CHAR},
+      </if>
+      <if test="settlDate != null">
+        #{settlDate,jdbcType=VARCHAR},
+      </if>
+      <if test="overTimesTotal != null">
+        #{overTimesTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="overTimesCurrent != null">
+        #{overTimesCurrent,jdbcType=DECIMAL},
+      </if>
+      <if test="overTimesDays != null">
+        #{overTimesDays,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueCap != null">
+        #{overdueCap,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueInt != null">
+        #{overdueInt,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueFineInt != null">
+        #{overdueFineInt,jdbcType=DECIMAL},
+      </if>
+      <if test="comInt != null">
+        #{comInt,jdbcType=DECIMAL},
+      </if>
+      <if test="baseRate != null">
+        #{baseRate,jdbcType=DECIMAL},
+      </if>
+      <if test="exeRate != null">
+        #{exeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="sources != null">
+        #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="synStatus != null">
+        #{synStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

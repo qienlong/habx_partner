@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.BizLogMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.BizLog">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="EXT_ENTERPRISE_CODE" jdbcType="VARCHAR" property="extEnterpriseCode" />
+    <result column="PROD_NO" jdbcType="VARCHAR" property="prodNo" />
+    <result column="TRANS_TYPE" jdbcType="VARCHAR" property="transType" />
+    <result column="TRANS_SERIAL_NO" jdbcType="VARCHAR" property="transSerialNo" />
+    <result column="PROCESS_NO" jdbcType="VARCHAR" property="processNo" />
+    <result column="INVOKE_TYPE" jdbcType="VARCHAR" property="invokeType" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="CREATED_DATE" jdbcType="VARCHAR" property="createdDate" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="UPDATED_DATE" jdbcType="VARCHAR" property="updatedDate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.com.sinosafe.domain.entity.BizLogWithBLOBs">
+    <result column="INPUT_REPORT" jdbcType="CLOB" property="inputReport" />
+    <result column="OUTPUT_REPORT" jdbcType="CLOB" property="outputReport" />
+    <result column="REQUEST_REPORT" jdbcType="CLOB" property="requestReport" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PK_ID, EXT_ENTERPRISE_CODE, PROD_NO, TRANS_TYPE, TRANS_SERIAL_NO, PROCESS_NO, INVOKE_TYPE, 
+    CREATED_BY, CREATED_DATE, UPDATED_BY, UPDATED_DATE
+  </sql>
+  <sql id="Blob_Column_List">
+    INPUT_REPORT, OUTPUT_REPORT, REQUEST_REPORT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BIZ_LOG
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BIZ_LOG
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.BizLogWithBLOBs">
+    insert into BIZ_LOG (PK_ID, EXT_ENTERPRISE_CODE, PROD_NO, 
+      TRANS_TYPE, TRANS_SERIAL_NO, PROCESS_NO, 
+      INVOKE_TYPE, CREATED_BY, CREATED_DATE, 
+      UPDATED_BY, UPDATED_DATE, INPUT_REPORT, 
+      OUTPUT_REPORT, REQUEST_REPORT)
+    values (#{pkId,jdbcType=VARCHAR}, #{extEnterpriseCode,jdbcType=VARCHAR}, #{prodNo,jdbcType=VARCHAR}, 
+      #{transType,jdbcType=VARCHAR}, #{transSerialNo,jdbcType=VARCHAR}, #{processNo,jdbcType=VARCHAR}, 
+      #{invokeType,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=VARCHAR}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=VARCHAR}, #{inputReport,jdbcType=CLOB}, 
+      #{outputReport,jdbcType=CLOB}, #{requestReport,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.BizLogWithBLOBs">
+    insert into BIZ_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="extEnterpriseCode != null">
+        EXT_ENTERPRISE_CODE,
+      </if>
+      <if test="prodNo != null">
+        PROD_NO,
+      </if>
+      <if test="transType != null">
+        TRANS_TYPE,
+      </if>
+      <if test="transSerialNo != null">
+        TRANS_SERIAL_NO,
+      </if>
+      <if test="processNo != null">
+        PROCESS_NO,
+      </if>
+      <if test="invokeType != null">
+        INVOKE_TYPE,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="createdDate != null">
+        CREATED_DATE,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="updatedDate != null">
+        UPDATED_DATE,
+      </if>
+      <if test="inputReport != null">
+        INPUT_REPORT,
+      </if>
+      <if test="outputReport != null">
+        OUTPUT_REPORT,
+      </if>
+      <if test="requestReport != null">
+        REQUEST_REPORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="extEnterpriseCode != null">
+        #{extEnterpriseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prodNo != null">
+        #{prodNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialNo != null">
+        #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processNo != null">
+        #{processNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invokeType != null">
+        #{invokeType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null">
+        #{updatedDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputReport != null">
+        #{inputReport,jdbcType=CLOB},
+      </if>
+      <if test="outputReport != null">
+        #{outputReport,jdbcType=CLOB},
+      </if>
+      <if test="requestReport != null">
+        #{requestReport,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.sinosafe.domain.entity.BizLogWithBLOBs">
+    update BIZ_LOG
+    <set>
+      <if test="extEnterpriseCode != null">
+        EXT_ENTERPRISE_CODE = #{extEnterpriseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prodNo != null">
+        PROD_NO = #{prodNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialNo != null">
+        TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processNo != null">
+        PROCESS_NO = #{processNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invokeType != null">
+        INVOKE_TYPE = #{invokeType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        CREATED_DATE = #{createdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null">
+        UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inputReport != null">
+        INPUT_REPORT = #{inputReport,jdbcType=CLOB},
+      </if>
+      <if test="outputReport != null">
+        OUTPUT_REPORT = #{outputReport,jdbcType=CLOB},
+      </if>
+      <if test="requestReport != null">
+        REQUEST_REPORT = #{requestReport,jdbcType=CLOB},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.sinosafe.domain.entity.BizLogWithBLOBs">
+    update BIZ_LOG
+    set EXT_ENTERPRISE_CODE = #{extEnterpriseCode,jdbcType=VARCHAR},
+      PROD_NO = #{prodNo,jdbcType=VARCHAR},
+      TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR},
+      PROCESS_NO = #{processNo,jdbcType=VARCHAR},
+      INVOKE_TYPE = #{invokeType,jdbcType=VARCHAR},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_DATE = #{createdDate,jdbcType=VARCHAR},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR},
+      INPUT_REPORT = #{inputReport,jdbcType=CLOB},
+      OUTPUT_REPORT = #{outputReport,jdbcType=CLOB},
+      REQUEST_REPORT = #{requestReport,jdbcType=CLOB}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.sinosafe.domain.entity.BizLog">
+    update BIZ_LOG
+    set EXT_ENTERPRISE_CODE = #{extEnterpriseCode,jdbcType=VARCHAR},
+      PROD_NO = #{prodNo,jdbcType=VARCHAR},
+      TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR},
+      PROCESS_NO = #{processNo,jdbcType=VARCHAR},
+      INVOKE_TYPE = #{invokeType,jdbcType=VARCHAR},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_DATE = #{createdDate,jdbcType=VARCHAR},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

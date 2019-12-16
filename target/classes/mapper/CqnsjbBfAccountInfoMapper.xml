@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.sinosafe.dao.CqnsjbBfAccountInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.sinosafe.domain.entity.CqnsjbBfAccountInfo">
+    <result column="LIST_SERNO" jdbcType="VARCHAR" property="listSerno" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INPUT_DATE" jdbcType="VARCHAR" property="inputDate" />
+    <result column="CREATE_DATE" jdbcType="VARCHAR" property="createDate" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfAccountInfo">
+    insert into CQNSJB_BF_ACCOUNT_INFO (LIST_SERNO, AMOUNT, STATUS, 
+      INPUT_DATE, CREATE_DATE)
+    values (#{listSerno,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, 
+      #{inputDate,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.sinosafe.domain.entity.CqnsjbBfAccountInfo">
+    insert into CQNSJB_BF_ACCOUNT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="listSerno != null">
+        LIST_SERNO,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="inputDate != null">
+        INPUT_DATE,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="listSerno != null">
+        #{listSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+   
+  <select id="queryBfAccountInfoByListSerno" parameterType="String" resultType="cn.com.sinosafe.domain.entity.CqnsjbBfAccountInfo">
+  	select 
+	  	LIST_SERNO, 
+	  	AMOUNT, 
+	  	STATUS, 
+	    INPUT_DATE, 
+	    CREATE_DATE
+    from CQNSJB_BF_ACCOUNT_INFO 
+    where LIST_SERNO = #{listSerno,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insertBfAccountInfoBatch" parameterType="Map">
+  		insert into CQNSJB_BF_ACCOUNT_INFO(LIST_SERNO, AMOUNT, STATUS, 
+      		INPUT_DATE, CREATE_DATE)
+  		 <foreach collection="cqnsjbBfAccountInfos" item="a" separator="union all">
+			SELECT
+			  #{a.listSerno,jdbcType=VARCHAR}, #{a.amount,jdbcType=DECIMAL}, #{a.status,jdbcType=VARCHAR}, 
+     		  #{a.inputDate,jdbcType=VARCHAR}, #{a.createDate,jdbcType=VARCHAR}
+			FROM
+			DUAL
+	</foreach>
+  </insert>
+</mapper>

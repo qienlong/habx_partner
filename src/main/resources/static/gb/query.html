@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store" />
+     <link rel="stylesheet"  href="css/json.css" />
+    
+   <!--   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+   --> <script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    
+    <meta http-equiv="expires" content="-1" />
+    <title>工保凭证</title>
+    <style type="text/css">
+        .right-td input{
+            width: 240px;
+            height: 20px;
+            margin: 0px 10px;
+        }
+        .div-center{
+          text-align:center;
+        }
+        select{
+            width: 244px;
+            height: 26px;
+            margin: 0px 10px;
+        }
+        .left-td{
+            width: 170px;
+            height: 30px;
+            text-align: right;
+            margin-left: 50px;
+        }
+    </style>
+    <script type="text/javascript">
+    function isEmpty(obj){
+        if(typeof obj == "undefined" || obj == null || obj == ""){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+	function handledInfo(data){
+		 if(data == null){
+			return;
+		 }
+	     $("#infoUC_bd").html(data.gcbdUrl);
+	     $("#infoUC_bh").html(data.gcbhUrl);
+	     $("#infoUC_fp").html(data.invoice);
+
+	}
+        $(function () {
+            $("#submit").click(function () {
+                var iqpLoanSerno = $("#iqpLoanSerno").val();
+                var listSerno = $("#listSerno").val();
+                if(isEmpty(iqpLoanSerno)&&isEmpty(listSerno)){
+                    alert("业务流水号/保单编号必须填一个");
+                    return;
+                };
+                var parameter = {
+                    "iqpLoanSerno":iqpLoanSerno,
+                    "listSerno":listSerno
+                };
+                $.ajax({
+                	    url : "https://proxy.sinosafe.com.cn/haxb-gateway/haxb-partner/gbcn/query",
+                	   //     url : "http://10.2.114.186:19066/credit2/personal/reportQuery",
+                	     //   url : "http://10.2.108.91:18088/gbcn/query",
+                    type : "post",
+                    data : JSON.stringify(parameter),
+                    dataType : "json",
+                    contentType : "application/json",
+                    success : function(data) {
+                        //弹出返回的html
+                        if (data.code == 1) {
+                        	  var gcbdUrl = data.data.gcbdUrl;
+                        	  if(!isEmpty(gcbdUrl)){
+                        	     $("#bdLink").show(); 
+                        	     var a1 = document.getElementById("a1");
+                        	     a1.setAttribute("href",gcbdUrl);
+                        	  }
+                              var gcbhUrl = data.data.gcbhUrl;
+                              if(!isEmpty(gcbhUrl)){
+                        	     $("#bhLink").show(); 
+                        	     var a2 = document.getElementById("a2");
+                                 a2.setAttribute("href",gcbhUrl);
+                              }
+                              var invoice = data.data.invoice;
+                              if(!isEmpty(invoice)){
+                            	  $("#fpLink").show(); 
+                            	  var a3 = document.getElementById("a3");
+                            	  a3.setAttribute("href",invoice);
+                              }
+        					  handledInfo(data.data);
+                        } else {
+                            var msg = data.message;
+                            alert(msg);
+                            return;
+                        }
+                    },
+                    error : function(data) {
+                    },
+                    complete : function(XMLHttpRequest, status) { //请求完成后最终执行参数
+                        return false;
+                    }
+                });
+            })
+        })
+        
+    </script>
+
+</head>
+
+
+<body>
+<div id="content">
+		<div class="main">
+		   <form id="queryForm" method="post">
+            <table>
+                <tr>
+                    <td class="left-td">业务流水号：</td>
+                    <td class="right-td">
+                         <input type="text" name="iqpLoanSerno" id="iqpLoanSerno" maxlength="30"/>
+                    </td>
+                     <td class="left-td">保单编号：</td>
+                    <td class="right-td">
+                         <input type="text" name="listSerno" id="listSerno" maxlength="30"/>
+                    </td>	
+                    <td colspan="2" align="center">
+                        <button type="button" style="height: 30px; width: 60px;" id="submit" >查询</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+			<h2 id="title"></h2>	
+				<h3>保单信息</h3>
+			<div class="detailsCon" >
+				<div class="dConBox">	
+		    		<div id="jibenxinxi" style="display: block;">
+				        <br>
+					    <table cellspacing="0" cellpadding="0" class="detailsList">
+					      	<tbody>
+					      	<tr><th colspan="4" style="text-align:center;">影像信息 </th></tr>
+					         <tr>
+					          <th>电子保单</th>
+					            <td><span id="infoUC_bd"></span></td>
+					          <th>电子保函</th>
+					          <td><span id="infoUC_bh"></span></td>
+					        </tr>
+					         <tr>
+					          <th>电子发票</th>
+					           <td><span id="infoUC_fp"></span></td>
+					        </tr>
+					        </tbody>
+					    </table>
+					</div>
+				</div>
+			</div>
+      </div>
+      
+         <div id="bdLink" class="div-center" name="电子保单">
+               <a href="." target="_blank" id="a1">点击查看电子保单</a>
+         </div>
+         <div id="bhLink" class="div-center" name="电子保函">
+               <a href="." target="_blank" id="a2">点击查看电子保函</a>
+         </div>
+         <div id="fpLink" class="div-center" name="电子发票">
+               <a href="." target="_blank" id="a3">点击查看电子发票</a>
+         </div>
+</div>
+<br>
+</body>
+   <script type="text/javascript">
+      $("#bdLink").attr("style","display:none;");//隐藏div
+      $("#bhLink").attr("style","display:none;");//隐藏div
+      $("#fpLink").attr("style","display:none;");//隐藏div
+    </script>
+</html>
